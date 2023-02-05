@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>2023-02-02_dailylog_ | kpkpy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="最大子数组问题
+
+
+
+
+
+
+/*
+ * @lc app=leetcode.cn id=53 lang=cpp
+ *
+ * [53] 最大子数组和
+ * line33 存在访问越界错误
+ */
+#include &amp;quot;include.h&amp;quot;
+// @lc code=start
+class">
+  
+  
+  
+    <link rel="shortcut icon" href="https://kpkpy.github.io/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/diary">Diaries</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">kpkpy&#39;s Blog</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-diary/2023-02-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-02-01T16:00:00.000Z" itemprop="datePublished">2023-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      2023-02-02_dailylog_
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="最大子数组问题">最大子数组问题</h3>
+<p><img src="images/Pasted%20image%2020230201231309.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111401.png" alt=""></p>
+<p><img src="images/Pasted%20image%2020230202111640.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111717.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111732.png" alt=""></p>
+<p><img src="images/Pasted%20image%2020230202111803.png" alt=""></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment">/*
+ * @lc app=leetcode.cn id=53 lang=cpp
+ *
+ * [53] 最大子数组和
+ * line33 存在访问越界错误
+ */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;include.h&quot;</span></span>
+<span class="hljs-comment">// @lc code=start</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">maxSubArrayX</span>(nums, <span class="hljs-number">0</span> , nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArrayX</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> h)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l==h)&#123;<span class="hljs-keyword">return</span> nums[l];&#125;
+        <span class="hljs-keyword">int</span> mid = (l+h)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> left, right, cross;
+        left = <span class="hljs-built_in">maxSubArrayX</span>(nums, l, mid);
+        right = <span class="hljs-built_in">maxSubArrayX</span>(nums, mid+<span class="hljs-number">1</span>, h);
+        cross = <span class="hljs-built_in">maxSubArrayCross</span>(nums, l, h, mid);
+        <span class="hljs-keyword">if</span>(left&gt;right&amp;&amp;left&gt;cross) <span class="hljs-keyword">return</span> left;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(right&gt;left&amp;&amp;right&gt;cross) <span class="hljs-keyword">return</span> right;
+        <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-built_in"><span class="hljs-keyword">return</span></span> (nums[<span class="hljs-number">0</span>] &gt; <span class="hljs-number">0</span> ?  nums[<span class="hljs-number">0</span>] : <span class="hljs-number">0</span>) + cross;
+        &#125;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArrayCross</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> h, <span class="hljs-keyword">int</span> mid)</span></span>&#123;
+        <span class="hljs-keyword">int</span> right_sum = <span class="hljs-number">-9999</span>;
+        <span class="hljs-keyword">int</span> left_sum = <span class="hljs-number">-9999</span>;
+        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i = mid; i&gt;=l; i--)&#123;
+            sum+=nums[i];
+            <span class="hljs-keyword">if</span>(sum&gt;left_sum) left_sum = sum;
+        &#125;
+        sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i=mid+<span class="hljs-number">1</span>; i&lt;=h; i++)&#123;
+            sum+=nums[i];
+            <span class="hljs-keyword">if</span>(sum&gt;right_sum) right_sum = sum;
+        &#125;
+        <span class="hljs-keyword">return</span> left_sum+right_sum;
+    &#125;
+&#125;;
+</code></pre></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/diary/" rel="tag">diary</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../05/diary/2023-02-05/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2023-02-05_dailylog_
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../01/diary/2023-02-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          2023-02-01_dailylog_
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../way2/diary" class="mobile-nav-link">Diaries</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+</body>
+</html>

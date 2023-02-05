@@ -9,7 +9,7 @@
   
   
   
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="https://kpkpy.github.io/favicon.ico">
   
   <link rel="stylesheet" href="css/style.css">
   
@@ -44,10 +44,10 @@
       <div id="content" class="outer">
         <section id="main">
   
-    <article id="post-diary/2023-01-31" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-diary/2023-02-05" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="2023/01/31/diary/2023-01-31/" class="article-date">
-  <time class="dt-published" datetime="2023-01-30T16:00:00.000Z" itemprop="datePublished">2023-01-31</time>
+    <a href="2023/02/05/diary/2023-02-05/" class="article-date">
+  <time class="dt-published" datetime="2023-02-04T16:00:00.000Z" itemprop="datePublished">2023-02-05</time>
 </a>
     
   </div>
@@ -58,7 +58,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="2023/01/31/diary/2023-01-31/">2023-01-31_dailylog_</a>
+      <a class="p-name article-title" href="2023/02/05/diary/2023-02-05/">2023-02-05_dailylog_</a>
     </h1>
   
 
@@ -67,193 +67,30 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="红黑树">红黑树</h2>
-<h3 id="红黑树的插入操作">红黑树的插入操作</h3>
-<p><a href="/_posts/diary/2023-01-30.md">2023-01-30</a><br>
-<a target="_blank" rel="noopener" href="http://localhost:4000/2023/01/30/diary/2023-01-30/">2023-01-30_dailylog_ | kpkpy’s Blog</a></p>
-<p>while检查的条件是<code>z.p == BLACK</code>, 所以将z着红色可以违反红黑树的性质</p>
-<p>RB-FIXUP 有三种情况<br>
-RB-FIXUP:<br>
-<img src="images/Pasted%20image%2020230131122751.png" alt=""></p>
-<p>分解:<br>
-<img src="images/Pasted%20image%2020230131124717.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131124750.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131124951.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131125019.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131125200.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131125839.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131125854.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131135609.png" alt=""></p>
-<h3 id="红黑树的删除操作">红黑树的删除操作</h3>
-<p><img src="images/Pasted%20image%2020230131175557.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131175538.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131175515.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131180000.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131185033.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131185048.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131191238.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131190134.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131191255.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131191145.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131191313.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131191613.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131191524.png" alt=""><br>
-<img src="images/Pasted%20image%2020230131191540.png" alt=""></p>
-<p><img src="images/Pasted%20image%2020230131192507.png" alt=""></p>
-<hr>
-<h2 id="分类">分类</h2>
-<h3 id="对性能的评估">对性能的评估</h3>
-<h4 id="准确率和召回率">准确率和召回率</h4>
-<p>评估一个分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常比评估一个回归器更加玄学<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以我们将会花大量的篇幅在这个话题上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>评估一个模型的好方法是使用交叉验证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让我们使用<code>cross_val_score()</code>函数来评估<code>SGDClassifier</code>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时使用 K 折交叉验证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此处让<code>k=3</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>记住<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>K 折交叉验证意味着把训练集分成 K 折<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>此处 3 折<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后使用一个模型对其中一折进行预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对其他折进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>精度通常来说不是一个好的性能度量指标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是当你处理有偏差的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比方说其中一些类比其他类频繁得多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>对分类器来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个好得多的性能评估指标是混淆矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>大体思路是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输出类别 A 被分类成类别 B 的次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>举个例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了知道分类器将 5 误分为 3 的次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你需要查看混淆矩阵的第五行第三列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>使用 <code>confusion_matrix()</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你将会得到一个混淆矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>传递目标类(<code>y_train_5</code>)和预测类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>y_train_pred</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>给它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> confusion_matrix
-<span class="hljs-meta">&gt;&gt;&gt; </span>confusion_matrix(y_train_5, y_train_pred)
-array([[<span class="hljs-number">53272</span>, <span class="hljs-number">1307</span>],
-        [ <span class="hljs-number">1077</span>, <span class="hljs-number">4344</span>]])
-</code></pre></div>
-<p>混淆矩阵中的每一行表示一个实际的类, 而每一列表示一个预测的类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>该矩阵的第一行认为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>非 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中的 53272 张被正确归类为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>非 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>他们被称为真反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>true negatives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>, 而其余 1307 被错误归类为&quot;是 5&quot; <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>假正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>false positives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第二行认为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>是 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中的 1077 被错误地归类为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>非 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>假反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>false negatives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其余 4344 正确分类为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>是 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>真正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>true positives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个完美的分类器将只有真反例和真正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以混淆矩阵的非零值仅在其主对角线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>左上至右下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>混淆矩阵可以提供很多信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有时候你会想要更加简明的指标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个有趣的指标是正例预测的精度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也叫做分类器的准确率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>precision<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
-<p>公式 3-1 准确率</p>
-<p><img src="img/tex-96d2dbcd621a2da7cff58eaed68d87c2.gif" alt=""></p>
-<p>其中<code>TP</code>是真正例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>FP</code>是假正例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>准确率一般会伴随另一个指标一起使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个指标叫做召回率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>recall<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也叫做敏感度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>sensitivity<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或者真正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>true positive rate<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span> TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这是正例被分类器正确探测出的比率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>公式 3-2 Recall</p>
-<p><img src="img/tex-9fc030ab004eb3b12a815227ce62da52.gif" alt=""></p>
-<p><code>FN</code>是假反例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>通常结合准确率和召回率会更加方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个指标叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是当你需要一个简单的方法去比较两个分类器的优劣的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>F1 值是准确率和召回率的调和平均<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>普通的平均值平等地看待所有的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而调和平均会给小的值更大的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要想分类器得到一个高的 F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要召回率和准确率同时高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>公式 3-3 F1 值</p>
-<p><img src="/hands-on-ml-2e-zh/img/tex-dba6270fb2a2c1da75f72bdd3137f6ec.gif" alt=""></p>
-<p>为了计算 F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>简单调用<code>f1_score()</code></p>
-<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> f1_score
-<span class="hljs-meta">&gt;&gt;&gt; </span>f1_score(y_train_5, y_train_pred)
-<span class="hljs-number">0.78468208092485547</span>
-</code></pre></div>
-<p><code>SGDClassifier</code>对于每个样例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它根据决策函数计算分数,如果这个分数大于一个阈值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它会将样例分配给正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则它将分配给反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不能同时拥有两者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>增加准确率会降低召回率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反之亦然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做准确率与召回率之间的折衷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>可以使用 Matplotlib 画出准确率和召回率  把准确率和召回率当作是阈值的一个函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/hands-on-ml-2e-zh/img/chapter3.4.jpeg" alt=""></p>
-<h4 id="roc曲线">ROC曲线</h4>
-<p>受试者工作特征<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>ROC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>曲线是另一个二分类器常用的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它非常类似与准确率/召回率曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不是画出准确率对召回率的曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ROC 曲线是真正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>true positive rate<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个名字叫做召回率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>对假正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>false positive rate, FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的曲线.</p>
-<p>为了画出 ROC 曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你首先需要计算各种不同阈值下的 TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>roc_curve()</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<div class="highlight"><pre class="code"><code><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_curve
-fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
-</code></pre></div>
-<p><img src="/hands-on-ml-2e-zh/img/chapter3.6.jpeg" alt=""></p>
-<p>召回率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分类器就会产生越多的假正例<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>图中的点线是一个完全随机的分类器生成的 ROC 曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>一个好的分类器的 ROC 曲线应该尽可能远离这条线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即向左上角方向靠拢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>一个比较分类器之间优劣的方法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>测量 ROC 曲线下的面积<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>AUC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个完美的分类器的 ROC AUC 等于 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而一个纯随机分类器的 ROC AUC 等于 0.5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>Scikit-Learn 提供了一个函数来计算 ROC AUC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_auc_score
-<span class="hljs-meta">&gt;&gt;&gt; </span>roc_auc_score(y_train_5, y_scores)
-<span class="hljs-number">0.97061072797174941</span>
-</code></pre></div>
-<h3 id="\_多类分类">_多类分类</h3>
-<p>二分类器只能区分两个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而多类分类器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也被叫做多项式分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>可以区分多于两个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一些算法<code>比如随机森林分类器或者朴素贝叶斯分类器</code>可以直接处理多类分类问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其他一些算法<code>比如 SVM 分类器或者线性分类器</code>则是严格的二分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>有许多策略可以让你用二分类器去执行多类分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        <h2 id="动态规划">动态规划</h2>
+<p><img src="/images/Pasted%20image%2020230203164733.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230203165224.png" alt=""></p>
+<h3 id="钢条切割问题">钢条切割问题</h3>
+<p><img src="/images/Pasted%20image%2020230205122130.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230205122154.png" alt=""></p>
+<h4 id="分治法-自定向下">分治法-自定向下</h4>
+<p><img src="/images/Pasted%20image%2020230205122539.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230205122613.png" alt=""></p>
+<h4 id="动态规划方法">动态规划方法</h4>
+<p><img src="/images/Pasted%20image%2020230205123413.png" alt=""></p>
 <ul>
-<li>训练 10 个二分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一个对应一个数字<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>探测器 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>探测器 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>探测器 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以此类推<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然后当你想对某张图片进行分类的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让每一个分类器对这个图片进行分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选出决策分数最高的那个分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一对所有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>OvA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>策略<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也被叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一对其他<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>另一个策略是对每一对数字都训练一个二分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个分类器用来处理数字 0 和数字 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个用来处理数字 0 和数字 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个用来处理数字 1 和 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以此类推<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一对一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>OvO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>策略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>带备忘的自顶向下<br>
+<img src="/images/Pasted%20image%2020230205124810.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230205124911.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230205124922.png" alt=""></li>
 </ul>
-<p>一些算法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如 SVM 分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>在训练集的大小上很难扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以对于这些算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OvO 是比较好的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为它可以在小的数据集上面可以更多地训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>较之于巨大的数据集而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于大部分的二分类器来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OvA 是更好的选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="\_多标签分类">_多标签分类</h3>
-<p>到目前为止<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有的样例都总是被分配到仅一个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有些情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分类器给一个样例输出多个类别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>比如说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个分类器被训练成识别三个人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Alice<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Bob<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Charlie<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>然后当它被输入一张含有 Alice 和 Bob 的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它应该输出<code>[1, 0, 1]</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>意思是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Alice 是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Bob 不是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Charlie 是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种输出多个二值标签的分类系统被叫做多标签分类系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="\_多输出分类">_多输出分类</h3>
-<p>我们即将讨论的最后一种分类任务被叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>多输出-多类分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>或者简称为多输出分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它是多标签分类的简单泛化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这里每一个标签可以是多类别的<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它可以有多于两个可能值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>为了说明这点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们建立一个系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它可以去除图片当中的噪音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它将一张混有噪音的图片作为输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>期待它输出一张干净的数字图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用一个像素强度的数组表示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就像 MNIST 图片那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意到这个分类器的输出是多标签的<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>一个像素一个标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和每个标签可以有多个值<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>像素强度取值范围从 0 到 255<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以它是一个多输出分类系统的例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="img/chapter3.11.jpeg" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/CLRS/" rel="tag">CLRS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/diary/" rel="tag">diary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/hands-on-ml/" rel="tag">hands_on_ml</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-diary/2023-01-30" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="2023/01/30/diary/2023-01-30/" class="article-date">
-  <time class="dt-published" datetime="2023-01-29T16:00:00.000Z" itemprop="datePublished">2023-01-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="2023/01/30/diary/2023-01-30/">2023-01-30_dailylog_</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="快速排序">快速排序</h2>
-<p><img src="/images/Pasted%20image%2020230130131027.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130131213.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130131235.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130131252.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130131614.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130133623.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130133755.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130133910.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130133941.png" alt=""><br>
-利用代入法解得<img src="/images/Pasted%20image%2020230130134008.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130134226.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130134240.png" alt=""><img src="/images/Pasted%20image%2020230130134254.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130134327.png" alt=""> <img src="/images/Pasted%20image%2020230130134350.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230205124934.png" alt=""></p>
 <ul>
-<li>_随机化的快速排序分析<br>
-<img src="/images/Pasted%20image%2020230130134640.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130134726.png" alt=""></li>
+<li>自底向上<br>
+<img src="/images/Pasted%20image%2020230205125140.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230205125219.png" alt=""></li>
 </ul>
-<hr>
-<h2 id="\_二叉搜索树bst">_二叉搜索树BST</h2>
-<p><img src="/images/Pasted%20image%2020230130143452.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130143536.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130143609.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130144343.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130144517.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130144540.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130144555.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130145439.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130150453.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130150521.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130150653.png" alt=""><br>
-<strong>删除节点</strong><br>
-<img src="/images/Pasted%20image%2020230130150951.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152018.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152042.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152112.png" alt=""></p>
-<h2 id="红黑树">红黑树</h2>
-<p><img src="/images/Pasted%20image%2020230130152614.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152659.png" alt=""></p>
-<h3 id="!红黑树的五条性质">!红黑树的五条性质</h3>
-<p><img src="/images/Pasted%20image%2020230130155037.png" alt=""></p>
-<ul>
-<li>旋转<br>
-<img src="/images/Pasted%20image%2020230130231446.png" alt=""></li>
-</ul>
-<h3 id="红黑树的插入操作">红黑树的插入操作</h3>
-<p><img src="/images/Pasted%20image%2020230130231617.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130231650.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130232003.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130232023.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130232036.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230205130329.png" alt=""></p>
 
       
     </div>
@@ -271,10 +108,10 @@ fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
 
 
   
-    <article id="post-diary/2023-01-29" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-diary/2023-02-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="2023/01/29/diary/2023-01-29/" class="article-date">
-  <time class="dt-published" datetime="2023-01-28T16:00:00.000Z" itemprop="datePublished">2023-01-29</time>
+    <a href="2023/02/02/diary/2023-02-02/" class="article-date">
+  <time class="dt-published" datetime="2023-02-01T16:00:00.000Z" itemprop="datePublished">2023-02-02</time>
 </a>
     
   </div>
@@ -285,7 +122,7 @@ fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="2023/01/29/diary/2023-01-29/">2023-01-29_dailylog_</a>
+      <a class="p-name article-title" href="2023/02/02/diary/2023-02-02/">2023-02-02_dailylog_</a>
     </h1>
   
 
@@ -294,38 +131,109 @@ fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="渐进记号">渐进记号</h2>
-<p><img src="/images/Pasted%20image%2020230129204222.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129204336.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129204527.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129204554.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129205140.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230129205152.png" alt=""></p>
-<hr>
-<p><img src="/images/Pasted%20image%2020230129205313.png" alt=""></p>
-<h2 id="!-求解递归式">! 求解递归式</h2>
-<p><img src="/images/Pasted%20image%2020230129205513.png" alt=""></p>
-<h3 id="代入法">代入法</h3>
-<p><img src="/images/Pasted%20image%2020230129205727.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129205905.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129212410.png" alt=""><br>
-<strong>不行! 必须与猜测解的形式严格一致,如下</strong><br>
-<img src="/images/Pasted%20image%2020230129212514.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129212634.png" alt=""></p>
-<h3 id="递归树求解">递归树求解</h3>
-<p><img src="/images/Pasted%20image%2020230129215048.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129215206.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129215224.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129215428.png" alt=""></p>
-<h3 id="主定理求解递归式">主定理求解递归式</h3>
-<p><img src="/images/Pasted%20image%2020230129215644.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129215708.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230129215721.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129223445.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129223606.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230129223645.png" alt=""><br>
-<em>主方法不能应用的情况</em><br>
-<img src="/images/Pasted%20image%2020230129223701.png" alt=""></p>
+        <h3 id="最大子数组问题">最大子数组问题</h3>
+<p><img src="images/Pasted%20image%2020230201231309.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111401.png" alt=""></p>
+<p><img src="images/Pasted%20image%2020230202111640.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111717.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111732.png" alt=""></p>
+<p><img src="images/Pasted%20image%2020230202111803.png" alt=""></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment">/*
+ * @lc app=leetcode.cn id=53 lang=cpp
+ *
+ * [53] 最大子数组和
+ * line33 存在访问越界错误
+ */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;include.h&quot;</span></span>
+<span class="hljs-comment">// @lc code=start</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">maxSubArrayX</span>(nums, <span class="hljs-number">0</span> , nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArrayX</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> h)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l==h)&#123;<span class="hljs-keyword">return</span> nums[l];&#125;
+        <span class="hljs-keyword">int</span> mid = (l+h)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> left, right, cross;
+        left = <span class="hljs-built_in">maxSubArrayX</span>(nums, l, mid);
+        right = <span class="hljs-built_in">maxSubArrayX</span>(nums, mid+<span class="hljs-number">1</span>, h);
+        cross = <span class="hljs-built_in">maxSubArrayCross</span>(nums, l, h, mid);
+        <span class="hljs-keyword">if</span>(left&gt;right&amp;&amp;left&gt;cross) <span class="hljs-keyword">return</span> left;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(right&gt;left&amp;&amp;right&gt;cross) <span class="hljs-keyword">return</span> right;
+        <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-built_in"><span class="hljs-keyword">return</span></span> (nums[<span class="hljs-number">0</span>] &gt; <span class="hljs-number">0</span> ?  nums[<span class="hljs-number">0</span>] : <span class="hljs-number">0</span>) + cross;
+        &#125;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArrayCross</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> h, <span class="hljs-keyword">int</span> mid)</span></span>&#123;
+        <span class="hljs-keyword">int</span> right_sum = <span class="hljs-number">-9999</span>;
+        <span class="hljs-keyword">int</span> left_sum = <span class="hljs-number">-9999</span>;
+        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i = mid; i&gt;=l; i--)&#123;
+            sum+=nums[i];
+            <span class="hljs-keyword">if</span>(sum&gt;left_sum) left_sum = sum;
+        &#125;
+        sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i=mid+<span class="hljs-number">1</span>; i&lt;=h; i++)&#123;
+            sum+=nums[i];
+            <span class="hljs-keyword">if</span>(sum&gt;right_sum) right_sum = sum;
+        &#125;
+        <span class="hljs-keyword">return</span> left_sum+right_sum;
+    &#125;
+&#125;;
+</code></pre></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/diary/" rel="tag">diary</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-diary/2023-02-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2023/02/01/diary/2023-02-01/" class="article-date">
+  <time class="dt-published" datetime="2023-01-31T16:00:00.000Z" itemprop="datePublished">2023-02-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2023/02/01/diary/2023-02-01/">2023-02-01_dailylog_</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="分治策略">分治策略</h2>
+<p><img src="/images/Pasted%20image%2020230201222216.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201222236.png" alt=""></p>
+<h3 id="归并排序">归并排序</h3>
+<p><img src="/images/Pasted%20image%2020230201230227.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230201230512.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230201230556.png" alt=""><img src="/images/Pasted%20image%2020230201230605.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230718.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230945.png" alt=""></p>
+<h3 id="最大子数组问题">最大子数组问题</h3>
+<p><img src="/images/Pasted%20image%2020230201231309.png" alt=""></p>
 
       
     </div>
@@ -347,7 +255,7 @@ fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
