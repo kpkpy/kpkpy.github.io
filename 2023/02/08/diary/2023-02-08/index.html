@@ -59,7 +59,8 @@
 
 线性回归
 在第一章，我们介绍了一个简单的生活满意度回归模型:
-![](file:///Use">
+
+这个模型仅仅是输入量GDP_">
   
   
   
@@ -171,10 +172,10 @@
 <hr>
 <h2 id="线性回归">线性回归</h2>
 <p>在第一章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们介绍了一个简单的生活满意度回归模型:</p>
-<p>![](file:///Users/kpy/Documents/hands-on-ml-2e-zh/docs//img/tex-2b4fc5fcdceb2e12c666415e9ebb793a.gif?lastModify=1675775764)</p>
+<p><img src="/img/tex-2b4fc5fcdceb2e12c666415e9ebb793a.gif" alt=""></p>
 <p>这个模型仅仅是输入量<code>GDP_per_capita</code>的线性函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>θ[0]</code>和<code>θ[1]</code>是这个模型的参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>线性模型更一般化的描述指通过计算输入变量的加权和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并加上一个常数偏置项<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>截距项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来得到一个预测值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如公式 4-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <p>公式 4-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>线性回归预测模型</p>
-<p>![](file:///Users/kpy/Documents/hands-on-ml-2e-zh/docs//img/tex-f99876b625a13a0aad9631f61d934a61.gif?lastModify=1675775764)</p>
+<p><img src="tex-f99876b625a13a0aad9631f61d934a61.gif" alt=""></p>
 <ul>
 <li>
 <p><code>y_hat</code>表示预测结果</p>
@@ -191,7 +192,7 @@
 </ul>
 <p>上述公式可以写成更为简洁的向量形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如公式 4-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <p>公式 4-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>线性回归预测模型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>向量形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
-<p>![](file:///Users/kpy/Documents/hands-on-ml-2e-zh/docs//img/tex-5da22015388cdeacf9c75c3511592953.gif?lastModify=1675775764)</p>
+<p><img src="/img/tex-5da22015388cdeacf9c75c3511592953.gif" alt=""></p>
 <ul>
 <li>
 <p><code>θ</code>表示模型的参数向量包括偏置项<code>θ[0]</code>和特征权重值<code>θ[1]</code>到<code>θ[n]</code></p>
@@ -214,12 +215,12 @@
 <p>实践过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最小化均方误差比最小化均方根误差更加的简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这两个过程会得到相同的<code>θ</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为函数在最小值时候的自变量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同样能使函数的方根运算得到最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>在训练集<code>X</code>上使用公式 4-3 来计算线性回归假设<code>h[θ]</code>的均方差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>MSE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>公式 4-3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>线性回归模型的 MSE 损失函数</p>
-<p>![](file:///Users/kpy/Documents/hands-on-ml-2e-zh/docs//img/tex-e42dee8953b9b2be4a3ed6f8c09e5314.gif?lastModify=1675775764)</p>
+<p><img src="/img/tex-e42dee8953b9b2be4a3ed6f8c09e5314.gif" alt=""></p>
 <p>公式中符号的含义大多数都在第二章<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>详见<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>符号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>进行了说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不同的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>为了突出模型的参数向量<code>θ</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>h[θ]</code>来代替<code>h</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以后的使用中为了公式的简洁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>MSE(θ)</code>来代替<code>MSE(X, h[θ])</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h3 id="正规方程求解mse">正规方程求解MSE</h3>
 <p>为了找到最小化损失函数的<code>θ</code>值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以采用公式解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是可以通过解正规方程直接得到最后的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>公式 4-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>正规方程</p>
-<p>![](file:///Users/kpy/Documents/hands-on-ml-2e-zh/docs//img/tex-43bfb04cdbbd85ad21489e8e2dc853ed.gif?lastModify=1675775764)</p>
+<p><img src="/img/tex-43bfb04cdbbd85ad21489e8e2dc853ed.gif" alt=""></p>
 <ul>
 <li><code>θ_hat</code>指最小化损失<code>θ</code>的值</li>
 <li><code>y</code>是一个向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其包含了<code>y^(1)</code>到<code>y^(m)</code>的值</li>
@@ -246,6 +247,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="../../../09/diary/2023-02-09/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2023-02-09_dailylog_
+        
+      </div>
+    </a>
   
   
     <a href="../../../07/diary/2023-02-07/" id="article-nav-older" class="article-nav-link-wrap">
