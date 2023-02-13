@@ -7,10 +7,9 @@
   <title>2023-01-31_dailylog_ | kpkpy&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta name="description" content="红黑树
+  <meta name="description" content="CLRS3E
+红黑树
 红黑树的插入操作
-2023-01-30
-2023-01-30_dailylog_ | kpkpy’s Blog
 while检查的条件是z.p == BLACK, 所以将z着红色可以违反红黑树的性质
 RB-FIXUP 有三种情况
 RB-FIXUP:
@@ -25,7 +24,25 @@ RB-FIXUP:
 
 
 红黑树的删除操作
-">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+handson-ml-2e-zh
+分类
+对性能的">
   
   
   
@@ -85,10 +102,9 @@ RB-FIXUP:
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="红黑树">红黑树</h2>
+        <p><a href="/_assets/PDF/CLRS3E.pdf#page=189">CLRS3E</a></p>
+<h2 id="红黑树">红黑树</h2>
 <h3 id="红黑树的插入操作">红黑树的插入操作</h3>
-<p><a href="/_posts/diary/2023-01-30.md">2023-01-30</a><br>
-<a target="_blank" rel="noopener" href="http://localhost:4000/2023/01/30/diary/2023-01-30/">2023-01-30_dailylog_ | kpkpy’s Blog</a></p>
 <p>while检查的条件是<code>z.p == BLACK</code>, 所以将z着红色可以违反红黑树的性质</p>
 <p>RB-FIXUP 有三种情况<br>
 RB-FIXUP:<br>
@@ -119,6 +135,7 @@ RB-FIXUP:<br>
 <img src="images/Pasted%20image%2020230131191540.png" alt=""></p>
 <p><img src="images/Pasted%20image%2020230131192507.png" alt=""></p>
 <hr>
+<p><a href="/_assets/PDF/handson-ml-2e-zh.pdf#page=70">handson-ml-2e-zh</a></p>
 <h2 id="分类">分类</h2>
 <h3 id="对性能的评估">对性能的评估</h3>
 <h4 id="准确率和召回率">准确率和召回率</h4>
@@ -143,7 +160,7 @@ array([[<span class="hljs-number">53272</span>, <span class="hljs-number">1307</
 <p><code>FN</code>是假反例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>通常结合准确率和召回率会更加方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个指标叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是当你需要一个简单的方法去比较两个分类器的优劣的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>F1 值是准确率和召回率的调和平均<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>普通的平均值平等地看待所有的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而调和平均会给小的值更大的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要想分类器得到一个高的 F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要召回率和准确率同时高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>公式 3-3 F1 值</p>
-<p><img src="/hands-on-ml-2e-zh/img/tex-dba6270fb2a2c1da75f72bdd3137f6ec.gif" alt=""></p>
+<p><img src="/img/tex-dba6270fb2a2c1da75f72bdd3137f6ec.gif" alt=""></p>
 <p>为了计算 F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>简单调用<code>f1_score()</code></p>
 <div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> f1_score
 <span class="hljs-meta">&gt;&gt;&gt; </span>f1_score(y_train_5, y_train_pred)
@@ -151,14 +168,14 @@ array([[<span class="hljs-number">53272</span>, <span class="hljs-number">1307</
 </code></pre></div>
 <p><code>SGDClassifier</code>对于每个样例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它根据决策函数计算分数,如果这个分数大于一个阈值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它会将样例分配给正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则它将分配给反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不能同时拥有两者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>增加准确率会降低召回率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反之亦然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做准确率与召回率之间的折衷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>可以使用 Matplotlib 画出准确率和召回率  把准确率和召回率当作是阈值的一个函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/hands-on-ml-2e-zh/img/chapter3.4.jpeg" alt=""></p>
+<img src="/img/chapter3.4.jpeg" alt=""></p>
 <h4 id="roc曲线">ROC曲线</h4>
 <p>受试者工作特征<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>ROC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>曲线是另一个二分类器常用的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它非常类似与准确率/召回率曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不是画出准确率对召回率的曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ROC 曲线是真正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>true positive rate<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个名字叫做召回率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>对假正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>false positive rate, FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的曲线.</p>
 <p>为了画出 ROC 曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你首先需要计算各种不同阈值下的 TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>roc_curve()</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <div class="highlight"><pre class="code"><code><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_curve
 fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
 </code></pre></div>
-<p><img src="/hands-on-ml-2e-zh/img/chapter3.6.jpeg" alt=""></p>
+<p><img src="/img/chapter3.6.jpeg" alt=""></p>
 <p>召回率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分类器就会产生越多的假正例<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>图中的点线是一个完全随机的分类器生成的 ROC 曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>一个好的分类器的 ROC 曲线应该尽可能远离这条线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即向左上角方向靠拢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>一个比较分类器之间优劣的方法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>测量 ROC 曲线下的面积<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>AUC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个完美的分类器的 ROC AUC 等于 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而一个纯随机分类器的 ROC AUC 等于 0.5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>Scikit-Learn 提供了一个函数来计算 ROC AUC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
@@ -187,7 +204,7 @@ fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/CLRS/" rel="tag">CLRS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/diary/" rel="tag">diary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/hands-on-ml/" rel="tag">hands_on_ml</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/diary/" rel="tag">diary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/ml/" rel="tag">ml</a></li></ul>
 
     </footer>
   </div>
