@@ -44,6 +44,98 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-diary/2023-02-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2023/02/02/diary/2023-02-02/" class="article-date">
+  <time class="dt-published" datetime="2023-02-01T16:00:00.000Z" itemprop="datePublished">2023-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2023/02/02/diary/2023-02-02/">2023-02-02_dailylog_</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="最大子数组问题">最大子数组问题</h3>
+<p><img src="images/Pasted%20image%2020230201231309.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111401.png" alt=""></p>
+<p><img src="images/Pasted%20image%2020230202111640.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111717.png" alt=""><br>
+<img src="images/Pasted%20image%2020230202111732.png" alt=""></p>
+<p><img src="images/Pasted%20image%2020230202111803.png" alt=""></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment">/*
+ * @lc app=leetcode.cn id=53 lang=cpp
+ *
+ * [53] 最大子数组和
+ * line33 存在访问越界错误
+ */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;include.h&quot;</span></span>
+<span class="hljs-comment">// @lc code=start</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">maxSubArrayX</span>(nums, <span class="hljs-number">0</span> , nums.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArrayX</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> h)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l==h)&#123;<span class="hljs-keyword">return</span> nums[l];&#125;
+        <span class="hljs-keyword">int</span> mid = (l+h)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> left, right, cross;
+        left = <span class="hljs-built_in">maxSubArrayX</span>(nums, l, mid);
+        right = <span class="hljs-built_in">maxSubArrayX</span>(nums, mid+<span class="hljs-number">1</span>, h);
+        cross = <span class="hljs-built_in">maxSubArrayCross</span>(nums, l, h, mid);
+        <span class="hljs-keyword">if</span>(left&gt;right&amp;&amp;left&gt;cross) <span class="hljs-keyword">return</span> left;
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(right&gt;left&amp;&amp;right&gt;cross) <span class="hljs-keyword">return</span> right;
+        <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-built_in"><span class="hljs-keyword">return</span></span> (nums[<span class="hljs-number">0</span>] &gt; <span class="hljs-number">0</span> ?  nums[<span class="hljs-number">0</span>] : <span class="hljs-number">0</span>) + cross;
+        &#125;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArrayCross</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> h, <span class="hljs-keyword">int</span> mid)</span></span>&#123;
+        <span class="hljs-keyword">int</span> right_sum = <span class="hljs-number">-9999</span>;
+        <span class="hljs-keyword">int</span> left_sum = <span class="hljs-number">-9999</span>;
+        <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i = mid; i&gt;=l; i--)&#123;
+            sum+=nums[i];
+            <span class="hljs-keyword">if</span>(sum&gt;left_sum) left_sum = sum;
+        &#125;
+        sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> i=mid+<span class="hljs-number">1</span>; i&lt;=h; i++)&#123;
+            sum+=nums[i];
+            <span class="hljs-keyword">if</span>(sum&gt;right_sum) right_sum = sum;
+        &#125;
+        <span class="hljs-keyword">return</span> left_sum+right_sum;
+    &#125;
+&#125;;
+</code></pre></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-diary/2023-02-01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2023/02/01/diary/2023-02-01/" class="article-date">
@@ -222,99 +314,6 @@ fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/ml/" rel="tag">ml</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-diary/2023-01-30" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/01/30/diary/2023-01-30/" class="article-date">
-  <time class="dt-published" datetime="2023-01-29T16:00:00.000Z" itemprop="datePublished">2023-01-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/01/30/diary/2023-01-30/">2023-01-30_dailylog_</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="_assets/PDF/CLRS3E.pdf#page=110">CLRS3E</a></p>
-<h2 id="快速排序">快速排序</h2>
-<p><img src="/images/Pasted%20image%2020230130131027.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130131213.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130131235.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130131252.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130131614.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130133623.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130133755.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130133910.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130133941.png" alt=""><br>
-利用代入法解得<img src="/images/Pasted%20image%2020230130134008.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130134226.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130134240.png" alt=""><img src="/images/Pasted%20image%2020230130134254.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130134327.png" alt=""> <img src="/images/Pasted%20image%2020230130134350.png" alt=""></p>
-<ul>
-<li>_随机化的快速排序分析<br>
-<img src="/images/Pasted%20image%2020230130134640.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130134726.png" alt=""></li>
-</ul>
-<hr>
-<h2 id="\_二叉搜索树bst">_二叉搜索树BST</h2>
-<p><img src="/images/Pasted%20image%2020230130143452.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130143536.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130143609.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130144343.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130144517.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130144540.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130144555.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130145439.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130150453.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130150521.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130150653.png" alt=""><br>
-<strong>删除节点</strong><br>
-<img src="/images/Pasted%20image%2020230130150951.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152018.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152042.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152112.png" alt=""></p>
-<h2 id="红黑树">红黑树</h2>
-<p><img src="/images/Pasted%20image%2020230130152614.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130152659.png" alt=""></p>
-<h3 id="!红黑树的五条性质">!红黑树的五条性质</h3>
-<p><img src="/images/Pasted%20image%2020230130155037.png" alt=""></p>
-<ul>
-<li>旋转<br>
-<img src="/images/Pasted%20image%2020230130231446.png" alt=""></li>
-</ul>
-<h3 id="红黑树的插入操作">红黑树的插入操作</h3>
-<p><img src="/images/Pasted%20image%2020230130231617.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130231650.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230130232003.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130232023.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230130232036.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
 
     </footer>
   </div>
