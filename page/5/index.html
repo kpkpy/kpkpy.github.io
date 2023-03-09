@@ -44,10 +44,10 @@
       <div id="content" class="outer">
         <section id="main">
   
-    <article id="post-diary/2023-02-15" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-posts/CLRSReview" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2023/02/15/diary/2023-02-15/" class="article-date">
-  <time class="dt-published" datetime="2023-02-14T16:00:00.000Z" itemprop="datePublished">2023-02-15</time>
+    <a href="../../2023/02/20/posts/CLRSReview/" class="article-date">
+  <time class="dt-published" datetime="2023-02-19T16:00:00.000Z" itemprop="datePublished">2023-02-20</time>
 </a>
     
   </div>
@@ -58,7 +58,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/02/15/diary/2023-02-15/">2023-02-15_dailylog_</a>
+      <a class="p-name article-title" href="../../2023/02/20/posts/CLRSReview/">2022Fall_算法导论笔记</a>
     </h1>
   
 
@@ -67,281 +67,1021 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="formalmethod(下半部分)">FormalMethod(下半部分)</h1>
-<h3 id="线性算数(la)理论">线性算数(LA)理论</h3>
-<p><img src="/images/Pasted%20image%2020230215145625.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215145807.png" alt=""></p>
-<h4 id="消元法">消元法</h4>
-<p><img src="/images/Pasted%20image%2020230215145822.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215150013.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215150058.png" alt=""><br>
-做题中</p>
+        <h1 id="算法复习">算法复习</h1>
+<p>往年试题:<br>
+<a href="_assets/PDF/CLRS1.pdf">CLRS1</a><br>
+<a href="_assets/PDF/CLRS2.pdf">CLRS2</a></p>
+<p>考试题型:</p>
 <ul>
-<li>右边改成0</li>
-<li>符号改成一样<br>
-<img src="/images/Pasted%20image%2020230215150403.png" alt=""></li>
+<li><strong>20分</strong> 基本概念 判断题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>填空
+<ul>
+<li>插入排序复杂度</li>
 </ul>
-<p><img src="/images/Pasted%20image%2020230215152150.png" alt=""><br>
-<strong>例子 : (考试要考消元法)</strong><br>
-<img src="/images/Pasted%20image%2020230215153637.png" alt=""><br>
-往上代入, 有一组解<br>
-说明这一组约束是可满足的</p>
-<h4 id="_单纯形法">_单纯形法</h4>
-<p><img src="/images/Pasted%20image%2020230215153749.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215153830.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215154018.png" alt=""><br>
-不考<br>
-…</p>
-<h4 id="_分支定界">_分支定界</h4>
-<p>不考<br>
-…</p>
-<hr>
-<p><img src="/images/Pasted%20image%2020230215155316.png" alt=""></p>
-<h3 id="比特向量理论">比特向量理论</h3>
-<p>语法<br>
-<img src="/images/Pasted%20image%2020230215155339.png" alt=""></p>
-<p>语义<br>
-<img src="/images/Pasted%20image%2020230215155440.png" alt=""><br>
-把bit向量映射到正数域:</p>
-<ul>
-<li>有符号</li>
-<li>无符号</li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215155632.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215160717.png" alt=""></p>
-<ul>
-<li>
-<p><code>bitBlast()</code> 比特爆炸<br>
-<img src="/images/Pasted%20image%2020230215160834.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215161111.png" alt=""><br>
-递归生成树:<br>
-<img src="/images/Pasted%20image%2020230215161212.png" alt=""></p>
 </li>
-<li>
-<p><code>genCons()</code> 生成限制</p>
+<li><strong>50-60分</strong> 简答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法分析
+<ul>
+<li><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>递归时间分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平摊时间分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基本分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></li>
+<li>求最大流</li>
+<li>二项堆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>根表情况</li>
+</ul>
+</li>
+<li><strong>20-30分</strong>  算法设计题 1-2个算法题
+<ul>
+<li>分治</li>
+<li>动态规划</li>
+<li>贪心方法</li>
+</ul>
 </li>
 </ul>
-<p><img src="/images/Pasted%20image%2020230215161542.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215161915.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215161950.png" alt=""></p>
-<h3 id="数组理论">数组理论</h3>
-<p><img src="/images/Pasted%20image%2020230215170153.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215170249.png" alt=""><br>
-数组读写的消去<br>
-<img src="/images/Pasted%20image%2020230215170355.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215170507.png" alt=""></p>
-<p>例子:<br>
-<img src="/images/Pasted%20image%2020230215170829.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215170945.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215170953.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215171005.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215171015.png" alt=""></p>
-<p>分类讨论: z&lt;i / z=i / z&gt;i</p>
-<h3 id="指针理论:-内存模型">指针理论: 内存模型</h3>
-<p><img src="/images/Pasted%20image%2020230215171324.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215171332.png" alt=""></p>
+<p>考试重点</p>
+<p>渐进记号<br>
+分治方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基本步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用条件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>场合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+递归式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代换法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>递归树方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+快速排序算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>归并排序算法的时间复杂度<br>
+递归函数时间分析以及相应要求<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最坏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><s>平均不考</s><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+<s>循环不变式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></s><br>
+快速排序<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>要清楚工作原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>红黑树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与二叉查找树有何不同<br>
+插入和删除的过程和时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><s>不会考具体插入操作和删除操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></s><br>
+红黑树有10个节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画出包含最多<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>红节点的红黑树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>等等<br>
+数据结构扩张方法的基本步骤<br>
+动态序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>区间树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要了解是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解决问题</p>
+<p>动态规划<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>贪心算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>
+动态规划的基本步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要素<br>
+贪心算法的要素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用条件<br>
+算法例子要清楚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>
+最长公共子序列<br>
+活动选择问题<br>
+贪心法的理论基础<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不作要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只要掌握概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+什么是最大独立子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最优子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>独立子集</p>
+<p>平摊分析<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>是本课程的主要内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+平摊分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><s>合计法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记账法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></s><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>势函数方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+定义势函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>
+验证势函数的正确性<br>
+进行平摊分析</p>
+<p>二项堆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>斐波那契堆<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>根表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>操作时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+概念要清楚<br>
+三个堆的各个操作的时间复杂度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+各个堆的结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要满足的条件<br>
+根表的形式<br>
+给一个根表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在根表上完成一次抽取最小值操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画出完成操作前后的根表</p>
+<p>流网络<br>
+ford-fulkerson方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+用ford-fulkerson方法求最大流<br>
+<s>push-relable方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不做要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></s></p>
+<h2 id="递归/分治策略/求解递归式">递归/分治策略/求解递归式</h2>
+<h3 id="渐进记号">渐进记号</h3>
+<p><img src="/images/Pasted%20image%2020230129204222.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129204336.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129204527.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129204554.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129205313.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218140744.png" alt=""></p>
+<h3 id="求解递归式">求解递归式</h3>
+<p><img src="/images/Pasted%20image%2020230129205513.png" alt=""></p>
+<h4 id="代入法">代入法</h4>
+<p><img src="/images/Pasted%20image%2020230129205727.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129205905.png" alt=""><br>
+<em>(取底求上界)</em></p>
+<p>假设形式必须与求解形式保持严格一致!<br>
+<img src="/images/Pasted%20image%2020230129212410.png" alt=""><br>
+x</p>
+<p><img src="/images/Pasted%20image%2020230129212514.png" alt=""><br>
+v (取顶求上界/取底求下界)</p>
+<ul>
+<li><strong>习题课例题</strong><br>
+<img src="/images/Pasted%20image%2020230218141942.png" alt=""><br>
+取顶求上界<br>
+<img src="/images/Pasted%20image%2020230218142006.png" alt=""><br>
+取底求下界</li>
+</ul>
+<h4 id="递归树法">递归树法</h4>
+<p><img src="/images/Pasted%20image%2020230129215206.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230129215224.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218142527.png" alt=""></p>
+<h4 id="主方法">主方法</h4>
+<p><img src="/images/Pasted%20image%2020230129215708.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230129215721.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223445.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223606.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223645.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223701.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218143520.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218162739.png" alt=""></p>
+<h4 id="证明:-数学归纳法">证明: 数学归纳法</h4>
+<h3 id="归并排序">归并排序</h3>
+<p><img src="/images/Pasted%20image%2020230201230227.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230512.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230201230718.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230556.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230605.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230945.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218152634.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218153143.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218153539.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong><br>
+<img src="/images/Pasted%20image%2020230218155058.png" alt=""></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218155121.png" alt=""></p>
+<h3 id="快速排序">快速排序</h3>
+<p><img src="/images/Pasted%20image%2020230130131027.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130131213.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130131235.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130131252.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130131614.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130133623.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130133755.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130133910.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130133941.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130134226.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130134240.png" alt=""></p>
+<h2 id="二叉树/红黑树/区间树">二叉树/红黑树/区间树</h2>
+<p><img src="/images/Pasted%20image%2020230130143452.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130143609.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130144343.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130144540.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130145439.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130150453.png" alt=""></p>
+<p><strong>删除节点</strong><br>
+<img src="/images/Pasted%20image%2020230130150951.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130152018.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130152042.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130152112.png" alt=""></p>
+<h3 id="红黑树">红黑树</h3>
+<p><img src="/images/Pasted%20image%2020230130155037.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218165932.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218170005.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218170110.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218170550.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218170621.png" alt=""></p>
+<h3 id="数据结构扩张">数据结构扩张</h3>
+<p><img src="/images/Pasted%20image%2020230218171651.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218171724.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218172057.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218172108.png" alt=""></p>
+<ul>
+<li>找第i个最小值<code>OS-select(x,i)</code> O(lgn)</li>
+<li>求x序值<code>OS-rank(T,x)</code> O(lgn)</li>
+<li>插入和删除size域 O(lgn)</li>
+<li>插入或删除操作的时间为O(lgn)</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218183603.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong><br>
+<img src="/images/Pasted%20image%2020230218191418.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218191452.png" alt=""></li>
+</ul>
+<h3 id="区间树">区间树</h3>
+<p><img src="/images/Pasted%20image%2020230218184336.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218185338.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218185000.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218185011.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218190232.png" alt=""></p>
+<h2 id="动态规划/贪心算法">动态规划/贪心算法</h2>
+<h3 id="动态规划">动态规划</h3>
+<p><img src="/images/Pasted%20image%2020230218192942.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230205123413.png" alt=""></p>
+<ul>
+<li>带备忘的自顶向下<br>
+<img src="/images/Pasted%20image%2020230205124810.png" alt=""></li>
+<li>自底向上<br>
+<img src="/images/Pasted%20image%2020230205125140.png" alt=""></li>
+</ul>
+<p><strong>动态规划的要素</strong>:</p>
+<ul>
+<li>
+<p>最优子结构<br>
+<img src="/images/Pasted%20image%2020230218193541.png" alt=""></p>
+</li>
+<li>
+<p>重合子问题<br>
+<img src="/images/Pasted%20image%2020230218193607.png" alt=""></p>
+</li>
+</ul>
+<h4 id="装配线问题">装配线问题</h4>
+<p><img src="/images/Pasted%20image%2020230218193135.png" alt=""></p>
+<ul>
+<li>描述问题的最优解结构特征<br>
+<img src="/images/Pasted%20image%2020230218200642.png" alt=""></li>
+</ul>
+<p><em>cut and paste</em><br>
+<img src="/images/Pasted%20image%2020230218200722.png" alt=""></p>
+<ul>
+<li>递归定义最优路线的最快时间</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218201001.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218201029.png" alt=""></p>
+<ul>
+<li>
+<p>自底向上计算最快时间<br>
+FASTEST-WAY(a, t, e, x, n)<br>
+<img src="/images/Pasted%20image%2020230218202516.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218202439.png" alt=""></p>
+</li>
+<li>
+<p>构造最优解结构(输出最优路线)<br>
+<img src="/images/Pasted%20image%2020230218203210.png" alt=""></p>
+</li>
+</ul>
+<h4 id="矩阵链乘法">矩阵链乘法</h4>
+<p><img src="/images/Pasted%20image%2020230218204953.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218210207.png" alt=""><br>
+<em>cut and paste</em><br>
+<img src="/images/Pasted%20image%2020230218210231.png" alt=""></p>
+<ul>
+<li>
+<p>递归定义最优解值<br>
+<img src="/images/Pasted%20image%2020230218210501.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218210559.png" alt=""></p>
+</li>
+<li>
+<p>自底向上计算最优解值<br>
+<img src="/images/Pasted%20image%2020230218210717.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218212717.png" alt=""><br>
+递归求解<br>
+<img src="/images/Pasted%20image%2020230218214639.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218214938.png" alt=""><br>
+具体解法:<br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/94356886">(2条消息) 动态规划之——矩阵连乘<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>全网最详细博文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看这一篇就够了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>_刘扬俊的博客-CSDN博客_矩阵连乘</a></p>
+<h4 id="公共最长子序列lcs">公共最长子序列LCS</h4>
+<p><img src="/images/Pasted%20image%2020230218215640.png" alt=""></p>
+<ul>
+<li>
+<p>找出LCS问题最优子结构性质<br>
+<img src="/images/Pasted%20image%2020230218215802.png" alt=""></p>
+</li>
+<li>
+<p>递归定义LCS值<br>
+<img src="/images/Pasted%20image%2020230218215847.png" alt=""></p>
+</li>
+<li>
+<p>自底向上计算LCS值<br>
+<img src="/images/Pasted%20image%2020230206175205.png" alt=""><br>
+&lt;A, B, C, B, D, A, B&gt; &lt;B, D, C, A, B, A&gt;<br>
+<img src="/images/Pasted%20image%2020230206175234.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218220029.png" alt=""></p>
+</li>
+</ul>
+<h3 id="贪心算法">贪心算法</h3>
+<p><img src="/images/Pasted%20image%2020230207132204.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219102615.png" alt=""></p>
+<ul>
+<li>
+<p>贪心选择性质<br>
+<strong>贪心选择性质</strong>是应用贪心法求解的一个必要条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所谓选择性质是指所求问题的最优解可以通过一系列局部最优的贪心选择而得到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>即<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>局部最优＝&gt;全局最优贪心选择性质是区别与动态规划方法的一个重要特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为贪心法在作出选择时并不依赖于将来的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需根据当前的情况即可作出选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>最优子结构性质</p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230219103058.png" alt=""></p>
+<h4 id="活动选择问题">活动选择问题</h4>
+<ul>
+<li>
+<p>动态规划方法<br>
+<img src="/images/Pasted%20image%2020230207134320.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219103619.png" alt=""></p>
+</li>
+<li>
+<p>贪心方法</p>
+</li>
+</ul>
+<p>贪心选择性质:<br>
+<img src="/images/Pasted%20image%2020230219103723.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230207153722.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230207154028.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219110408.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230207154320.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230207154337.png" alt=""></p>
+<h4 id="背包问题">背包问题</h4>
+<p><img src="/images/Pasted%20image%2020230219110558.png" alt=""></p>
+<h4 id="huffman编码">Huffman编码</h4>
+<p><img src="/images/Pasted%20image%2020230219110703.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219110739.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219110758.png" alt=""></p>
+<h4 id="胚理论">胚理论</h4>
+<p><img src="/images/Pasted%20image%2020230219111520.png" alt=""></p>
+<h2 id="平摊分析(势函数法)">平摊分析(势函数法)</h2>
+<p><img src="/images/Pasted%20image%2020230219111933.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230208171822.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208172019.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208173849.png" alt=""></p>
+<h4 id="栈操作">栈操作</h4>
+<p><img src="/images/Pasted%20image%2020230208174406.png" alt=""></p>
+<h4 id="二进制计数器">二进制计数器</h4>
+<p><img src="/images/Pasted%20image%2020230208220441.png" alt=""></p>
+<h4 id="动态表">动态表</h4>
+<p><img src="/images/Pasted%20image%2020230219115430.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219115442.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219115452.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219115853.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144018.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144034.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144048.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144109.png" alt=""></p>
+<ul>
+<li>插入和删除<br>
+<img src="images/Pasted%20image%2020230221125709.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209153855.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209154056.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209154158.png" alt=""></li>
+</ul>
+<h2 id="二项堆/fib堆">二项堆/FIB堆</h2>
+<p><img src="/images/Pasted%20image%2020230220191407.png" alt=""></p>
+<h3 id="二项树">二项树</h3>
+<p><img src="/images/Pasted%20image%2020230220191651.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220191850.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210191936.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210191650.png" alt=""></p>
+<h3 id="二项堆">二项堆</h3>
+<p><img src="/images/Pasted%20image%2020230220192633.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210190304.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230210192505.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230210204032.png" alt=""></p>
+<ul>
+<li>
+<p>创建二项堆<br>
+<img src="/images/Pasted%20image%2020230210204437.png" alt=""></p>
+</li>
+<li>
+<p>合并二项堆<br>
+<img src="/images/Pasted%20image%2020230210204451.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210204753.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210205406.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210205419.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230210205443.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210210104.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230210210355.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210210422.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210210456.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230211132241.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230211132542.png" alt=""></p>
+<ul>
+<li>
+<p>case1<br>
+<img src="/images/Pasted%20image%2020230211132601.png" alt=""></p>
+</li>
+<li>
+<p>case2<br>
+<img src="/images/Pasted%20image%2020230211132627.png" alt=""></p>
+</li>
+<li>
+<p>case3/case4<br>
+<img src="/images/Pasted%20image%2020230211132649.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230211132752.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211132830.png" alt=""></p>
+<ul>
+<li>
+<p>二项堆插入节点<br>
+<img src="/images/Pasted%20image%2020230211134634.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211134911.png" alt=""></p>
+</li>
+<li>
+<p>二项堆抽取(删除)最小节点<br>
+<img src="/images/Pasted%20image%2020230211134859.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211144953.png" alt=""></p>
+</li>
+<li>
+<p>二项堆减小关键字<br>
+<img src="/images/Pasted%20image%2020230211143716.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211145014.png" alt=""></p>
+</li>
+<li>
+<p>二项堆删除关键字<br>
+<img src="/images/Pasted%20image%2020230211145740.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211145807.png" alt=""></p>
+</li>
+</ul>
+<h3 id="fib堆">FIB堆</h3>
+<p><img src="/images/Pasted%20image%2020230220205506.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220205524.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211152721.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211152107.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220210039.png" alt=""></p>
+<h2 id="最大流/最小切">最大流/最小切</h2>
+<p><img src="/images/Pasted%20image%2020230212133847.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212133921.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230212140314.png" alt=""><img src="/images/Pasted%20image%2020230212140433.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212140548.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230212143124.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212143233.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212144436.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212165924.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212165940.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212170333.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220223104.png" alt=""></p>
+<ul>
+<li>例题<br>
+<img src="/images/Pasted%20image%2020230220215841.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220215859.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220215919.png" alt=""></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-diary/2023-02-18" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2023/02/18/diary/2023-02-18/" class="article-date">
+  <time class="dt-published" datetime="2023-02-17T16:00:00.000Z" itemprop="datePublished">2023-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2023/02/18/diary/2023-02-18/">2023-02-18_dailylog_</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="算法复习">算法复习</h1>
+<p>考试题型:</p>
+<ul>
+<li><strong>20分</strong> 基本概念 判断题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>填空
+<ul>
+<li>插入排序复杂度</li>
+</ul>
+</li>
+<li><strong>50-60分</strong> 简答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法分析
+<ul>
+<li><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>递归时间分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平摊时间分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基本分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></li>
+<li>求最大流</li>
+<li>二项堆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>根表情况</li>
+</ul>
+</li>
+<li><strong>20-30分</strong>  算法设计题 1-2个算法题
+<ul>
+<li>分治</li>
+<li>动态规划</li>
+<li>贪心方法</li>
+</ul>
+</li>
+</ul>
+<p>考试重点</p>
+<p>渐进记号<br>
+分治方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基本步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用条件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>场合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+递归式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代换法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>递归树方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+快速排序算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>归并排序算法的时间复杂度<br>
+递归函数时间分析以及相应要求<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最坏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><s>平均不考</s><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+<s>循环不变式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></s><br>
+快速排序<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>要清楚工作原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>红黑树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与二叉查找树有何不同<br>
+插入和删除的过程和时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><s>不会考具体插入操作和删除操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></s><br>
+红黑树有10个节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画出包含最多<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>红节点的红黑树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>等等<br>
+数据结构扩张方法的基本步骤<br>
+动态序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>区间树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要了解是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解决问题</p>
+<p>动态规划<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>贪心算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>
+动态规划的基本步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要素<br>
+贪心算法的要素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用条件<br>
+算法例子要清楚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>
+最长公共子序列<br>
+活动选择问题<br>
+贪心法的理论基础<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不作要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只要掌握概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+什么是最大独立子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最优子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>独立子集</p>
+<p>平摊分析<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>是本课程的主要内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+平摊分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><s>合计法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记账法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></s><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>势函数方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+定义势函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>
+验证势函数的正确性<br>
+进行平摊分析</p>
+<p>二项堆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>斐波那契堆<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>根表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>操作时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+概念要清楚<br>
+三个堆的各个操作的时间复杂度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+各个堆的结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要满足的条件<br>
+根表的形式<br>
+给一个根表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在根表上完成一次抽取最小值操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画出完成操作前后的根表<br>
+<a href="_posts/diary/2023-02-18.md#%E4%BA%8C%E9%A1%B9%E5%A0%86/FIB%E5%A0%86">二项堆/FIB堆</a></p>
+<p>流网络<br>
+ford-fulkerson方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>
+用ford-fulkerson方法求最大流<br>
+<s>push-relable方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不做要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></s></p>
+<h2 id="递归/分治策略/求解递归式">递归/分治策略/求解递归式</h2>
+<h3 id="渐进记号">渐进记号</h3>
+<p><img src="/images/Pasted%20image%2020230129204222.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129204336.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129204527.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129204554.png" alt=""></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230129205313.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218140744.png" alt=""></p>
+<h3 id="求解递归式">求解递归式</h3>
+<p><img src="/images/Pasted%20image%2020230129205513.png" alt=""></p>
+<h4 id="代入法">代入法</h4>
+<p><img src="/images/Pasted%20image%2020230129205727.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129205905.png" alt=""><br>
+<em>(取底求上界)</em></p>
+<p>假设形式必须与求解形式保持严格一致!<br>
+<img src="/images/Pasted%20image%2020230129212410.png" alt=""><br>
+x</p>
+<p><img src="/images/Pasted%20image%2020230129212514.png" alt=""><br>
+v (取顶求上界/取底求下界)</p>
+<ul>
+<li><strong>习题课例题</strong><br>
+<img src="/images/Pasted%20image%2020230218141942.png" alt=""><br>
+取顶求上界<br>
+<img src="/images/Pasted%20image%2020230218142006.png" alt=""><br>
+取底求下界</li>
+</ul>
+<h4 id="递归树法">递归树法</h4>
+<p><img src="/images/Pasted%20image%2020230129215206.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230129215224.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218142527.png" alt=""></p>
+<h4 id="主方法">主方法</h4>
+<p><img src="/images/Pasted%20image%2020230129215708.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230129215721.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223445.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223606.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223645.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230129223701.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218143520.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218162739.png" alt=""></p>
+<h4 id="证明:-数学归纳法">证明: 数学归纳法</h4>
+<h3 id="归并排序">归并排序</h3>
+<p><img src="/images/Pasted%20image%2020230201230227.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230512.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230201230718.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230556.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230605.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230201230945.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218152634.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218153143.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218153539.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong><br>
+<img src="/images/Pasted%20image%2020230218155058.png" alt=""></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218155121.png" alt=""></p>
+<h3 id="快速排序">快速排序</h3>
+<p><img src="/images/Pasted%20image%2020230130131027.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130131213.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130131235.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130131252.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130131614.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130133623.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130133755.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130133910.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130133941.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130134226.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130134240.png" alt=""></p>
+<h2 id="二叉树/红黑树/区间树">二叉树/红黑树/区间树</h2>
+<p><img src="/images/Pasted%20image%2020230130143452.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130143609.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130144343.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130144540.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130145439.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130150453.png" alt=""></p>
+<p><strong>删除节点</strong><br>
+<img src="/images/Pasted%20image%2020230130150951.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130152018.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230130152042.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230130152112.png" alt=""></p>
+<h3 id="红黑树">红黑树</h3>
+<p><img src="/images/Pasted%20image%2020230130155037.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218165932.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218170005.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218170110.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218170550.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218170621.png" alt=""></p>
+<h3 id="数据结构扩张">数据结构扩张</h3>
+<p><img src="/images/Pasted%20image%2020230218171651.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218171724.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218172057.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218172108.png" alt=""></p>
+<ul>
+<li>找第i个最小值<code>OS-select(x,i)</code> O(lgn)</li>
+<li>求x序值<code>OS-rank(T,x)</code> O(lgn)</li>
+<li>插入和删除size域 O(lgn)</li>
+<li>插入或删除操作的时间为O(lgn)</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218183603.png" alt=""></p>
+<ul>
+<li><strong>习题课例题</strong><br>
+<img src="/images/Pasted%20image%2020230218191418.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218191452.png" alt=""></li>
+</ul>
+<h3 id="区间树">区间树</h3>
+<p><img src="/images/Pasted%20image%2020230218184336.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218185338.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218185000.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218185011.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218190232.png" alt=""></p>
+<h2 id="动态规划/贪心算法">动态规划/贪心算法</h2>
+<h3 id="动态规划">动态规划</h3>
+<p><img src="/images/Pasted%20image%2020230218192942.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230205123413.png" alt=""></p>
+<ul>
+<li>带备忘的自顶向下<br>
+<img src="/images/Pasted%20image%2020230205124810.png" alt=""></li>
+<li>自底向上<br>
+<img src="/images/Pasted%20image%2020230205125140.png" alt=""></li>
+</ul>
+<p><strong>动态规划的要素</strong>:</p>
+<ul>
+<li>
+<p>最优子结构<br>
+<img src="/images/Pasted%20image%2020230218193541.png" alt=""></p>
+</li>
+<li>
+<p>重合子问题<br>
+<img src="/images/Pasted%20image%2020230218193607.png" alt=""></p>
+</li>
+</ul>
+<h4 id="装配线问题">装配线问题</h4>
+<p><img src="/images/Pasted%20image%2020230218193135.png" alt=""></p>
+<ul>
+<li>描述问题的最优解结构特征<br>
+<img src="/images/Pasted%20image%2020230218200642.png" alt=""></li>
+</ul>
+<p><em>cut and paste</em><br>
+<img src="/images/Pasted%20image%2020230218200722.png" alt=""></p>
+<ul>
+<li>递归定义最优路线的最快时间</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218201001.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218201029.png" alt=""></p>
+<ul>
+<li>
+<p>自底向上计算最快时间<br>
+FASTEST-WAY(a, t, e, x, n)<br>
+<img src="/images/Pasted%20image%2020230218202516.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218202439.png" alt=""></p>
+</li>
+<li>
+<p>构造最优解结构(输出最优路线)<br>
+<img src="/images/Pasted%20image%2020230218203210.png" alt=""></p>
+</li>
+</ul>
+<h4 id="矩阵链乘法">矩阵链乘法</h4>
+<p><img src="/images/Pasted%20image%2020230218204953.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218210207.png" alt=""><br>
+<em>cut and paste</em><br>
+<img src="/images/Pasted%20image%2020230218210231.png" alt=""></p>
+<ul>
+<li>
+<p>递归定义最优解值<br>
+<img src="/images/Pasted%20image%2020230218210501.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230218210559.png" alt=""></p>
+</li>
+<li>
+<p>自底向上计算最优解值<br>
+<img src="/images/Pasted%20image%2020230218210717.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218212717.png" alt=""><br>
+递归求解<br>
+<img src="/images/Pasted%20image%2020230218214639.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230218214938.png" alt=""></p>
+<h4 id="公共最长子序列lcs">公共最长子序列LCS</h4>
+<p><img src="/images/Pasted%20image%2020230218215640.png" alt=""></p>
+<ul>
+<li>
+<p>找出LCS问题最优子结构性质<br>
+<img src="/images/Pasted%20image%2020230218215802.png" alt=""></p>
+</li>
+<li>
+<p>递归定义LCS值<br>
+<img src="/images/Pasted%20image%2020230218215847.png" alt=""></p>
+</li>
+<li>
+<p>自底向上计算LCS值<br>
+<img src="/images/Pasted%20image%2020230206175205.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230218220029.png" alt=""></p>
+<h3 id="贪心算法">贪心算法</h3>
+<p><img src="/images/Pasted%20image%2020230207132204.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219102615.png" alt=""></p>
+<ul>
+<li>
+<p>贪心选择性质<br>
+<strong>贪心选择性质</strong>是应用贪心法求解的一个必要条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所谓选择性质是指所求问题的最优解可以通过一系列局部最优的贪心选择而得到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>即<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>局部最优＝&gt;全局最优贪心选择性质是区别与动态规划方法的一个重要特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为贪心法在作出选择时并不依赖于将来的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需根据当前的情况即可作出选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>最优子结构性质</p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230219103058.png" alt=""></p>
+<h4 id="活动选择问题">活动选择问题</h4>
+<ul>
+<li>
+<p>动态规划方法<br>
+<img src="/images/Pasted%20image%2020230207134320.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219103619.png" alt=""></p>
+</li>
+<li>
+<p>贪心方法</p>
+</li>
+</ul>
+<p>贪心选择性质:<br>
+<img src="/images/Pasted%20image%2020230219103723.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230207153722.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230207154028.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219110408.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230207154320.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230207154337.png" alt=""></p>
+<h4 id="背包问题">背包问题</h4>
+<p><img src="/images/Pasted%20image%2020230219110558.png" alt=""></p>
+<h4 id="huffman编码">Huffman编码</h4>
+<p><img src="/images/Pasted%20image%2020230219110703.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219110739.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219110758.png" alt=""></p>
+<h4 id="胚理论">胚理论</h4>
+<p><img src="/images/Pasted%20image%2020230219111520.png" alt=""></p>
+<h2 id="平摊分析(势函数法)">平摊分析(势函数法)</h2>
+<p><img src="/images/Pasted%20image%2020230219111933.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230208171822.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208172019.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208173849.png" alt=""></p>
+<h4 id="栈操作">栈操作</h4>
+<p><img src="/images/Pasted%20image%2020230208174406.png" alt=""></p>
+<h4 id="二进制计数器">二进制计数器</h4>
+<p><img src="/images/Pasted%20image%2020230208220441.png" alt=""></p>
+<h4 id="动态表">动态表</h4>
+<p><img src="/images/Pasted%20image%2020230219115430.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230219115442.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219115452.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230219115853.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144018.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144034.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144048.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144109.png" alt=""></p>
+<h2 id="二项堆/fib堆">二项堆/FIB堆</h2>
+<p><img src="/images/Pasted%20image%2020230220191407.png" alt=""></p>
+<h3 id="二项树">二项树</h3>
+<p><img src="/images/Pasted%20image%2020230220191651.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220191850.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210191936.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210191650.png" alt=""></p>
+<h3 id="二项堆">二项堆</h3>
+<p><img src="/images/Pasted%20image%2020230220192633.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210190304.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230210192505.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230210204032.png" alt=""></p>
+<ul>
+<li>
+<p>创建二项堆<br>
+<img src="/images/Pasted%20image%2020230210204437.png" alt=""></p>
+</li>
+<li>
+<p>合并二项堆<br>
+<img src="/images/Pasted%20image%2020230210204451.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210204753.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210205406.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210205419.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230210205443.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210210104.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230210210355.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210210422.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230210210456.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230211132241.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230211132542.png" alt=""></p>
+<ul>
+<li>
+<p>case1<br>
+<img src="/images/Pasted%20image%2020230211132601.png" alt=""></p>
+</li>
+<li>
+<p>case2<br>
+<img src="/images/Pasted%20image%2020230211132627.png" alt=""></p>
+</li>
+<li>
+<p>case3/case4<br>
+<img src="/images/Pasted%20image%2020230211132649.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230211132752.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211132830.png" alt=""></p>
+<ul>
+<li>
+<p>二项堆插入节点<br>
+<img src="/images/Pasted%20image%2020230211134634.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211134911.png" alt=""></p>
+</li>
+<li>
+<p>二项堆抽取(删除)最小节点<br>
+<img src="/images/Pasted%20image%2020230211134859.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211144953.png" alt=""></p>
+</li>
+<li>
+<p>二项堆减小关键字<br>
+<img src="/images/Pasted%20image%2020230211143716.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211145014.png" alt=""></p>
+</li>
+<li>
+<p>二项堆删除关键字<br>
+<img src="/images/Pasted%20image%2020230211145740.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211145807.png" alt=""></p>
+</li>
+</ul>
+<h3 id="fib堆">FIB堆</h3>
+<p><img src="/images/Pasted%20image%2020230220205506.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220205524.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211152721.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230211152107.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220210039.png" alt=""></p>
+<h2 id="最大流/最小切">最大流/最小切</h2>
+<p><img src="/images/Pasted%20image%2020230212133847.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212133921.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230212140314.png" alt=""><img src="/images/Pasted%20image%2020230212140433.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212140548.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230212143124.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212143233.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212144436.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212165924.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212165940.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230212170333.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220223104.png" alt=""></p>
+<ul>
+<li>例题<br>
+<img src="/images/Pasted%20image%2020230220215841.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220215859.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230220215919.png" alt=""></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-diary/2023-02-16" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2023/02/16/diary/2023-02-16/" class="article-date">
+  <time class="dt-published" datetime="2023-02-15T16:00:00.000Z" itemprop="datePublished">2023-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2023/02/16/diary/2023-02-16/">2023-02-16_dailylog_</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="_assets/PDF/handson-ml-2e-zh.pdf">handson-ml-2e-zh</a></p>
+<h3 id="maxout">Maxout</h3>
+<p><img src="/images/Pasted%20image%2020230216155927.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230216155852.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230216155909.png" alt=""></p>
+<h2 id="更快的优化器">更快的优化器</h2>
+<p><img src="/images/Pasted%20image%2020230216155719.png" alt=""></p>
+<p>训练一个非常大的深度神经网络可能会非常缓慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 到目前为止<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们已经看到了四种加速训练的方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>并且达到更好性能的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>对连接权重应用良好的初始化策略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用良好的激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用批归一化以及重用预训练网络的部分</strong> <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>使用辅助任务或无监督学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 另一个速度提升的方法是使用<strong>更快的优化器</strong> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是常规的梯度下降优化器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>动量优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Nesterov 加速梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AdaGrad<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>RMSProp<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后是 Adam 和 Nadam 优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>回想一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度下降只是通过直接减去损失函数<code>J(θ)</code>相对于权重<code>θ</code>的梯度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>∇θJ(θ)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>乘以学习率<code>η</code>来更新权重<code>θ</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 等式是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>θ ← θ – η ∇[θ]J(θ)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它不关心早期的梯度是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如果局部梯度很小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则会非常缓慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>动量优化很关心以前的梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在每次迭代时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它将动量向量<code>m</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>乘以学习率<code>η</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>与局部梯度相加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且通过简单地减去该动量向量来更新权重<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>参见公式 11-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度用作加速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不用作速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 为了模拟某种摩擦机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>避免动量过大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该算法引入了一个新的超参数<code>β</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>简称为动量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它必须设置在 0<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>高摩擦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和 1<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>无摩擦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>之间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 典型的动量值是 0.9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/img/f8b8fdfbaf932d63888e504c03fef03b.png" alt=""></p>
+<p>可以很容易验证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果梯度保持不变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则最终速度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>权重更新的最大大小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>等于该梯度乘以学习率<code>η</code>乘以<code>1/(1-β)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果<code>β = 0.9</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则最终速度等于学习率的梯度乘以 10 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此动量优化比梯度下降快 10 倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span> 这使动量优化比梯度下降快得多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 特别是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们在第四章中看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当输入量具有非常不同的尺度时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>损失函数看起来像一个细长的碗<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 4-7<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 梯度下降速度很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但要花很长的时间才能到达底部<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> <em>相反<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>动量优化会越来越快地滚下山谷底部<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到达到底部<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最佳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在不使用批归一化的深度神经网络中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>较高层往往会得到具有不同的尺度的输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以使用动量优化会有很大的帮助</em> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 它也可以帮助滚过局部最优值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>Yurii Nesterov 在 1983 年提出的动量优化的一个小变体几乎总是比普通的动量优化更快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> Nesterov 动量优化或 Nesterov 加速梯度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Nesterov Accelerated Gradient<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>NAG<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的思想是测量损失函数的梯度不是在局部位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是在动量方向稍微靠前<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见公式 11-5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 与普通的动量优化的唯一区别在于梯度是在<code>θ+βm</code>而不是在<code>θ</code>处测量的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/d94e1afbe24244563a6b170bfbba856f.png" alt=""></p>
+<p>再次考虑细长碗的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>梯度下降从最陡峭的斜坡快速下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后缓慢地下到谷底<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如果算法能够早期检测到这个问题并且纠正它的方向来指向全局最优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那将是非常好的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AdaGrad 算法通过沿着最陡的维度缩小梯度向量来实现这一点<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见公式 11-6<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
+<p><img src="/img/ecc26257570ef444e6a1ce1029e7f307.png" alt=""></p>
+<p>第一步将梯度的平方累加到向量<code>s</code>中<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>⊗符号表示元素级别相乘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 这个向量化形式相当于向量<code>s</code>的每个元素<code>s[i]</code>计算<code>s[i] ← s[i] + (∂J(θ)/∂θ[i])^2</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换一种说法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个<code>s[i]</code>累加损失函数对参数<code>θ[i]</code>的偏导数的平方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如果损失函数沿着第<code>i</code>维陡峭<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则在每次迭代时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>s[i]</code>将变得越来越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>第二步几乎与梯度下降相同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但有一个很大的不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>梯度向量按比例<code>(s+ε)^0.5</code>缩小 <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>⊘</code>符号表示元素分割<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>ε</code>是避免被零除的平滑项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常设置为<code>10^(-10)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 这个向量化的形式相当于所有<code>θ[i]</code>同时计算</p>
+<p><img src="/img/1d42dc52ad9a49a5ba54ef885454e778.png" alt=""></p>
+<p><strong>前面看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AdaGrad 的风险是降速太快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能无法收敛到全局最优<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>RMSProp 算法通过仅累积最近迭代<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>而不是从训练开始以来的所有梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的梯度来修正这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 它通过在第一步中使用指数衰减来实现<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见公式 11-7<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/731f1ffe649c5a195ed46439968d7a21.png" alt=""></p>
+<p>如果你只看步骤 1, 2 和 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你会注意到 Adam 与动量优化和 RMSProp 的相似性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 唯一的区别是第 1 步计算指数衰减的平均值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是指数衰减的和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但除了一个常数因子<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>衰减平均值只是衰减和的<code>1 - β1</code>倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>之外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们实际上是等效的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>动量衰减超参数<code>β1</code>通常初始化为 0.9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而缩放衰减超参数<code>β2</code>通常初始化为 0.999<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如前所述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平滑项<code>ε</code>通常被初始化为一个很小的数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如<code>10^(-7)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>实际上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于 Adam 是一种自适应学习率算法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 AdaGrad 和 RMSProp<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以对学习率超参数<code>η</code>的调整较少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 您经常可以使用默认值<code>η= 0.001</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使 Adam 相对于梯度下降更容易使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>表 11-2 比较了讨论过的优化器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>*</code>是差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>**</code>是平均<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>***</code>是好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/2d74b4c2999d3fa82e6b5aa85be19c1b.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230216162030.png" alt=""></p>
+<h2 id="正则化regularization">正则化Regularization</h2>
+<p>有四个参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我可以拟合一个大象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>五个我可以让他摆动他的象鼻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>—— John von Neumann,cited by Enrico Fermi in Nature 427</p>
+<p>有数千个参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至可以拟合整个动物园<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>深度神经网络通常具有数以万计的参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有时甚至是数百万<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 有了这么多的参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>网络拥有难以置信的自由度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以适应各种复杂的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 但是这个很大的灵活性也意味着它很容易过拟合训练集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以需要正则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第 10 章用过了最好的正则方法之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>早停<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><a href="_posts/diary/2023-02-09.md#_EarlyStopping">_EarlyStopping</a></p>
+<p>这一节会介绍其它一些最流行的神经网络正则化技术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>ℓ1 和 ℓ2 正则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>丢弃和最大范数正则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="dropout">Dropout</h3>
+<p>丢弃是深度神经网络最流行的正则化方法之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 它由 Geoffrey Hinton 于 2012 年提出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并在 Nitish Srivastava 等人的 2014 年论文中进一步详细描述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且已被证明是非常成功的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>即使是最先进的神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仅仅通过增加丢弃就可以提高 1-2% 的准确度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这是一个相当简单的算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>在每个训练步骤中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个神经元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>包括输入神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不包括输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>都有一个暂时<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>丢弃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的概率<code>p</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这意味着在这个训练步骤中它将被完全忽略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span> 在下一步可能会激活<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 11-9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 超参数<code>p</code>称为丢弃率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常设为 10% 到 50% 之间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>循环神经网络之间接近 20-30%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在卷积网络中接近 40-50%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 训练后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>神经元不会再丢失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong></p>
+<p><img src="/img/cc9f24739534a97e494d6cb6522e0f75.png" alt=""></p>
 <blockquote>
-<p>地址T 值类型E 关系R 复合命题P</p>
+<p>这个具有破坏性的方法竟然行得通<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是相当令人惊讶的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果一个公司的员工每天早上被告知要掷硬币来决定是否上班<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>公司的表现会不会更好呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>那么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>谁知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>也许会<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>公司显然将被迫适应这样的组织构架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>它不能依靠任何一个人操作咖啡机或执行任何其他关键任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以这个专业知识将不得不分散在几个人身上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>员工必须学会与其他的许多同事合作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不仅仅是其中的一小部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>该公司将变得更有弹性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果一个人离开了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并没有什么区别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>目前还不清楚这个想法是否真的可以在公司实行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但它确实对于神经网络是可行的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>神经元被丢弃训练不能与其相邻的神经元共适应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>他们必须尽可能让自己变得有用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>他们也不能过分依赖一些输入神经元;他们必须注意他们的每个输入神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>他们最终对输入的微小变化会不太敏感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你会得到一个更稳定的网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>泛化能力更强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 </blockquote>
-<p><img src="/images/Pasted%20image%2020230215171529.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230215172150.png" alt=""></p>
-<p>决策过程优化方法:</p>
-<ul>
-<li>
-<p>纯变量<br>
-<img src="/images/Pasted%20image%2020230215172250.png" alt=""></p>
-</li>
-<li>
-<p>内存分区<br>
-<img src="/images/Pasted%20image%2020230215172436.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230215180337.png" alt=""></p>
-</li>
-</ul>
-<h3 id="理论结合">理论结合</h3>
-<p><img src="/images/Pasted%20image%2020230215180605.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215180641.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215180835.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215180859.png" alt=""></p>
-<ul>
-<li>例子<br>
-<img src="/images/Pasted%20image%2020230215180933.png" alt=""><br>
-不同理论分开求解<br>
-<img src="/images/Pasted%20image%2020230215181059.png" alt=""></li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215181447.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215181435.png" alt=""></p>
-<hr>
-<h1 id="深度学习和神经网络">深度学习和神经网络</h1>
-<p><a href="_assets/PDF/handson-ml-2e-zh.pdf">handson-ml-2e-zh</a></p>
-<p>人工神经网络<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>ANN<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>就是沿着这条逻辑诞生的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>人工神经网络是受大脑中的生物神经元启发而来的机器学习模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>人工神经网络是深度学习的核心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它不仅样式多样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>功能强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还具有可伸缩性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这让人工神经网络适宜处理庞大且复杂的机器学习任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如对数十亿张图片分类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>谷歌图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>语音识别<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>苹果 Siri<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>向数亿用户每天推荐视频<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Youtube<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>或者通过学习几百围棋世界冠军<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>DeepMind 的 AlphaGo<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="神经元">神经元</h3>
-<p>独立的生物神经元就是这样工作的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但因为神经元是处于数十亿神经元的网络中的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个神经元都连着几千个神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>简单神经元的网络可以完成高度复杂的计算</p>
-<p>一个非常简单的生物神经元模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它后来演化成了人工神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个或多个二元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>开或关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个二元输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当达到一定的输入量时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>神经元就会产生输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>不同类型的神经元:<br>
-<img src="/img/197d0d1d97e9b3c90f3d8a4b9add9ea4.png" alt=""></p>
-<h3 id="感知机">感知机</h3>
-<p>感知器是最简单的人工神经网络结构之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由 Frank Rosenblatt 发明于 1957 年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它基于一种稍微不同的人工神经元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 10-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>阈值逻辑单元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>TLU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或称为线性阈值单元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>LTU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输入和输出是数字<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>而不是二元开/关值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且每个输入连接都一个权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>TLU 计算其输入的加权和<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>z = W[1]x[1] + W[2]x[2]+ ... + W[n]x[n] = x^T · W</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后将阶跃函数应用于该和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并输出结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>h[W](x) = step(z)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中<code>z = x^T · W</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/8b2cbad5c6f932fabbea3c87de926f8c.png" alt=""></p>
-<p>感知机最常用的阶跃函数是单位阶跃函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Heaviside step function<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>见公式 10-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有时候也使用符号函数<code>sgn</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/93692150431464017b2aa57680078626.png" alt=""></p>
-<p>单一 TLU 可用于简单的线性二元分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它计算输入的线性组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果结果超过阈值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它输出正类或者输出负类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>就像逻辑回归分类或线性 SVM 分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以使用单一 TLU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基于花瓣长度和宽度分类鸢尾花<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也可添加额外的偏置特征<code>x[0] = 1</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就像我们在前面章节所做的那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>训练 TLU 意味着去寻找合适的<code>W[0], W[1]</code>和<code>W[2]</code>值<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>训练算法稍后提到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>感知器只由一层 TLU 组成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个 TLU 连接到所有输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><strong>当一层的神经元连接着前一层的每个神经元时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该层被称为全连接层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或紧密层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 图 10-5 展示了一个具有两个输入和三个输出的感知机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它可以将实例同时分成为三个不同的二元类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使它成为一个多输出分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/0c4ef3e739a09224456bd8f4f31b38a6.png" alt=""></p>
-<p><img src="/img/b0c2332159c7667a25fa472ccf848991.png" alt=""><br>
-借助线性代数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>利用公式 10-2 可以方便地同时算出几个实例的一层神经网络的输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>在这个公式中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span></p>
-<ul>
-<li>
-<p><code>X</code>表示输入特征矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每行是一个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每列是一个特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p>权重矩阵<code>W</code>包含所有的连接权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了偏置神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每有一个输入神经元权重矩阵就有一行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>神经层每有一个神经元权重矩阵就有一列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p>偏置向量<code>b</code>含有所有偏置神经元和人工神经元的连接权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每有一个人工神经元就对应一个偏置项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p>函数<code>φ</code>被称为激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当人工神经网络是 TLU 时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>激活函数是阶跃函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>后面会讨论更多的激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</li>
-</ul>
-<p>那么感知器是如何训练的呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span><br>
-Frank Rosenblatt 提出的感知器训练算法在很大程度上受到 Hebb 规则的启发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当<strong>一个生物神经元经常触发另一个神经元时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这两个神经元之间的联系就会变得更强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个规则后来被称为 Hebb 规则<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>或 Hebbian learning<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>使用这个规则的变体来训练感知器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span></strong> 该规则考虑了网络所犯的误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>更具体地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>感知器一次被馈送一个训练实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于每个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它进行预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于每一个产生错误预测的输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>修正输入的连接权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以获得正确的预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>公式 10-3 展示了 Hebb 规则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/img/b233f77d24ba573df38c4a3b18fccc83.png" alt=""></p>
-<p>在这个公式中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>
-<p>其中<code>w[i, j]</code>是第<code>i</code>个输入神经元与第<code>j</code>个输出神经元之间的连接权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p><code>x[i]</code>是当前训练实例的第<code>i</code>个输入值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p><code>y_hat[j]</code>是当前训练实例的第<code>j</code>个输出神经元的输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p><code>y[j]</code>是当前训练实例的第<code>j</code>个输出神经元的目标输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></p>
-</li>
-<li>
-<p><code>η</code>是学习率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</li>
-</ul>
-<p>每个输出神经元的决策边界是线性的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此感知器不能学习复杂的模式<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如 Logistic 回归分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果训练实例是线性可分的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Rosenblatt 证明该算法将收敛到一个解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这被称为感知器收敛定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="mlp多层感知机-& 反向传播">MLP多层感知机 &amp; 反向传播</h3>
-<p>MLP 由一个输入层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一个或多个称为隐藏层的 TLU 组成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个 TLU 层称为输出层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 10-7<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>靠近输入层的层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常被称为浅层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>靠近输出层的层通常被称为上层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>除了输出层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一层都有一个偏置神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且全连接到下一层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/523379c16c7d187fad08480319499a81.png" alt=""></p>
-<blockquote>
-<p>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>信号是从输入到输出单向流动的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此这种架构被称为前馈神经网络<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>FNN<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<p>至今仍在使用的 <strong>反向传播</strong> 训练算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>总而言之<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反向传播算法是使用了高效梯度计算的梯度下降算法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见第 4 章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>只需要两次网络传播<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>一次向前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一次向后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以算出网络误差的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>和每个独立模型参数相关的梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反向传播算法为了减小误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以算出每个连接权重和每个偏置项的调整量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当得到梯度之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就做一次常规的梯度下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不断重复这个过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到网络得到收敛解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><strong>对每个训练实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>BP 算法先做一次预测<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>前向传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后计算误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后反向通过每一层以测量误差贡献量<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>反向传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后调整所有连接权重以降低误差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>梯度下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>译者注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>我也总结下吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每次训练都先是要设置周期数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个周期其实做的就是三件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>向前传一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>向后传一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后调整参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>接着再进行下一周期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></p>
-<p>为了使 BP 算法正常工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作者对 MLP 的架构做了一个关键调整<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>用 Logistic 函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>sigmoid<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>代替阶跃函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>σ(z) = 1 / (1 + exp(–z))</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 这是必要的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为阶跃函数只包含平坦的段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此没有梯度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>梯度下降不能在平面上移动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 Logistic 函数处处都有一个定义良好的非零导数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>允许梯度下降在每步上取得一些进展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>反向传播算法也可以与其他激活函数一起使用</p>
-<p>下面就是两个流行的激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>
-<p>双曲正切函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span> <code>tanh (z) = 2σ(2z) – 1</code><br>
-类似 Logistic 函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它是 S 形<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>连续可微的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是它的输出值范围从-1 到 1<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不是 Logistic 函数的 0 到 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这往往使每层的输出在训练开始时或多或少都变得以 0 为中心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这常常有助于加快收敛速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</li>
-<li>
-<p>ReLU 函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>ReLU(z) = max(0, z)</code><br>
-ReLU 函数是连续的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是在<code>z=0</code>时不可微<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>斜率突然改变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致梯度下降在 0 点左右跳跃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ReLU 的变体是当<code>z&lt;0</code>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>z=0</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但在实践中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ReLU 效果很好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且具有计算快速的优点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是成为了默认激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最重要的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它没有最大输出值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这有助于减少梯度下降期间的一些问题<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>第 11 章再介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</li>
-</ul>
-<p><img src="/img/35080cf52f5e9599c8ae129bb2b5d295.png" alt=""></p>
-<p>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>MLP 可以用来回归任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果想要预测一个单值<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如根据许多特征预测房价<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就只需要一个输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它的输出值就是预测值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于多变量回归<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即一次预测多个值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则每一维度都要有一个神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>想要定位一张图片的中心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就要预测 2D 坐标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此需要两个输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果再给对象加个边框<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还需要两个值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>对象的宽度和高度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>通常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当用 MLP 做回归时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输出神经元不需要任何激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果要让输出是正值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则可在输出值使用 ReLU 激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还可以使用 softplus 激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是 ReLu 的一个平滑化变体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>softplus(z) = log(1 + exp(z))</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><code>z</code>是负值时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>softplus 接近 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>z</code>是正值时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>softplus 接近<code>z</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果想让输出落入一定范围内<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则可以使用调整过的 Logistic 或双曲正切函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Logistic 函数用于 0 到 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>双曲正切函数用于 -1 到 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>训练中的损失函数一般是均方误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但如果训练集有许多异常值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则可以使用平均绝对误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也可以使用 Huber 损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它是前两者的组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>MLP 也可用于分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于二元分类问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需要一个使用 Logistic 激活的输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输出是一个 0 和 1 之间的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作为正类的估计概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>MLP 也可以处理多标签二元分类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见第 3 章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>邮件分类系统可以预测一封邮件是垃圾邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是正常邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时预测是紧急<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是非紧急邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就需要两个输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两个都是用 Logistic 函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>第一个输出垃圾邮件的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第二个输出紧急的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>更为一般的讲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要为每个正类配一个输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>多个输出概率的和不一定非要等于 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样模型就可以输出各种标签的组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>非紧急非垃圾邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>紧急非垃圾邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>非紧急垃圾邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>紧急垃圾邮件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>如果每个实例只能属于一个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但可能是三个或多个类中的一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如对于数字图片分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以是类 0 到类 9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则每一类都要有一个输出神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整个输出层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 10-9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>要使用 softmax 激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>==softmax 函数可以保证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个估计概率位于 0 和 1 之间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且各个值相加等于 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这被称为多类分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>==<br>
-<img src="/img/28e6d457d56a02086f2ceff72ac9d1e2.png" alt=""></p>
-<p>Keras 是一个深度学习高级 API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以用它轻松地搭建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>评估和运行各种神经网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Keras 的文档见<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https%3A%2F%2Fkeras.io%2F">这里</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fkeras-team%2Fkeras">Keras 参考实现</a>是 François Chollet 开发的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于 2015 年 3 月开源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>得益于 Keras 简单易用灵活优美<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>迅速流行开来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了进行神经网络计算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必须要有计算后端的支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>目前可选三个流行库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>TensorFlow<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>CNTK 和 Theano<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为避免误会<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将 GitHub 上的 Keras 参考实现称为多后端 Keras<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>搭建一个拥有两个隐含层的分类 MLP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<div class="highlight"><pre class="code"><code>model = keras.models.Sequential()
-model.add(keras.layers.Flatten(input_shape=[<span class="hljs-number">28</span>, <span class="hljs-number">28</span>]))
-model.add(keras.layers.Dense(<span class="hljs-number">300</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>))
-model.add(keras.layers.Dense(<span class="hljs-number">100</span>, activation=<span class="hljs-string">&quot;relu&quot;</span>))
-model.add(keras.layers.Dense(<span class="hljs-number">10</span>, activation=<span class="hljs-string">&quot;softmax&quot;</span>))
--   第一行代码创建了一个顺序 模型&lt;span <span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;这是 <span class="hljs-title">Keras</span> 最简单的模型&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;是由单层神经元顺序连起来的&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;被称为顺序 <span class="hljs-title">API</span>&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;；&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;
-    
--   接下来创建了第一层&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;这是一个`<span class="hljs-title">Flatten</span>`层&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;它的作用是将每个输入图片转变为 1<span class="hljs-title">D</span> 数组&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;：&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;如果输入数据是`<span class="hljs-title">X</span>`&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;该层则计算`<span class="hljs-title">X</span>.<span class="hljs-title">reshape</span>(<span class="hljs-params">-<span class="hljs-number">1</span>, <span class="hljs-number">1</span></span>)`&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;。&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;该层没有任何参数&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;只是做一些简单预处理&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;。&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;因为是模型的第一层&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;必须要指明`<span class="hljs-title">input_shape</span>`&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;`<span class="hljs-title">input_shape</span>`不包括批次大小&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;只是实例的形状&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;。&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;另外&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;第一层也可以是`<span class="hljs-title">keras</span>.<span class="hljs-title">layers</span>.<span class="hljs-title">InputLayer</span>`&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;设置`<span class="hljs-title">input_shape</span>=[28,28]`;
-    
--   然后&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;添加了一个有 300 个神经元的紧密层&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;激活函数是 <span class="hljs-title">ReLU</span>&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;。&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;每个紧密层只负责自身的权重矩阵&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;权重矩阵是神经元与输入的所有连接权重&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;。&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;紧密层还要负责偏置项&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">end</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;（&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;每个神经元都有一个偏置项&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;）&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;向量&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;。&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;当紧密层收到输入数据时&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;就利用公式 10-2 进行计算&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;；&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;
-    
--   接着再添加第二个紧密层&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;激活函数仍然是 <span class="hljs-title">ReLU</span>&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;；&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;
-    
--   最后&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;加上一个拥有 10 个神经元的输出层&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">end</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;（&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;每有一个类就要有一个神经元&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;）&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;激活函数是 <span class="hljs-title">softmax</span>&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">end</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;（&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;保证输出的概率和等于 1&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;因为就只有这是个类&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;，&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;具有排他性&lt;<span class="hljs-title">span</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span>-<span class="hljs-title">box</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">char</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">bd</span> <span class="hljs-title">bd</span>-<span class="hljs-title">beg</span>&quot;&gt;&lt;<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;）&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">inner</span>&gt;&lt;/<span class="hljs-title">h</span>-<span class="hljs-title">char</span>&gt;&lt;/<span class="hljs-title">span</span>&gt;
+<h2 id="两种特定场景的nn">两种特定场景的NN</h2>
+<p><img src="/images/Pasted%20image%2020230216165658.png" alt=""></p>
+<h3 id="使用卷积神经网络实现深度计算机视觉">使用卷积神经网络实现深度计算机视觉</h3>
+<p>卷积神经网络<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>CNN<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>起源于人们对大脑视神经的研究<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自从 1980 年代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CNN 就被用于图像识别了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最近几年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得益于算力提高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>训练数据大增<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及第 11 章中介绍过的训练深度网络的技巧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CNN 在一些非常复杂的视觉任务上取得了超出人类表现的进步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>CNN 支撑了图片搜索<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>无人驾驶汽车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>自动视频分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CNN 也不再限于视觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>语音识别和自然语言处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这一章只介绍视觉应用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>David H. Hubel 和 Torsten Wiesel 在 1958 年和 1959 年在猫的身上做了一系列研究<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对视神经中枢做了研究<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>并在 1981 年荣获了诺贝尔生理学或医学奖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>特别的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们指出视神经中的许多神经元都有一个局部感受域<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>local receptive field<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些神经元只对有限视觉区域的刺激作反应</p>
+<h4 id="卷积层convalutionallayer">卷积层ConvalutionalLayer</h4>
+<p>卷积层是 CNN 最重要的组成部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>第一个卷积层的神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是与图片中的每个像素点都连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是只连着局部感受野的像素<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 14-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>同理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第二个卷积层中的每个神经元也只是连着第一层中一个小方形内的神经元<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种架构可以让第一个隐藏层聚焦于小的低级特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后在下一层组成大而高级的特征</p>
+<p><img src="/img/742bbcc20165cd543798934f27e16a25.png" alt=""></p>
+<p>神经元的权重可以表示为感受野大小的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图 14-5 展示了两套可能的权重<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>称为权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或卷积核<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第一个是黑色的方形<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中央有垂直白线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>7 × 7</code>的矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了中间的竖线都是 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其它地方是 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>使用这个矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>神经元只能注意到中间的垂直线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>因为其它地方都乘以 0 了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第二个过滤器也是黑色的方形<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是中间是水平的白线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>使用这个权重的神经元只会注意中间的白色水平线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如果卷积层的所有神经元使用同样的垂直过滤器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>和同样的偏置项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给神经网络输入图 14-5 中最底下的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>卷积层输出的是左上的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>可以看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图中垂直的白线得到了加强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其余部分变模糊了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>相似的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>右上的图是所有神经元都是用水平线过滤器的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>水平的白线加强了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其余模糊了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一层的全部神经元都用一个过滤器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就能输出一个特征映射<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>feature map<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特征映射可以高亮图片中最为激活过滤器的区域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不用手动定义过滤器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>卷积层在训练中可以自动学习对任务最有用的过滤器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上面的层则可以将简单图案组合为复杂图案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/img/9e4747d2c0ff968eaa1b365b686a336b.png" alt=""></p>
+<p>简单起见<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前面都是将每个卷积层的输出用 2D 层来表示的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但真实的卷积层可能有多个过滤器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>过滤器数量由你确定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个过滤器会输出一个特征映射<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以表示成 3D 更准确</p>
+<p><img src="/img/e3e8c55fa98dd5af8dbe24fcd08d7dca.png" alt=""></p>
+<div class="highlight"><pre class="code"><code>下面代码使用 Scikit-Learn 的`load_sample_image()`加载了两张图片&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;一张是中国的寺庙&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;另一张是花&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;创建了两个过滤器&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;应用到了两张图片上&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;最后展示了一张特征映射&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;：&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;
 
-<span class="hljs-title">model</span> = <span class="hljs-title">keras</span>.<span class="hljs-title">models</span>.<span class="hljs-title">Sequential</span>(<span class="hljs-params">[
-    keras.layers.Flatten(<span class="hljs-params">input_shape=[<span class="hljs-number">28</span>, <span class="hljs-number">28</span>]</span>),
-    keras.layers.Dense(<span class="hljs-params"><span class="hljs-number">300</span>, activation=<span class="hljs-string">&quot;relu&quot;</span></span>),
-    keras.layers.Dense(<span class="hljs-params"><span class="hljs-number">100</span>, activation=<span class="hljs-string">&quot;relu&quot;</span></span>),
-    keras.layers.Dense(<span class="hljs-params"><span class="hljs-number">10</span>, activation=<span class="hljs-string">&quot;softmax&quot;</span></span>)
-]</span>) 
+<span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> load_sample_image
 
-&gt;&gt;&gt; <span class="hljs-title">model</span>.<span class="hljs-title">summary</span>()
-<span class="hljs-title">Model</span>:</span> <span class="hljs-string">&quot;sequential&quot;</span>
-_________________________________________________________________
-Layer (<span class="hljs-built_in">type</span>)                 Output Shape              Param <span class="hljs-comment">#</span>
-=================================================================
-flatten (Flatten)            (<span class="hljs-literal">None</span>, <span class="hljs-number">784</span>)               <span class="hljs-number">0</span>
-_________________________________________________________________
-dense (Dense)                (<span class="hljs-literal">None</span>, <span class="hljs-number">300</span>)               <span class="hljs-number">235500</span>
-_________________________________________________________________
-dense_1 (Dense)              (<span class="hljs-literal">None</span>, <span class="hljs-number">100</span>)               <span class="hljs-number">30100</span>
-_________________________________________________________________
-dense_2 (Dense)              (<span class="hljs-literal">None</span>, <span class="hljs-number">10</span>)                <span class="hljs-number">1010</span>
-=================================================================
-Total params: <span class="hljs-number">266</span>,<span class="hljs-number">610</span>
-Trainable params: <span class="hljs-number">266</span>,<span class="hljs-number">610</span>
-Non-trainable params: <span class="hljs-number">0</span>
+# 加载样本图片
+china = load_sample_image(&quot;china.jpg&quot;) / <span class="hljs-number">255</span>
+flower = load_sample_image(&quot;flower.jpg&quot;) / <span class="hljs-number">255</span>
+/images = np.<span class="hljs-keyword">array</span>([china, flower])
+batch_size, height, width, channels = /images.shape
 
+# 创建两个过滤器
+filters = np.zeros(shape=(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>, channels, <span class="hljs-number">2</span>), dtype=np.float32)
+filters[:, <span class="hljs-number">3</span>, :, <span class="hljs-number">0</span>] = <span class="hljs-number">1</span>  # 垂直线
+filters[<span class="hljs-number">3</span>, :, :, <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>  # 水平线
 
-model.<span class="hljs-built_in">compile</span>(loss=<span class="hljs-string">&quot;sparse_categorical_crossentropy&quot;</span>,
-              optimizer=<span class="hljs-string">&quot;sgd&quot;</span>,
-              metrics=[<span class="hljs-string">&quot;accuracy&quot;</span>]) 
+outputs = tf.nn.conv2d(/images, filters, strides=<span class="hljs-number">1</span>, padding=&quot;same&quot;)
 
+plt.imshow(outputs[<span class="hljs-number">0</span>, :, :, <span class="hljs-number">1</span>], cmap=&quot;gray&quot;) # 画出第 <span class="hljs-number">1</span> 张图的第 <span class="hljs-number">2</span> 个特征映射
+plt.<span class="hljs-keyword">show</span>() 
 
-<span class="hljs-meta">&gt;&gt;&gt; </span>history = model.fit(X_train, y_train, epochs=<span class="hljs-number">30</span>,
-<span class="hljs-meta">... </span>                    validation_data=(X_valid, y_valid))
-...
+这个例子中&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;我们手动定义了过滤器&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;但在真正的 CNN 中&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;一般将过滤器定义为可以训练的变量&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;，&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;好让神经网络学习哪个过滤器的效果最好&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;。&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;使用`keras.layers.Conv2D`层&lt;span <span class="hljs-keyword">class</span>=&quot;bd-box&quot;&gt;&lt;h-<span class="hljs-type">char</span> <span class="hljs-keyword">class</span>=&quot;bd bd-beg&quot;&gt;&lt;h-<span class="hljs-keyword">inner</span>&gt;：&lt;/h-<span class="hljs-keyword">inner</span>&gt;&lt;/h-<span class="hljs-type">char</span>&gt;&lt;/span&gt;
 
-Train on <span class="hljs-number">55000</span> samples, validate on <span class="hljs-number">5000</span> samples
-Epoch <span class="hljs-number">1</span>/<span class="hljs-number">30</span>
-<span class="hljs-number">55000</span>/<span class="hljs-number">55000</span> [======] - 3s 49us/sample - loss: <span class="hljs-number">0.7218</span>     - accuracy: <span class="hljs-number">0.7660</span>
-                                      - val_loss: <span class="hljs-number">0.4973</span> - val_accuracy: <span class="hljs-number">0.8366</span>
-Epoch <span class="hljs-number">2</span>/<span class="hljs-number">30</span>
-<span class="hljs-number">55000</span>/<span class="hljs-number">55000</span> [======] - 2s 45us/sample - loss: <span class="hljs-number">0.4840</span>     - accuracy: <span class="hljs-number">0.8327</span>
-                                      - val_loss: <span class="hljs-number">0.4456</span> - val_accuracy: <span class="hljs-number">0.8480</span>
-[...]
-Epoch <span class="hljs-number">30</span>/<span class="hljs-number">30</span>
-<span class="hljs-number">55000</span>/<span class="hljs-number">55000</span> [======] - 3s 53us/sample - loss: <span class="hljs-number">0.2252</span>     - accuracy: <span class="hljs-number">0.9192</span>
-                                      - val_loss: <span class="hljs-number">0.2999</span> - val_accuracy: <span class="hljs-number">0.8926</span> 
-
-model = keras.layers.Sequential([...]) <span class="hljs-comment"># or keras.Model([...])</span>
-model.<span class="hljs-built_in">compile</span>([...])
-model.fit([...])
-model.save(<span class="hljs-string">&quot;my_keras_model.h5&quot;</span>) 
+conv = keras.layers.Conv2D(filters=<span class="hljs-number">32</span>, kernel_size=<span class="hljs-number">3</span>, strides=<span class="hljs-number">1</span>,
+                           padding=&quot;same&quot;, activation=&quot;relu&quot;) 
 
 </code></pre></div>
-<h3 id="梯度爆炸/消失">梯度爆炸/消失</h3>
-<p>反向传播算法的工作原理是从输出层到输入层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传播误差的梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 一旦该算法已经计算了网络中每个参数的损失函数的梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它就通过梯度下降使用这些梯度来更新每个参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>不幸的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>随着算法进展到较低层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度往往变得越来越小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度下降更新使得低层连接权重实际上保持不变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且训练永远不会收敛到最优解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 这被称为梯度消失问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong>  在某些情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能会发生相反的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>梯度可能变得越来越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>许多层得到了非常大的权重更新<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法发散<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这是梯度爆炸的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在循环神经网络中最为常见<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见第 145 章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 更一般地说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>深度神经网络面临梯度不稳定; 不同的层可能有非常不同的学习率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong></p>
-<p>看一下 logistic 激活函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>参见图 11-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以看到当输入变大<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>负或正<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>函数饱和在 0 或 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导数非常接近 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当反向传播开始时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span> 它几乎没有梯度通过网络传播回来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且由于反向传播通过顶层向下传递<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以存在的小梯度不断地被稀释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此较低层得到的改善很小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/img/076bce42822b56f835ebdc0841cef999.png" alt=""></p>
-<p>Glorot 和 Bengio 在他们的论文中提出了一种显著缓解这个问题的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 我们需要信号在两个方向上正确地流动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在进行预测时是前向的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在反向传播梯度时是逆向的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 我们不希望信号消失<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也不希望它爆炸并饱和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 为了使信号正确流动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作者认为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们需要每层输出的方差等于其输入的方差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且反向传播时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>流经一层的前后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>梯度的方差也要相同<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如果对数学细节感兴趣的话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请查看论文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>实际上不可能保证两者都是一样的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除非这个层具有相同数量的输入和神经元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这两个数被称为该层的扇入<code>fan-in</code>和扇出<code>fan-out</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是他们提出了一个很好的折衷办法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在实践中证明这个折中办法非常好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>随机初始化连接权重必须如公式 11-1 这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中<code>fan[avg] = (fan[in] + fan[out]) / 2</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 这种初始化策略通常被称为 Xavier 初始化或 Glorot 初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
-<img src="/img/846587ae7e6e134d83820799df97c11c.png" alt=""></p>
-<p>消失/爆炸的梯度问题部分是由于激活函数的选择不好造成的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 在那之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大多数人都认为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果大自然选择在生物神经元中使用 sigmoid 激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们必定是一个很好的选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 但事实证明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其他激活函数在深度神经网络中表现得更好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>特别是 ReLU 激活函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要是因为它对正值不会饱和<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也因为它的计算速度很快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong></p>
-<p><img src="/images/Pasted%20image%2020230216123045.png" alt=""></p>
-<p>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ReLU 激活功能并不完美<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> ==它有一个被称为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>ReLU 死区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在训练过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一些神经元会<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>死亡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即它们停止输出 0 以外的任何东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>== 在某些情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可能会发现你网络的一半神经元已经死亡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是使用大学习率时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 在训练期间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果神经元的权重得到更新<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得神经元输入的加权和为负<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则它将开始输出 0 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当这种情况发生时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于当输入为负时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ReLU 函数的梯度为 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>神经元就只能输出 0 了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>为了解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可能需要使用 ReLU 函数的一个变体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>比如 leaky ReLU</strong> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个函数定义为<code>LeakyReLU[α](z)= max(αz, z)</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 11-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>超参数<code>α</code>定义了函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>泄露<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的程度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它是<code>z &lt; 0</code>时函数的斜率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常设置为 0.01<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个小斜率保证 leaky ReLU 永不死亡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>他们可能会长期昏迷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但他们有机会最终醒来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/9679c67f28c8b2370252dc5cc7a45e61.png" alt=""><br>
-图 11-2 Leaky ReLU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>很像 ReLU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但在负区间有小斜率</p>
-<p><strong>指数线性单元<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>exponential linear unit<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ELU<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的新激活函数</strong> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在他们的实验中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ELU 的表现优于所有 ReLU 变体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>训练时间减少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>神经网络在测试集上表现的更好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如图 11-3 所示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>公式 11-2 给出了它的定义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/e40be2d92991f7daafc0b96699a9208e.png" alt=""></p>
-<p><img src="/img/a83b3a515cc64f90660ae88f90fa182c.png" alt=""></p>
+<p><code>tf.nn.conv2d()</code>函数这一行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再多说说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p><code>/images</code>是一个输入的小批次<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>4D 张量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p><code>filters</code>是过滤器的集合<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也是 4D 张量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p><code>strides</code>等于 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也可以是包含 4 个元素的 1D 数组<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间的两个元素是垂直和水平步长<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>s[h]</code>和<code>s[w]</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第一个和最后一个元素现在必须是 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以后可以用来指定批次步长<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>跳过实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和通道步长<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>跳过前一层的特征映射或通道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p><code>padding</code>必须是<code>&quot;same&quot;</code>或<code>&quot;valid&quot;</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+</li>
+<li>
+<p>如果设为<code>&quot;same&quot;</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>卷积层会使用零填充<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>输出的大小是输入神经元的数量除以步长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再取整<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果输入大小是 13<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>步长是 5<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见图 14-7<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则输出大小是 3<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>13 / 5 = 2.6</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再向上圆整为 3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>零填充尽量在输入上平均添加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当<code>strides=1</code>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>层的输出会和输入有相同的空间维度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>宽和高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就是<code>same</code>的来历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>如果设为<code>&quot;valid&quot;</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>卷积层就不使用零填充<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>取决于步长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能会忽略图片的输入图片的底部或右侧的行和列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>见图 14-7<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>简单举例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是显示了水平维度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这意味着每个神经元的感受野位于严格确定的图片中的位置<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不会越界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就是<code>valid</code>的来历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<blockquote>
+<p>CNN 的另一个问题是卷积层需要很高的内存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>特别是在训练时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为反向传播需要所有前向传播的中间值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
 
       
     </div>
@@ -359,650 +1099,11 @@ model.save(<span class="hljs-string">&quot;my_keras_model.h5&quot;</span>)
 
 
   
-    <article id="post-posts/FormalMethodReview" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/02/15/posts/FormalMethodReview/" class="article-date">
-  <time class="dt-published" datetime="2023-02-14T16:00:00.000Z" itemprop="datePublished">2023-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/02/15/posts/FormalMethodReview/">2022Fall_FormalMethod Review</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>课程主页: <a target="_blank" rel="noopener" href="https://csslab-ustc.github.io/courses/theory/index.html">Formal Methods Foundation (csslab-ustc.github.io)</a></li>
-<li>课程逻辑<br>
-<img src="/images/Pasted%20image%2020230214182650.png" alt=""></li>
-<li>课程大纲<br>
-<img src="/images/Pasted%20image%2020230214192201.png" alt=""></li>
-<li>考试内容: 开卷
-<ul>
-<li>命题逻辑(证明树推导, 规则使用)</li>
-<li>构造逻辑(与命题逻辑区别)</li>
-<li>SAT(是命题逻辑部分的可满足性问题)</li>
-<li>Theory(谓词逻辑满足性定理)</li>
-<li>符号执行/混合执行</li>
-</ul>
-</li>
-</ul>
-<h2 id="_数学基础">_数学基础</h2>
-<h3 id="计算复杂性理论">计算复杂性理论</h3>
-<p><img src="/images/Pasted%20image%2020230214131457.png" alt=""></p>
-<h3 id="上下文无关文法">上下文无关文法</h3>
-<p><img src="/images/Pasted%20image%2020230214132024.png" alt=""></p>
-<p>具体例子:</p>
-<ol>
-<li><img src="/images/Pasted%20image%2020230214132514.png" alt=""></li>
-<li><img src="/images/Pasted%20image%2020230214132823.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214132912.png" alt=""></li>
-</ol>
-<ul>
-<li>上述推导 _存在二义性:<br>
-<img src="/images/Pasted%20image%2020230214132943.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214133458.png" alt=""></li>
-</ul>
-<h3 id="结构化归纳法">结构化归纳法</h3>
-<p><img src="/images/Pasted%20image%2020230214135052.png" alt=""><img src="/images/Pasted%20image%2020230214135247.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214135945.png" alt=""></p>
-<h2 id="命题逻辑">命题逻辑</h2>
-<p><img src="/images/Pasted%20image%2020230214140238.png" alt=""></p>
-<h3 id="证明系统:-自然演绎(经典命题逻辑)">证明系统: 自然演绎(经典命题逻辑)</h3>
-<h4 id="基本概念">基本概念</h4>
-<ul>
-<li>
-<p>环境: 一组命题 假定是真的<br>
-<img src="/images/Pasted%20image%2020230214140546.png" alt=""></p>
-</li>
-<li>
-<p>断言:<br>
-<img src="/images/Pasted%20image%2020230214140624.png" alt=""><br>
-( |- 的意思是 等价 )</p>
-</li>
-</ul>
-<h4 id="证明规则">证明规则</h4>
-<p><img src="/images/Pasted%20image%2020230214142023.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214140807.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230214140949.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214141134.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214141229.png" alt=""></p>
-<ul>
-<li>
-<p>合取(Conjunction理解为And)<br>
-<img src="/images/Pasted%20image%2020230214141459.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214141514.png" alt=""></p>
-</li>
-<li>
-<p>析取(Disjunction理解为Or)<br>
-<img src="/images/Pasted%20image%2020230214141807.png" alt=""></p>
-</li>
-<li>
-<p>蕴含<br>
-<img src="/images/Pasted%20image%2020230214141841.png" alt=""></p>
-</li>
-<li>
-<p>否定<br>
-<img src="/images/Pasted%20image%2020230214142119.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214142209.png" alt=""></p>
-</li>
-</ul>
-<h4 id="证明--历年考题(证明规则的运用)">证明–历年考题(证明规则的运用)</h4>
-<p>推导的循序是自下往上<br>
-<img src="/images/Pasted%20image%2020230214142241.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214142641.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214163103.png" alt=""><br>
-<a href="_assets/Video/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B62023-02-14%20%E4%B8%8B%E5%8D%884.24.05.mov">历史考题1</a></p>
-<p><img src="/images/Pasted%20image%2020230214151945.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214151930.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214163116.png" alt=""></p>
-<p>考试题型: 证明题</p>
-<h3 id="构造逻辑">构造逻辑</h3>
-<p><img src="/images/Pasted%20image%2020230214163337.png" alt=""></p>
-<ul>
-<li>不能使用反证法</li>
-</ul>
-<h2 id="sat(布尔可满足性)问题/dpll算法">SAT(布尔可满足性)问题/DPLL算法</h2>
-<p><em>SAT是针对命题逻辑的可满足性问题</em><br>
-<img src="/images/Pasted%20image%2020230214163606.png" alt=""><br>
-例:<br>
-<img src="/images/Pasted%20image%2020230214163910.png" alt=""><br>
-穷举法<br>
-但时间增长速度快(指数级)<br>
-提出了DPLL</p>
-<p><strong>DPLL算法的输入必须是合取范式CNF</strong><br>
-<img src="/images/Pasted%20image%2020230214164202.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214164316.png" alt=""></p>
-<h3 id="cnf(合取范式)">CNF(合取范式)</h3>
-<p><strong>合取范式中:</strong></p>
-<ul>
-<li>最外层的符号都是合取</li>
-<li>否定符号一定出现在原子命题前</li>
-<li>不能有蕴含(-&gt;)符号</li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230214164500.png" alt=""></p>
-<p><strong>转换命题为CNF范式:</strong><br>
-<img src="/images/Pasted%20image%2020230214183447.png" alt=""><img src="/images/Pasted%20image%2020230214164508.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214164717.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214175246.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230214175746.png" alt=""><br>
-<em>增加了优先级</em></p>
-<p>例子:<br>
-<img src="/images/Pasted%20image%2020230214164810.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214175631.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214180058.png" alt=""></p>
-<blockquote>
-<p>可能会考到<br>
-<img src="/images/Pasted%20image%2020230214180149.png" alt=""></p>
-</blockquote>
-<h3 id="_解析和传播">_解析和传播</h3>
-<p>不做过多解释<br>
-CNF不可解–解析推出矛盾<br>
-<img src="/images/Pasted%20image%2020230214180810.png" alt=""><br>
-CNF解析不冲突–传播<br>
-<img src="/images/Pasted%20image%2020230214180938.png" alt=""></p>
-<h3 id="dpll">DPLL</h3>
-<p><img src="/images/Pasted%20image%2020230214184140.png" alt=""></p>
-<ul>
-<li><strong>bcp§</strong><br>
-<img src="/images/Pasted%20image%2020230214185551.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214184259.png" alt=""><br>
-单元解析: 两个子句之间必须有一个是原子命题</li>
-</ul>
-<p>bcp通俗来说: 两个命题中有一个是原子命题§,  另一个是含有p析取(~/否定)的复合命题, 传播得出等价的不含原子命题的新命题(q)</p>
-<ul>
-<li>
-<p>例子<br>
-<img src="/images/Pasted%20image%2020230214185142.png" alt=""><br>
-上面的过程完成了一次布尔约束传播(bcp)</p>
-</li>
-<li>
-<p>_选择变量(递归地)<br>
-<img src="/images/Pasted%20image%2020230214185620.png" alt=""></p>
-</li>
-</ul>
-<h3 id="sat-vs valid">SAT vs. valid</h3>
-<p><img src="/images/Pasted%20image%2020230214185943.png" alt=""></p>
-<blockquote>
-<p>SAT基于的是命题逻辑(不接受排中律, 可以用反证法)</p>
-</blockquote>
-<h2 id="谓词逻辑">谓词逻辑</h2>
-<p>谓词逻辑是命题逻辑的<strong>细化</strong></p>
-<ul>
-<li>增加了原子逻辑上更细化的定义</li>
-<li>引入了一些量词(全称, 存在)<br>
-<img src="/images/Pasted%20image%2020230214192317.png" alt=""></li>
-</ul>
-<h3 id="新增(相对命题逻辑)的概念:">新增(相对命题逻辑)的概念:</h3>
-<p><img src="/images/Pasted%20image%2020230214193901.png" alt=""></p>
-<blockquote>
-<p>x是自由变量, y是绑定变量, 替换操作只能针对自由变量. α重命名不能让变量名冲突</p>
-</blockquote>
-<h4 id="计算绑定变量">计算绑定变量</h4>
-<p>输入: 谓词逻辑命题<br>
-输出: 绑定变量集合<br>
-<img src="/images/Pasted%20image%2020230214212957.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214202241.png" alt=""></p>
-<h4 id="计算自由变量">计算自由变量</h4>
-<p><img src="/images/Pasted%20image%2020230214213026.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214213044.png" alt=""></p>
-<blockquote>
-<p>一个变量有可能同时是绑定变量和自由变量(例子中的y)</p>
-</blockquote>
-<h4 id="替换规则">替换规则</h4>
-<p>输入: 命题<br>
-输出: 命题<br>
-只替换自由变量, 替换前要求解绑定/自由变量, 自由变量替换前要进行α重命名</p>
-<p><img src="/images/Pasted%20image%2020230214214130.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214214151.png" alt=""></p>
-<h3 id="证明系统:-自然演绎">证明系统: 自然演绎</h3>
-<p>原先的命题逻辑规则和推导方法<a href="_posts/FormalMethodReview.md#%E8%AF%81%E6%98%8E%E7%B3%BB%E7%BB%9F:%20%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E(%E7%BB%8F%E5%85%B8%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91)">证明系统: 自然演绎(经典命题逻辑)</a> 在这里也适用, 这里只列出了新增的四条规则<br>
-<img src="/images/Pasted%20image%2020230214192927.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214220059.png" alt=""></p>
-<ul>
-<li>全称量词的引入<br>
-<img src="/images/Pasted%20image%2020230214220158.png" alt=""></li>
-<li>存在量词的引入<br>
-<img src="/images/Pasted%20image%2020230214220215.png" alt=""></li>
-<li>全称量词的消去<br>
-<img src="/images/Pasted%20image%2020230214220221.png" alt=""></li>
-<li>存在量词的消去<br>
-<img src="/images/Pasted%20image%2020230214220226.png" alt=""></li>
-</ul>
-<p>例题:<br>
-<img src="/images/Pasted%20image%2020230214220657.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214220704.png" alt=""></p>
-<h2 id="smt可满足性模理论">SMT可满足性模理论</h2>
-<p>求解谓词逻辑可满足性求解<br>
-理论是谓词逻辑语法的<strong>子集</strong></p>
-<p><img src="/images/Pasted%20image%2020230214221907.png" alt=""></p>
-<h3 id="等式理论/euf理论">等式理论/EUF理论</h3>
-<p><img src="/images/Pasted%20image%2020230214222113.png" alt=""></p>
-<ul>
-<li>未解释函数定义<br>
-<img src="/images/Pasted%20image%2020230214222221.png" alt=""></li>
-<li>EUF(等式与未解释函数定义)<br>
-<img src="/images/Pasted%20image%2020230214222404.png" alt=""></li>
-<li>全等定理<br>
-用于证明函数之间等价<br>
-<img src="/images/Pasted%20image%2020230214222529.png" alt=""><br>
-例子1: 证明两个程序等价</li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215141849.png" alt=""><br>
-改写为静态单赋值(SSA)形式<br>
-把乘法(*)抽象为抽象函数<br>
-<img src="/images/Pasted%20image%2020230215142611.png" alt=""></p>
-<p>例子2: 编译<br>
-<img src="/images/Pasted%20image%2020230215143021.png" alt=""></p>
-<h3 id="线性算数(la)理论">线性算数(LA)理论</h3>
-<p><img src="/images/Pasted%20image%2020230215145625.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215145807.png" alt=""></p>
-<h4 id="消元法">消元法</h4>
-<p><img src="/images/Pasted%20image%2020230215145822.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215150013.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215150058.png" alt=""><br>
-做题中</p>
-<ul>
-<li>右边改成0</li>
-<li>符号改成一样<br>
-<img src="/images/Pasted%20image%2020230215150403.png" alt=""></li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215152150.png" alt=""><br>
-<strong>例子 : (考试要考消元法)</strong><br>
-<img src="/images/Pasted%20image%2020230215153637.png" alt=""><br>
-往上代入, 有一组解<br>
-说明这一组约束是可满足的</p>
-<h4 id="_单纯形法">_单纯形法</h4>
-<p><img src="/images/Pasted%20image%2020230215153749.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215153830.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215154018.png" alt=""><br>
-不考<br>
-…</p>
-<h4 id="_分支定界">_分支定界</h4>
-<p>不考<br>
-…</p>
-<hr>
-<p><img src="/images/Pasted%20image%2020230215155316.png" alt=""></p>
-<h3 id="比特向量理论">比特向量理论</h3>
-<p>语法<br>
-<img src="/images/Pasted%20image%2020230215155339.png" alt=""></p>
-<p>语义<br>
-<img src="/images/Pasted%20image%2020230215155440.png" alt=""><br>
-把bit向量映射到正数域:</p>
-<ul>
-<li>有符号</li>
-<li>无符号</li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215155632.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215160717.png" alt=""></p>
-<ul>
-<li>
-<p><code>bitBlast()</code> 比特爆炸<br>
-<img src="/images/Pasted%20image%2020230215160834.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215161111.png" alt=""><br>
-递归生成树:<br>
-<img src="/images/Pasted%20image%2020230215161212.png" alt=""></p>
-</li>
-<li>
-<p><code>genCons()</code> 生成限制</p>
-</li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215161542.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215161915.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215161950.png" alt=""></p>
-<h3 id="数组理论">数组理论</h3>
-<p><img src="/images/Pasted%20image%2020230215170153.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215170249.png" alt=""><br>
-数组读写的消去<br>
-<img src="/images/Pasted%20image%2020230215170355.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215170507.png" alt=""></p>
-<p>例子:<br>
-<img src="/images/Pasted%20image%2020230215170829.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215170945.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215170953.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215171005.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215171015.png" alt=""></p>
-<p>分类讨论: z&lt;i / z=i / z&gt;i</p>
-<h3 id="指针理论:-内存模型">指针理论: 内存模型</h3>
-<p><img src="/images/Pasted%20image%2020230215171324.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215171332.png" alt=""></p>
-<blockquote>
-<p>地址T 值类型E 关系R 复合命题P</p>
-</blockquote>
-<p><img src="/images/Pasted%20image%2020230215171529.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230215172150.png" alt=""></p>
-<p>决策过程优化方法:</p>
-<ul>
-<li>
-<p>纯变量<br>
-<img src="/images/Pasted%20image%2020230215172250.png" alt=""></p>
-</li>
-<li>
-<p>内存分区<br>
-<img src="/images/Pasted%20image%2020230215172436.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230215180337.png" alt=""></p>
-</li>
-</ul>
-<h3 id="理论结合">理论结合</h3>
-<p><img src="/images/Pasted%20image%2020230215180605.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215180641.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215180835.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230215180859.png" alt=""></p>
-<ul>
-<li>例子<br>
-<img src="/images/Pasted%20image%2020230215180933.png" alt=""><br>
-不同理论分开求解<br>
-<img src="/images/Pasted%20image%2020230215181059.png" alt=""></li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230215181447.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230215181435.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-diary/2023-02-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/02/14/diary/2023-02-14/" class="article-date">
-  <time class="dt-published" datetime="2023-02-13T16:00:00.000Z" itemprop="datePublished">2023-02-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/02/14/diary/2023-02-14/">2023-02-14_dailylog_</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="formalmethods(上半部分)">FormalMethods(上半部分)</h1>
-<ul>
-<li>课程主页: <a target="_blank" rel="noopener" href="https://csslab-ustc.github.io/courses/theory/index.html">Formal Methods Foundation (csslab-ustc.github.io)</a></li>
-<li>课程逻辑<br>
-<img src="/images/Pasted%20image%2020230214182650.png" alt=""></li>
-<li>课程大纲<br>
-<img src="/images/Pasted%20image%2020230214192201.png" alt=""></li>
-<li>考试内容: 开卷
-<ul>
-<li>命题逻辑(证明树推导, 规则使用)</li>
-<li>构造逻辑(与命题逻辑区别)</li>
-<li>SAT(是命题逻辑部分的可满足性问题)</li>
-<li>Theory(谓词逻辑满足性定理)</li>
-<li>符号执行/混合执行</li>
-</ul>
-</li>
-</ul>
-<h2 id="_数学基础">_数学基础</h2>
-<h3 id="计算复杂性理论">计算复杂性理论</h3>
-<p><img src="/images/Pasted%20image%2020230214131457.png" alt=""></p>
-<h3 id="上下文无关文法">上下文无关文法</h3>
-<p><img src="/images/Pasted%20image%2020230214132024.png" alt=""></p>
-<p>具体例子:</p>
-<ol>
-<li><img src="/images/Pasted%20image%2020230214132514.png" alt=""></li>
-<li><img src="/images/Pasted%20image%2020230214132823.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214132912.png" alt=""></li>
-</ol>
-<ul>
-<li>上述推导 _存在二义性:<br>
-<img src="/images/Pasted%20image%2020230214132943.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214133458.png" alt=""></li>
-</ul>
-<h3 id="结构化归纳法">结构化归纳法</h3>
-<p><img src="/images/Pasted%20image%2020230214135052.png" alt=""><img src="/images/Pasted%20image%2020230214135247.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214135945.png" alt=""></p>
-<h2 id="命题逻辑">命题逻辑</h2>
-<p><img src="/images/Pasted%20image%2020230214140238.png" alt=""></p>
-<h3 id="证明系统:-自然演绎(经典命题逻辑)">证明系统: 自然演绎(经典命题逻辑)</h3>
-<h4 id="基本概念">基本概念</h4>
-<ul>
-<li>
-<p>环境: 一组命题 假定是真的<br>
-<img src="/images/Pasted%20image%2020230214140546.png" alt=""></p>
-</li>
-<li>
-<p>断言:<br>
-<img src="/images/Pasted%20image%2020230214140624.png" alt=""><br>
-( |- 的意思是 等价 )</p>
-</li>
-</ul>
-<h4 id="证明规则">证明规则</h4>
-<p><img src="/images/Pasted%20image%2020230214142023.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214140807.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230214140949.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214141134.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214141229.png" alt=""></p>
-<ul>
-<li>
-<p>合取(Conjunction理解为And)<br>
-<img src="/images/Pasted%20image%2020230214141459.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214141514.png" alt=""></p>
-</li>
-<li>
-<p>析取(Disjunction理解为Or)<br>
-<img src="/images/Pasted%20image%2020230214141807.png" alt=""></p>
-</li>
-<li>
-<p>蕴含<br>
-<img src="/images/Pasted%20image%2020230214141841.png" alt=""></p>
-</li>
-<li>
-<p>否定<br>
-<img src="/images/Pasted%20image%2020230214142119.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214142209.png" alt=""></p>
-</li>
-</ul>
-<h4 id="证明--历年考题(证明规则的运用)">证明–历年考题(证明规则的运用)</h4>
-<p>推导的循序是自下往上<br>
-<img src="/images/Pasted%20image%2020230214142241.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214142641.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214163103.png" alt=""><br>
-<a href="_assets/Video/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B62023-02-14%20%E4%B8%8B%E5%8D%884.24.05.mov">历史考题1</a></p>
-<p><img src="/images/Pasted%20image%2020230214151945.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214151930.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214163116.png" alt=""></p>
-<p>考试题型: 证明题</p>
-<h3 id="构造逻辑">构造逻辑</h3>
-<p><img src="/images/Pasted%20image%2020230214163337.png" alt=""></p>
-<ul>
-<li>不能使用反证法</li>
-</ul>
-<h2 id="sat(布尔可满足性)问题/dpll算法">SAT(布尔可满足性)问题/DPLL算法</h2>
-<p><em>SAT是针对命题逻辑的可满足性问题</em><br>
-<img src="/images/Pasted%20image%2020230214163606.png" alt=""><br>
-例:<br>
-<img src="/images/Pasted%20image%2020230214163910.png" alt=""><br>
-穷举法<br>
-但时间增长速度快(指数级)<br>
-提出了DPLL</p>
-<p><strong>DPLL算法的输入必须是合取范式CNF</strong><br>
-<img src="/images/Pasted%20image%2020230214164202.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214164316.png" alt=""></p>
-<h3 id="cnf(合取范式)">CNF(合取范式)</h3>
-<p><strong>合取范式中:</strong></p>
-<ul>
-<li>最外层的符号都是合取</li>
-<li>否定符号一定出现在原子命题前</li>
-<li>不能有蕴含(-&gt;)符号</li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230214164500.png" alt=""></p>
-<p><strong>转换命题为CNF范式:</strong><br>
-<img src="/images/Pasted%20image%2020230214183447.png" alt=""><img src="/images/Pasted%20image%2020230214164508.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214164717.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214175246.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230214175746.png" alt=""><br>
-<em>增加了优先级</em></p>
-<p>例子:<br>
-<img src="/images/Pasted%20image%2020230214164810.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214175631.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214180058.png" alt=""></p>
-<blockquote>
-<p>可能会考到<br>
-<img src="/images/Pasted%20image%2020230214180149.png" alt=""></p>
-</blockquote>
-<h3 id="_解析和传播">_解析和传播</h3>
-<p>不做过多解释<br>
-CNF不可解–解析推出矛盾<br>
-<img src="/images/Pasted%20image%2020230214180810.png" alt=""><br>
-CNF解析不冲突–传播<br>
-<img src="/images/Pasted%20image%2020230214180938.png" alt=""></p>
-<h3 id="dpll">DPLL</h3>
-<p><img src="/images/Pasted%20image%2020230214184140.png" alt=""></p>
-<ul>
-<li><strong>bcp§</strong><br>
-<img src="/images/Pasted%20image%2020230214185551.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214184259.png" alt=""><br>
-单元解析: 两个子句之间必须有一个是原子命题</li>
-</ul>
-<p>bcp通俗来说: 两个命题中有一个是原子命题§,  另一个是含有p析取(~/否定)的复合命题, 传播得出等价的不含原子命题的新命题(q)</p>
-<ul>
-<li>
-<p>例子<br>
-<img src="/images/Pasted%20image%2020230214185142.png" alt=""><br>
-上面的过程完成了一次布尔约束传播(bcp)</p>
-</li>
-<li>
-<p>_选择变量(递归地)<br>
-<img src="/images/Pasted%20image%2020230214185620.png" alt=""></p>
-</li>
-</ul>
-<h3 id="sat-vs valid">SAT vs. valid</h3>
-<p><img src="/images/Pasted%20image%2020230214185943.png" alt=""></p>
-<blockquote>
-<p>SAT基于的是命题逻辑(不接受排中律, 可以用反证法)</p>
-</blockquote>
-<h2 id="谓词逻辑">谓词逻辑</h2>
-<p>谓词逻辑是命题逻辑的<strong>细化</strong></p>
-<ul>
-<li>增加了原子逻辑上更细化的定义</li>
-<li>引入了一些量词(全称, 存在)<br>
-<img src="/images/Pasted%20image%2020230214192317.png" alt=""></li>
-</ul>
-<h3 id="新增(相对命题逻辑)的概念:">新增(相对命题逻辑)的概念:</h3>
-<p><img src="/images/Pasted%20image%2020230214193901.png" alt=""></p>
-<blockquote>
-<p>x是自由变量, y是绑定变量, 替换操作只能针对自由变量. α重命名不能让变量名冲突</p>
-</blockquote>
-<h4 id="计算绑定变量">计算绑定变量</h4>
-<p>输入: 谓词逻辑命题<br>
-输出: 绑定变量集合<br>
-<img src="/images/Pasted%20image%2020230214212957.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214202241.png" alt=""></p>
-<h4 id="计算自由变量">计算自由变量</h4>
-<p><img src="/images/Pasted%20image%2020230214213026.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214213044.png" alt=""></p>
-<blockquote>
-<p>一个变量有可能同时是绑定变量和自由变量(例子中的y)</p>
-</blockquote>
-<h4 id="替换规则">替换规则</h4>
-<p>输入: 命题<br>
-输出: 命题<br>
-只替换自由变量, 替换前要求解绑定/自由变量, 自由变量替换前要进行α重命名</p>
-<p><img src="/images/Pasted%20image%2020230214214130.png" alt=""><br>
-例子:<br>
-<img src="/images/Pasted%20image%2020230214214151.png" alt=""></p>
-<h3 id="证明系统:-自然演绎">证明系统: 自然演绎</h3>
-<p>原先的命题逻辑规则和推导方法<a href="_posts/diary/2023-02-14.md#%E8%AF%81%E6%98%8E%E7%B3%BB%E7%BB%9F:%20%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E(%E7%BB%8F%E5%85%B8%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91)">证明系统: 自然演绎(经典命题逻辑)</a> 在这里也适用, 这里只列出了新增的四条规则<br>
-<img src="/images/Pasted%20image%2020230214192927.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214220059.png" alt=""></p>
-<ul>
-<li>全称量词的引入<br>
-<img src="/images/Pasted%20image%2020230214220158.png" alt=""></li>
-<li>存在量词的引入<br>
-<img src="/images/Pasted%20image%2020230214220215.png" alt=""></li>
-<li>全称量词的消去<br>
-<img src="/images/Pasted%20image%2020230214220221.png" alt=""></li>
-<li>存在两次的消去<br>
-<img src="/images/Pasted%20image%2020230214220226.png" alt=""></li>
-</ul>
-<p>例题:<br>
-<img src="/images/Pasted%20image%2020230214220657.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230214220704.png" alt=""></p>
-<h2 id="smt可满足性模理论">SMT可满足性模理论</h2>
-<p>求解谓词逻辑可满足性求解<br>
-理论是谓词逻辑语法的<strong>子集</strong></p>
-<p><img src="/images/Pasted%20image%2020230214221907.png" alt=""></p>
-<h3 id="等式理论/euf理论">等式理论/EUF理论</h3>
-<p><img src="/images/Pasted%20image%2020230214222113.png" alt=""></p>
-<ul>
-<li>未解释函数定义<br>
-<img src="/images/Pasted%20image%2020230214222221.png" alt=""></li>
-<li>EUF(等式与未解释函数定义)<br>
-<img src="/images/Pasted%20image%2020230214222404.png" alt=""></li>
-<li>全等定理<br>
-用于证明函数之间等价<br>
-<img src="/images/Pasted%20image%2020230214222529.png" alt=""><br>
-例子1: 证明两个程序等价</li>
-</ul>
-<p><img src="images/Pasted%20image%2020230215141849.png" alt=""><br>
-改写为静态单赋值(SSA)形式<br>
-把乘法(*)抽象为抽象函数<br>
-<img src="images/Pasted%20image%2020230215142611.png" alt=""></p>
-<p>例子2: 编译<br>
-<img src="images/Pasted%20image%2020230215143021.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../4/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../3/">3</a><a class="page-number" href="../4/">4</a><span class="page-number current">5</span><a class="page-number" href="../6/">6</a><a class="page-number" href="../7/">7</a><span class="space">&hellip;</span><a class="page-number" href="../10/">10</a><a class="extend next" rel="next" href="../6/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../4/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../3/">3</a><a class="page-number" href="../4/">4</a><span class="page-number current">5</span><a class="page-number" href="../6/">6</a><a class="page-number" href="../7/">7</a><span class="space">&hellip;</span><a class="page-number" href="../11/">11</a><a class="extend next" rel="next" href="../6/">下一页 &raquo;</a>
   </nav>
 
 </section>
