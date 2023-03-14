@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>2023-03-14_dailylog_ | kpkpy&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="关联式容器
+STL源码剖析
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set
+
+
+
+
+map
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+算法
+
+
+
+
+
+算法的泛化
+
+
+
+
+
+
+
+
+
+数值算法 &amp;lt;numeric&amp;gt;
+accumulate
+
+adjacent_difference
+
+
+
+
+">
+  
+  
+  
+    <link rel="shortcut icon" href="https://kpkpy.github.io/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/diary">Diaries</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">kpkpy&#39;s Blog</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-diary/2023-03-14" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-03-13T16:00:00.000Z" itemprop="datePublished">2023-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      2023-03-14_dailylog_
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="关联式容器">关联式容器</h2>
+<p><a href="_assets/PDF/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90.pdf">STL源码剖析</a></p>
+<p><img src="/images/Pasted%20image%2020230314102354.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314102409.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314102900.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314102915.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314103010.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314103040.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314103349.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314104412.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314104429.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314104437.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314104930.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314105424.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314105447.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314110014.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314110022.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314110051.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314110101.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314110110.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314110123.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314110337.png" alt=""></p>
+<h3 id="set">set</h3>
+<p><img src="/images/Pasted%20image%2020230314111126.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111224.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111234.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111505.png" alt=""></p>
+<h3 id="map">map</h3>
+<p><img src="/images/Pasted%20image%2020230314111530.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314111552.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111622.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111658.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111733.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111821.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314111830.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314112553.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314112730.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314112840.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314112749.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314112811.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314112940.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314112955.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314113823.png" alt=""><img src="/images/Pasted%20image%2020230314113828.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314113922.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314114258.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314114240.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314114325.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314114333.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314201545.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314201609.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314201626.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314201912.png" alt=""></p>
+<h2 id="算法">算法</h2>
+<p><img src="/images/Pasted%20image%2020230314202355.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314202403.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314202423.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314202437.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314202447.png" alt=""></p>
+<h3 id="算法的泛化">算法的泛化</h3>
+<p><img src="/images/Pasted%20image%2020230314202546.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314203207.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314203752.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314203908.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314203952.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314204004.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314204108.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314204159.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314204440.png" alt=""></p>
+<h3 id="数值算法-\<numeric\>">数值算法 &lt;numeric&gt;</h3>
+<h4 id="accumulate">accumulate</h4>
+<p><img src="/images/Pasted%20image%2020230314204804.png" alt=""></p>
+<h4 id="adjacent_difference">adjacent_difference</h4>
+<p><img src="/images/Pasted%20image%2020230314205243.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314205330.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314205336.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314205320.png" alt=""></p>
+<h4 id="partial_sum">partial_sum</h4>
+<p><img src="/images/Pasted%20image%2020230314205804.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314205819.png" alt=""></p>
+<h4 id="power">power</h4>
+<p><img src="/images/Pasted%20image%2020230314205844.png" alt=""></p>
+<h3 id="algobase\<stl_algobaseh\>">algobase&lt;stl_algobase.h&gt;</h3>
+<h4 id="equal">equal</h4>
+<p><img src="/images/Pasted%20image%2020230314210218.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314210228.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314210243.png" alt=""></p>
+<h4 id="fill/fill_n">fill/fill_n</h4>
+<p><img src="/images/Pasted%20image%2020230314210300.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314210325.png" alt=""></p>
+<h4 id="iter_swap">iter_swap</h4>
+<p><img src="/images/Pasted%20image%2020230314210349.png" alt=""></p>
+<blockquote>
+<p><img src="/images/Pasted%20image%2020230314210607.png" alt=""></p>
+</blockquote>
+<h4 id="lexicographical_compare">lexicographical_compare</h4>
+<p><img src="/images/Pasted%20image%2020230314210836.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314210851.png" alt=""></p>
+<h4 id="max/min">max/min</h4>
+<p><img src="/images/Pasted%20image%2020230314211029.png" alt=""></p>
+<h4 id="mismatch">mismatch</h4>
+<p><img src="/images/Pasted%20image%2020230314211101.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314211113.png" alt=""></p>
+<h4 id="swap">swap</h4>
+<p><img src="/images/Pasted%20image%2020230314211142.png" alt=""></p>
+<h4 id="**copy**"><strong>copy</strong></h4>
+<p><img src="/images/Pasted%20image%2020230314211424.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314211438.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314211510.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314211519.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314221740.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314221756.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314221807.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314221816.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314222446.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314222807.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314222833.png" alt=""></p>
+<h3 id="set相关算法">set相关算法</h3>
+<p><img src="/images/Pasted%20image%2020230314224154.png" alt=""></p>
+<h4 id="set_union">set_union</h4>
+<p><img src="/images/Pasted%20image%2020230314224557.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314224624.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314224735.png" alt=""></p>
+<h4 id="set_intersection">set_intersection</h4>
+<p><img src="/images/Pasted%20image%2020230314225857.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314230323.png" alt=""></p>
+<h4 id="set_difference">set_difference</h4>
+<p><img src="/images/Pasted%20image%2020230314230304.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314230343.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230314230336.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230314230353.png" alt=""></p>
+<h4 id="set_symmetric_difference">set_symmetric_difference</h4>
+<p><img src="/images/Pasted%20image%2020230314230433.png" alt=""></p>
+<h3 id="其他算法">其他算法</h3>
+<p>…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/cpp/" rel="tag">cpp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/diary/" rel="tag">diary</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../13/diary/2023-03-13/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          2023-03-13_dailylog_
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../way2/diary" class="mobile-nav-link">Diaries</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+</body>
+</html>
