@@ -44,6 +44,399 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-diary/2023-02-09" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2023/02/09/diary/2023-02-09/" class="article-date">
+  <time class="dt-published" datetime="2023-02-08T16:00:00.000Z" itemprop="datePublished">2023-02-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2023/02/09/diary/2023-02-09/">2023-02-09_dailylog_</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="/_assets/PDF/CLRS3E.pdf#page=279">CLRS3E</a></p>
+<h2 id="动态表">动态表</h2>
+<p><img src="/images/Pasted%20image%2020230209140526.png" alt=""><img src="/images/Pasted%20image%2020230209140605.png" alt=""></p>
+<h3 id="表扩张">表扩张</h3>
+<p><img src="/images/Pasted%20image%2020230209141456.png" alt=""></p>
+<ul>
+<li>
+<p>聚合分析<br>
+<img src="/images/Pasted%20image%2020230209143016.png" alt=""></p>
+</li>
+<li>
+<p>核算法<br>
+<img src="/images/Pasted%20image%2020230209143124.png" alt=""></p>
+</li>
+<li>
+<p><strong>势能法</strong><br>
+<img src="/images/Pasted%20image%2020230209144018.png" alt=""></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230209144034.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230209144048.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209144109.png" alt=""></p>
+<h3 id="表收缩(和扩张)">表收缩(和扩张)</h3>
+<p><img src="/images/Pasted%20image%2020230209145751.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209145817.png" alt=""></p>
+<ul>
+<li><strong>势能法分析</strong><br>
+<img src="/images/Pasted%20image%2020230209153157.png" alt=""></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230209153855.png" alt=""><br>
+<em>注意势函数为分段函数</em><br>
+<img src="/images/Pasted%20image%2020230209154056.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230209154158.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230209154218.png" alt=""></p>
+<hr>
+<h2 id="如何训练模型?梯度下降">如何训练模型?梯度下降</h2>
+<p>梯度下降是一种非常通用的优化算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它能够很好地解决一系列问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>梯度下降的整体思路是通过的迭代来逐渐调整参数使得损失函数达到最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>假设浓雾下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你迷失在了大山中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你只能感受到自己脚下的坡度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了最快到达山底<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个最好的方法就是沿着坡度最陡的地方下山<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这其实就是梯度下降所做的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它计算误差函数关于参数向量<code>Θ</code>的局部梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时它沿着梯度下降的方向进行下一次迭代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当梯度值为零的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就达到了误差函数最小值 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>具体来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开始时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要选定一个随机的<code>Θ</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这个值称为随机初始值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后逐渐去改进它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一次变化一小步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一步都试着降低损失函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>均方差损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到算法收敛到一个最小值<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>4-3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-3.PNG" alt=""></p>
+<p><strong>学习率learning rate</strong></p>
+<p>在梯度下降中一个重要的参数是步长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>超参数学习率的值决定了步长的大小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果学习率太小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必须经过多次迭代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法才能收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是非常耗时的<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如图4-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/img/%E5%9B%BE4-4.PNG" alt=""></p>
+<p>另一方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果学习率太大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你将跳过最低点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>到达山谷的另一面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能下一次的值比上一次还要大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这可能使的算法是发散的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>函数值变得越来越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>永远不可能找到一个好的答案<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如图4-5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-5.PNG" alt=""></p>
+<p>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并不是所有的损失函数看起来都像一个规则的碗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它们可能是洞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>山脊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高原和各种不规则的地形<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使它们收敛到最小值非常的困难<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 图4-6 显示了梯度下降的两个主要挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果随机初始值选在了图像的左侧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则它将收敛到局部最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个值要比全局最小值要大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如果它从右侧开始<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么跨越高原将需要很长时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果你早早地结束训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你将永远到不了全局最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-6.PNG" alt=""></p>
+<p>事实上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>损失函数的图像呈现碗状<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是不同特征的取值范围相差较大的时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个碗可能是细长的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>图4-7 展示了梯度下降在不同训练集上的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在左图中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特征 1 和特征 2 有着相同的数值尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在右图中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特征 1 比特征 2 的取值要小的多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于特征 1 较小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此损失函数改变时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>Θ[1]</code>会有较大的变化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是这个图像会在<code>Θ[1]</code>轴方向变得细长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-7.PNG" alt=""></p>
+<p>当我们使用梯度下降的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应该确保所有的特征有着相近的尺度范围<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用 Scikit Learn 的 <code>StandardScaler</code>类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则它将需要很长的时间才能够收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="批量梯度下降">批量梯度下降</h3>
+<p>使用梯度下降的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你需要计算每一个<code>Θ[j]</code>下损失函数的梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你需要计算当<code>Θ[j]</code>变化一点点时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>损失函数改变了多少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这称为偏导数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它就像当你面对东方的时候问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>“我脚下的坡度是多少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然后面向北方的时候问同样的问题<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如果你能想象一个超过三维的宇宙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以对所有的方向都这样做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>公式 4-5 计算关于<code>Θ[j]</code>的损失函数的偏导数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>∂MSE/∂θ[j]</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/tex-3a877201402d7cd2b9d3f5b726d22b24.gif" alt=""></p>
+<p>为了避免单独计算每一个梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你也可以使用公式 4-6 来一起计算它们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>梯度向量记为<code>ᐁ[θ]MSE(θ)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其包含了损失函数所有的偏导数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>每个模型参数只出现一次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/tex-a007d1162d9c4957e8336b4b10d5fda3.gif" alt=""></p>
+<h3 id="随机梯度下降">随机梯度下降</h3>
+<p>批量梯度下降的最要问题是计算每一步的梯度时都需要使用整个训练集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这导致在规模较大的数据集上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其会变得非常的慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>与其完全相反的随机梯度下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在每一步的梯度计算上只随机选取训练集中的一个样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>很明显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于每一次的操作都使用了非常少的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样使得算法变得非常快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由于每一次迭代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需要在内存中有一个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使随机梯度算法可以在大规模训练集上使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>虽然随机性可以很好的跳过局部最优值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但同时它却不能达到最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>解决这个难题的一个办法是逐渐降低学习率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 开始时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>走的每一步较大<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这有助于快速前进同时跳过局部最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后变得越来越小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而使算法到达全局最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 这个过程被称为模拟退火<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为它类似于熔融金属慢慢冷却的冶金学退火过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 决定每次迭代的学习率的函数称为<code>learning schedule</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如果学习速度降低得过快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可能会陷入局部最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至在到达最小值的半路就停止了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 如果学习速度降低得太慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可能在最小值的附近长时间摆动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时如果过早停止训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终只会出现次优解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>由于每个实例的选择是随机的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有的实例可能在每一代中都被选到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样其他的实例也可能一直不被选到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果你想保证每一代迭代过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法可以遍历所有实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一种方法是将训练集打乱重排<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后选择一个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>之后再继续打乱重排<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以此类推一直进行下去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是这样收敛速度会非常的慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="小批量梯度下降">小批量梯度下降</h3>
+<p>最后一个梯度下降算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们将介绍小批量梯度下降算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一旦你理解了批量梯度下降和随机梯度下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再去理解小批量梯度下降是非常简单的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在迭代的每一步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>批量梯度使用整个训练集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随机梯度时候用仅仅一个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在小批量梯度下降中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它则使用一个随机的小型实例集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它比随机梯度的主要优点在于你可以通过矩阵运算的硬件优化得到一个较好的训练表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尤其当你使用 GPU 进行运算的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="学习曲线/过拟合/欠拟合">学习曲线/过拟合/欠拟合</h2>
+<p>如果你使用一个高阶的多项式回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可能发现它的拟合程度要比普通的线性回归要好的多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图4-14 使用一个 300 阶的多项式模型去拟合之前的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并同简单线性回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>2 阶的多项式回归进行比较<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意 300 阶的多项式模型如何摆动以尽可能接近训练实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-14.PNG" alt=""></p>
+<p>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种高阶多项式回归模型在这个训练集上严重过拟合了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>线性模型则欠拟合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个训练集上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二次模型有着较好的泛化能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那是因为在生成数据时使用了二次模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是一般我们不知道这个数据生成函数是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那我们该如何决定我们模型的复杂度呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>你如何告诉我你的模型是过拟合还是欠拟合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<ul>
+<li>
+<p>如果一个模型在训练集上表现良好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过交叉验证指标却得出其泛化能力很差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么你的模型就是过拟合了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果在这两方面都表现不好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么它就是欠拟合了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方法可以告诉我们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你的模型是太复杂还是太简单了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>画出模型在训练集上的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时画出以训练集规模为自变量的训练集函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了得到图像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要在训练集的不同规模子集上进行多次训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>下面的代码定义了一个函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用来画出给定训练集后的模型学习曲线</p>
+</li>
+</ul>
+<p><img src="/img/%E5%9B%BE4-15.PNG" alt=""></p>
+<p><strong>上面的曲线表现了一个典型的欠拟合模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两条曲线都到达高原地带并趋于稳定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且最后两条曲线非常接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时误差值非常大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong></p>
+<p>这幅图值得我们深究<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们观察训练集的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>当训练集只有一两个样本的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型能够非常好的拟合它们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也是为什么曲线是从零开始的原因<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是当加入了一些新的样本的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练集上的拟合程度变得难以接受<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>出现这种情况有两个原因<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一是因为数据中含有噪声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个是数据根本不是线性的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此随着数据规模的增大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>误差也会一直增大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到达到高原地带并趋于稳定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>继续加入新的样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型的平均误差不会变得更好或者更差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们继续来看模型在验证集上的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当以非常少的样本去训练时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型不能恰当的泛化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是为什么验证误差一开始是非常大的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当训练样本变多的到时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模型学习的东西变多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>验证误差开始缓慢的下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是一条直线不可能很好的拟合这些数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此最后误差会到达在一个高原地带并趋于稳定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后和训练集的曲线非常接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-16.PNG" alt=""></p>
+<p>这幅图像和之前的有一点点像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是其有两个非常重要的不同点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>
+<p>在训练集上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>误差要比线性回归模型低的多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>图中的两条曲线之间有间隔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这意味模型在训练集上的表现要比验证集上好的多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也是模型过拟合的显著特点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果你使用了更大的训练数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这两条曲线最后会非常的接近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<h3 id="误差来源分析">误差来源分析</h3>
+<blockquote>
+<p>改善模型过拟合的一种方法是提供更多的训练数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到训练误差和验证误差相等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+在统计和机器学习领域有个重要的理论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个模型的泛化误差由三个不同误差的和决定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+</blockquote>
+<ul>
+<li>
+<p>偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>泛化误差的这部分误差是由于错误的假设决定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如实际是一个二次模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你却假设了一个线性模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个高偏差的模型最容易出现欠拟合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>方差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这部分误差是由于模型对训练数据的微小变化较为敏感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个多自由度的模型更容易有高的方差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如一个高阶多项式模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此会导致模型过拟合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li>
+<p>不可约误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这部分误差是由于数据本身的噪声决定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>降低这部分误差的唯一方法就是进行数据清洗<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>修复数据源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>修复坏的传感器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>识别和剔除异常值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230209232627.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230209232647.png" alt=""></p>
+<h2 id="正则化">正则化</h2>
+<p><strong>降低模型的过拟合的好方法是正则化这个模型</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即限制它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>模型有越少的自由度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就越难以拟合数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正则化一个多项式模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个简单的方法就是减少多项式的阶数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对于一个线性模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正则化的典型实现就是约束模型中参数的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 接下来我们将介绍<strong>三种不同约束权重的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Ridge 回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Lasso 回归和 Elastic Net<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong></p>
+<h3 id="岭回归">岭回归</h3>
+<p>岭回归<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也称为 Tikhonov 正则化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是线性回归的正则化版<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在损失函数上直接加上一个正则项<code>α Σ θ[i]^2, i = 1 -&gt; n</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这使得学习算法不仅能够拟合数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且能够使模型的参数权重尽量的小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意到这个正则项只有在训练过程中才会被加到损失函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当得到完成训练的模型后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们应该使用没有正则化的测量方法去评价模型的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p><em>训练过程使用的损失函数和测试过程使用的评价函数是不一样的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>除了正则化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有一个不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>训练时的损失函数应该在优化过程中易于求导</em></p>
+</blockquote>
+<p>岭回归损失函数:<br>
+<img src="/img/tex-de03ddd330336d12e33df21217bdab9d.gif" alt=""><br>
+超参数<code>α</code>决定了你想正则化这个模型的强度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果<code>α = 0</code>那此时的岭回归便变为了线性回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果<code>α</code>非常的大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有的权重最后都接近于零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后结果将是一条穿过数据平均值的水平直线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于梯度下降来说仅仅在均方差梯度向量<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>公式 4-6<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>加上一项<code>αw</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-17.PNG" alt=""><br>
+图4-17 展示了在相同线性数据上使用不同<code>α</code>值的岭回归模型最后的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>左图中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用简单的岭回归模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到了线性的预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>右图中的数据首先使用 10 阶的<code>PolynomialFearures</code>进行扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后使用<code>StandardScaler</code>进行缩放<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后将岭模型应用在处理过后的特征上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这就是带有岭正则项的多项式回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意当<code>α</code>增大的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致预测曲线变得扁平<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即少了极端值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>多了一般值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样减少了模型的方差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却增加了模型的偏差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="lasso回归">Lasso回归</h3>
+<p>Lasso 回归<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也称 Least Absolute Shrinkage<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者 Selection Operator Regression<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是另一种正则化版的线性回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>就像岭回归那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它也在损失函数上添加了一个正则化项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是它使用权重向量的<code>l1</code>范数而不是权重向量<code>l2</code>范数平方的一半<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如公式 4-10<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>Lasso 回归的损失函数:<br>
+<img src="/img/tex-a78e85b9c0eb6446f86c17d6d2190b74.gif" alt=""></p>
+<p><img src="/img/%E5%9B%BE4-18.PNG" alt=""><br>
+图4-18 展示了和图4-17 相同的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在相同线性数据上使用不同<code>α</code>值的岭回归模型最后的表现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>左图中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用简单的岭回归模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到了线性的预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>右图中的数据首先使用 10 阶的<code>PolynomialFearures</code>进行扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后使用<code>StandardScaler</code>进行缩放<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后用 Lasso 模型代替了 Ridge 模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时调小了<code>α</code>的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>Lasso回归的一个重要特征是它倾向于完全消除最不重要的特征的权重</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即将它们设置为零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>右图中的虚线所示<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>α = 10^(-7)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>曲线看起来像一条二次曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且几乎是线性的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是因为所有的高阶多项特征都被设置为零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Lasso 回归自动的进行特征选择同时输出一个稀疏模型</p>
+<h3 id="弹性网络<span-class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>elasticnet<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>">弹性网络<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>ElasticNet<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></h3>
+<p>弹性网络介于 Ridge 回归和 Lasso 回归之间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它的正则项是 Ridge 回归和 Lasso 回归正则项的简单混合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时你可以控制它们的混合率<code>r</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当<code>r = 0</code>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>弹性网络就是 Ridge 回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当<code>r = 1</code>时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其就是 Lasso 回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>具体表示如公式 4-12<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>弹性网络损失函数<br>
+<img src="/img/tex-e4da079f692fe35778bbdf1fdf120d99.gif" alt=""></p>
+<blockquote>
+<p>那么我们该如何选择线性回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>岭回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Lasso 回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>弹性网络呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>一般来说有一点正则项的表现更好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此通常你应该避免使用简单的线性回归<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>岭回归是一个很好的首选项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是如果你的特征仅有少数是真正有用的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你应该选择 Lasso 和弹性网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>就像我们讨论的那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它两能够将无用特征的权重降为零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一般来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>弹性网络的表现要比 Lasso 好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为当特征数量比样本的数量大的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或者特征之间有很强的相关性时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Lasso 可能会表现的不规律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<h3 id="\_earlystopping">_EarlyStopping</h3>
+<p>对于迭代学习算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有一种非常特殊的正则化方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就像梯度下降在验证错误达到最小值时立即停止训练那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们称为早期停止法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>图4-20 表示使用批量梯度下降来训练一个非常复杂的模型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>一个高阶多项式回归模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>随着训练的进行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法一直学习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它在训练集上的预测误差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RMSE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>自然而然的下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而一段时间后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>验证误差停止下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并开始上升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这意味着模型在训练集上开始出现过拟合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一旦验证错误达到最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便提早停止训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/%E5%9B%BE4-20.PNG" alt=""></p>
+<h2 id="机器学习基础">机器学习基础</h2>
+<p><img src="/images/Pasted%20image%2020230209233825.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230209233842.png" alt=""></p>
+<h2 id="分类">分类</h2>
+<h3 id="对性能的评估">对性能的评估</h3>
+<h4 id="准确率和召回率">准确率和召回率</h4>
+<p>评估一个分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常比评估一个回归器更加玄学<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以我们将会花大量的篇幅在这个话题上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>评估一个模型的好方法是使用交叉验证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让我们使用<code>cross_val_score()</code>函数来评估<code>SGDClassifier</code>模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时使用 K 折交叉验证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此处让<code>k=3</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>记住<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>K 折交叉验证意味着把训练集分成 K 折<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>此处 3 折<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后使用一个模型对其中一折进行预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对其他折进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>精度通常来说不是一个好的性能度量指标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是当你处理有偏差的数据集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比方说其中一些类比其他类频繁得多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对分类器来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个好得多的性能评估指标是混淆矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>大体思路是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输出类别 A 被分类成类别 B 的次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>举个例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了知道分类器将 5 误分为 3 的次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你需要查看混淆矩阵的第五行第三列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>使用 <code>confusion_matrix()</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你将会得到一个混淆矩阵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>传递目标类(<code>y_train_5</code>)和预测类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>y_train_pred</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>给它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> confusion_matrix
+<span class="hljs-meta">&gt;&gt;&gt; </span>confusion_matrix(y_train_5, y_train_pred)
+array([[<span class="hljs-number">53272</span>, <span class="hljs-number">1307</span>],
+        [ <span class="hljs-number">1077</span>, <span class="hljs-number">4344</span>]])
+</code></pre></div>
+<p>混淆矩阵中的每一行表示一个实际的类, 而每一列表示一个预测的类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>该矩阵的第一行认为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>非 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中的 53272 张被正确归类为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>非 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>他们被称为真反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>true negatives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>, 而其余 1307 被错误归类为&quot;是 5&quot; <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>假正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>false positives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第二行认为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>是 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中的 1077 被错误地归类为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>非 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>假反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>false negatives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其余 4344 正确分类为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>是 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>类<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>真正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>true positives<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个完美的分类器将只有真反例和真正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以混淆矩阵的非零值仅在其主对角线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>左上至右下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>混淆矩阵可以提供很多信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有时候你会想要更加简明的指标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个有趣的指标是正例预测的精度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也叫做分类器的准确率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>precision<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p>公式 3-1 准确率</p>
+<p><img src="img/tex-96d2dbcd621a2da7cff58eaed68d87c2.gif" alt=""></p>
+<p>其中<code>TP</code>是真正例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>FP</code>是假正例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>准确率一般会伴随另一个指标一起使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个指标叫做召回率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>recall<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也叫做敏感度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>sensitivity<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或者真正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>true positive rate<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span> TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这是正例被分类器正确探测出的比率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>公式 3-2 Recall</p>
+<p><img src="img/tex-9fc030ab004eb3b12a815227ce62da52.gif" alt=""></p>
+<p><code>FN</code>是假反例的数目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>通常结合准确率和召回率会更加方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个指标叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是当你需要一个简单的方法去比较两个分类器的优劣的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>F1 值是准确率和召回率的调和平均<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>普通的平均值平等地看待所有的值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而调和平均会给小的值更大的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要想分类器得到一个高的 F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要召回率和准确率同时高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>公式 3-3 F1 值</p>
+<p><img src="/img/tex-dba6270fb2a2c1da75f72bdd3137f6ec.gif" alt=""></p>
+<p>为了计算 F1 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>简单调用<code>f1_score()</code></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> f1_score
+<span class="hljs-meta">&gt;&gt;&gt; </span>f1_score(y_train_5, y_train_pred)
+<span class="hljs-number">0.78468208092485547</span>
+</code></pre></div>
+<p><code>SGDClassifier</code>对于每个样例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它根据决策函数计算分数,如果这个分数大于一个阈值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它会将样例分配给正例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则它将分配给反例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不能同时拥有两者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>增加准确率会降低召回率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反之亦然<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做准确率与召回率之间的折衷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>可以使用 Matplotlib 画出准确率和召回率  把准确率和召回率当作是阈值的一个函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>
+<img src="/img/chapter3.4.jpeg" alt=""></p>
+<h4 id="roc曲线">ROC曲线</h4>
+<p>受试者工作特征<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>ROC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>曲线是另一个二分类器常用的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它非常类似与准确率/召回率曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不是画出准确率对召回率的曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ROC 曲线是真正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>true positive rate<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个名字叫做召回率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>对假正例率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>false positive rate, FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的曲线.</p>
+<p>为了画出 ROC 曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你首先需要计算各种不同阈值下的 TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>roc_curve()</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_curve
+fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
+</code></pre></div>
+<p><img src="/img/chapter3.6.jpeg" alt=""></p>
+<p>召回率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>TPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>越高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分类器就会产生越多的假正例<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>FPR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>图中的点线是一个完全随机的分类器生成的 ROC 曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>一个好的分类器的 ROC 曲线应该尽可能远离这条线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>即向左上角方向靠拢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>一个比较分类器之间优劣的方法是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>测量 ROC 曲线下的面积<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>AUC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个完美的分类器的 ROC AUC 等于 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而一个纯随机分类器的 ROC AUC 等于 0.5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>Scikit-Learn 提供了一个函数来计算 ROC AUC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> roc_auc_score
+<span class="hljs-meta">&gt;&gt;&gt; </span>roc_auc_score(y_train_5, y_scores)
+<span class="hljs-number">0.97061072797174941</span>
+</code></pre></div>
+<h3 id="\_多类分类">_多类分类</h3>
+<p>二分类器只能区分两个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而多类分类器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也被叫做多项式分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>可以区分多于两个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一些算法<code>比如随机森林分类器或者朴素贝叶斯分类器</code>可以直接处理多类分类问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其他一些算法<code>比如 SVM 分类器或者线性分类器</code>则是严格的二分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>有许多策略可以让你用二分类器去执行多类分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li>训练 10 个二分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每一个对应一个数字<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>探测器 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>探测器 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>探测器 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以此类推<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然后当你想对某张图片进行分类的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让每一个分类器对这个图片进行分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选出决策分数最高的那个分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一对所有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>OvA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>策略<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>也被叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一对其他<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>另一个策略是对每一对数字都训练一个二分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一个分类器用来处理数字 0 和数字 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个用来处理数字 0 和数字 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个用来处理数字 1 和 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以此类推<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一对一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>OvO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>策略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>一些算法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如 SVM 分类器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>在训练集的大小上很难扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以对于这些算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OvO 是比较好的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为它可以在小的数据集上面可以更多地训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>较之于巨大的数据集而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于大部分的二分类器来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>OvA 是更好的选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="\_多标签分类">_多标签分类</h3>
+<p>到目前为止<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有的样例都总是被分配到仅一个类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有些情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分类器给一个样例输出多个类别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>比如说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个分类器被训练成识别三个人脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Alice<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Bob<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Charlie<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>然后当它被输入一张含有 Alice 和 Bob 的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它应该输出<code>[1, 0, 1]</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>意思是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Alice 是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Bob 不是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Charlie 是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种输出多个二值标签的分类系统被叫做多标签分类系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="\_多输出分类">_多输出分类</h3>
+<p>我们即将讨论的最后一种分类任务被叫做<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>多输出-多类分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>或者简称为多输出分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它是多标签分类的简单泛化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这里每一个标签可以是多类别的<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>比如说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它可以有多于两个可能值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>为了说明这点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们建立一个系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它可以去除图片当中的噪音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它将一张混有噪音的图片作为输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>期待它输出一张干净的数字图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用一个像素强度的数组表示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就像 MNIST 图片那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意到这个分类器的输出是多标签的<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>一个像素一个标签<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和每个标签可以有多个值<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>像素强度取值范围从 0 到 255<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以它是一个多输出分类系统的例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="img/chapter3.11.jpeg" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-diary/2023-02-08" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2023/02/08/diary/2023-02-08/" class="article-date">
+  <time class="dt-published" datetime="2023-02-07T16:00:00.000Z" itemprop="datePublished">2023-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2023/02/08/diary/2023-02-08/">2023-02-08_dailylog_</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="_assets/PDF/CLRS3E.pdf#page=265">CLRS3E</a></p>
+<h3 id="拟阵和贪心算法">拟阵和贪心算法</h3>
+<p><img src="/images/Pasted%20image%2020230207200532.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230207203325.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230207210916.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230208125809.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208125823.png" alt=""></p>
+<h2 id="摊还分析">摊还分析</h2>
+<p><img src="/images/Pasted%20image%2020230208160904.png" alt=""></p>
+<h3 id="聚合分析">聚合分析</h3>
+<ul>
+<li>栈操作<br>
+<img src="/images/Pasted%20image%2020230208161651.png" alt=""></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230208162100.png" alt=""></p>
+<ul>
+<li>二进制计数器递增<br>
+<img src="/images/Pasted%20image%2020230208163236.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208163249.png" alt=""></li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230208163319.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230208163340.png" alt=""></p>
+<h3 id="核算法">核算法</h3>
+<p><img src="/images/Pasted%20image%2020230208164200.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208164211.png" alt=""></p>
+<ul>
+<li>
+<p>栈操作<br>
+<img src="/images/Pasted%20image%2020230208165957.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208170043.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208170227.png" alt=""></p>
+</li>
+<li>
+<p>二进制计数器递增<br>
+<img src="/images/Pasted%20image%2020230208170728.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208170156.png" alt=""></p>
+</li>
+</ul>
+<h3 id="势能法">势能法</h3>
+<p><img src="/images/Pasted%20image%2020230208171822.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230208172019.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208173849.png" alt=""></p>
+<ul>
+<li>栈操作</li>
+</ul>
+<p><img src="/images/Pasted%20image%2020230208174406.png" alt=""></p>
+<h3 id="二进制计数器递增">二进制计数器递增</h3>
+<p><img src="/images/Pasted%20image%2020230208214323.png" alt=""><br>
+<img src="/images/Pasted%20image%2020230208220220.png" alt=""></p>
+<p><img src="/images/Pasted%20image%2020230208220441.png" alt=""></p>
+<hr>
+<p><a href="/_assets/PDF/handson-ml-2e-zh.pdf#page=89">handson-ml-2e-zh</a></p>
+<h2 id="线性回归">线性回归</h2>
+<p>在第一章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们介绍了一个简单的生活满意度回归模型:</p>
+<p><img src="/img/tex-2b4fc5fcdceb2e12c666415e9ebb793a.gif" alt=""></p>
+<p>这个模型仅仅是输入量<code>GDP_per_capita</code>的线性函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>θ[0]</code>和<code>θ[1]</code>是这个模型的参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>线性模型更一般化的描述指通过计算输入变量的加权和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并加上一个常数偏置项<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>截距项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来得到一个预测值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如公式 4-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>公式 4-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>线性回归预测模型</p>
+<p><img src="tex-f99876b625a13a0aad9631f61d934a61.gif" alt=""></p>
+<ul>
+<li>
+<p><code>y_hat</code>表示预测结果</p>
+</li>
+<li>
+<p><code>n</code>表示特征的个数</p>
+</li>
+<li>
+<p><code>x[i]</code>表示第<code>i</code>个特征的值</p>
+</li>
+<li>
+<p><code>θ[j]</code>表示第<code>j</code>个参数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>包括偏置项<code>θ[0]</code>和特征权重值<code>θ[1], θ[2], ..., θ[nj]</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+</ul>
+<p>上述公式可以写成更为简洁的向量形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如公式 4-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p>公式 4-2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>线性回归预测模型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>向量形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+<p><img src="/img/tex-5da22015388cdeacf9c75c3511592953.gif" alt=""></p>
+<ul>
+<li>
+<p><code>θ</code>表示模型的参数向量包括偏置项<code>θ[0]</code>和特征权重值<code>θ[1]</code>到<code>θ[n]</code></p>
+</li>
+<li>
+<p><code>θ^T</code>表示向量<code>θ</code>的转置<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>行向量变为了列向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
+</li>
+<li>
+<p><code>x</code>为每个样本中特征值的向量形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包括<code>x[1]</code>到<code>x[n]</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且<code>x[0]</code>恒为 1</p>
+</li>
+<li>
+<p><code>θ^T · x</code>表示<code>θ^T</code>和<code>x</code>的点积</p>
+</li>
+<li>
+<p><code>h[θ]</code>表示参数为<code>θ</code>的假设函数</p>
+</li>
+</ul>
+<p>怎么样去训练一个线性回归模型呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>好吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>回想一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>训练一个模型指的是设置模型的参数使得这个模型在训练集的表现较好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>为此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们首先需要找到一个衡量模型好坏的评定方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在第二章<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们介绍到在回归模型上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最常见的评定标准是均方根误差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>RMSE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>详见公式 2-1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了训练一个线性回归模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你需要找到一个<code>θ</code>值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它使得均方根误差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>标准误差<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>达到最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>实践过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最小化均方误差比最小化均方根误差更加的简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这两个过程会得到相同的<code>θ</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为函数在最小值时候的自变量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同样能使函数的方根运算得到最小值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在训练集<code>X</code>上使用公式 4-3 来计算线性回归假设<code>h[θ]</code>的均方差<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>MSE<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>公式 4-3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>线性回归模型的 MSE 损失函数</p>
+<p><img src="/img/tex-e42dee8953b9b2be4a3ed6f8c09e5314.gif" alt=""></p>
+<p>公式中符号的含义大多数都在第二章<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>详见<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>符号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>进行了说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不同的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>为了突出模型的参数向量<code>θ</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>h[θ]</code>来代替<code>h</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以后的使用中为了公式的简洁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用<code>MSE(θ)</code>来代替<code>MSE(X, h[θ])</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="正规方程求解mse">正规方程求解MSE</h3>
+<p>为了找到最小化损失函数的<code>θ</code>值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以采用公式解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就是可以通过解正规方程直接得到最后的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>公式 4-4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>正规方程</p>
+<p><img src="/img/tex-43bfb04cdbbd85ad21489e8e2dc853ed.gif" alt=""></p>
+<ul>
+<li><code>θ_hat</code>指最小化损失<code>θ</code>的值</li>
+<li><code>y</code>是一个向量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其包含了<code>y^(1)</code>到<code>y^(m)</code>的值</li>
+</ul>
+<p><strong>正规方程求解的方法问题在于:</strong></p>
+<p>正规方程需要计算矩阵<code>X^T · X</code>的逆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它是一个<code>n * n</code>的矩阵<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>n</code>是特征的个数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样一个矩阵求逆的运算复杂度大约在<code>O(n^2.4)</code>到<code>O(n^3)</code>之间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具体值取决于计算方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果你将你的特征个数翻倍的话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其计算时间大概会变为原来的 5.3<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>2^2.4</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>到 8<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>2^3</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p>提示</p>
+<p>当特征的个数较大的时候<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>特征数量为 100000<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正规方程求解将会非常慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>有利的一面是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个方程在训练集上对于每一个实例来说是线性的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其复杂度为<code>O(m)</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此只要有能放得下它的内存空间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它就可以对大规模数据进行训练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>同时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一旦你得到了线性回归模型<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>通过解正规方程或者其他的算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>进行预测是非常快的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因为模型中计算复杂度对于要进行预测的实例数量和特征个数都是线性的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> 换句话说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当实例个数变为原来的两倍多的时候<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>或特征个数变为原来的两倍多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>预测时间也仅仅是原来的两倍多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="如何训练模型?梯度下降">如何训练模型?梯度下降</h2>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/ml/" rel="tag">ml</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-diary/2023-02-07" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2023/02/07/diary/2023-02-07/" class="article-date">
@@ -201,155 +594,11 @@ Eclat 算法</li>
 
 
   
-    <article id="post-diary/2023-02-06" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/02/06/diary/2023-02-06/" class="article-date">
-  <time class="dt-published" datetime="2023-02-05T16:00:00.000Z" itemprop="datePublished">2023-02-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/02/06/diary/2023-02-06/">2023-02-06_dailylog_</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="/_assets/PDF/CLRS3E.pdf#page=225">CLRS3E</a></p>
-<h2 id="矩阵链乘法">矩阵链乘法</h2>
-<p><img src="/images/Pasted%20image%2020230206101942.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206101955.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206102848.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206104244.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206134814.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206134853.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206135543.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206135600.png" alt=""></p>
-<h2 id="动态规划原理">动态规划原理</h2>
-<p><img src="/images/Pasted%20image%2020230206140729.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206141320.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206141336.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206142609.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206143247.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206143303.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206143924.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206143947.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206144619.png" alt=""></p>
-<h2 id="最长公共子序列-lcs问题">最长公共子序列 LCS问题</h2>
-<p><img src="/images/Pasted%20image%2020230206144943.png" alt=""></p>
-<p><strong>步骤1: 刻画最长公共子序列特征</strong></p>
-<p><img src="/images/Pasted%20image%2020230206172544.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206172557.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206173529.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206173632.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206174913.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206175205.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206175234.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206175305.png" alt=""></p>
-<h2 id="最优二叉搜索树">最优二叉搜索树</h2>
-<p><img src="/images/Pasted%20image%2020230206190741.png" alt=""></p>
-<p><img src="/images/Pasted%20image%2020230206193813.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206210234.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206210620.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206211042.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206211405.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230206230958.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-diary/2023-02-05" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/02/05/diary/2023-02-05/" class="article-date">
-  <time class="dt-published" datetime="2023-02-04T16:00:00.000Z" itemprop="datePublished">2023-02-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/02/05/diary/2023-02-05/">2023-02-05_dailylog_</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="/_assets/PDF/CLRS3E.pdf#page=219">CLRS3E</a></p>
-<h2 id="动态规划">动态规划</h2>
-<p><img src="/images/Pasted%20image%2020230203164733.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230203165224.png" alt=""></p>
-<h3 id="钢条切割问题">钢条切割问题</h3>
-<p><img src="/images/Pasted%20image%2020230205122130.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230205122154.png" alt=""></p>
-<h4 id="分治法-自定向下">分治法-自定向下</h4>
-<p><img src="/images/Pasted%20image%2020230205122539.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230205122613.png" alt=""></p>
-<h4 id="动态规划方法">动态规划方法</h4>
-<p><img src="/images/Pasted%20image%2020230205123413.png" alt=""></p>
-<ul>
-<li>带备忘的自顶向下<br>
-<img src="/images/Pasted%20image%2020230205124810.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230205124911.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230205124922.png" alt=""></li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230205124934.png" alt=""></p>
-<ul>
-<li>自底向上<br>
-<img src="/images/Pasted%20image%2020230205125140.png" alt=""><br>
-<img src="/images/Pasted%20image%2020230205125219.png" alt=""></li>
-</ul>
-<p><img src="/images/Pasted%20image%2020230205130329.png" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/diary/" rel="tag">diary</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../10/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../9/">9</a><a class="page-number" href="../10/">10</a><span class="page-number current">11</span><a class="page-number" href="../12/">12</a><a class="page-number" href="../13/">13</a><a class="extend next" rel="next" href="../12/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../10/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../9/">9</a><a class="page-number" href="../10/">10</a><span class="page-number current">11</span><a class="page-number" href="../12/">12</a><a class="page-number" href="../13/">13</a><a class="page-number" href="../14/">14</a><a class="extend next" rel="next" href="../12/">下一页 &raquo;</a>
   </nav>
 
 </section>
