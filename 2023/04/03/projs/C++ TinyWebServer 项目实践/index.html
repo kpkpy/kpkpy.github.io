@@ -1007,6 +1007,119 @@ ssize_t writev(int filedes, const struct iovec *iov, int iovcnt);
 </ul>
 </li>
 </ul>
+<h2 id="05定时器处理非活动连接"><a href="#05定时器处理非活动连接" class="headerlink" title="05定时器处理非活动连接"></a>05定时器处理非活动连接</h2><p>由于非活跃连接占用了连接资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>严重影响服务器的性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过实现一个服务器定时器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>处理这种非活跃连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>释放连接资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>利用alarm函数周期性地触发SIGALRM信号,该信号的信号处理函数利用管道通知主循环执行定时器链表上的定时任务.</p>
+<ul>
+<li>统一事件源 </li>
+<li>基于升序链表的定时器</li>
+<li>处理非活动连接</li>
+</ul>
+<p><code>非活跃</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是指客户端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这里是浏览器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>与服务器端建立连接后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>长时间不交换数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一直占用服务器端的文件描述符<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致连接资源的浪费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><code>定时事件</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是指固定一段时间之后触发某段代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由该段代码处理一个事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如从内核事件表删除事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并关闭文件描述符<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>释放连接资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><code>定时器</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是指利用结构体或其他形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将多种定时事件进行封装起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>具体的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里只涉及一种定时事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即定期检测非活跃连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里将该定时事件与连接资源封装为一个结构体定时器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><code>定时器容器</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是指使用某种容器类数据结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将上述多个定时器组合起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便于对定时事件统一管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>具体的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>项目中使用升序链表将所有定时器串联组织起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>本项目中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>服务器主循环为每一个连接创建一个定时器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并对每个连接进行定时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>另外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>利用升序时间链表容器将所有定时器串联起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若主循环接收到定时通知<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则在链表中依次执行定时任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><code>Linux</code>下提供了三种定时的方法:</p>
+<ul>
+<li><p>socket选项SO_RECVTIMEO和SO_SNDTIMEO</p>
+</li>
+<li><p>SIGALRM信号</p>
+</li>
+<li><p>I&#x2F;O复用系统调用的超时参数</p>
+</li>
+</ul>
+<p>三种方法没有一劳永逸的应用场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也没有绝对的优劣<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由于项目中使用的是<code>SIGALRM</code>信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里仅对其进行介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另外两种方法可以查阅游双的<code>Linux高性能服务器编程 第11章 定时器</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>具体的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>利用<code>alarm</code>函数周期性地触发<code>SIGALRM</code>信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数利用管道通知主循环<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主循环接收到该信号后对升序链表上所有定时器进行处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若该段时间内没有交换数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则将该连接关闭<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>释放所占用的资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>从上面的简要描述中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以看出定时器处理非活动连接模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要分为两部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其一为定时方法与信号通知流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其二为定时器及其容器设计与定时任务的处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>基础API</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>描述<code>sigaction</code>结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>sigaction</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>sigfillset</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>SIGALRM</code>信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>SIGTERM</code>信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>alarm</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>socketpair</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>send</code>函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>信号通知流程</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>介绍统一事件源和信号处理机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>代码实现</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合代码对信号处理函数的设计与使用进行详解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="信号通知流程"><a href="#信号通知流程" class="headerlink" title="信号通知流程"></a>信号通知流程</h3><p>Linux下的信号采用的异步处理机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数和当前进程是两条不同的执行路线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>具体的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当进程收到信号时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>操作系统会中断进程当前的正常流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>转而进入信号处理函数执行操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完成后再返回中断的地方继续执行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>为避免信号竞态现象发生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理期间系统不会再次触发它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为确保该信号不被屏蔽太久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数需要尽可能快地执行完毕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>一般的信号处理函数需要处理该信号对应的逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当该逻辑比较复杂时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数执行时间过长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会导致信号屏蔽太久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这里的解决方案是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数仅仅发送信号通知程序主循环<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将信号对应的处理逻辑放在程序主循环中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由主循环执行信号对应的逻辑代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="统一事件源"><a href="#统一事件源" class="headerlink" title="统一事件源"></a><strong>统一事件源</strong></h4><p>统一事件源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是指将信号事件与其他事件一样被处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>具体的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数使用管道将信号传递给主循环<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号处理函数往管道的写端写入信号值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主循环则从管道的读端读出信号值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用I&#x2F;O复用系统调用来监听管道读端的可读事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样信号事件与其他文件描述符都可以通过epoll来监测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而实现统一处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="信号处理机制"><a href="#信号处理机制" class="headerlink" title="信号处理机制"></a><strong>信号处理机制</strong></h4><p>每个进程之中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都有存着一个表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>里面存着每种信号所代表的含义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核通过设置表项中每一个位来标识对应的信号类型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020230505155709.png"></p>
+<ul>
+<li><p>信号的接收</p>
+</li>
+<li><p>接收信号的任务是由内核代理的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当内核接收到信号后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会将其放到对应进程的信号队列中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时向进程发送一个中断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使其陷入内核态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时信号还只是在队列中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对进程来说暂时是不知道有信号到来的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li><p>信号的检测</p>
+</li>
+<li><p>进程从内核态返回到用户态前进行信号检测</p>
+</li>
+<li><p>进程在内核态中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从睡眠状态被唤醒的时候进行信号检测</p>
+</li>
+<li><p>进程陷入内核态后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有两种场景会对信号进行检测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+</li>
+<li><p>当发现有新信号时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便会进入下一步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>信号的处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li><p>信号的处理</p>
+</li>
+<li><p>( <strong>内核</strong> )信号处理函数是运行在用户态的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>调用处理函数前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会将当前内核栈的内容备份拷贝到用户栈上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且修改指令寄存器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>eip<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将其指向信号处理函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li><p>( <strong>用户</strong> )接下来进程返回到用户态中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>执行相应的信号处理函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li><p>( <strong>内核</strong> )信号处理函数执行完成后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还需要返回内核态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>检查是否还有其它信号未处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li><p>( <strong>用户</strong> )如果所有信号都处理完成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会将内核栈恢复<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>从用户栈的备份拷贝回来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时恢复指令寄存器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>eip<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将其指向中断前的运行位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后回到用户态继续执行进程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ul>
+<p>至此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个完整的信号处理流程便结束了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果同时有多个信号到达<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上面的处理流程会在第2步和第3步骤间重复进行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="定时器容器"><a href="#定时器容器" class="headerlink" title="定时器容器"></a>定时器容器</h3><p>项目中的定时器容器为带头尾结点的升序双向链表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具体的为每个连接创建一个定时器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其添加到链表中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并按照超时时间升序排列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>执行定时任务时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将到期的定时器从链表中删除<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>从实现上看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要涉及双向链表的插入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>删除操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中添加定时器的事件复杂度是O(n),删除定时器的事件复杂度是O(1)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>升序双向链表主要逻辑如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具体的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span></p>
+<ul>
+<li><p>创建头尾节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中头尾节点没有意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仅仅统一方便调整</p>
+</li>
+<li><p>add_timer函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将目标定时器添加到链表中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>添加时按照升序添加</p>
+</li>
+<li><p>若当前链表中只有头尾节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接插入</p>
+</li>
+<li><p>否则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将定时器按升序插入</p>
+</li>
+<li><p>adjust_timer函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当定时任务发生变化,调整对应定时器在链表中的位置</p>
+</li>
+<li><p>客户端在设定时间内有数据收发,则当前时刻对该定时器重新设定时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这里只是往后延长超时时间</p>
+</li>
+<li><p>被调整的目标定时器在尾部<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或定时器新的超时值仍然小于下一个定时器的超时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不用调整</p>
+</li>
+<li><p>否则先将定时器从链表取出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>重新插入链表</p>
+</li>
+<li><p>del_timer函数将超时的定时器从链表中删除</p>
+</li>
+<li><p>常规双向链表删除结点</p>
+</li>
+</ul>
+<h2 id="06日志系统"><a href="#06日志系统" class="headerlink" title="06日志系统"></a>06日志系统</h2><p>同步&#x2F;异步日志系统主要涉及了两个模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个是日志模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个是阻塞队列模块,其中加入阻塞队列模块主要是解决异步写入日志做准备.</p>
+<blockquote>
+<ul>
+<li>自定义阻塞队列</li>
+<li>单例模式创建日志</li>
+<li>同步日志</li>
+<li>异步日志</li>
+<li>实现按天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>超行分类</li>
+</ul>
+</blockquote>
+<p><strong><code>日志</code></strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由服务器自动创建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并记录运行状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>错误信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>访问数据的文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong><code>同步日志</code></strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>日志写入函数与工作线程串行执行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于涉及到I&#x2F;O操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当单条日志比较大的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同步模式会阻塞整个处理流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>服务器所能处理的并发能力将有所下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尤其是在峰值的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>写日志可能成为系统的瓶颈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong><code>生产者-消费者模型</code></strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并发编程中的经典模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以多线程为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了实现线程间数据同步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生产者线程与消费者线程共享一个缓冲区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中生产者线程往缓冲区中push消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>消费者线程从缓冲区中pop消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong><code>阻塞队列</code></strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将生产者-消费者模型进行封装<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用循环数组实现队列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作为两者共享的缓冲区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong><code>异步日志</code></strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将所写的日志内容先存入阻塞队列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>写线程从阻塞队列中取出内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>写入日志<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong><code>单例模式</code></strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最简单也是被问到最多的设计模式之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>保证一个类只创建一个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时提供全局访问的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>本项目中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用单例模式创建日志系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对服务器运行状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>错误信息和访问数据进行记录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该系统可以实现按天分类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>超行分类功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以根据实际情况分别使用同步和异步写入两种方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>其中异步写入方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将生产者-消费者模型封装为阻塞队列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创建一个写线程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>工作线程将要写的内容push进队列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>写线程从队列中取出内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>写入日志文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>日志系统大致可以分成两部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其一是单例模式与阻塞队列的定义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其二是日志类的定义与使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<blockquote>
+<p><strong>单例模式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>描述懒汉与饿汉两种单例模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并结合线程安全进行讨论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>生产者-消费者模型</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>描述条件变量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基于该同步机制实现简单的生产者-消费者模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>代码实现</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合代码对阻塞队列的设计进行详解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例模式作为最常用的设计模式之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>保证一个类仅有一个实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并提供一个访问它的全局访问点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该实例被所有程序模块共享<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>实现思路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>私有化它的构造函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以防止外界创建单例类的对象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>使用类的私有静态指针变量指向类的唯一实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并用一个公有的静态方法获取该实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>单例模式有两种实现方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分别是懒汉和饿汉模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>顾名思义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>懒汉模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即非常懒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不用的时候不去初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以在第一次被使用时才进行初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>饿汉模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即迫不及待<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在程序运行时立即初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 
       
     </div>
@@ -1022,11 +1135,11 @@ ssize_t writev(int filedes, const struct iovec *iov, int iovcnt);
     
 <nav id="article-nav">
   
-    <a href="../../../09/posts/switch%E5%AE%89%E8%A3%85Ubuntu%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../09/share/Switch%E5%AE%89%E8%A3%85Ubuntu%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          switch安装Ubuntu折腾记录
+          Switch安装Ubuntu折腾记录
         
       </div>
     </a>
