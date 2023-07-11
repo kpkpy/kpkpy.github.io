@@ -1123,7 +1123,12 @@ ssize_t writev(int filedes, const struct iovec *iov, int iovcnt);
 <p>单例模式有两种实现方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分别是懒汉和饿汉模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>顾名思义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>懒汉模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即非常懒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不用的时候不去初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以在第一次被使用时才进行初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>饿汉模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即迫不及待<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在程序运行时立即初始化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <h3 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h3><p>阻塞队列是一种特殊的队列数据结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它具有阻塞功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当队列为空时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从队列中取元素的操作会被阻塞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到队列中有新的元素被加入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同样地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当队列已满时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>向队列中添加元素的操作也会被阻塞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到队列中有空闲位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>通过阻塞队列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以很方便地实现线程间的协作和同步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>比如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个线程可以往阻塞队列中添加任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个线程可以从队列中取出任务并执行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果队列为空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>取任务的线程就会被阻塞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到有新的任务被添加到队列中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>如果队列已满<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>添加任务的线程就会被阻塞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到队列中有空闲位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="07WebServer"><a href="#07WebServer" class="headerlink" title="07WebServer"></a>07WebServer</h2><p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020230518160318.png"></p>
+<h2 id="07WebServer"><a href="#07WebServer" class="headerlink" title="07WebServer"></a>07WebServer</h2><h3 id="总流程"><a href="#总流程" class="headerlink" title="总流程"></a>总流程</h3><p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020230518160318.png"></p>
+<p><strong>流程图</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>描述服务器从报文中提取出用户名密码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并完成注册和登录校验后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现页面跳转的逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>载入数据库表</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合代码将数据库中的数据载入到服务器中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>提取用户名和密码</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合代码对报文进行解析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提取用户名和密码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>注册登录流程</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合代码对描述服务器进行注册和登录校验的流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>页面跳转</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合代码对页面跳转机制进行详解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 
       
     </div>
@@ -1139,11 +1144,11 @@ ssize_t writev(int filedes, const struct iovec *iov, int iovcnt);
     
 <nav id="article-nav">
   
-    <a href="../../../09/share/Switch%E5%AE%89%E8%A3%85Ubuntu%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../27/share/%E5%90%8E%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Switch安装Ubuntu折腾记录
+          后互联网时代网上冲浪指南
         
       </div>
     </a>
