@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="Kpy&#39;s Blog">
+  
+  
+  
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../css/style.css">
+  
+    <link rel="stylesheet" href="../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+    <h2 id="subtitle-wrap">
+      <a href="../../index.html" id="subtitle">which is Kpy&#39;s Blog</a>
+    </h2>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main">
+  
+    <article id="post-posts/C++的调试技巧" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/15/posts/C++%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" class="article-date">
+  <time class="dt-published" datetime="2022-08-15T15:09:56.000Z" itemprop="datePublished">2022-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/15/posts/C++%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/">C++的调试技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在开发C++程序的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当遇到需要调试程序的场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>优秀的调试器例如GDB等可以使调试的过程变得更有效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使程序的运行更加透明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但总有不能使用调试器的场景例如嵌入式开发不存在显示屏等情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这时可以利用一些调试技巧对程序进行调试</p>
+<h2 id="调试标记"><a href="#调试标记" class="headerlink" title="调试标记"></a>调试标记</h2><p>当进行程序开发时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能会在源程序中添加一些调试的代码方便测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但是后来程序完成的时候需要找到这些代码一一进行删除<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在程序运行的过程中可能有会发现需要这些代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些麻烦可以利用调试标记解决<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="通过预处理器调试标记"><a href="#通过预处理器调试标记" class="headerlink" title="通过预处理器调试标记"></a>通过预处理器调试标记</h3><p>可以利用预处理器标记来分离出用于调试的代码和确保程序正常工作的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过预处理器定义<code>#define FOOBAR</code>(一般用DEBUG<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不能用NDEBUG)和<code>ifdef ifndef</code> 等预处理语句可以实现这个目的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当认为调试完成了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以利用<code>undef</code>来表示调试已经完成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如如下的代码片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<pre><code class="c++">#define DEBUG 
+#undef DEBUG
+//***
+#ifdef DEBUG
+//***
+#endif
+</code></pre>
+<h3 id="运行期调试标记"><a href="#运行期调试标记" class="headerlink" title="运行期调试标记"></a>运行期调试标记</h3><p>某些情况下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>运行期打开调试标记会更加方便<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如每次定义预处理标记都会导致程序的重新编译<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了实现打开或关闭调试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以定义一个bool型数据变量</p>
+<pre><code class="c++">//****
+bool debug = false;
+
+int main(int argc, char* argv[])&#123;
+    if(string(argv[i])== &quot;--debug=on&quot;) debug = true;
+//****
+&#125;
+</code></pre>
+<h2 id="将变量和表达式表示为字符串"><a href="#将变量和表达式表示为字符串" class="headerlink" title="将变量和表达式表示为字符串"></a>将变量和表达式表示为字符串</h2><p>若在编写程序的时候可以将字符串和变量名与其内容一一用输出打印函数组成打印表达式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但这样的话工作量非常的大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过宏定义和字符串化运算符 <em>#</em> 来将变量转化为一个字符数组<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在预处理语句中的参数前使用#来标记就可以实现这个功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="c++">#define PR(x) cout &lt;&lt; #x &lt;&lt; &quot; = &quot; &lt;&lt; endl;
+</code></pre>
+<p>它与如下语句具有同样的效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="c++">cout &lt;&lt; &quot;a = &quot; &lt;&lt; a  &lt;&lt; endl;
+</code></pre>
+<p>在实际使用的时候也可以使用ifdef来使得P(A) 不起作用</p>
+<h2 id="C语言assert-宏"><a href="#C语言assert-宏" class="headerlink" title="C语言assert()宏"></a>C语言assert()宏</h2><p>头文件&lt;cassert&gt;中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有assert()方便的调试宏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当使用assert时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>参数为一个表示为真的表达式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>预处理器产生测试断言的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>若测试结果不为真<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则发生一个错误信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>返回错误信息并终止程序运行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<pre><code class="c++">#include &lt;cassert&gt;
+using namespace std;
+
+int main()&#123;
+    int i=100;
+    assert(i!=100);//fails
+&#125;
+</code></pre>
+<p>在完成调试后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过编译器参数命令行或者在<code>#include&lt;cassert&gt;</code> 前定义 <code>#define NDEBUG</code> 来消除宏产生的测试代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/cpp/" rel="tag">cpp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../15/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../14/">14</a><a class="page-number" href="../15/">15</a><span class="page-number current">16</span>
+  </nav>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../js/clipboard.min.js"></script>
+<script src="../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
