@@ -50,10 +50,10 @@
       <div id="content" class="outer">
         <section id="main">
   
-    <article id="post-notes/Linux I2C 应用编程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-notes/常用依赖包管理工具换源方法大全" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2024-11-18T16:00:00.000Z" itemprop="datePublished">2024-11-19</time>
+    <a href="../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-11-27T16:00:00.000Z" itemprop="datePublished">2024-11-28</time>
 </a>
     
   </div>
@@ -64,7 +64,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
+      <a class="p-name article-title" href="../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
     </h1>
   
 
@@ -73,186 +73,157 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>I2C<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Inter-Integrated Circuit<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是一种广泛用于嵌入式系统的串行通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>允许多个设备通过两根数据线进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 Linux 系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 设备通常挂载在 <code>/dev</code> 目录下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用如 <code>/dev/i2c-X</code> 这样的设备文件进行访问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过系统调用和特定的 I2C 操作命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应用层程序可以与 I2C 设备进行读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>本教程将介绍如何使用 Linux 提供的 I2C 接口进行编程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>详细讲解关键的结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>系统调用以及常用的 I2C 工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以帮助开发者更好地理解和操作 I2C 设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="1-关键结构体"><a href="#1-关键结构体" class="headerlink" title="1. 关键结构体"></a>1. 关键结构体</h2><h3 id="1-1-struct-i2c-msg"><a href="#1-1-struct-i2c-msg" class="headerlink" title="1.1 struct i2c_msg"></a>1.1 <code>struct i2c_msg</code></h3><p><code>i2c_msg</code> 是 I2C 消息的描述结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于定义一次 I2C 通信中的单个传输消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它可以是读或写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并包含目标设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据缓冲区和数据长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">struct i2c_msg &#123;
-    __u16 addr;    // 从设备的地址
-    __u16 flags;   // 操作标志位
-    __u16 len;     // 要发送/接收的数据长度
-    __u8 *buf;     // 数据缓冲区指针
-&#125;;
+        <p>在国内使用一些依赖包管理工具时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于网络问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下载速度往往比较慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过切换到国内的镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以显著加快依赖包的下载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文详细整理了常用依赖包管理工具切换到国内镜像的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮助开发者提高效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h3 id="1-npm-切换国内源"><a href="#1-npm-切换国内源" class="headerlink" title="1. npm 切换国内源"></a>1. <strong>npm 切换国内源</strong></h3><p>国内常用的 npm 镜像源是 <a target="_blank" rel="noopener" href="https://npmmirror.com/">淘宝镜像</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它同步了官方 npm 仓库的内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>且下载速度较快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置淘宝镜像为默认源："><a href="#设置淘宝镜像为默认源：" class="headerlink" title="设置淘宝镜像为默认源："></a>设置淘宝镜像为默认源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">npm config set registry https://registry.npmmirror.com
 </code></pre>
-<p><strong>主要标志位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
+<h4 id="验证是否设置成功："><a href="#验证是否设置成功：" class="headerlink" title="验证是否设置成功："></a>验证是否设置成功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">npm config get registry
+# 如果输出 https://registry.npmmirror.com&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;说明设置成功&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+</code></pre>
+<h4 id="临时使用淘宝镜像："><a href="#临时使用淘宝镜像：" class="headerlink" title="临时使用淘宝镜像："></a>临时使用淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">npm install --registry=https://registry.npmmirror.com
+</code></pre>
+<hr>
+<h3 id="2-Yarn-切换国内源"><a href="#2-Yarn-切换国内源" class="headerlink" title="2. Yarn 切换国内源"></a>2. <strong>Yarn 切换国内源</strong></h3><p>Yarn 同样可以直接使用淘宝镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置淘宝镜像为默认源：-1"><a href="#设置淘宝镜像为默认源：-1" class="headerlink" title="设置淘宝镜像为默认源："></a>设置淘宝镜像为默认源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">yarn config set registry https://registry.npmmirror.com
+</code></pre>
+<h4 id="验证是否设置成功：-1"><a href="#验证是否设置成功：-1" class="headerlink" title="验证是否设置成功："></a>验证是否设置成功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">yarn config get registry
+# 输出 https://registry.npmmirror.com 表示设置成功&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+</code></pre>
+<h4 id="临时使用淘宝镜像：-1"><a href="#临时使用淘宝镜像：-1" class="headerlink" title="临时使用淘宝镜像："></a>临时使用淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">yarn add package-name --registry=https://registry.npmmirror.com
+</code></pre>
+<hr>
+<h3 id="3-pip-切换国内源"><a href="#3-pip-切换国内源" class="headerlink" title="3. pip 切换国内源"></a>3. <strong>pip 切换国内源</strong></h3><p>Python 的包管理工具 <code>pip</code> 可以通过指定国内的镜像源来加速下载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>推荐使用<a target="_blank" rel="noopener" href="https://pypi.douban.com/">豆瓣源</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="临时使用豆瓣源："><a href="#临时使用豆瓣源：" class="headerlink" title="临时使用豆瓣源："></a>临时使用豆瓣源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">pip install package-name -i https://pypi.douban.com/simple
+</code></pre>
+<h4 id="永久设置国内镜像："><a href="#永久设置国内镜像：" class="headerlink" title="永久设置国内镜像："></a>永久设置国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><p>在用户目录下创建或修改 <code>pip</code> 配置文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>
-<li><code>I2C_M_RD</code>: 表示读操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果未设置此标志<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则表示写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>I2C_M_TEN</code>: 表示使用 10 位地址模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>I2C_M_STOP</code>: 表示在消息结束时生成 STOP 信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>Windows: <code>C:\Users\你的用户名\pip\pip.ini</code></li>
+<li>macOS&#x2F;Linux: <code>~/.pip/pip.conf</code></li>
 </ul>
-<h3 id="1-2-struct-i2c-rdwr-ioctl-data"><a href="#1-2-struct-i2c-rdwr-ioctl-data" class="headerlink" title="1.2 struct i2c_rdwr_ioctl_data"></a>1.2 <code>struct i2c_rdwr_ioctl_data</code></h3><p><code>i2c_rdwr_ioctl_data</code> 结构体用于通过 <code>ioctl</code> 系统调用执行 I2C 读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它包含一个 <code>i2c_msg</code> 数组和消息的数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">struct i2c_rdwr_ioctl_data &#123;
-    struct i2c_msg *msgs;  // 指向消息数组
-    __u32 nmsgs;           // 消息的数量
-&#125;;
+<p>然后添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="ini">[global]
+index-url = https://pypi.douban.com/simple
 </code></pre>
-<h2 id="2-I2C-应用编程概述"><a href="#2-I2C-应用编程概述" class="headerlink" title="2. I2C 应用编程概述"></a>2. I2C 应用编程概述</h2><p>在用户空间中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 编程的核心操作是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ol>
-<li><strong>打开 I2C 设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过 <code>open()</code> 函数打开 <code>/dev/i2c-X</code> 设备文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>设置从设备地址</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用 <code>ioctl()</code> 系统调用设置目标从设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>数据读写</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过 <code>read()</code> 和 <code>write()</code> 进行简单的读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或使用 <code>ioctl()</code> 进行复杂的多字节传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ol>
-<h3 id="2-1-打开-I2C-设备"><a href="#2-1-打开-I2C-设备" class="headerlink" title="2.1 打开 I2C 设备"></a>2.1 打开 I2C 设备</h3><p>使用 <code>open()</code> 函数打开 I2C 设备文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 <code>/dev/i2c-1</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">int file;
-file = open(&quot;/dev/i2c-1&quot;, O_RDWR);
-if (file &lt; 0) &#123;
-    perror(&quot;Failed to open the i2c bus&quot;);
-    exit(1);
+<hr>
+<h3 id="4-Conda-切换国内源"><a href="#4-Conda-切换国内源" class="headerlink" title="4. Conda 切换国内源"></a>4. <strong>Conda 切换国内源</strong></h3><p>Conda 是 Anaconda 的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设置国内镜像可以通过清华大学的镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="临时使用清华源："><a href="#临时使用清华源：" class="headerlink" title="临时使用清华源："></a>临时使用清华源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">conda install package-name -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+</code></pre>
+<h4 id="永久设置清华大学源："><a href="#永久设置清华大学源：" class="headerlink" title="永久设置清华大学源："></a>永久设置清华大学源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --set show_channel_urls yes
+</code></pre>
+<hr>
+<h3 id="5-Composer-切换国内源"><a href="#5-Composer-切换国内源" class="headerlink" title="5. Composer 切换国内源"></a>5. <strong>Composer 切换国内源</strong></h3><p>Composer 是 PHP 的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用中国全量镜像<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>由 Laravel China 社区维护<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置国内镜像："><a href="#设置国内镜像：" class="headerlink" title="设置国内镜像："></a>设置国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+</code></pre>
+<h4 id="恢复默认源："><a href="#恢复默认源：" class="headerlink" title="恢复默认源："></a>恢复默认源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">composer config -g --unset repos.packagist
+</code></pre>
+<hr>
+<h3 id="6-RubyGems-切换国内源"><a href="#6-RubyGems-切换国内源" class="headerlink" title="6. RubyGems 切换国内源"></a>6. <strong>RubyGems 切换国内源</strong></h3><p>Ruby 的包管理工具 <code>gem</code> 可以使用淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置淘宝镜像："><a href="#设置淘宝镜像：" class="headerlink" title="设置淘宝镜像："></a>设置淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+</code></pre>
+<h4 id="确认源是否配置正确："><a href="#确认源是否配置正确：" class="headerlink" title="确认源是否配置正确："></a>确认源是否配置正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">gem sources -l
+</code></pre>
+<hr>
+<h3 id="7-Maven-切换国内源"><a href="#7-Maven-切换国内源" class="headerlink" title="7. Maven 切换国内源"></a>7. <strong>Maven 切换国内源</strong></h3><p>Maven 是 Java 的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过修改 <code>settings.xml</code> 文件来使用国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="修改-settings-xml："><a href="#修改-settings-xml：" class="headerlink" title="修改 settings.xml："></a>修改 <code>settings.xml</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><p>在 <code>~/.m2/settings.xml</code> 中添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="xml">&lt;mirrors&gt;
+  &lt;mirror&gt;
+    &lt;id&gt;alimaven&lt;/id&gt;
+    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;name&gt;aliyun maven&lt;/name&gt;
+    &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt;
+    &lt;layout&gt;default&lt;/layout&gt;
+  &lt;/mirror&gt;
+&lt;/mirrors&gt;
+</code></pre>
+<hr>
+<h3 id="8-Gradle-切换国内源"><a href="#8-Gradle-切换国内源" class="headerlink" title="8. Gradle 切换国内源"></a>8. <strong>Gradle 切换国内源</strong></h3><p>对于 Android 开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Gradle 的国内源配置也可以显著加快依赖下载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="修改-build-gradle-文件："><a href="#修改-build-gradle-文件：" class="headerlink" title="修改 build.gradle 文件："></a>修改 <code>build.gradle</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="groovy">allprojects &#123;
+    repositories &#123;
+        maven &#123; url &#39;https://maven.aliyun.com/repository/public&#39; &#125;
+        maven &#123; url &#39;https://maven.aliyun.com/repository/jcenter&#39; &#125;
+        maven &#123; url &#39;https://maven.aliyun.com/repository/google&#39; &#125;
+    &#125;
 &#125;
 </code></pre>
-<h3 id="2-2-设置从设备地址"><a href="#2-2-设置从设备地址" class="headerlink" title="2.2 设置从设备地址"></a>2.2 设置从设备地址</h3><p>通过 <code>ioctl()</code> 设置与哪个从设备进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">int addr = 0x50; // 从设备地址
-if (ioctl(file, I2C_SLAVE, addr) &lt; 0) &#123;
-    perror(&quot;Failed to acquire bus access and/or talk to slave&quot;);
-    exit(1);
+<hr>
+<h3 id="9-Node-js-镜像加速"><a href="#9-Node-js-镜像加速" class="headerlink" title="9. Node.js 镜像加速"></a>9. <strong>Node.js 镜像加速</strong></h3><p>如果你需要安装 Node.js 本身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也可以通过淘宝镜像加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">nvm install node --registry=https://registry.npmmirror.com
+</code></pre>
+<hr>
+<h3 id="10-Docker-镜像加速"><a href="#10-Docker-镜像加速" class="headerlink" title="10. Docker 镜像加速"></a>10. <strong>Docker 镜像加速</strong></h3><p>Docker 在国内下载镜像时可能会遇到速度缓慢的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用国内的镜像源加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置-Docker-国内镜像："><a href="#设置-Docker-国内镜像：" class="headerlink" title="设置 Docker 国内镜像："></a>设置 Docker 国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><p>在 <code>/etc/docker/daemon.json</code> 中添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="json">&#123;
+  &quot;registry-mirrors&quot;: [
+    &quot;https://registry.docker-cn.com&quot;,
+    &quot;https://mirror.ccs.tencentyun.com&quot;
+  ]
 &#125;
 </code></pre>
-<p><code>I2C_SLAVE</code> 是常用的 <code>ioctl</code> 命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于设置 I2C 从设备地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="2-3-读写-I2C-数据"><a href="#2-3-读写-I2C-数据" class="headerlink" title="2.3 读写 I2C 数据"></a>2.3 读写 I2C 数据</h3><h4 id="2-3-1-写入数据"><a href="#2-3-1-写入数据" class="headerlink" title="2.3.1 写入数据"></a>2.3.1 写入数据</h4><p>使用 <code>write()</code> 函数将数据写入 I2C 设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char buffer[1] = &#123; 0xA0 &#125;;
-if (write(file, buffer, 1) != 1) &#123;
-    perror(&quot;Failed to write to the i2c bus&quot;);
-&#125;
+<p>然后重启 Docker<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo systemctl restart docker
 </code></pre>
-<h4 id="2-3-2-读取数据"><a href="#2-3-2-读取数据" class="headerlink" title="2.3.2 读取数据"></a>2.3.2 读取数据</h4><p>使用 <code>read()</code> 函数从 I2C 设备读取数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char buffer[1];
-if (read(file, buffer, 1) != 1) &#123;
-    perror(&quot;Failed to read from the i2c bus&quot;);
-&#125; else &#123;
-    printf(&quot;Data read: 0x%02x\n&quot;, buffer[0]);
-&#125;
+<hr>
+<h3 id="11-apt-换源（Ubuntu-x2F-Debian）"><a href="#11-apt-换源（Ubuntu-x2F-Debian）" class="headerlink" title="11. apt 换源（Ubuntu&#x2F;Debian）"></a>11. <strong>apt 换源<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Ubuntu&#x2F;Debian<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h3><p><code>apt</code> 是 Ubuntu 和 Debian 系统常用的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>切换到国内镜像可以显著加快软件包的下载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>常用的国内镜像源有 <strong>阿里云</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>清华大学</strong> 和 <strong>中科大</strong> 镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="步骤-1：备份原有的源列表"><a href="#步骤-1：备份原有的源列表" class="headerlink" title="步骤 1：备份原有的源列表"></a>步骤 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>备份原有的源列表</h4><p>先备份 <code>/etc/apt/sources.list</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 </code></pre>
-<h3 id="2-4-使用-ioctl-进行复杂读写操作"><a href="#2-4-使用-ioctl-进行复杂读写操作" class="headerlink" title="2.4 使用 ioctl 进行复杂读写操作"></a>2.4 使用 <code>ioctl</code> 进行复杂读写操作</h3><p>对于更复杂的读写操作<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如多字节传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用 <code>I2C_RDWR</code> 命令结合 <code>i2c_rdwr_ioctl_data</code> 来实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h4 id="2-4-1-写入多个字节"><a href="#2-4-1-写入多个字节" class="headerlink" title="2.4.1 写入多个字节"></a>2.4.1 写入多个字节</h4><p>假设要向寄存器 0x10 写入两个字节的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char outbuf[3] = &#123; 0x10, 0x01, 0x02 &#125;;
-struct i2c_msg messages[1];
-messages[0].addr  = addr;
-messages[0].flags = 0;  // 写操作
-messages[0].len   = 3;
-messages[0].buf   = outbuf;
-
-struct i2c_rdwr_ioctl_data ioctl_data;
-ioctl_data.msgs  = messages;
-ioctl_data.nmsgs = 1;
-
-if (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; 0) &#123;
-    perror(&quot;Failed to write to the i2c bus&quot;);
-&#125;
+<h4 id="步骤-2：编辑-sources-list"><a href="#步骤-2：编辑-sources-list" class="headerlink" title="步骤 2：编辑 sources.list"></a>步骤 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>编辑 <code>sources.list</code></h4><p>使用文本编辑器打开 <code>sources.list</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo nano /etc/apt/sources.list
 </code></pre>
-<h4 id="2-4-2-读取寄存器数据"><a href="#2-4-2-读取寄存器数据" class="headerlink" title="2.4.2 读取寄存器数据"></a>2.4.2 读取寄存器数据</h4><p>通常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读取寄存器数据需要先写入寄存器地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再读取其数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读取寄存器 0x10<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char reg = 0x10;
-unsigned char inbuf[1];
-
-struct i2c_msg messages[2];
-messages[0].addr  = addr;
-messages[0].flags = 0;  // 写操作
-messages[0].len   = 1;
-messages[0].buf   = &amp;reg;
-
-messages[1].addr  = addr;
-messages[1].flags = I2C_M_RD;  // 读操作
-messages[1].len   = 1;
-messages[1].buf   = inbuf;
-
-struct i2c_rdwr_ioctl_data ioctl_data;
-ioctl_data.msgs  = messages;
-ioctl_data.nmsgs = 2;
-
-if (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; 0) &#123;
-    perror(&quot;Failed to read from the i2c bus&quot;);
-&#125; else &#123;
-    printf(&quot;Register 0x10 read: 0x%02x\n&quot;, inbuf[0]);
-&#125;
-</code></pre>
-<h2 id="3-常用的-ioctl-命令"><a href="#3-常用的-ioctl-命令" class="headerlink" title="3. 常用的 ioctl 命令"></a>3. 常用的 <code>ioctl</code> 命令</h2><ul>
-<li><code>I2C_SLAVE</code>: 设置从设备地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>I2C_RDWR</code>: 执行多条 I2C 消息<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读或写<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对应 <code>i2c_rdwr_ioctl_data</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<h4 id="步骤-3：选择一个国内源替换原有的源"><a href="#步骤-3：选择一个国内源替换原有的源" class="headerlink" title="步骤 3：选择一个国内源替换原有的源"></a>步骤 3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>选择一个国内源替换原有的源</h4><p>你可以选择以下任意一个国内镜像源来替换原有的源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>阿里云镜像</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
 </ul>
-<h2 id="4-完整的-I2C-应用层示例"><a href="#4-完整的-I2C-应用层示例" class="headerlink" title="4. 完整的 I2C 应用层示例"></a>4. 完整的 I2C 应用层示例</h2><p>以下是一个完整的示例程序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展示如何通过 I2C 接口读取和写入数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">#include &lt;stdio.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;sys/ioctl.h&gt;
-#include &lt;linux/i2c-dev.h&gt;
-#include &lt;unistd.h&gt;
-
-int main() &#123;
-    int file;
-    int addr = 0x50; // I2C 从设备地址
-
-    // 打开 I2C 设备
-    if ((file = open(&quot;/dev/i2c-1&quot;, O_RDWR)) &lt; 0) &#123;
-        perror(&quot;Failed to open the i2c bus&quot;);
-        return 1;
-    &#125;
-
-    // 设置从设备地址
-    if (ioctl(file, I2C_SLAVE, addr) &lt; 0) &#123;
-        perror(&quot;Failed to acquire bus access and/or talk to slave&quot;);
-        return 1;
-    &#125;
-
-    // 写入数据到寄存器 0x10
-    unsigned char outbuf[3] = &#123; 0x10, 0x01, 0x02 &#125;;
-
-    if (write(file, outbuf, 3) != 3) &#123;
-        perror(&quot;Failed to write to the i2c bus&quot;);
-        return 1;
-    &#125;
-
-    // 读取寄存器 0x10 的值
-    unsigned char reg = 0x10;
-    unsigned char inbuf[1];
-
-    struct i2c_msg messages[2];
-    messages[0].addr  = addr;
-    messages[0].flags = 0;
-    messages[0].len   = 1;
-    messages[0].buf   = &amp;reg;
-
-    messages[1].addr  = addr;
-    messages[1].flags = I2C_M_RD;
-    messages[1].len   = 1;
-    messages[1].buf   = inbuf;
-
-    struct i2c_rdwr_ioctl_data ioctl_data;
-    ioctl_data.msgs  = messages;
-    ioctl_data.nmsgs = 2;
-
-    if (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; 0) &#123;
-        perror(&quot;Failed to read from the i2c bus&quot;);
-        return 1;
-    &#125; else &#123;
-        printf(&quot;Register 0x10 read: 0x%02x\n&quot;, inbuf[0]);
-    &#125;
-
-    close(file);
-    return 0;
-&#125;
+<pre><code class="bash">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 </code></pre>
-<h2 id="5-使用-i2c-tools-进行调试"><a href="#5-使用-i2c-tools-进行调试" class="headerlink" title="5. 使用 i2c-tools 进行调试"></a>5. 使用 <code>i2c-tools</code> 进行调试</h2><p><code>i2c-tools</code> 是一组用于调试 I2C 设备的工具集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中包括 <code>i2cdetect</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>i2cget</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>i2cset</code> 和 <code>i2cdump</code> 等常用工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是这些工具的使用介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="5-1-i2cdetect"><a href="#5-1-i2cdetect" class="headerlink" title="5.1 i2cdetect"></a>5.1 <code>i2cdetect</code></h3><p><code>i2cdetect</code> 用于扫描 I2C 总线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>查看哪些设备在响应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cdetect -y 1
+<ul>
+<li><strong>清华大学镜像</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="bash">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
 </code></pre>
-<h3 id="5-2-i2cget"><a href="#5-2-i2cget" class="headerlink" title="5.2 i2cget"></a>5.2 <code>i2cget</code></h3><p><code>i2cget</code> 用于读取 I2C 设备寄存器的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cget -y 1 0x50 0x00
+<ul>
+<li><strong>中科大镜像</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="bash">deb https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
 </code></pre>
-<h3 id="5-3-i2cset"><a href="#5-3-i2cset" class="headerlink" title="5.3 i2cset"></a>5.3 <code>i2cset</code></h3><p><code>i2cset</code> 用于向 I2C 设备写入数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cset -y 1 0x50 0x00 0xFF
+<p><strong>注意</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>focal</code> 是 Ubuntu 20.04 的代号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果你使用的是其他版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请将 <code>focal</code> 替换为对应版本的代号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="步骤-4：更新软件包列表"><a href="#步骤-4：更新软件包列表" class="headerlink" title="步骤 4：更新软件包列表"></a>步骤 4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>更新软件包列表</h4><p>保存并退出编辑器后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>运行以下命令更新软件包列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo apt update
 </code></pre>
-<h3 id="5-4-i2cdump"><a href="#5-4-i2cdump" class="headerlink" title="5.4 i2cdump"></a>5.4 <code>i2cdump</code></h3><p><code>i2cdump</code> 用于读取 I2C 设备的所有寄存器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并以十六进制输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cdump -y 1 0x50
-</code></pre>
-<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h2><p>I2C 是嵌入式系统中常见的通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 Linux 中提供了丰富的用户空间接口来与设备交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过使用 <code>open()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>read()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>write()</code> 和 <code>ioctl()</code> 等系统调用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发者可以轻松对 I2C 设备进行操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>i2c-tools</code> 提供了一组命令行工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够帮助开发者快速调试和测试 I2C 总线设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在嵌入式开发和硬件调试中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些工具和接口都是非常重要的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>如需进一步了解 <code>i2c-tools</code> 的源码和开发方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以访问 <a target="_blank" rel="noopener" href="https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git">i2c-tools 官方源码仓库</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h3 id="12-总结"><a href="#12-总结" class="headerlink" title="12. 总结"></a>12. <strong>总结</strong></h3><p>通过切换国内镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以在很多常用的包管理工具中加速依赖的下载和安装过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>省下不少时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是常见工具切换国内源的方法总结<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>npm</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>npm config set registry https://registry.npmmirror.com</code></li>
+<li><strong>Yarn</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>yarn config set registry https://registry.npmmirror.com</code></li>
+<li><strong>pip</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>豆瓣源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>pip install package-name -i https://pypi.douban.com/simple</code></li>
+<li><strong>Conda</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清华源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</code></li>
+<li><strong>Composer</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>阿里云源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</code></li>
+<li><strong>RubyGems</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</code></li>
+<li><strong>Maven</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>阿里云源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>修改 <code>~/.m2/settings.xml</code></li>
+<li><strong>Gradle</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>阿里云源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>修改 <code>build.gradle</code></li>
+<li><strong>Node.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>nvm install node --registry=https://registry.npmmirror.com</code></li>
+<li><strong>Docker</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>配置国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>加速容器镜像下载</li>
+<li><strong>apt</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用阿里云<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>清华大学或中科大镜像加速软件包下载</li>
+</ul>
+<hr>
+<h2 id="小小吐槽——CSDN-为什么要强制登录？"><a href="#小小吐槽——CSDN-为什么要强制登录？" class="headerlink" title="小小吐槽——CSDN 为什么要强制登录？"></a>小小吐槽——CSDN 为什么要强制登录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h2><p>在开发过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大家应该都有过这样的经历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你在 CSDN 上找到了一段有用的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当你准备复制时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结果 CSDN 突然弹出一个登录框<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让你必须登录才能复制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有些情况下甚至还会提示你<strong>充会员</strong>才能无障碍地复制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这种体验真的让人心累<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>作为一个开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最需要的是高效地获取信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是被迫跳过这些繁琐的登录步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>CSDN 的这种行为让人感觉像是被<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>卡脖子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>逼迫你为基础的功能付费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这就像你走进了一家图书馆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看到一本书的精彩片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正准备抄下笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却被管理员拦住<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>想抄<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>先交钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 这种强行限制内容获取的做法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>似乎违背了互联网的初衷——信息的自由传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>话是说回来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在如今信息发达的时代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>GitHub</strong> 和 <strong>Stack Overflow</strong> 这样的平台提供丰富的开源资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比起被限制的 CSDN<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更值得推荐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p>通过切换到国内镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以显著加快下载依赖的速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>节省时间与精力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而至于某些平台的强制登录和会员制度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>真的应该反思一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>知识的自由传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>难道不应该是互联网的初心吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
 
       
     </div>
@@ -274,7 +245,7 @@ int main() &#123;
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../2/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span><a class="page-number" href="../4/">4</a><a class="page-number" href="../5/">5</a><span class="space">&hellip;</span><a class="page-number" href="../16/">16</a><a class="extend next" rel="next" href="../4/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../2/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><span class="page-number current">3</span><a class="page-number" href="../4/">4</a><a class="page-number" href="../5/">5</a><span class="space">&hellip;</span><a class="page-number" href="../17/">17</a><a class="extend next" rel="next" href="../4/">下一页 &raquo;</a>
   </nav>
 
 </section>
