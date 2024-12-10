@@ -73,328 +73,16 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><strong>Pinctrl 子系统</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>负责管理引脚的复用与配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它允许将引脚配置为不同的功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并设置引脚的电气特性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如上拉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>下拉等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>GPIO 子系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> 主要负责对通用输入输出引脚的管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它提供 API 来配置引脚为输入或输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并控制引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>层次结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> Pinctrl 子系统位于 GPIO 子系统之上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Pinctrl 负责引脚的初步配置和复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 GPIO 子系统则利用这些配置来实现输入输出操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        <p><strong>Pinctrl 子系统</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>负责管理引脚的复用与配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它允许将引脚配置为不同的功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并设置引脚的电气特性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如上拉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>下拉等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>GPIO 子系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> 主要负责对通用输入输出引脚的管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它提供 API 来配置引脚为输入或输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并控制引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>层次结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> Pinctrl 子系统位于 GPIO 子系统之上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Pinctrl 负责引脚的初步配置和复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 GPIO 子系统则利用这些配置来实现输入输出操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两者有密切的关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>先配置Pinctrl<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在配置GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <ul>
 <li>引脚配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过 Pinctrl 子系统配置引脚的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将某个引脚设置为 GPIO 功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 <li>状态管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>然后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPIO 子系统使用这些配置来管理引脚的电平状态<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读取或设置引脚电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 </ul>
-<h2 id="Pinctrl子系统"><a href="#Pinctrl子系统" class="headerlink" title="Pinctrl子系统"></a>Pinctrl子系统</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241208160441.png"></p>
-<p><code>pinctrl</code> 子系统是 Linux 内核中用于管理 GPIO<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>通用输入输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>引脚和其他引脚控制功能的一个重要组件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它的主要作用是提供一个统一的接口来配置和控制各种硬件引脚的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>复用等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是对 <code>pinctrl</code> 子系统的详细介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p>在有pinctrl之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般直接操作硬件寄存器以配置 GPIO 引脚的方式通常涉及到访问特定的内存地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在Imx6u平台上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展示如何在 Linux 驱动中直接访问寄存器来设置 GPIO 引脚的模式和状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p>假设我们有一个简单的硬件平台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其 GPIO 寄存器映射如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li><strong>GPIO 控制寄存器</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>用于设置引脚模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></li>
-<li><strong>GPIO 数据寄存器</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>用于读写引脚状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></li>
-</ul>
-<pre><code class="c">#include &lt;linux/module.h&gt;
-#include &lt;linux/kernel.h&gt;
-#include &lt;linux/init.h&gt;
-#include &lt;linux/io.h&gt;
-
-#define GPIO_BASE_ADDR 0x3F200000  // 假设的 GPIO 基址
-#define GPIO_SET_OFFSET 0x1C        // 设置 GPIO 引脚高电平的偏移量
-#define GPIO_CLR_OFFSET 0x28        // 清除 GPIO 引脚高电平的偏移量
-#define GPIO_DIR_OFFSET 0x00        // GPIO 方向寄存器偏移量
-
-#define GPIO_PIN 17                  // 假设我们操作 GPIO 17
-
-static void __iomem *gpio_base;
-
-static int __init gpio_init(void) &#123;
-    // 映射 GPIO 控制寄存器
-    gpio_base = ioremap(GPIO_BASE_ADDR, 0x1000);
-    if (!gpio_base) &#123;
-        printk(KERN_ERR &quot;Failed to map GPIO base address\n&quot;);
-        return -ENOMEM;
-    &#125;
-
-    // 设置 GPIO_PIN 为输出
-    unsigned int *gpio_dir = gpio_base + GPIO_DIR_OFFSET;
-    *gpio_dir |= (1 &lt;&lt; GPIO_PIN);  // 将 GPIO_PIN 设置为输出模式
-
-    // 设置 GPIO_PIN 为高电平
-    unsigned int *gpio_set = gpio_base + GPIO_SET_OFFSET;
-    *gpio_set = (1 &lt;&lt; GPIO_PIN);
-
-    printk(KERN_INFO &quot;GPIO %d is set to high\n&quot;, GPIO_PIN);
-    return 0;
-&#125;
-
-static void __exit gpio_exit(void) &#123;
-    // 清除 GPIO_PIN 的高电平
-    unsigned int *gpio_clr = gpio_base + GPIO_CLR_OFFSET;
-    *gpio_clr = (1 &lt;&lt; GPIO_PIN);
-
-    // 解除映射
-    iounmap(gpio_base);
-    printk(KERN_INFO &quot;GPIO %d is set to low\n&quot;, GPIO_PIN);
-&#125;
-
-module_init(gpio_init);
-module_exit(gpio_exit);
-
-MODULE_LICENSE(&quot;GPL&quot;);
-MODULE_AUTHOR(&quot;Example Author&quot;);
-MODULE_DESCRIPTION(&quot;Direct GPIO Access Example&quot;);
-</code></pre>
-<ul>
-<li><p><strong>映射寄存器</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>使用 <code>ioremap()</code> 函数将 GPIO 基地址映射到内核虚拟地址空间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-<li><p><strong>设置 GPIO 方向</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>通过对 GPIO 方向寄存器进行位操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将指定的 GPIO 引脚设置为输出模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-<li><p><strong>设置引脚状态</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>通过操作 GPIO 设置寄存器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将引脚设为高电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>通过 GPIO 清除寄存器可以将引脚设为低电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-<li><p><strong>模块初始化与退出</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>在模块初始化时配置 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并在模块卸载时清除引脚状态并解除映射<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-</ul>
-<p><strong>导致问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
-<ul>
-<li><strong>硬件依赖性</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>直接寄存器访问依赖于特定硬件平台的寄存器映射<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具有很强的硬件依赖性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不易移植<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>安全性</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>直接操作硬件寄存器时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必须确保不会引起冲突或不安全的状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>错误处理</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>实际代码中应包含更多的错误处理逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以确保健壮性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h3 id="1-主要功能"><a href="#1-主要功能" class="headerlink" title="1. 主要功能"></a>1. 主要功能</h3><ul>
-<li><strong>引脚配置</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>允许用户设置每个引脚的模式<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>复用功能等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>引脚状态管理</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>可以读写引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>引脚复用</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持将同一引脚配置为不同的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以适应不同的硬件需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241208224355.png"></p>
-<blockquote>
-<p>在设备树<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Device Tree<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>Pin Controller</strong> 节点的格式并没有统一的标准<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这意味着不同的芯片制造商可能会采用不同的方式来定义这些节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尽管所有芯片都具备类似的功能概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如引脚复用和配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但具体的实现和描述方式各不相同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</blockquote>
-<h4 id="Pin-Controller-概念"><a href="#Pin-Controller-概念" class="headerlink" title="Pin Controller 概念"></a>Pin Controller 概念</h4><p><strong>Pin Controller</strong> 是一个软件抽象概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要用于管理和配置芯片上的引脚功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它并不是在芯片手册中可以直接找到的硬件模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是通过软件来实现引脚的复用和配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<ul>
-<li><strong>引脚复用</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>类似于 IOMUX<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Pin Controller 允许将同一引脚配置为多种功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>例如 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>引脚配置</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>除了复用功能外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Pin Controller 还可以配置引脚的电气特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如上下拉电阻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>驱动强度等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h4 id="Client-Device-概念"><a href="#Client-Device-概念" class="headerlink" title="Client Device 概念"></a>Client Device 概念</h4><p><strong>Client Device</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>客户设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是指在 <code>pinctrl</code> 系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用 Pin Controller 控制引脚的外设或模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>简而言之<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Client Device 是依赖于 Pin Controller 提供的接口和功能的设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Client Device 是使用 pinctrl 系统的设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它通过 Pin Controller 配置和管理所需的引脚功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以实现与主控芯片或其他设备的通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>在设备树<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Device Tree<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Client Device 通常被定义为一个节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该节点包含以下信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">my_device: my_device@0 &#123;
-    compatible = &quot;my_vendor,my_device&quot;;
-    pinctrl-names = &quot;default&quot;;
-    pinctrl = &lt;&amp;pinctrl_0&gt;;  // 引用 Pin Controller 配置
-    // 其他设备属性
-&#125;;
-</code></pre>
-<p>在设备树中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>&lt;&amp;pinctrl_0&gt;;</code> 是对 Pin Controller 配置的引用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它通常在设备树的某个部分定义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>具体来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>pinctrl_0</code> 是一个节点标签<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>label<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常定义在 pinctrl 子系统部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>描述相关引脚的配置和功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">&amp;pinctrl &#123;
-    pinctrl_0: pinctrl &#123;
-        gpio1_pins: gpio1_pins &#123;
-            fsl,pins = &lt;MX6UL_PAD_GPIO1_IO16__GPIO1_IO16&gt;;
-        &#125;;
-
-        gpio2_pins: gpio2_pins &#123;
-            fsl,pins = &lt;MX6UL_PAD_GPIO1_IO17__GPIO1_IO17&gt;;
-        &#125;;
-
-        // 其他引脚配置
-    &#125;;
-&#125;;
-</code></pre>
-<h3 id="2-关键组件"><a href="#2-关键组件" class="headerlink" title="2. 关键组件"></a>2. 关键组件</h3><ul>
-<li><strong>设备树</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>pinctrl</code> 使用设备树<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Device Tree<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来描述硬件的引脚功能和配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>设备树中的节点定义了硬件平台的引脚布局和特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>pinctrl 驱动</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每个硬件平台都有相应的 pinctrl 驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它实现了 <code>pinctrl</code> 子系统的接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责具体的硬件控制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>GPIO 线路</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>pinctrl</code> 提供的接口通常与 GPIO 线路紧密结合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>允许用户在需要时直接控制 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<p>驱动结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每个硬件平台通常实现一个 pinctrl 驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责解析设备树并配置引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>引脚控制逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>驱动通过访问特定的寄存器来实现引脚的配置和状态管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><strong>由BSP工程师完成</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>驱动程序使用特定的输入&#x2F;输出操作函数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 readl 和 writel<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来访问硬件寄存器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些寄存器通常位于系统级芯片<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>SoC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的地址空间中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责控制引脚的功能和状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>驱动程序通过写入相应的寄存器值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>配置引脚为特定的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如将引脚设置为 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C 或 UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>驱动程序可以设置引脚为输入或输出模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在输出模式下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序控制引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>在输入模式下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序读取引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="3-使用示例"><a href="#3-使用示例" class="headerlink" title="3. 使用示例"></a>3. 使用示例</h3><p>在设备树中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>pinctrl</code> 的定义通常如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="dts">pinctrl &#123;
-    pinctrl0: pinctrl0 &#123;
-        pins = &quot;gpio1&quot;, &quot;gpio2&quot;;
-        function = &quot;gpio&quot;;
-    &#125;;
-&#125;;
-</code></pre>
-<p>在 Linux 驱动中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用 <code>pinctrl</code> API 进行引脚配置的一个简单示例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">struct pinctrl *pinctrl;
-struct pinctrl_state *state;
-
-pinctrl = devm_pinctrl_get(dev);
-state = pinctrl_lookup_state(pinctrl, &quot;pinctrl0&quot;);
-pinctrl_select_state(pinctrl, state);
-</code></pre>
-<h3 id="4-API-接口"><a href="#4-API-接口" class="headerlink" title="4. API 接口"></a>4. API 接口</h3><p><code>pinctrl</code> 提供了一系列的 API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主要包括<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li><code>pinctrl_get()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>获取 pinctrl 句柄<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>pinctrl_lookup_state()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>查找特定的引脚状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>pinctrl_select_state()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>选择并应用指定的引脚状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h3 id="5-适用场景"><a href="#5-适用场景" class="headerlink" title="5. 适用场景"></a>5. 适用场景</h3><ul>
-<li><strong>嵌入式系统</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>广泛应用于嵌入式设备中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以控制各种外设<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>开发板</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如 Raspberry Pi<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>BeagleBone 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户需要对 GPIO 进行灵活控制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>自定义硬件</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在需要对硬件引脚进行特定配置的场景中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h3><p><code>pinctrl</code> 子系统是 Linux 内核中用于引脚管理的重要组成部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它通过统一的接口简化了 GPIO 和引脚控制的复杂性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>了解和使用 <code>pinctrl</code> 可以帮助开发者更有效地管理硬件资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高开发效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="GPIO子系统"><a href="#GPIO子系统" class="headerlink" title="GPIO子系统"></a>GPIO子系统</h2><p>在早期的嵌入式系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直接通过寄存器操作 GPIO 引脚的方式存在许多问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尤其是在不同硬件平台上的兼容性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每个板子的 GPIO 控制代码往往需要完全不同的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致代码重复和维护困难<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>驱动代码可以使用 GPIO 子系统提供的标准函数来操作 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不需要关心底层的寄存器操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些标准函数包括<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li><strong>获取 GPIO</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>申请使用特定的 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>设置 GPIO 方向</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>配置 GPIO 引脚为输入或输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>读取&#x2F;设置 GPIO 值</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>读取引脚的电平状态或设置引脚的电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<p>通过这种方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动代码将变得与具体板子无关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具有更好的可移植性和可重用性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>无论在何种硬件平台上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需确保设备树正确配置和 GPIO 子系统实现得当<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序就可以正常工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>下面是一个使用 GPIO 子系统的简单示例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">#include &lt;linux/gpio.h&gt;
-
-#define LED_GPIO_PIN 17  // 定义 LED 使用的 GPIO 引脚编号
-
-void led_control(int state) &#123;
-    // 申请 GPIO 引脚
-    gpio_request(LED_GPIO_PIN, &quot;led_gpio&quot;);
-
-    // 设置引脚方向为输出
-    gpio_direction_output(LED_GPIO_PIN, state);
-
-    // 控制 LED 状态
-    gpio_set_value(LED_GPIO_PIN, state);
-
-    // 释放 GPIO 引脚
-    gpio_free(LED_GPIO_PIN);
-&#125;
-</code></pre>
-<h3 id="GPIO-控制器在设备树中的定义"><a href="#GPIO-控制器在设备树中的定义" class="headerlink" title="GPIO 控制器在设备树中的定义"></a>GPIO 控制器在设备树中的定义</h3><p>在许多 ARM 芯片中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPIO 引脚通常被分为多个组<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每组包含若干个引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在使用 GPIO 子系统之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>必须确定要使用的 GPIO 组和具体引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是如何在设备树中定义和引用 GPIO 控制器的详细说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">gpio1: gpio@12340000 &#123;
-    compatible = &quot;vendor,gpio-controller&quot;; // 兼容的设备类型
-    reg = &lt;0x12340000 0x1000&gt;; // 寄存器基地址及大小
-    interrupts = &lt;GIC_SPI 32 0&gt;; // 中断配置&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;GIC_SPI 表示中断类型&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;32 是中断号
-    gpio-cells = &lt;2&gt;; // GPIO 单元数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;：&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;第一个为引脚编号&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;第二个为属性&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;如上下拉配置等&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
-    gpio-controller; // 指示这是一个 GPIO 控制器
-    ngpios = &lt;32&gt;; // 可用的 GPIO 引脚数量
-
-    // 额外的属性&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;可以根据具体需要添加
-    vendor = &quot;MyVendor&quot;; // 厂商信息
-    model = &quot;MyGPIOController&quot;; // 控制器型号
-
-    // 可选的引脚配置
-    pinctrl-names = &quot;default&quot;; // 引脚控制器配置名称
-    pinctrl-0 = &lt;&amp;pinctrl_0&gt;; // 引用引脚控制器配置
-&#125;;
-</code></pre>
-<p>在设备树中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPIO 控制器节点的定义中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有两个关键属性需要关注<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ol>
-<li>gpio-controller</li>
-</ol>
-<ul>
-<li><strong>意义</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>该属性标记该节点为一个 GPIO 控制器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>表示它负责管理多个 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>作用</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它让内核识别该节点为 GPIO 控制器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并允许其他设备节点引用其管理的 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<ol start="2">
-<li>#gpio-cells &#x3D; &lt;2&gt;</li>
-</ol>
-<ul>
-<li><strong>意义</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这个属性指定每个 GPIO 引脚的描述需要使用两个 32 位的数<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>cell<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>具体含义</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><ul>
-<li><strong>第一个值</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>表示引脚的编号<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>index<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于指定 GPIO 控制器下的具体引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>第二个值</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>可以是可选属性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如设置引脚的上下拉电阻或其他特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-</ul>
-<h3 id="在设备节点中引用-GPIO-引脚"><a href="#在设备节点中引用-GPIO-引脚" class="headerlink" title="在设备节点中引用 GPIO 引脚"></a>在设备节点中引用 GPIO 引脚</h3><p><code>gpios</code> 属性并不是将设备定义为 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是指定该设备使用的 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>具体来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这一行代码指明了该设备将使用由 gpio1 控制器管理的第 0 号引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">my_device: my_device@0 &#123;
-    compatible = &quot;goodix,gt9xx&quot;;
-    reg = &lt;0x5d&gt;; // 设备寄存器地址
-    status = &quot;okay&quot;; // 状态
-    interrupt-parent = &lt;&amp;gpio1&gt;; // 中断父节点
-    pinctrl-names = &quot;default&quot;; // 默认引脚控制
-    pinctrl-0 = &lt;&amp;pinctrl_tsc_reset &amp;pinctrl_touchscreen&gt;; // 引脚控制配置
-
-    name-gpios = &lt;&amp;gpio1 0 GPIO_ACTIVE_HIGH&gt;; //// 引用 gpio1 控制器的第 0 号引脚&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;高电平有效
-    reset-gpios = &lt;&amp;gpio2 2 GPIO_ACTIVE_LOW&gt;; // 复位 GPIO&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;低电平有效
-    irq-gpios = &lt;&amp;gpio1 5 IRQ_TYPE_EDGE_FALLING&gt;; // 中断 GPIO&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;下降沿触发
-&#125;;
-</code></pre>
-<ul>
-<li><code>gpios = &lt;&amp;gpio1 0 GPIO_ACTIVE_HIGH&gt;;</code> 是一个重要的属性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>定义了该设备使用的 GPIO 引脚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>上图中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用 gpios 属性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也可以使用 name-gpios 属性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<p>0 表示该引脚在 gpio1 控制器中的编号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>GPIO_ACTIVE_HIGH 指定该 GPIO 引脚在高电平状态下有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这意味着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当引脚电平为高时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设备的功能将被激活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以上dts定义指定了设备所使用的 GPIO 引脚及其状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这是设备树中对设备与 GPIO 之间关系的描述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得内核能够通过驱动程序正确控制该设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><strong>效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
-<p><strong>设备功能控制</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过此引用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序可以控制该引脚的状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而影响设备的行为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果这个设备是一个 LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设置该引脚为高电平可能会使 LED 亮起<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><strong>硬件抽象</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这使得设备树能够抽象出硬件细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序可以通过统一的接口与硬件进行交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不必关心具体的硬件实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="在驱动代码中调用-GPIO-子系统"><a href="#在驱动代码中调用-GPIO-子系统" class="headerlink" title="在驱动代码中调用 GPIO 子系统"></a>在驱动代码中调用 GPIO 子系统</h3><p>在驱动程序中使用 GPIO 引脚时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过 Linux GPIO 子系统提供的 API 来进行管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是您提供的代码的详细解释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展示如何在驱动程序中使用 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">#include &lt;linux/gpio.h&gt;
-
-#define GPIO_PIN 0 // 使用 gpio1 控制器中的第 0 号引脚
-
-void control_gpio(void) &#123;
-    // 申请 GPIO 引脚
-    gpio_request(GPIO_PIN, &quot;my_gpio&quot;);
-
-    // 设置引脚方向为输出
-    gpio_direction_output(GPIO_PIN, 1); // 设置引脚为高电平
-
-    // 控制引脚状态
-    gpio_set_value(GPIO_PIN, 0); // 设置引脚为低电平
-
-    // 释放 GPIO 引脚
-    gpio_free(GPIO_PIN);
-&#125;
-</code></pre>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241209002525.png"></p>
-<h3 id="在sysfs中访问GPIO的方式"><a href="#在sysfs中访问GPIO的方式" class="headerlink" title="在sysfs中访问GPIO的方式"></a>在sysfs中访问GPIO的方式</h3><p>在 Linux 的 <code>sysfs</code> 中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>访问方法主要涉及如何通过文件系统接口与内核对象进行交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><code>sysfs</code> 是一个虚拟文件系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它提供了用户空间与内核空间之间的交互机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尤其用于设备和驱动程序的信息暴露<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是访问 <code>sysfs</code> 的一般方法和步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<p><strong>查看设备信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
-<pre><code class="bash">ls /sys/class/ | grep &lt;device_class&gt;
-</code></pre>
-<p><strong>读取属性</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">cat /sys/class/&lt;device_class&gt;/&lt;device&gt;/attribute_name
-</code></pre>
-<p><strong>写入属性</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">echo &lt;value&gt; &gt; /sys/class/&lt;device_class&gt;/&lt;device&gt;/attribute_name
-</code></pre>
-<p>在 C 程序中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用标准文件操作函数来读取和写入 <code>sysfs</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-void read_sysfs(const char *path) &#123;
-    FILE *file = fopen(path, &quot;r&quot;);
-    if (file) &#123;
-        char buffer[256];
-        fgets(buffer, sizeof(buffer), file);
-        printf(&quot;Value: %s\n&quot;, buffer);
-        fclose(file);
-    &#125; else &#123;
-        perror(&quot;Failed to open file&quot;);
-    &#125;
-&#125;
-
-void write_sysfs(const char *path, const char *value) &#123;
-    FILE *file = fopen(path, &quot;w&quot;);
-    if (file) &#123;
-        fprintf(file, &quot;%s\n&quot;, value);
-        fclose(file);
-    &#125; else &#123;
-        perror(&quot;Failed to open file&quot;);
-    &#125;
-&#125;
-
-int main() &#123;
-    // 示例&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;：&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;读取和写入 sysfs 属性
-    const char *path = &quot;/sys/class/&lt;device_class&gt;/&lt;device&gt;/attribute_name&quot;;
-    
-    read_sysfs(path); // 读取属性
-    write_sysfs(path, &quot;1&quot;); // 写入属性
-    return 0;
-&#125;
-</code></pre>
-<ul>
-<li><strong>权限</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>访问 <code>sysfs</code> 中的某些文件可能需要特定的权限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是写入操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>数据格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>确保读取和写入的数据格式正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如整数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>布尔值等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>设备状态</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在对设备进行操作前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>了解设备的当前状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以避免不必要的错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -422,6 +110,73 @@ int main() &#123;
         
       </div>
       <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+          <li>
+            <a href="2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
+          </li>
+        
+          <li>
+            <a href="2024/09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
+          </li>
+        
+          <li>
+            <a href="2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="2023/07/05/notes/23Spring_%E5%BB%BA%E6%A8%A1%E5%A4%8D%E4%B9%A0/">23Spring_建模复习</a>
+          </li>
+        
+          <li>
+            <a href="2023/05/15/share/MacOS%E5%A4%96%E6%8E%A5%E6%98%BE%E5%8D%A1%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">MacOS外接显卡折腾记录</a>
+          </li>
+        
+          <li>
+            <a href="2023/04/27/share/%E5%90%8E%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E6%8C%87%E5%8D%97/">后互联网时代网上冲浪指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="way2/archives/" style="font-size: 20px;">archives</a> <a href="way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="way2/diary/" style="font-size: 10px;">diary</a> <a href="way2/embed/" style="font-size: 10px;">embed</a> <a href="way2/linux/" style="font-size: 10px;">linux</a> <a href="way2/ml/" style="font-size: 10px;">ml</a> <a href="way2/project/" style="font-size: 10px;">project</a> <a href="way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
   
   <div class="outer">
     <div id="footer-info" class="inner">

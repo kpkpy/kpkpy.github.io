@@ -69,6 +69,11 @@
       </header>
     
     
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%B3%E6%B3%95%E7%9A%84%E6%A0%B8%E5%BF%83%EF%BC%9A%E4%B8%80%E9%94%AE%E5%AE%8C%E6%88%90%E8%A1%97%E6%8B%8D%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91"><span class="toc-number">1.</span> <span class="toc-text">想法的核心：一键完成街拍视频剪辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">目标功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%9A%E8%A7%A3%E5%86%B3%E7%94%A8%E6%88%B7%E7%97%9B%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">需求分析：解决用户痛点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">1. 用户需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E9%9C%80%E6%B1%82"><span class="toc-number">2.2.</span> <span class="toc-text">2. 技术需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BC%9A%E4%BB%8E%E9%9C%80%E6%B1%82%E5%88%B0%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">系统设计：从需求到实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">1. 核心功能模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%EF%BC%88%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%89"><span class="toc-number">3.1.1.</span> <span class="toc-text">前端（用户界面）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%EF%BC%88%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-number">3.1.2.</span> <span class="toc-text">后端（逻辑处理）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">2. 技术架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">3.2.1.</span> <span class="toc-text">前端技术栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">3.2.2.</span> <span class="toc-text">后端技术栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E4%B8%8E%E5%AF%BC%E5%87%BA"><span class="toc-number">3.2.3.</span> <span class="toc-text">存储与导出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">3.3.</span> <span class="toc-text">3. 系统功能流程图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">关键技术实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A7%86%E9%A2%91%E6%8B%BC%E6%8E%A5%E4%B8%8E%E8%BD%AC%E5%9C%BA%EF%BC%9AFFmpeg-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">1. 视频拼接与转场：FFmpeg 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E8%A7%86%E9%A2%91"><span class="toc-number">4.1.1.</span> <span class="toc-text">图片转换为视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5%E5%9B%BE%E7%89%87%E4%B8%8E%E8%A7%86%E9%A2%91"><span class="toc-number">4.1.2.</span> <span class="toc-text">拼接图片与视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E5%B5%8C%E5%85%A5"><span class="toc-number">4.1.3.</span> <span class="toc-text">背景音乐嵌入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%97%B6%E9%97%B4%E8%BD%B4%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="toc-number">4.2.</span> <span class="toc-text">2. 时间轴编辑功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD%EF%BC%9A%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%B7%E5%80%BC%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-number">5.</span> <span class="toc-text">结语：工具的价值与展望</span></a></li></ol>
+</div>
+
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>街拍摄影与 POV<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>第一人称视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已经成为当下社交媒体内容创作的热门形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尤其是在平台如 YouTube<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Instagram 和 TikTok 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创作者通过动态的视频和静态的照片交替展示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>捕捉街头氛围与视觉冲击力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>吸引了大量粉丝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这类视频的制作常常需要繁琐的后期剪辑工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对非专业人士来说是一个技术和时间的双重挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -237,6 +242,73 @@
         
       </div>
       <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+          <li>
+            <a href="../../../19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
+          </li>
+        
+          <li>
+            <a href="../../../../09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/07/05/notes/23Spring_%E5%BB%BA%E6%A8%A1%E5%A4%8D%E4%B9%A0/">23Spring_建模复习</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/05/15/share/MacOS%E5%A4%96%E6%8E%A5%E6%98%BE%E5%8D%A1%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">MacOS外接显卡折腾记录</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/04/27/share/%E5%90%8E%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E6%8C%87%E5%8D%97/">后互联网时代网上冲浪指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
   
   <div class="outer">
     <div id="footer-info" class="inner">

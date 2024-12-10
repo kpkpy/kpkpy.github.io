@@ -69,6 +69,11 @@
       </header>
     
     
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%85%B3%E9%94%AE%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.</span> <span class="toc-text">1. 关键结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-struct-i2c-msg"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 struct i2c_msg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-struct-i2c-rdwr-ioctl-data"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 struct i2c_rdwr_ioctl_data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-I2C-%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B%E6%A6%82%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">2. I2C 应用编程概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%89%93%E5%BC%80-I2C-%E8%AE%BE%E5%A4%87"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 打开 I2C 设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AE%BE%E7%BD%AE%E4%BB%8E%E8%AE%BE%E5%A4%87%E5%9C%B0%E5%9D%80"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置从设备地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%AF%BB%E5%86%99-I2C-%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 读写 I2C 数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 写入数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 读取数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E4%BD%BF%E7%94%A8-ioctl-%E8%BF%9B%E8%A1%8C%E5%A4%8D%E6%9D%82%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 使用 ioctl 进行复杂读写操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-1-%E5%86%99%E5%85%A5%E5%A4%9A%E4%B8%AA%E5%AD%97%E8%8A%82"><span class="toc-number">2.4.1.</span> <span class="toc-text">2.4.1 写入多个字节</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-%E8%AF%BB%E5%8F%96%E5%AF%84%E5%AD%98%E5%99%A8%E6%95%B0%E6%8D%AE"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.4.2 读取寄存器数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E7%9A%84-ioctl-%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">3. 常用的 ioctl 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%8C%E6%95%B4%E7%9A%84-I2C-%E5%BA%94%E7%94%A8%E5%B1%82%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">4. 完整的 I2C 应用层示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%BF%E7%94%A8-i2c-tools-%E8%BF%9B%E8%A1%8C%E8%B0%83%E8%AF%95"><span class="toc-number">5.</span> <span class="toc-text">5. 使用 i2c-tools 进行调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-i2cdetect"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 i2cdetect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-i2cget"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 i2cget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-i2cset"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 i2cset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-i2cdump"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 i2cdump</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">6. 总结</span></a></li></ol>
+</div>
+
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>I2C<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Inter-Integrated Circuit<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是一种广泛用于嵌入式系统的串行通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>允许多个设备通过两根数据线进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 Linux 系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 设备通常挂载在 <code>/dev</code> 目录下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用如 <code>/dev/i2c-X</code> 这样的设备文件进行访问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过系统调用和特定的 I2C 操作命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应用层程序可以与 I2C 设备进行读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -295,6 +300,73 @@ int main() &#123;
         
       </div>
       <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+          <li>
+            <a href="">I2C应用编程</a>
+          </li>
+        
+          <li>
+            <a href="../../../../09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/07/05/notes/23Spring_%E5%BB%BA%E6%A8%A1%E5%A4%8D%E4%B9%A0/">23Spring_建模复习</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/05/15/share/MacOS%E5%A4%96%E6%8E%A5%E6%98%BE%E5%8D%A1%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">MacOS外接显卡折腾记录</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/04/27/share/%E5%90%8E%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E6%8C%87%E5%8D%97/">后互联网时代网上冲浪指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
   
   <div class="outer">
     <div id="footer-info" class="inner">

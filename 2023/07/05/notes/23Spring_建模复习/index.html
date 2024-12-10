@@ -71,6 +71,11 @@
       </header>
     
     
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#UML%E4%B8%AD%E4%B9%9D%E7%A7%8D%E5%9B%BE%E7%9A%84%E5%BB%BA%E6%A8%A1%E5%85%83%E7%B4%A0%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B9%9D%E7%A7%8D%E6%A8%A1%E5%9E%8B%E5%9B%BE%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%8C%E7%94%BB%E6%B3%95-%E7%94%A8%E4%BE%8B%E5%9B%BE-%E6%97%B6%E5%BA%8F%E5%9B%BE-%E7%8A%B6%E6%80%81%E5%9B%BE%E4%B8%BA%E4%B8%BB"><span class="toc-number">1.</span> <span class="toc-text">UML中九种图的建模元素，以及九种模型图的作用，画法 (用例图 时序图 状态图为主)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BE%8B%E5%9B%BE%EF%BC%8C%E7%B1%BB%E5%9B%BE%EF%BC%8C%E6%97%B6%E5%BA%8F%E5%9B%BE-%E7%94%BB%E7%94%A8%E4%BE%8B%E5%9B%BE%EF%BC%8C%E5%85%B6%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%8A%9F%E8%83%BD%E7%9A%84%E6%97%B6%E5%BA%8F%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text">用例图，类图，时序图(画用例图，其中某个功能的时序图)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%94%A8%E4%BE%8B-%E9%82%A3%E4%BA%9B%E5%9B%BE%E7%94%A8%E6%9D%A5%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0%E7%94%A8%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">什么是用例, 那些图用来详细描述用例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%BB%E5%87%BA%E5%BD%95%E9%9F%B3%E6%9C%BA%E7%9A%84%E7%94%A8%E4%BE%8B%E5%9B%BE-%E9%A1%BA%E5%BA%8F%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">画出录音机的用例图, 顺序图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CPS%E7%B3%BB%E7%BB%9F"><span class="toc-number">5.</span> <span class="toc-text">CPS系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">6.</span> <span class="toc-text">实时系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MDA%E6%A8%A1%E5%9E%8B%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-CIV-PIM-PSID%EF%BC%89%EF%BC%9B%EF%BC%88%E6%A6%82%E5%BF%B5%E4%B8%BA%E4%B8%BB%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">MDA模型驱动开发 (CIV-PIM-PSID）；（概念为主）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RM-EDF%E8%B0%83%E5%BA%A6%E6%9C%BA%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">RM EDF调度机制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ROPES%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E3%80%81%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%81%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0-%EF%BC%9B"><span class="toc-number">9.</span> <span class="toc-text">ROPES开发流程(需求分析、系统设计、系统实现)；</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E4%BA%8B%E4%BB%B6%E3%80%81%E8%BF%81%E7%A7%BB%E7%AD%89%E5%86%85%E5%AE%B9%E7%90%86%E8%A7%A3%EF%BC%9B%EF%BC%88%E7%BB%93%E5%90%88%E5%AE%9E%E9%AA%8C%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">自动机的事件、迁移等内容理解；（结合实验）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MARTE%E8%AF%AD%E8%A8%80%E7%9A%84%E5%BB%BA%E6%A8%A1%E6%80%9D%E6%83%B3"><span class="toc-number">11.</span> <span class="toc-text">MARTE语言的建模思想;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MARTE%E4%B8%AD%E4%BB%80%E4%B9%88%E6%98%AFrefinement"><span class="toc-number">12.</span> <span class="toc-text">MARTE中什么是refinement</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SysML%E4%B8%8EUML%E8%AF%AD%E8%A8%80%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%EF%BC%88%E4%BB%8E%E8%AF%AD%E4%B9%89%E3%80%81%E8%AF%AD%E6%B3%95%E5%92%8C%E6%89%80%E9%9D%A2%E5%90%91%E5%BB%BA%E6%A8%A1%E5%9C%BA%E6%99%AF%E6%96%B9%E9%9D%A2%E8%BF%9B%E8%A1%8C%E5%8C%BA%E5%88%86%EF%BC%89"><span class="toc-number">13.</span> <span class="toc-text">SysML与UML语言的区别？（从语义、语法和所面向建模场景方面进行区分）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9E%8B%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-MDD"><span class="toc-number">14.</span> <span class="toc-text">描述一下什么是模型驱动开发(MDD)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E4%BA%8B%E4%BB%B6%EF%BC%8C%E7%8A%B6%E6%80%81%E8%BF%81%E7%A7%BB%E7%AD%89%E5%86%85%E5%AE%B9%E7%90%86%E8%A7%A3%EF%BC%8C"><span class="toc-number">15.</span> <span class="toc-text">自动机的事件，状态迁移等内容理解，</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%9A%84%E5%81%8F%E5%BA%8F"><span class="toc-number">16.</span> <span class="toc-text">顺序图的偏序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E8%BF%81%E7%A7%BB%E6%97%B6-%E5%8A%A8%E4%BD%9C%E6%89%A7%E8%A1%8C%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-number">17.</span> <span class="toc-text">状态迁移时, 动作执行的顺序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UML-profile-%E7%94%A8%E5%A4%84-%E5%92%8CUML%E5%8C%BA%E5%88%AB"><span class="toc-number">18.</span> <span class="toc-text">UML profile 用处, 和UML区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B-%E5%90%84%E6%AC%A1%E5%AE%9E%E9%AA%8C%E7%9A%84%E7%90%86%E8%A7%A3-%E4%B8%89%E9%80%89%E4%BA%8C-%EF%BC%8C%E8%80%83%E5%AF%9F%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80"><span class="toc-number">19.</span> <span class="toc-text">描述系统的执行过程 各次实验的理解(三选二)，考察查询语言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8CATM%E4%B8%AD%E6%AD%BB%E9%94%81-%E5%8D%B1%E5%AE%B3"><span class="toc-number">20.</span> <span class="toc-text">实验ATM中死锁, 危害</span></a></li></ol>
+</div>
+
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h5 id="UML中九种图的建模元素，以及九种模型图的作用，画法-用例图-时序图-状态图为主"><a href="#UML中九种图的建模元素，以及九种模型图的作用，画法-用例图-时序图-状态图为主" class="headerlink" title="UML中九种图的建模元素，以及九种模型图的作用，画法 (用例图 时序图 状态图为主)"></a>UML中九种图的建模元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及九种模型图的作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画法 (用例图 时序图 状态图为主)</h5><p>UML<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Unified Modeling Language<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是一种通用的建模语言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于描述和设计软件系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在UML中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有九种不同类型的图<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分别用于不同的建模目的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下面分别介绍它们的建模元素和作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
@@ -271,6 +276,73 @@
         
       </div>
       <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
+          </li>
+        
+          <li>
+            <a href="../../../../09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="">23Spring_建模复习</a>
+          </li>
+        
+          <li>
+            <a href="../../../../05/15/share/MacOS%E5%A4%96%E6%8E%A5%E6%98%BE%E5%8D%A1%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">MacOS外接显卡折腾记录</a>
+          </li>
+        
+          <li>
+            <a href="../../../../04/27/share/%E5%90%8E%E4%BA%92%E8%81%94%E7%BD%91%E6%97%B6%E4%BB%A3%E7%BD%91%E4%B8%8A%E5%86%B2%E6%B5%AA%E6%8C%87%E5%8D%97/">后互联网时代网上冲浪指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
   
   <div class="outer">
     <div id="footer-info" class="inner">
