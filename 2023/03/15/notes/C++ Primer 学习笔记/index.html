@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>C++ Primer 学习笔记 | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="C++_Primer_Plus_5E
+变量和基本类型
+
+
+
+
+
+
+引用
+指针
+
+const
+
+
+
+
+
+
+
+
+函数
+参数传递
+
+函数的重载
+
+
+
+调试
+函数匹配
+
+函数指针
+
+
+
+类
+
+
+
+
+构造函数
+
+
+
+
+
+
+
+
+访问控制
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IO流
+
+
+
+
+顺序容器
+
+
+
+
+
+
+
+">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/C++ Primer 学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-03-14T16:00:00.000Z" itemprop="datePublished">2023-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      C++ Primer 学习笔记
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">变量和基本类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">1.2.</span> <span class="toc-text">指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-number">1.3.</span> <span class="toc-text">const</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">2.1.</span> <span class="toc-text">参数传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="toc-number">2.2.</span> <span class="toc-text">函数的重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E8%AF%95"><span class="toc-number">2.3.</span> <span class="toc-text">调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8C%B9%E9%85%8D"><span class="toc-number">2.4.</span> <span class="toc-text">函数匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="toc-number">2.5.</span> <span class="toc-text">函数指针</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">3.2.</span> <span class="toc-text">访问控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO%E6%B5%81"><span class="toc-number">4.</span> <span class="toc-text">IO流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AE%B9%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">顺序容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%AE%97%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">泛型算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#accumulate"><span class="toc-number">6.1.</span> <span class="toc-text">accumulate()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equal"><span class="toc-number">6.2.</span> <span class="toc-text">equal()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fill-fill-n"><span class="toc-number">6.3.</span> <span class="toc-text">fill()\fill_n()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copy-resize"><span class="toc-number">6.4.</span> <span class="toc-text">copy()&#x2F;resize()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort-unique"><span class="toc-number">6.5.</span> <span class="toc-text">sort()&#x2F;unique()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda"><span class="toc-number">6.6.</span> <span class="toc-text">lambda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iterator"><span class="toc-number">6.7.</span> <span class="toc-text">iterator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E5%AE%B9%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">关联容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pair"><span class="toc-number">7.1.</span> <span class="toc-text">pair</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-number">7.2.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">7.3.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mutimap-amp-mutiset"><span class="toc-number">7.4.</span> <span class="toc-text">mutimap&amp;mutiset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unordered-map-%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">7.5.</span> <span class="toc-text">unordered_map 哈希表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98-amp-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-number">8.</span> <span class="toc-text">动态内存&amp;智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-pointer%E7%B1%BB"><span class="toc-number">8.1.</span> <span class="toc-text">shared_pointer类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-pointer-%E7%B1%BB"><span class="toc-number">8.2.</span> <span class="toc-text">unique_pointer 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new-x2F-delete%E6%93%8D%E4%BD%9C"><span class="toc-number">8.3.</span> <span class="toc-text">new&#x2F;delete操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allocator%E7%B1%BB"><span class="toc-number">8.4.</span> <span class="toc-text">allocator类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%E6%8E%A7%E5%88%B6"><span class="toc-number">9.</span> <span class="toc-text">拷贝控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E9%87%8D%E8%BD%BD%E5%92%8C%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">10.</span> <span class="toc-text">运算重载和类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1OOP"><span class="toc-number">11.</span> <span class="toc-text">面向对象OOP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0"><span class="toc-number">11.1.</span> <span class="toc-text">虚函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-1"><span class="toc-number">11.2.</span> <span class="toc-text">访问控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E7%89%88-x2F-%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B"><span class="toc-number">12.</span> <span class="toc-text">模版&#x2F;泛型编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%BA%93%E7%89%B9%E6%AE%8A%E8%AE%BE%E6%96%BD"><span class="toc-number">13.</span> <span class="toc-text">标准库特殊设施</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E5%B7%A5%E5%85%B7%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">14.</span> <span class="toc-text">特殊工具与技术</span></a></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="/books/C++_Primer_Plus_5E">C++_Primer_Plus_5E</a></p>
+<h2 id="变量和基本类型"><a href="#变量和基本类型" class="headerlink" title="变量和基本类型"></a>变量和基本类型</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226111445.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226111744.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226142712.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226142942.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143051.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143307.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143333.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143447.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143537.png"></p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143553.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143731.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226143828.png"></p>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226144038.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226144108.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226144123.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226144725.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226144736.png"></p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226145904.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226150247.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226150312.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226150453.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226151600.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226151614.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226151648.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226151710.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226151753.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226170133.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226170447.png"></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226173631.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226173648.png"></p>
+<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226173825.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226173928.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226173958.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226174011.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226174030.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226174037.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226174333.png"></p>
+<h3 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226210118.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226210221.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226210301.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226210356.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226211319.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226211406.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226212306.png"></p>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226212554.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213109.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213053.png"></p>
+<h3 id="函数匹配"><a href="#函数匹配" class="headerlink" title="函数匹配"></a>函数匹配</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213154.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213211.png"></p>
+<h3 id="函数指针"><a href="#函数指针" class="headerlink" title="函数指针"></a>函数指针</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213427.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213457.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213529.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230226213730.png"></p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227222317.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227222713.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227222836.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227224511.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227224552.png"></p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223106.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223133.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223339.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223346.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227224215.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227224255.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223446.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227230920.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227231053.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227231104.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227231110.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227231225.png"></p>
+<h3 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223607.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223700.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223707.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223903.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227223915.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225119.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225357.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225405.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225701.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225749.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225812.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225856.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227225940.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227232207.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227232227.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227232553.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227234255.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227234411.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227234443.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227234451.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227234625.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227235113.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227235226.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230227235306.png"></p>
+<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228102339.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228103020.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228103358.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228103408.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228104358.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228104440.png"></p>
+<h2 id="顺序容器"><a href="#顺序容器" class="headerlink" title="顺序容器"></a>顺序容器</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228104615.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228105049.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228105433.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228110340.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228105927.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228110009.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228110533.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228110941.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228111017.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228111135.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228111238.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228111245.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228111316.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228112139.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228112457.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228160320.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228112746.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228143344.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228144042.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228143934.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228144745.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228144820.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228145522.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228145545.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228145623.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228145646.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228153703.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228153724.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228154515.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228154432.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228161644.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228161724.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228162734.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228183316.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228183438.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228183448.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228183712.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228183720.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228183726.png"></p>
+<h2 id="泛型算法"><a href="#泛型算法" class="headerlink" title="泛型算法"></a>泛型算法</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228184133.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228184231.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228185143.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228185207.png"></p>
+<h3 id="accumulate"><a href="#accumulate" class="headerlink" title="accumulate()"></a><code>accumulate()</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228185850.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228185917.png"></p>
+<h3 id="equal"><a href="#equal" class="headerlink" title="equal()"></a><code>equal()</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228185944.png"></p>
+<h3 id="fill-fill-n"><a href="#fill-fill-n" class="headerlink" title="fill()\fill_n()"></a><code>fill()\fill_n()</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228190052.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228192818.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228212849.png"></p>
+<h3 id="copy-resize"><a href="#copy-resize" class="headerlink" title="copy()/resize()"></a><code>copy()/resize()</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228213803.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228213841.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228213904.png"></p>
+<h3 id="sort-unique"><a href="#sort-unique" class="headerlink" title="sort()/unique()"></a><code>sort()/unique()</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228214056.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228214337.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230228214109.png"></p>
+<h3 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302214333.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302214415.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302214430.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302214440.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302214848.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302214901.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302215231.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302215240.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302215623.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302215938.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302220433.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302220903.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302220919.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302223919.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224431.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224439.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224455.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224642.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224654.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224705.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302224722.png"></p>
+<h3 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225309.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225316.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225345.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225402.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225443.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225450.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302225514.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230258.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230343.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230354.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230405.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230416.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230427.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230302230434.png"></p>
+<h2 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303102907.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303102948.png"></p>
+<h3 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303105403.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303105439.png"></p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303103056.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303103332.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303110141.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303110151.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111144.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111216.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111503.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111644.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111704.png"></p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303103124.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303103459.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303103947.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303110100.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111156.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111628.png"></p>
+<h3 id="mutimap-amp-mutiset"><a href="#mutimap-amp-mutiset" class="headerlink" title="mutimap&amp;mutiset"></a>mutimap&amp;mutiset</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303104358.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303105633.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303105650.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303105827.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303112220.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303112220.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303111110.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303112348.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303112356.png"></p>
+<h3 id="unordered-map-哈希表"><a href="#unordered-map-哈希表" class="headerlink" title="unordered_map 哈希表"></a>unordered_map 哈希表</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303112802.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303113825.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303113539.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303113635.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303114356.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303114411.png"></p>
+<h2 id="动态内存-amp-智能指针"><a href="#动态内存-amp-智能指针" class="headerlink" title="动态内存&amp;智能指针"></a>动态内存&amp;智能指针</h2><p>程序使用动态内存出于一下三种原因:</p>
+<ul>
+<li>程序不知道要使用多少内存</li>
+<li>程序不知道使用对象的具体类型</li>
+<li>程序需要再多个对象之间共享访问</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303153101.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303153439.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303153535.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303153603.png"></p>
+<h3 id="shared-pointer类"><a href="#shared-pointer类" class="headerlink" title="shared_pointer类"></a>shared_pointer类</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303154439.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303154545.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303154555.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303154750.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303155010.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303155111.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303155129.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303155431.png"></p>
+<h3 id="unique-pointer-类"><a href="#unique-pointer-类" class="headerlink" title="unique_pointer 类"></a>unique_pointer 类</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303210203.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303154555.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303210250.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303210242.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303210902.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303211033.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303212148.png"></p>
+<h3 id="new-x2F-delete操作"><a href="#new-x2F-delete操作" class="headerlink" title="new&#x2F;delete操作"></a>new&#x2F;delete操作</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303161619.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303162657.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303163137.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303163146.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303163427.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303164041.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303164224.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303164256.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303164027.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303164450.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303164638.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303170119.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303170343.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303170400.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303170410.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303204302.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303205013.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303211811.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303211905.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303211922.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303211957.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303212011.png"></p>
+<h3 id="allocator类"><a href="#allocator类" class="headerlink" title="allocator类"></a>allocator类</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303214414.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303214422.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303214504.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303214831.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230303215514.png"></p>
+<h2 id="拷贝控制"><a href="#拷贝控制" class="headerlink" title="拷贝控制"></a>拷贝控制</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304145627.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304145704.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304145717.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150039.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150411.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150421.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150524.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150804.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150813.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304150908.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151045.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151101.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151413.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151440.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151500.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151557.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304151932.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304152205.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304152218.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304152230.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304152317.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304153017.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304153526.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304153703.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304153714.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304153740.png"><br><code>int &amp;r = i1|(ops)</code><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304153803.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304154549.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304155510.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304155857.png"></p>
+<h2 id="运算重载和类型转换"><a href="#运算重载和类型转换" class="headerlink" title="运算重载和类型转换"></a>运算重载和类型转换</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160233.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160254.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160320.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160306.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160635.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160648.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160729.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160944.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304160951.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304211423.png"></p>
+<h2 id="面向对象OOP"><a href="#面向对象OOP" class="headerlink" title="面向对象OOP"></a>面向对象OOP</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304215017.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304215046.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304215058.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304215324.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304220925.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304220939.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304221324.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304222127.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304222723.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304222731.png"></p>
+<h3 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304222902.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304223006.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304223050.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304223513.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304223524.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304223541.png"></p>
+<h3 id="访问控制-1"><a href="#访问控制-1" class="headerlink" title="访问控制"></a>访问控制</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304224104.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304224120.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233525.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233509.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304231424.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233341.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233348.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233555.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233831.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230304233841.png"></p>
+<h2 id="模版-x2F-泛型编程"><a href="#模版-x2F-泛型编程" class="headerlink" title="模版&#x2F;泛型编程"></a>模版&#x2F;泛型编程</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230305171051.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230305171146.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230305171420.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230305171552.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230305172159.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230305172500.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306113851.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306114627.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306114928.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306142111.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306142227.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306142236.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306142247.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306143120.png"></p>
+<h2 id="标准库特殊设施"><a href="#标准库特殊设施" class="headerlink" title="标准库特殊设施"></a>标准库特殊设施</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306144431.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306144438.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306144528.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306144544.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306144601.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306150143.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306151958.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152034.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152042.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152051.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152125.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152828.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152838.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306152904.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306153002.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306153015.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306153024.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306153127.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306153138.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306160048.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306160056.png"></p>
+<h2 id="特殊工具与技术"><a href="#特殊工具与技术" class="headerlink" title="特殊工具与技术"></a>特殊工具与技术</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306160429.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306160448.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306160453.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306161138.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306162917.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163101.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163131.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163422.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163454.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163808.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163842.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163931.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306163942.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306164049.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306164109.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306164147.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306164204.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230306165011.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/cpp/" rel="tag">cpp</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../17/notes/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          STL源码剖析 学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../02/21/notes/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          2022Fall_人工智能笔记
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>2022Fall_FormalMethod Review | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="
+课程主页: Formal Methods Foundation (csslab-ustc.github.io)
+课程逻辑
+课程大纲
+考试内容: 开卷
+命题逻辑(证明树推导, 规则使用)
+构造逻辑(与命题逻辑区别)
+SAT(是命题逻辑部分的可满足性问题)
+Theory(谓词逻辑满足性定理)
+符号执行">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/FormalMethodReview" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-02-14T16:00:00.000Z" itemprop="datePublished">2023-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      2022Fall_FormalMethod Review
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">_数学基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA"><span class="toc-number">1.1.</span> <span class="toc-text">计算复杂性理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E6%97%A0%E5%85%B3%E6%96%87%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">上下文无关文法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E5%BD%92%E7%BA%B3%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">结构化归纳法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="toc-number">2.</span> <span class="toc-text">命题逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E7%B3%BB%E7%BB%9F-%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E-%E7%BB%8F%E5%85%B8%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="toc-number">2.1.</span> <span class="toc-text">证明系统: 自然演绎(经典命题逻辑)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E8%A7%84%E5%88%99"><span class="toc-number">2.1.2.</span> <span class="toc-text">证明规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E2%80%93%E5%8E%86%E5%B9%B4%E8%80%83%E9%A2%98-%E8%AF%81%E6%98%8E%E8%A7%84%E5%88%99%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text">证明–历年考题(证明规则的运用)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E9%80%BB%E8%BE%91"><span class="toc-number">2.2.</span> <span class="toc-text">构造逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SAT-%E5%B8%83%E5%B0%94%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7-%E9%97%AE%E9%A2%98-x2F-DPLL%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">SAT(布尔可满足性)问题&#x2F;DPLL算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CNF-%E5%90%88%E5%8F%96%E8%8C%83%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">CNF(合取范式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E5%92%8C%E4%BC%A0%E6%92%AD"><span class="toc-number">3.2.</span> <span class="toc-text">_解析和传播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DPLL"><span class="toc-number">3.3.</span> <span class="toc-text">DPLL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAT-vs-valid"><span class="toc-number">3.4.</span> <span class="toc-text">SAT vs. valid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91"><span class="toc-number">4.</span> <span class="toc-text">谓词逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E-%E7%9B%B8%E5%AF%B9%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91-%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">新增(相对命题逻辑)的概念:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%BB%91%E5%AE%9A%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.1.</span> <span class="toc-text">计算绑定变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E8%87%AA%E7%94%B1%E5%8F%98%E9%87%8F"><span class="toc-number">4.1.2.</span> <span class="toc-text">计算自由变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E8%A7%84%E5%88%99"><span class="toc-number">4.1.3.</span> <span class="toc-text">替换规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%81%E6%98%8E%E7%B3%BB%E7%BB%9F-%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E"><span class="toc-number">4.2.</span> <span class="toc-text">证明系统: 自然演绎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMT%E5%8F%AF%E6%BB%A1%E8%B6%B3%E6%80%A7%E6%A8%A1%E7%90%86%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">SMT可满足性模理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%BC%8F%E7%90%86%E8%AE%BA-x2F-EUF%E7%90%86%E8%AE%BA"><span class="toc-number">5.1.</span> <span class="toc-text">等式理论&#x2F;EUF理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%AE%97%E6%95%B0-LA-%E7%90%86%E8%AE%BA"><span class="toc-number">5.2.</span> <span class="toc-text">线性算数(LA)理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E5%85%83%E6%B3%95"><span class="toc-number">5.2.1.</span> <span class="toc-text">消元法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E7%BA%AF%E5%BD%A2%E6%B3%95"><span class="toc-number">5.2.2.</span> <span class="toc-text">_单纯形法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%AE%9A%E7%95%8C"><span class="toc-number">5.2.3.</span> <span class="toc-text">_分支定界</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%90%91%E9%87%8F%E7%90%86%E8%AE%BA"><span class="toc-number">5.3.</span> <span class="toc-text">比特向量理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%90%86%E8%AE%BA"><span class="toc-number">5.4.</span> <span class="toc-text">数组理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%90%86%E8%AE%BA-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.5.</span> <span class="toc-text">指针理论: 内存模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E7%BB%93%E5%90%88"><span class="toc-number">5.6.</span> <span class="toc-text">理论结合</span></a></li></ol></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>课程主页: <a target="_blank" rel="noopener" href="https://csslab-ustc.github.io/courses/theory/index.html">Formal Methods Foundation (csslab-ustc.github.io)</a></li>
+<li>课程逻辑<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214182650.png"></li>
+<li>课程大纲<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214192201.png"></li>
+<li>考试内容: 开卷<ul>
+<li>命题逻辑(证明树推导, 规则使用)</li>
+<li>构造逻辑(与命题逻辑区别)</li>
+<li>SAT(是命题逻辑部分的可满足性问题)</li>
+<li>Theory(谓词逻辑满足性定理)</li>
+<li>符号执行&#x2F;混合执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="数学基础"><a href="#数学基础" class="headerlink" title="_数学基础"></a>_数学基础</h2><h3 id="计算复杂性理论"><a href="#计算复杂性理论" class="headerlink" title="计算复杂性理论"></a>计算复杂性理论</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214131457.png"></p>
+<h3 id="上下文无关文法"><a href="#上下文无关文法" class="headerlink" title="上下文无关文法"></a>上下文无关文法</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214132024.png"></p>
+<p>具体例子:</p>
+<ol>
+<li><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214132514.png"></li>
+<li><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214132823.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214132912.png"></li>
+</ol>
+<ul>
+<li>上述推导 _存在二义性:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214132943.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214133458.png"></li>
+</ul>
+<h3 id="结构化归纳法"><a href="#结构化归纳法" class="headerlink" title="结构化归纳法"></a>结构化归纳法</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214135052.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214135247.png"><br>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214135945.png"></p>
+<h2 id="命题逻辑"><a href="#命题逻辑" class="headerlink" title="命题逻辑"></a>命题逻辑</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214140238.png"></p>
+<h3 id="证明系统-自然演绎-经典命题逻辑"><a href="#证明系统-自然演绎-经典命题逻辑" class="headerlink" title="证明系统: 自然演绎(经典命题逻辑)"></a>证明系统: 自然演绎(经典命题逻辑)</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li><p>环境: 一组命题 假定是真的<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214140546.png"></p>
+</li>
+<li><p>断言:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214140624.png"><br>( |- 的意思是 等价 )</p>
+</li>
+</ul>
+<h4 id="证明规则"><a href="#证明规则" class="headerlink" title="证明规则"></a>证明规则</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214142023.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214140807.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214140949.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214141134.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214141229.png"></p>
+<ul>
+<li><p>合取(Conjunction理解为And)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214141459.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214141514.png"></p>
+</li>
+<li><p>析取(Disjunction理解为Or)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214141807.png"></p>
+</li>
+<li><p>蕴含<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214141841.png"></p>
+</li>
+<li><p>否定<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214142119.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214142209.png"></p>
+</li>
+</ul>
+<h4 id="证明–历年考题-证明规则的运用"><a href="#证明–历年考题-证明规则的运用" class="headerlink" title="证明–历年考题(证明规则的运用)"></a>证明–历年考题(证明规则的运用)</h4><p>推导的循序是自下往上<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214142241.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214142641.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214163103.png"><br><a href="assets/Video/%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B62023-02-14%20%E4%B8%8B%E5%8D%884.24.05.mov">历史考题1</a></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214151945.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214151930.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214163116.png"></p>
+<p>考试题型: 证明题</p>
+<h3 id="构造逻辑"><a href="#构造逻辑" class="headerlink" title="构造逻辑"></a>构造逻辑</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214163337.png"></p>
+<ul>
+<li>不能使用反证法</li>
+</ul>
+<h2 id="SAT-布尔可满足性-问题-x2F-DPLL算法"><a href="#SAT-布尔可满足性-问题-x2F-DPLL算法" class="headerlink" title="SAT(布尔可满足性)问题&#x2F;DPLL算法"></a>SAT(布尔可满足性)问题&#x2F;DPLL算法</h2><p><em>SAT是针对命题逻辑的可满足性问题</em><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214163606.png"><br>例:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214163910.png"><br>穷举法<br>但时间增长速度快(指数级)<br>提出了DPLL</p>
+<p><strong>DPLL算法的输入必须是合取范式CNF</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214164202.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214164316.png"></p>
+<h3 id="CNF-合取范式"><a href="#CNF-合取范式" class="headerlink" title="CNF(合取范式)"></a>CNF(合取范式)</h3><p><strong>合取范式中:</strong></p>
+<ul>
+<li>最外层的符号都是合取</li>
+<li>否定符号一定出现在原子命题前</li>
+<li>不能有蕴含(-&gt;)符号</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214164500.png"></p>
+<p><strong>转换命题为CNF范式:</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214183447.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214164508.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214164717.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214175246.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214175746.png"><br><em>增加了优先级</em></p>
+<p>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214164810.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214175631.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214180058.png"></p>
+<blockquote>
+<p>可能会考到<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214180149.png"></p>
+</blockquote>
+<h3 id="解析和传播"><a href="#解析和传播" class="headerlink" title="_解析和传播"></a>_解析和传播</h3><p>不做过多解释<br>CNF不可解–解析推出矛盾<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214180810.png"><br>CNF解析不冲突–传播<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214180938.png"></p>
+<h3 id="DPLL"><a href="#DPLL" class="headerlink" title="DPLL"></a>DPLL</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214184140.png"></p>
+<ul>
+<li><strong>bcp(P)</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214185551.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214184259.png"><br>单元解析: 两个子句之间必须有一个是原子命题</li>
+</ul>
+<p>bcp通俗来说: 两个命题中有一个是原子命题(p),  另一个是含有p析取(~&#x2F;否定)的复合命题, 传播得出等价的不含原子命题的新命题(q)</p>
+<ul>
+<li><p>例子<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214185142.png"><br>上面的过程完成了一次布尔约束传播(bcp)</p>
+</li>
+<li><p>_选择变量(递归地)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214185620.png"></p>
+</li>
+</ul>
+<h3 id="SAT-vs-valid"><a href="#SAT-vs-valid" class="headerlink" title="SAT vs. valid"></a>SAT vs. valid</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214185943.png"></p>
+<blockquote>
+<p>SAT基于的是命题逻辑(不接受排中律, 可以用反证法)</p>
+</blockquote>
+<h2 id="谓词逻辑"><a href="#谓词逻辑" class="headerlink" title="谓词逻辑"></a>谓词逻辑</h2><p>谓词逻辑是命题逻辑的<strong>细化</strong></p>
+<ul>
+<li>增加了原子逻辑上更细化的定义</li>
+<li>引入了一些量词(全称, 存在)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214192317.png"></li>
+</ul>
+<h3 id="新增-相对命题逻辑-的概念"><a href="#新增-相对命题逻辑-的概念" class="headerlink" title="新增(相对命题逻辑)的概念:"></a>新增(相对命题逻辑)的概念:</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214193901.png"></p>
+<blockquote>
+<p>x是自由变量, y是绑定变量, 替换操作只能针对自由变量. α重命名不能让变量名冲突</p>
+</blockquote>
+<h4 id="计算绑定变量"><a href="#计算绑定变量" class="headerlink" title="计算绑定变量"></a>计算绑定变量</h4><p>输入: 谓词逻辑命题<br>输出: 绑定变量集合<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214212957.png"><br>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214202241.png"></p>
+<h4 id="计算自由变量"><a href="#计算自由变量" class="headerlink" title="计算自由变量"></a>计算自由变量</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214213026.png"><br>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214213044.png"></p>
+<blockquote>
+<p>一个变量有可能同时是绑定变量和自由变量(例子中的y)</p>
+</blockquote>
+<h4 id="替换规则"><a href="#替换规则" class="headerlink" title="替换规则"></a>替换规则</h4><p>输入: 命题<br>输出: 命题<br>只替换自由变量, 替换前要求解绑定&#x2F;自由变量, 自由变量替换前要进行α重命名</p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214214130.png"><br>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214214151.png"></p>
+<h3 id="证明系统-自然演绎"><a href="#证明系统-自然演绎" class="headerlink" title="证明系统: 自然演绎"></a>证明系统: 自然演绎</h3><p>原先的命题逻辑规则和推导方法<a href="_posts/FormalMethodReview.md#%E8%AF%81%E6%98%8E%E7%B3%BB%E7%BB%9F:%20%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E(%E7%BB%8F%E5%85%B8%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91)">证明系统: 自然演绎(经典命题逻辑)</a> 在这里也适用, 这里只列出了新增的四条规则<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214192927.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220059.png"></p>
+<ul>
+<li>全称量词的引入<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220158.png"></li>
+<li>存在量词的引入<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220215.png"></li>
+<li>全称量词的消去<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220221.png"></li>
+<li>存在量词的消去<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220226.png"></li>
+</ul>
+<p>例题:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220657.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214220704.png"></p>
+<h2 id="SMT可满足性模理论"><a href="#SMT可满足性模理论" class="headerlink" title="SMT可满足性模理论"></a>SMT可满足性模理论</h2><p>求解谓词逻辑可满足性求解<br>理论是谓词逻辑语法的<strong>子集</strong> </p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214221907.png"></p>
+<h3 id="等式理论-x2F-EUF理论"><a href="#等式理论-x2F-EUF理论" class="headerlink" title="等式理论&#x2F;EUF理论"></a>等式理论&#x2F;EUF理论</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214222113.png"></p>
+<ul>
+<li>未解释函数定义<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214222221.png"></li>
+<li>EUF(等式与未解释函数定义)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214222404.png"></li>
+<li>全等定理<br>用于证明函数之间等价<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230214222529.png"><br>例子1: 证明两个程序等价</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215141849.png"><br>改写为静态单赋值(SSA)形式<br>把乘法(*)抽象为抽象函数<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215142611.png"></p>
+<p>例子2: 编译<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215143021.png"></p>
+<h3 id="线性算数-LA-理论"><a href="#线性算数-LA-理论" class="headerlink" title="线性算数(LA)理论"></a>线性算数(LA)理论</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215145625.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215145807.png"></p>
+<h4 id="消元法"><a href="#消元法" class="headerlink" title="消元法"></a>消元法</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215145822.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215150013.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215150058.png"><br>做题中</p>
+<ul>
+<li>右边改成0</li>
+<li>符号改成一样<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215150403.png"></li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215152150.png"><br><strong>例子 : (考试要考消元法)</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215153637.png"><br>往上代入, 有一组解<br>说明这一组约束是可满足的</p>
+<h4 id="单纯形法"><a href="#单纯形法" class="headerlink" title="_单纯形法"></a>_单纯形法</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215153749.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215153830.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215154018.png"><br>不考<br>…</p>
+<h4 id="分支定界"><a href="#分支定界" class="headerlink" title="_分支定界"></a>_分支定界</h4><p>不考<br>…</p>
+<hr>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215155316.png"></p>
+<h3 id="比特向量理论"><a href="#比特向量理论" class="headerlink" title="比特向量理论"></a>比特向量理论</h3><p>语法<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215155339.png"></p>
+<p>语义<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215155440.png"><br>把bit向量映射到正数域:</p>
+<ul>
+<li>有符号</li>
+<li>无符号</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215155632.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215160717.png"></p>
+<ul>
+<li><p><code>bitBlast()</code> 比特爆炸<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215160834.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215161111.png"><br>递归生成树:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215161212.png"></p>
+</li>
+<li><p><code>genCons()</code> 生成限制</p>
+</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215161542.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215161915.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215161950.png"></p>
+<h3 id="数组理论"><a href="#数组理论" class="headerlink" title="数组理论"></a>数组理论</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170153.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170249.png"><br>数组读写的消去<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170355.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170507.png"></p>
+<p>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170829.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170945.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215170953.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215171005.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215171015.png"></p>
+<p>分类讨论: z&lt;i &#x2F; z&#x3D;i &#x2F; z&gt;i </p>
+<h3 id="指针理论-内存模型"><a href="#指针理论-内存模型" class="headerlink" title="指针理论: 内存模型"></a>指针理论: 内存模型</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215171324.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215171332.png"></p>
+<blockquote>
+<p>地址T 值类型E 关系R 复合命题P</p>
+</blockquote>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215171529.png"><br>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215172150.png"></p>
+<p>决策过程优化方法:</p>
+<ul>
+<li><p>纯变量<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215172250.png"></p>
+</li>
+<li><p>内存分区<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215172436.png"><br>例子:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215180337.png"></p>
+</li>
+</ul>
+<h3 id="理论结合"><a href="#理论结合" class="headerlink" title="理论结合"></a>理论结合</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215180605.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215180641.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215180835.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215180859.png"></p>
+<ul>
+<li>例子<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215180933.png"><br>不同理论分开求解<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215181059.png"></li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215181447.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230215181435.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../20/notes/CLRSReview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2022Fall_算法导论笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../../2022/08/15/posts/C++%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          C++的调试技巧
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

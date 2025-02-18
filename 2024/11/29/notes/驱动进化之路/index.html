@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>驱动进化之路 | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="在嵌入式Linux的发展历程中，驱动编写方式经历了显著的变革。最初的驱动设计强调面向对象的方法，将硬件资源与驱动逻辑分离，从而提高了代码的可维护性和复用性。随着技术的演进，平台设备（Platform Device）模型的引入进一步简化了驱动与硬件之间的交互，使得设备的管理更加高效。如今，设备树（Device Tree）的应用成为了驱动开发的标准，它通过描述硬件架构，增强了系统的灵活性和可扩展性。本文将深入探讨嵌入式Linux驱动编写方式的演变，剖析每一阶段的核心思想与技术优势，展望未来驱动开发的趋势。">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/驱动进化之路" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2024-11-28T16:00:00.000Z" itemprop="datePublished">2024-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      驱动进化之路
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E7%A6%BB%E7%A1%AC%E4%BB%B6%E8%B5%84%E6%BA%90%E9%A9%B1%E5%8A%A8%E6%80%9D%E6%83%B3"><span class="toc-number">1.</span> <span class="toc-text">1. 面向对象分离硬件资源驱动思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Platform-Device-%E5%B9%B3%E5%8F%B0%E6%80%BB%E7%BA%BF%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2. Platform Device 平台总线模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D%E8%BF%87%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">匹配过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AE%BE%E5%A4%87%E6%A0%91%EF%BC%88Device-Tree%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3. 设备树（Device Tree）</span></a></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在嵌入式Linux的发展历程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动编写方式经历了显著的变革<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最初的驱动设计强调面向对象的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将硬件资源与驱动逻辑分离<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而提高了代码的可维护性和复用性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>随着技术的演进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平台设备<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Device<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>模型的引入进一步简化了驱动与硬件之间的交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得设备的管理更加高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如今<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设备树<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Device Tree<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的应用成为了驱动开发的标准<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它通过描述硬件架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增强了系统的灵活性和可扩展性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文将深入探讨嵌入式Linux驱动编写方式的演变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>剖析每一阶段的核心思想与技术优势<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展望未来驱动开发的趋势<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<span id="more"></span>
+
+<h3 id="1-面向对象分离硬件资源驱动思想"><a href="#1-面向对象分离硬件资源驱动思想" class="headerlink" title="1. 面向对象分离硬件资源驱动思想"></a>1. 面向对象分离硬件资源驱动思想</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241129163033.png"></p>
+<p><strong>背景</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>在早期的嵌入设备和计算机系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件驱动程序通常是直接和硬件紧密耦合的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方式导致了驱动程序难以维护和扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为每种新的硬件都可能需要全新的驱动代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>思想</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>模块化</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将硬件相关的代码从系统的其他部分中分离出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>形成独立的模块<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>驱动模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>抽象层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>引入硬件抽象层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>HAL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得上层软件可以不直接操作硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是通过一层抽象的接口来进行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>封装</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用面向对象的编程思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将硬件的操作封装成类或对象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样可以更容易管理和重用代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>使用类的继承和多态来实现不同硬件的抽象和具体实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>提供统一的接口来访问硬件资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降低了对具体硬件的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>例子</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>假设有一个LED连接到一个GPIO引脚上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li><strong>模块化</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>创建一个独立的LED驱动模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是将LED操作代码直接嵌入到应用层代码中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>抽象层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>定义一个抽象的LED类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包含打开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>关闭等方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="cpp">// LED抽象类
+class LED &#123;
+public:
+    virtual void turnOn() = 0;
+    virtual void turnOff() = 0;
+&#125;;
+
+// GPIO LED 实现
+class GPIO_LED : public LED &#123;
+private:
+    int pin;
+
+public:
+    GPIO_LED(int gpioPin) : pin(gpioPin) &#123;&#125;
+
+    void turnOn() override &#123;
+        // GPIO设置为高电平
+    &#125;
+
+    void turnOff() override &#123;
+        // GPIO设置为低电平
+    &#125;
+&#125;;
+</code></pre>
+<h3 id="2-Platform-Device-平台总线模型"><a href="#2-Platform-Device-平台总线模型" class="headerlink" title="2. Platform Device 平台总线模型"></a>2. Platform Device 平台总线模型</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241129170020.png"></p>
+<p>随着硬件设备的复杂性增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要一种更系统化的方式来管理设备驱动和硬件资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>平台设备总线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Bus<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将所有硬件设备抽象为<strong>平台设备</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Devices<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和<strong>平台驱动</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Drivers<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种抽象使得驱动开发者不必关心具体的硬件细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是通过一套标准的接口来管理设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>通过这种模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动开发者可以集中精力在设备的具体操作上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不需要处理复杂的总线协议或硬件初始化流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>平台总线为驱动提供了标准的生命周期管理和资源访问方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>思想</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>平台设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将硬件设备抽象为平台设备<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Device<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些设备通过平台总线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Bus<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>连接到系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>平台驱动</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>相应地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序也被抽象为平台驱动<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Driver<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们通过平台总线匹配到相应的设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>在Linux内核中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>struct platform_device</code> 和 <code>struct platform_driver</code> 是关键数据结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>设备和驱动通过设备树或者是硬编码的方式注册到平台总线上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>使用总线驱动框架<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>SPI等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来进一步抽象硬件接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">// 定义平台设备的结构
+struct platform_device &#123;
+    // 设备的名称&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;用于匹配驱动
+    const char *name;
+    int id;
+    bool id_auto;
+    struct device dev;
+    u32 num_resources;
+    // 指向资源数组的指针&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;资源包括内存区域&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;IRQ等
+    struct resource *resource;
+    /* 其他字段省略 */
+&#125;;
+
+// 定义平台驱动的结构
+struct platform_driver &#123;
+    // 探测函数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;当设备被发现时调用&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;负责初始化设备
+    int (*probe)(struct platform_device *);
+    // 移除设备时调用&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;用于清理资源
+    int (*remove)(struct platform_device *);
+    void (*shutdown)(struct platform_device *);
+    int (*suspend)(struct platform_device *, pm_message_t state);
+    int (*resume)(struct platform_device *);
+    // 内嵌的通用设备驱动结构&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;包含了驱动信息如驱动名称&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;所有者等
+    struct device_driver driver;
+    const struct platform_device_id *id_table;
+    /* 其他字段省略 */
+&#125;;
+</code></pre>
+<p><strong>例子</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>同上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LED连接到GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li><strong>平台设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>定义一个平台设备来代表这个LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">static struct platform_device led_device = &#123;
+    .name = &quot;led&quot;,
+    .id = -1,
+    .dev = &#123;
+        .platform_data = &amp;gpio_pin_number, // 假设这个GPIO引脚号作为平台数据
+    &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li><strong>平台驱动</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>编写一个平台驱动来操作这个LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">static struct platform_driver led_driver = &#123;
+    .probe      = led_probe,
+    .remove     = led_remove,
+    .driver     = &#123;
+        .name  = &quot;led&quot;,
+        .owner = THIS_MODULE,
+    &#125;,
+&#125;;
+
+static int led_probe(struct platform_device *pdev)
+&#123;
+    // 获取设备的GPIO引脚信息并初始化LED
+    return 0;
+&#125;
+
+static int led_remove(struct platform_device *pdev)
+&#123;
+    // 清理LED相关的资源
+    return 0;
+&#125;
+</code></pre>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>通过平台设备和平台驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统可以自动匹配设备和驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><code>led_probe</code> 函数在匹配成功后初始化LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>led_remove</code> 函数在设备卸载时清理资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h4 id="匹配过程"><a href="#匹配过程" class="headerlink" title="匹配过程"></a>匹配过程</h4><p>平台设备与驱动的匹配过程大致如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li><p><strong>设备注册</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>当内核启动或模块加载时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平台设备<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>struct platform_device</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>被注册到平台总线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>platform_bus</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>驱动注册</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>平台驱动<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>struct platform_driver</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>也需要注册到平台总线上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>设备树解析</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>如果使用设备树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会解析设备树文件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>.dts或.dtb<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从中获取设备信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并创建相应的平台设备实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>匹配尝试</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>内核尝试将注册的驱动与平台总线上的设备进行匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>匹配过程主要遵循以下顺序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><ul>
+<li><strong>设备树匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>优先尝试使用设备树匹配规则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>检查设备的<code>compatible</code>属性与驱动的<code>of_match_table</code>是否匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>ID匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果设备树匹配失败<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尝试使用设备ID匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>名称匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尝试使用驱动和设备的名称匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>成功匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>一旦找到匹配的设备和驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会调用驱动的<code>probe</code>方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><code>probe</code>方法将接收到匹配的<code>struct device</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>实际上是一个<code>struct platform_device</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动可以在这个方法中初始化设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>资源分配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>在<code>probe</code>方法中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动可以访问设备的资源<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如IO内存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>IRQ等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些资源通常是通过设备树或平台设备注册时提供的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>设备绑定</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>如果<code>probe</code>方法成功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设备将绑定到驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设备现在可以正常工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>失败处理</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>如果匹配失败或<code>probe</code>方法失败<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会记录错误信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动将不会绑定到设</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-设备树（Device-Tree）"><a href="#3-设备树（Device-Tree）" class="headerlink" title="3. 设备树（Device Tree）"></a>3. 设备树<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Device Tree<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241129170040.png"></p>
+<p><strong>背景</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>随着SoC<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>System on Chip<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件配置变得极为复杂和多样化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬编码的方式变得难以维护<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>思想</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>解耦硬件描述</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将硬件的描述从内核代码中分离出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>形成独立的设备树描述文件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>.dts, .dtsi<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>动态配置</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>设备树提供了一种动态的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可配置的方式来描述系统硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>设备树使用一种类似JSON的格式来描述硬件结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包括节点<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>nodes<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>表示设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>属性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>properties<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>表示设备的特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>内核中的设备树编译器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>dtc<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将设备树源文件编译成二进制格式<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>DTB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核启动时加载DTB来配置硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>驱动程序通过设备树中的信息来获取设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>IRQ等信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现即插即用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>例子</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>同上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个LED连接到GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li><strong>设备树描述</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="dts">/ &#123;
+    leds &#123;
+        compatible = &quot;gpio-led&quot;;
+        gpios = &lt;&amp;gpio 17 GPIO_ACTIVE_HIGH&gt;; // 假设LED连接到GPIO17
+        label = &quot;led&quot;;
+    &#125;;
+&#125;;
+</code></pre>
+<ul>
+<li><strong>驱动代码</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>现在驱动可以从设备树中获取LED的配置信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">static int led_probe(struct platform_device *pdev)
+&#123;
+    struct device_node *node = pdev-&gt;dev.of_node;
+    int gpio;
+
+    if (of_property_read_u32(node, &quot;gpios&quot;, &amp;gpio))
+        return -ENODEV;
+
+    // 使用GPIO进行LED操作
+    return 0;
+&#125;
+</code></pre>
+<p>设备树描述了硬件配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动通过解析设备树节点来获取硬件信息<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如GPIO引脚号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方式使得硬件配置与内核代码解耦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件变化只需修改设备树文件即可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>进化意义</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>从面向对象到平台总线模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再到设备树的演变过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件资源的管理变得越来越抽象和灵活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每个阶段都使得驱动开发和维护更加高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少了对具体硬件的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增强了系统的可移植性和可维护性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过LED点灯这个简单的例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以看到这种进化带来的实际好处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>从最初的硬编码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>到设备树的动态配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得系统对硬件变化的适应性大大增强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>从面向对象到平台总线模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再到设备树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件资源的管理和配置变得越来越抽象和通用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少了对具体硬件的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提升了系统的可移植性和可维护性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>设备树的引入大大简化了内核的硬件描述方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得硬件支持的添加和修改变得更加灵活和高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>这个过程展示了操作系统在面对越来越复杂的硬件环境时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不断优化和抽象硬件管理方法的演进过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../../12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Pinctrl和GPIO子系统
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          常用依赖包管理工具换源方法大全
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

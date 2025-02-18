@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>常用依赖包管理工具换源方法大全 | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="在国内使用一些依赖包管理工具时，由于网络问题，下载速度往往比较慢。通过切换到国内的镜像源，可以显著加快依赖包的下载速度。本文详细整理了常用依赖包管理工具切换到国内镜像的方法，帮助开发者提高效率。
+
+1. npm 切换国内源国内常用的 npm 镜像源是 淘宝镜像，它同步了官方 npm 仓库的内容，且下">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/常用依赖包管理工具换源方法大全" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2024-11-27T16:00:00.000Z" itemprop="datePublished">2024-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      常用依赖包管理工具换源方法大全
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-npm-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">1. npm 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E4%B8%BA%E9%BB%98%E8%AE%A4%E6%BA%90%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">设置淘宝镜像为默认源：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E8%AE%BE%E7%BD%AE%E6%88%90%E5%8A%9F%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">验证是否设置成功：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E4%BD%BF%E7%94%A8%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">临时使用淘宝镜像：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Yarn-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">2.</span> <span class="toc-text">2. Yarn 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%E4%B8%BA%E9%BB%98%E8%AE%A4%E6%BA%90%EF%BC%9A-1"><span class="toc-number">2.1.</span> <span class="toc-text">设置淘宝镜像为默认源：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E8%AE%BE%E7%BD%AE%E6%88%90%E5%8A%9F%EF%BC%9A-1"><span class="toc-number">2.2.</span> <span class="toc-text">验证是否设置成功：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E4%BD%BF%E7%94%A8%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%EF%BC%9A-1"><span class="toc-number">2.3.</span> <span class="toc-text">临时使用淘宝镜像：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-pip-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">3.</span> <span class="toc-text">3. pip 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E4%BD%BF%E7%94%A8%E8%B1%86%E7%93%A3%E6%BA%90%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">临时使用豆瓣源：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">永久设置国内镜像：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Conda-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">4. Conda 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E4%BD%BF%E7%94%A8%E6%B8%85%E5%8D%8E%E6%BA%90%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">临时使用清华源：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E8%AE%BE%E7%BD%AE%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E6%BA%90%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">永久设置清华大学源：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Composer-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">5. Composer 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">设置国内镜像：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E9%BB%98%E8%AE%A4%E6%BA%90%EF%BC%9A"><span class="toc-number">5.2.</span> <span class="toc-text">恢复默认源：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-RubyGems-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">6.</span> <span class="toc-text">6. RubyGems 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">6.1.</span> <span class="toc-text">设置淘宝镜像：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E6%BA%90%E6%98%AF%E5%90%A6%E9%85%8D%E7%BD%AE%E6%AD%A3%E7%A1%AE%EF%BC%9A"><span class="toc-number">6.2.</span> <span class="toc-text">确认源是否配置正确：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Maven-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">7.</span> <span class="toc-text">7. Maven 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-settings-xml%EF%BC%9A"><span class="toc-number">7.1.</span> <span class="toc-text">修改 settings.xml：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Gradle-%E5%88%87%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-number">8.</span> <span class="toc-text">8. Gradle 切换国内源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-build-gradle-%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="toc-number">8.1.</span> <span class="toc-text">修改 build.gradle 文件：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-Node-js-%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F"><span class="toc-number">9.</span> <span class="toc-text">9. Node.js 镜像加速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-Docker-%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F"><span class="toc-number">10.</span> <span class="toc-text">10. Docker 镜像加速</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-Docker-%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">10.1.</span> <span class="toc-text">设置 Docker 国内镜像：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-apt-%E6%8D%A2%E6%BA%90%EF%BC%88Ubuntu-x2F-Debian%EF%BC%89"><span class="toc-number">11.</span> <span class="toc-text">11. apt 换源（Ubuntu&#x2F;Debian）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%A4%87%E4%BB%BD%E5%8E%9F%E6%9C%89%E7%9A%84%E6%BA%90%E5%88%97%E8%A1%A8"><span class="toc-number">11.1.</span> <span class="toc-text">步骤 1：备份原有的源列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E7%BC%96%E8%BE%91-sources-list"><span class="toc-number">11.2.</span> <span class="toc-text">步骤 2：编辑 sources.list</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E9%80%89%E6%8B%A9%E4%B8%80%E4%B8%AA%E5%9B%BD%E5%86%85%E6%BA%90%E6%9B%BF%E6%8D%A2%E5%8E%9F%E6%9C%89%E7%9A%84%E6%BA%90"><span class="toc-number">11.3.</span> <span class="toc-text">步骤 3：选择一个国内源替换原有的源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%88%97%E8%A1%A8"><span class="toc-number">11.4.</span> <span class="toc-text">步骤 4：更新软件包列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E6%80%BB%E7%BB%93"><span class="toc-number">12.</span> <span class="toc-text">12. 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E5%B0%8F%E5%90%90%E6%A7%BD%E2%80%94%E2%80%94CSDN-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%BA%E5%88%B6%E7%99%BB%E5%BD%95%EF%BC%9F"><span class="toc-number"></span> <span class="toc-text">小小吐槽——CSDN 为什么要强制登录？</span></a>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在国内使用一些依赖包管理工具时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于网络问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下载速度往往比较慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过切换到国内的镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以显著加快依赖包的下载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文详细整理了常用依赖包管理工具切换到国内镜像的方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮助开发者提高效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h3 id="1-npm-切换国内源"><a href="#1-npm-切换国内源" class="headerlink" title="1. npm 切换国内源"></a>1. <strong>npm 切换国内源</strong></h3><p>国内常用的 npm 镜像源是 <a target="_blank" rel="noopener" href="https://npmmirror.com/">淘宝镜像</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它同步了官方 npm 仓库的内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>且下载速度较快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置淘宝镜像为默认源："><a href="#设置淘宝镜像为默认源：" class="headerlink" title="设置淘宝镜像为默认源："></a>设置淘宝镜像为默认源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">npm config set registry https://registry.npmmirror.com
+</code></pre>
+<h4 id="验证是否设置成功："><a href="#验证是否设置成功：" class="headerlink" title="验证是否设置成功："></a>验证是否设置成功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">npm config get registry
+# 如果输出 https://registry.npmmirror.com&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;说明设置成功&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+</code></pre>
+<h4 id="临时使用淘宝镜像："><a href="#临时使用淘宝镜像：" class="headerlink" title="临时使用淘宝镜像："></a>临时使用淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">npm install --registry=https://registry.npmmirror.com
+</code></pre>
+<hr>
+<h3 id="2-Yarn-切换国内源"><a href="#2-Yarn-切换国内源" class="headerlink" title="2. Yarn 切换国内源"></a>2. <strong>Yarn 切换国内源</strong></h3><p>Yarn 同样可以直接使用淘宝镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置淘宝镜像为默认源：-1"><a href="#设置淘宝镜像为默认源：-1" class="headerlink" title="设置淘宝镜像为默认源："></a>设置淘宝镜像为默认源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">yarn config set registry https://registry.npmmirror.com
+</code></pre>
+<h4 id="验证是否设置成功：-1"><a href="#验证是否设置成功：-1" class="headerlink" title="验证是否设置成功："></a>验证是否设置成功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">yarn config get registry
+# 输出 https://registry.npmmirror.com 表示设置成功&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+</code></pre>
+<h4 id="临时使用淘宝镜像：-1"><a href="#临时使用淘宝镜像：-1" class="headerlink" title="临时使用淘宝镜像："></a>临时使用淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">yarn add package-name --registry=https://registry.npmmirror.com
+</code></pre>
+<hr>
+<h3 id="3-pip-切换国内源"><a href="#3-pip-切换国内源" class="headerlink" title="3. pip 切换国内源"></a>3. <strong>pip 切换国内源</strong></h3><p>Python 的包管理工具 <code>pip</code> 可以通过指定国内的镜像源来加速下载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>推荐使用<a target="_blank" rel="noopener" href="https://pypi.douban.com/">豆瓣源</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="临时使用豆瓣源："><a href="#临时使用豆瓣源：" class="headerlink" title="临时使用豆瓣源："></a>临时使用豆瓣源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">pip install package-name -i https://pypi.douban.com/simple
+</code></pre>
+<h4 id="永久设置国内镜像："><a href="#永久设置国内镜像：" class="headerlink" title="永久设置国内镜像："></a>永久设置国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><p>在用户目录下创建或修改 <code>pip</code> 配置文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>Windows: <code>C:\Users\你的用户名\pip\pip.ini</code></li>
+<li>macOS&#x2F;Linux: <code>~/.pip/pip.conf</code></li>
+</ul>
+<p>然后添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="ini">[global]
+index-url = https://pypi.douban.com/simple
+</code></pre>
+<hr>
+<h3 id="4-Conda-切换国内源"><a href="#4-Conda-切换国内源" class="headerlink" title="4. Conda 切换国内源"></a>4. <strong>Conda 切换国内源</strong></h3><p>Conda 是 Anaconda 的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设置国内镜像可以通过清华大学的镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="临时使用清华源："><a href="#临时使用清华源：" class="headerlink" title="临时使用清华源："></a>临时使用清华源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">conda install package-name -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+</code></pre>
+<h4 id="永久设置清华大学源："><a href="#永久设置清华大学源：" class="headerlink" title="永久设置清华大学源："></a>永久设置清华大学源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --set show_channel_urls yes
+</code></pre>
+<hr>
+<h3 id="5-Composer-切换国内源"><a href="#5-Composer-切换国内源" class="headerlink" title="5. Composer 切换国内源"></a>5. <strong>Composer 切换国内源</strong></h3><p>Composer 是 PHP 的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用中国全量镜像<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>由 Laravel China 社区维护<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置国内镜像："><a href="#设置国内镜像：" class="headerlink" title="设置国内镜像："></a>设置国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+</code></pre>
+<h4 id="恢复默认源："><a href="#恢复默认源：" class="headerlink" title="恢复默认源："></a>恢复默认源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">composer config -g --unset repos.packagist
+</code></pre>
+<hr>
+<h3 id="6-RubyGems-切换国内源"><a href="#6-RubyGems-切换国内源" class="headerlink" title="6. RubyGems 切换国内源"></a>6. <strong>RubyGems 切换国内源</strong></h3><p>Ruby 的包管理工具 <code>gem</code> 可以使用淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置淘宝镜像："><a href="#设置淘宝镜像：" class="headerlink" title="设置淘宝镜像："></a>设置淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+</code></pre>
+<h4 id="确认源是否配置正确："><a href="#确认源是否配置正确：" class="headerlink" title="确认源是否配置正确："></a>确认源是否配置正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="bash">gem sources -l
+</code></pre>
+<hr>
+<h3 id="7-Maven-切换国内源"><a href="#7-Maven-切换国内源" class="headerlink" title="7. Maven 切换国内源"></a>7. <strong>Maven 切换国内源</strong></h3><p>Maven 是 Java 的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过修改 <code>settings.xml</code> 文件来使用国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="修改-settings-xml："><a href="#修改-settings-xml：" class="headerlink" title="修改 settings.xml："></a>修改 <code>settings.xml</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><p>在 <code>~/.m2/settings.xml</code> 中添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="xml">&lt;mirrors&gt;
+  &lt;mirror&gt;
+    &lt;id&gt;alimaven&lt;/id&gt;
+    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;name&gt;aliyun maven&lt;/name&gt;
+    &lt;url&gt;https://maven.aliyun.com/repository/central&lt;/url&gt;
+    &lt;layout&gt;default&lt;/layout&gt;
+  &lt;/mirror&gt;
+&lt;/mirrors&gt;
+</code></pre>
+<hr>
+<h3 id="8-Gradle-切换国内源"><a href="#8-Gradle-切换国内源" class="headerlink" title="8. Gradle 切换国内源"></a>8. <strong>Gradle 切换国内源</strong></h3><p>对于 Android 开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Gradle 的国内源配置也可以显著加快依赖下载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="修改-build-gradle-文件："><a href="#修改-build-gradle-文件：" class="headerlink" title="修改 build.gradle 文件："></a>修改 <code>build.gradle</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><pre><code class="groovy">allprojects &#123;
+    repositories &#123;
+        maven &#123; url &#39;https://maven.aliyun.com/repository/public&#39; &#125;
+        maven &#123; url &#39;https://maven.aliyun.com/repository/jcenter&#39; &#125;
+        maven &#123; url &#39;https://maven.aliyun.com/repository/google&#39; &#125;
+    &#125;
+&#125;
+</code></pre>
+<hr>
+<h3 id="9-Node-js-镜像加速"><a href="#9-Node-js-镜像加速" class="headerlink" title="9. Node.js 镜像加速"></a>9. <strong>Node.js 镜像加速</strong></h3><p>如果你需要安装 Node.js 本身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也可以通过淘宝镜像加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">nvm install node --registry=https://registry.npmmirror.com
+</code></pre>
+<hr>
+<h3 id="10-Docker-镜像加速"><a href="#10-Docker-镜像加速" class="headerlink" title="10. Docker 镜像加速"></a>10. <strong>Docker 镜像加速</strong></h3><p>Docker 在国内下载镜像时可能会遇到速度缓慢的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用国内的镜像源加速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="设置-Docker-国内镜像："><a href="#设置-Docker-国内镜像：" class="headerlink" title="设置 Docker 国内镜像："></a>设置 Docker 国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></h4><p>在 <code>/etc/docker/daemon.json</code> 中添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="json">&#123;
+  &quot;registry-mirrors&quot;: [
+    &quot;https://registry.docker-cn.com&quot;,
+    &quot;https://mirror.ccs.tencentyun.com&quot;
+  ]
+&#125;
+</code></pre>
+<p>然后重启 Docker<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo systemctl restart docker
+</code></pre>
+<hr>
+<h3 id="11-apt-换源（Ubuntu-x2F-Debian）"><a href="#11-apt-换源（Ubuntu-x2F-Debian）" class="headerlink" title="11. apt 换源（Ubuntu&#x2F;Debian）"></a>11. <strong>apt 换源<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Ubuntu&#x2F;Debian<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h3><p><code>apt</code> 是 Ubuntu 和 Debian 系统常用的包管理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>切换到国内镜像可以显著加快软件包的下载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>常用的国内镜像源有 <strong>阿里云</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><strong>清华大学</strong> 和 <strong>中科大</strong> 镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="步骤-1：备份原有的源列表"><a href="#步骤-1：备份原有的源列表" class="headerlink" title="步骤 1：备份原有的源列表"></a>步骤 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>备份原有的源列表</h4><p>先备份 <code>/etc/apt/sources.list</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+</code></pre>
+<h4 id="步骤-2：编辑-sources-list"><a href="#步骤-2：编辑-sources-list" class="headerlink" title="步骤 2：编辑 sources.list"></a>步骤 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>编辑 <code>sources.list</code></h4><p>使用文本编辑器打开 <code>sources.list</code> 文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo nano /etc/apt/sources.list
+</code></pre>
+<h4 id="步骤-3：选择一个国内源替换原有的源"><a href="#步骤-3：选择一个国内源替换原有的源" class="headerlink" title="步骤 3：选择一个国内源替换原有的源"></a>步骤 3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>选择一个国内源替换原有的源</h4><p>你可以选择以下任意一个国内镜像源来替换原有的源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>阿里云镜像</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="bash">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+</code></pre>
+<ul>
+<li><strong>清华大学镜像</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="bash">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+</code></pre>
+<ul>
+<li><strong>中科大镜像</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="bash">deb https://mirrors.ustc.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+</code></pre>
+<p><strong>注意</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>focal</code> 是 Ubuntu 20.04 的代号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果你使用的是其他版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请将 <code>focal</code> 替换为对应版本的代号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="步骤-4：更新软件包列表"><a href="#步骤-4：更新软件包列表" class="headerlink" title="步骤 4：更新软件包列表"></a>步骤 4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>更新软件包列表</h4><p>保存并退出编辑器后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>运行以下命令更新软件包列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo apt update
+</code></pre>
+<hr>
+<h3 id="12-总结"><a href="#12-总结" class="headerlink" title="12. 总结"></a>12. <strong>总结</strong></h3><p>通过切换国内镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以在很多常用的包管理工具中加速依赖的下载和安装过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>省下不少时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是常见工具切换国内源的方法总结<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>npm</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>npm config set registry https://registry.npmmirror.com</code></li>
+<li><strong>Yarn</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>yarn config set registry https://registry.npmmirror.com</code></li>
+<li><strong>pip</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>豆瓣源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>pip install package-name -i https://pypi.douban.com/simple</code></li>
+<li><strong>Conda</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清华源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</code></li>
+<li><strong>Composer</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>阿里云源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</code></li>
+<li><strong>RubyGems</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</code></li>
+<li><strong>Maven</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>阿里云源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>修改 <code>~/.m2/settings.xml</code></li>
+<li><strong>Gradle</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>阿里云源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>修改 <code>build.gradle</code></li>
+<li><strong>Node.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>淘宝镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>nvm install node --registry=https://registry.npmmirror.com</code></li>
+<li><strong>Docker</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>配置国内镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>加速容器镜像下载</li>
+<li><strong>apt</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用阿里云<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>清华大学或中科大镜像加速软件包下载</li>
+</ul>
+<hr>
+<h2 id="小小吐槽——CSDN-为什么要强制登录？"><a href="#小小吐槽——CSDN-为什么要强制登录？" class="headerlink" title="小小吐槽——CSDN 为什么要强制登录？"></a>小小吐槽——CSDN 为什么要强制登录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h2><p>在开发过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大家应该都有过这样的经历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你在 CSDN 上找到了一段有用的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当你准备复制时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结果 CSDN 突然弹出一个登录框<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让你必须登录才能复制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有些情况下甚至还会提示你<strong>充会员</strong>才能无障碍地复制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这种体验真的让人心累<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>作为一个开发者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最需要的是高效地获取信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是被迫跳过这些繁琐的登录步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>CSDN 的这种行为让人感觉像是被<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>卡脖子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>逼迫你为基础的功能付费<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这就像你走进了一家图书馆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看到一本书的精彩片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正准备抄下笔记<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却被管理员拦住<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>想抄<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>先交钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 这种强行限制内容获取的做法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>似乎违背了互联网的初衷——信息的自由传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>话是说回来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在如今信息发达的时代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>GitHub</strong> 和 <strong>Stack Overflow</strong> 这样的平台提供丰富的开源资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比起被限制的 CSDN<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更值得推荐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p>通过切换到国内镜像源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以显著加快下载依赖的速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>节省时间与精力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而至于某些平台的强制登录和会员制度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>真的应该反思一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>知识的自由传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>难道不应该是互联网的初心吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          驱动进化之路
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../projs/ReelBlend/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          ReelBlend：一键生成扫街照片与 POV 视频
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

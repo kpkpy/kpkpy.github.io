@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ReelBlend：一键生成扫街照片与 POV 视频 | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="街拍摄影与 POV（第一人称视角）视频，已经成为当下社交媒体内容创作的热门形式。尤其是在平台如 YouTube、Instagram 和 TikTok 上，创作者通过动态的视频和静态的照片交替展示，捕捉街头氛围与视觉冲击力，吸引了大量粉丝。然而，这类视频的制作常常需要繁琐的后期剪辑工作，对非专业人士来">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-projs/ReelBlend" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2024-11-27T16:00:00.000Z" itemprop="datePublished">2024-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ReelBlend：一键生成扫街照片与 POV 视频
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%B3%E6%B3%95%E7%9A%84%E6%A0%B8%E5%BF%83%EF%BC%9A%E4%B8%80%E9%94%AE%E5%AE%8C%E6%88%90%E8%A1%97%E6%8B%8D%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91"><span class="toc-number">1.</span> <span class="toc-text">想法的核心：一键完成街拍视频剪辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">目标功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%EF%BC%9A%E8%A7%A3%E5%86%B3%E7%94%A8%E6%88%B7%E7%97%9B%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">需求分析：解决用户痛点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">1. 用户需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E9%9C%80%E6%B1%82"><span class="toc-number">2.2.</span> <span class="toc-text">2. 技术需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%EF%BC%9A%E4%BB%8E%E9%9C%80%E6%B1%82%E5%88%B0%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">系统设计：从需求到实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">1. 核心功能模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%EF%BC%88%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%89"><span class="toc-number">3.1.1.</span> <span class="toc-text">前端（用户界面）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%EF%BC%88%E9%80%BB%E8%BE%91%E5%A4%84%E7%90%86%EF%BC%89"><span class="toc-number">3.1.2.</span> <span class="toc-text">后端（逻辑处理）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">2. 技术架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">3.2.1.</span> <span class="toc-text">前端技术栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">3.2.2.</span> <span class="toc-text">后端技术栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E4%B8%8E%E5%AF%BC%E5%87%BA"><span class="toc-number">3.2.3.</span> <span class="toc-text">存储与导出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">3.3.</span> <span class="toc-text">3. 系统功能流程图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">关键技术实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A7%86%E9%A2%91%E6%8B%BC%E6%8E%A5%E4%B8%8E%E8%BD%AC%E5%9C%BA%EF%BC%9AFFmpeg-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">1. 视频拼接与转场：FFmpeg 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E4%B8%BA%E8%A7%86%E9%A2%91"><span class="toc-number">4.1.1.</span> <span class="toc-text">图片转换为视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5%E5%9B%BE%E7%89%87%E4%B8%8E%E8%A7%86%E9%A2%91"><span class="toc-number">4.1.2.</span> <span class="toc-text">拼接图片与视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%E5%B5%8C%E5%85%A5"><span class="toc-number">4.1.3.</span> <span class="toc-text">背景音乐嵌入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%97%B6%E9%97%B4%E8%BD%B4%E7%BC%96%E8%BE%91%E5%8A%9F%E8%83%BD"><span class="toc-number">4.2.</span> <span class="toc-text">2. 时间轴编辑功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD%EF%BC%9A%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BB%B7%E5%80%BC%E4%B8%8E%E5%B1%95%E6%9C%9B"><span class="toc-number">5.</span> <span class="toc-text">结语：工具的价值与展望</span></a></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>街拍摄影与 POV<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>第一人称视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已经成为当下社交媒体内容创作的热门形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尤其是在平台如 YouTube<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Instagram 和 TikTok 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创作者通过动态的视频和静态的照片交替展示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>捕捉街头氛围与视觉冲击力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>吸引了大量粉丝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这类视频的制作常常需要繁琐的后期剪辑工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对非专业人士来说是一个技术和时间的双重挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>为了填补这一痛点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我设想了一款工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够一键实现扫街照片与 POV 视频的交叉拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成适配社交媒体标准的视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文将从软件工程的角度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>深入探讨如何从想法出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完成需求分析与系统设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并最终实现这款工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h2 id="想法的核心：一键完成街拍视频剪辑"><a href="#想法的核心：一键完成街拍视频剪辑" class="headerlink" title="想法的核心：一键完成街拍视频剪辑"></a><strong>想法的核心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一键完成街拍视频剪辑</strong></h2><h3 id="目标功能"><a href="#目标功能" class="headerlink" title="目标功能"></a><strong>目标功能</strong></h3><ol>
+<li><strong>快速生成视频</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户上传的照片与视频片段可以快速交替排列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成一个流畅的短视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>便捷转场效果</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>提供基础的转场效果<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如淡入淡出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>滑动过渡等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让内容看起来更具专业感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>自定义参数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户可以调整每张照片&#x2F;视频片段的显示时长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>选择过渡效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>添加背景音乐等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>适配社交平台需求</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>生成符合主流社交媒体<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>9:16<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>16:9 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>分辨率和格式的高质量视频文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<hr>
+<h2 id="需求分析：解决用户痛点"><a href="#需求分析：解决用户痛点" class="headerlink" title="需求分析：解决用户痛点"></a><strong>需求分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>解决用户痛点</strong></h2><p>在软件工程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需求分析是任何项目的起点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对这款工具的需求分析可以分为两部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>用户需求</strong>和<strong>技术需求</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="1-用户需求"><a href="#1-用户需求" class="headerlink" title="1. 用户需求"></a><strong>1. 用户需求</strong></h3><p>目标用户主要包括街拍摄影师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Vlogger 和社交媒体内容创作者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们的需求包括<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>快速完成剪辑</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>希望避免使用复杂的剪辑软件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少学习曲线和操作时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>高效拼接照片与视频</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>简单上传照片和视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>快速生成交替切换的内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>可视化控制</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>希望在生成视频之前调整时间轴顺序和参数设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>适配社交媒体格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输出内容需符合各平台的分辨率和比例要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 Instagram 的 9:16 竖屏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>痛点总结</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>现有的视频剪辑软件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 Premiere<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Final Cut Pro<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>虽然功能强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对于简单内容的制作流程过于复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>社交媒体创作追求高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户需要一款轻量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>专注于特定功能的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<hr>
+<h3 id="2-技术需求"><a href="#2-技术需求" class="headerlink" title="2. 技术需求"></a><strong>2. 技术需求</strong></h3><p>从技术角度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这款工具需要满足以下核心需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>支持多种媒体格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>照片<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>JPG&#x2F;PNG<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和视频<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>MP4&#x2F;MOV<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是常见的输入类型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>视频拼接与转场处理</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>需要高效处理照片与视频的拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缩放和转场特效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>音频嵌入与匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持导入背景音乐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自动调整音乐长度与节奏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>输出高质量视频</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>生成的视频需支持 1080p 或更高分辨率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时提供多种比例选项<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>9:16<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>16:9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>实时预览</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>提供视频生成前的预览功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便于用户调整内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<hr>
+<h2 id="系统设计：从需求到实现"><a href="#系统设计：从需求到实现" class="headerlink" title="系统设计：从需求到实现"></a><strong>系统设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>从需求到实现</strong></h2><h3 id="1-核心功能模块"><a href="#1-核心功能模块" class="headerlink" title="1. 核心功能模块"></a><strong>1. 核心功能模块</strong></h3><p>为了满足上述需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统需要实现以下功能模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<h4 id="前端（用户界面）"><a href="#前端（用户界面）" class="headerlink" title="前端（用户界面）"></a><strong>前端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><ul>
+<li><strong>文件上传模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持照片与视频的拖拽上传<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>显示上传进度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>时间轴编辑模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户可以直观地调整照片与视频的排列顺序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>参数设置模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>设置每张照片&#x2F;视频的显示时长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>输出分辨率等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>实时预览模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在导出视频之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户可以查看拼接效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h4 id="后端（逻辑处理）"><a href="#后端（逻辑处理）" class="headerlink" title="后端（逻辑处理）"></a><strong>后端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>逻辑处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><ul>
+<li><strong>视频拼接与转场逻辑</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过高效的多媒体处理工具<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 FFmpeg<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>实现照片与视频的拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缩放<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>音频处理模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持音频文件的嵌入与自动匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>导出与格式管理模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>生成符合用户需求的视频文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支持多种分辨率与比例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<hr>
+<h3 id="2-技术架构"><a href="#2-技术架构" class="headerlink" title="2. 技术架构"></a><strong>2. 技术架构</strong></h3><h4 id="前端技术栈"><a href="#前端技术栈" class="headerlink" title="前端技术栈"></a><strong>前端技术栈</strong></h4><ul>
+<li><strong>React.js 或 Vue.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用于构建动态的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>响应式的用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>Tailwind CSS 或 Chakra UI</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>快速实现简洁美观的界面设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>拖拽功能库</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如 <code>react-sortable-hoc</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于实现时间轴的拖拽排序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h4 id="后端技术栈"><a href="#后端技术栈" class="headerlink" title="后端技术栈"></a><strong>后端技术栈</strong></h4><ul>
+<li><strong>Node.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>处理业务逻辑与 API 请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提供文件上传和视频生成服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>FFmpeg</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>核心的多媒体处理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于视频拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缩放和音频嵌入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>Express.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>搭建后端 API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>处理前端请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h4 id="存储与导出"><a href="#存储与导出" class="headerlink" title="存储与导出"></a><strong>存储与导出</strong></h4><ul>
+<li><strong>文件存储</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>上传的照片和视频临时存储在服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成的视频可选择下载或上传到云端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 AWS S3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>输出格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持 MP4 格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分辨率包括 1080p<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>720p<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比例包括 9:16<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>16:9 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<hr>
+<h3 id="3-系统功能流程图"><a href="#3-系统功能流程图" class="headerlink" title="3. 系统功能流程图"></a><strong>3. 系统功能流程图</strong></h3><p>以下是用户从上传文件到生成视频的核心流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li><p><strong>上传照片与视频</strong>  </p>
+<ul>
+<li>用户通过前端界面上传照片和视频片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支持拖拽上传<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>后端接收文件并存储<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时解析文件以便后续处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>时间轴编辑与参数设置</strong>  </p>
+<ul>
+<li>用户在前端调整照片与视频的顺序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并设置时间长度与转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>最终生成一个配置文件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>JSON<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传递到后端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>视频拼接与转场处理</strong>  </p>
+<ul>
+<li>后端通过 FFmpeg 根据用户配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完成照片与视频的拼接与转场特效处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>如果用户添加了背景音乐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统会自动调整音乐长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>实时预览与导出</strong>  </p>
+<ul>
+<li>前端调用后端生成的实时预览片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户确认无误后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成最终视频文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>用户可选择下载视频或直接分享至社交媒体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="关键技术实现"><a href="#关键技术实现" class="headerlink" title="关键技术实现"></a><strong>关键技术实现</strong></h2><h3 id="1-视频拼接与转场：FFmpeg-的使用"><a href="#1-视频拼接与转场：FFmpeg-的使用" class="headerlink" title="1. 视频拼接与转场：FFmpeg 的使用"></a><strong>1. 视频拼接与转场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>FFmpeg 的使用</strong></h3><p>FFmpeg 是多媒体处理的强大工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以高效完成视频拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>比例调整等任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是一些关键操作的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<h4 id="图片转换为视频"><a href="#图片转换为视频" class="headerlink" title="图片转换为视频"></a><strong>图片转换为视频</strong></h4><p>将一张图片转换为 5 秒的视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">ffmpeg -loop 1 -i photo1.jpg -c:v libx264 -t 5 -pix_fmt yuv420p photo1.mp4
+</code></pre>
+<h4 id="拼接图片与视频"><a href="#拼接图片与视频" class="headerlink" title="拼接图片与视频"></a><strong>拼接图片与视频</strong></h4><p>将图片和视频合并<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>添加淡入淡出转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">ffmpeg -i photo1.jpg -i video1.mp4 -filter_complex \
+&quot;[0:v]fade=t=out:st=4:d=1[v0]; \
+ [1:v]fade=t=in:st=0:d=1[v1]; \
+ [v0][v1]concat=n=2:v=1:a=0[out]&quot; \
+-map &quot;[out]&quot; output.mp4
+</code></pre>
+<h4 id="背景音乐嵌入"><a href="#背景音乐嵌入" class="headerlink" title="背景音乐嵌入"></a><strong>背景音乐嵌入</strong></h4><p>将背景音乐嵌入视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并调整音量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">ffmpeg -i output.mp4 -i music.mp3 -filter_complex \
+&quot;[1:a]volume=0.5[a1]; [0:a][a1]amix=inputs=2:duration=shortest&quot; \
+-final_output.mp4
+</code></pre>
+<hr>
+<h3 id="2-时间轴编辑功能"><a href="#2-时间轴编辑功能" class="headerlink" title="2. 时间轴编辑功能"></a><strong>2. 时间轴编辑功能</strong></h3><p>时间轴的实现基于前端框架<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 React<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过拖拽操作生成一个 JSON 格式的配置文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>示例如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="json">&#123;
+  &quot;timeline&quot;: [
+    &#123; &quot;type&quot;: &quot;photo&quot;, &quot;file&quot;: &quot;photo1.jpg&quot;, &quot;duration&quot;: 5 &#125;,
+    &#123; &quot;type&quot;: &quot;video&quot;, &quot;file&quot;: &quot;video1.mp4&quot;, &quot;duration&quot;: 10 &#125;
+  ],
+  &quot;transitions&quot;: &quot;fade&quot;,
+  &quot;audio&quot;: &quot;music.mp3&quot;,
+  &quot;resolution&quot;: &quot;1080p&quot;,
+  &quot;aspect_ratio&quot;: &quot;9:16&quot;
+&#125;
+</code></pre>
+<p>后端根据此配置文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按照顺序拼接内容生成最终视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h2 id="结语：工具的价值与展望"><a href="#结语：工具的价值与展望" class="headerlink" title="结语：工具的价值与展望"></a><strong>结语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>工具的价值与展望</strong></h2><p>这款工具的设计目标是通过高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>直观的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮助街拍摄影师和社交媒体创作者快速完成视频编辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降低技术门槛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>从灵感到实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们从用户需求出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合开源技术<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 FFmpeg<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打造了一款轻量级的视频剪辑工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>未来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以进一步优化该工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如加入 AI 场景分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自动匹配转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或提供更多的模板功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让用户创作更加得心应手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于街拍爱好者来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这款工具将成为他们分享视觉故事的最佳助手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常用依赖包管理工具换源方法大全
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          I2C应用编程
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

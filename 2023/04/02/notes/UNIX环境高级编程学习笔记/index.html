@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>UNIX环境高级编程学习笔记 | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="UNIX环境高级编程2E
+UNIX 基础
+
+
+
+
+
+
+
+UNIX 标准ISO C
+
+
+IEEE POSIX
+
+
+
+
+
+
+
+
+
+
+
+文件IO
+内核描述符
+文件操作(无缓冲区)open
+creat
+close
+lseek
+read
+write
+ 
+文件共享
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+文件和目录
+
+文件">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/UNIX环境高级编程学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-04-01T16:00:00.000Z" itemprop="datePublished">2023-04-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      UNIX环境高级编程学习笔记
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#UNIX-%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">UNIX 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNIX-%E6%A0%87%E5%87%86"><span class="toc-number">2.</span> <span class="toc-text">UNIX 标准</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ISO-C"><span class="toc-number">2.1.</span> <span class="toc-text">ISO C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IEEE-POSIX"><span class="toc-number">2.2.</span> <span class="toc-text">IEEE POSIX</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6IO"><span class="toc-number">3.</span> <span class="toc-text">文件IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number">3.1.</span> <span class="toc-text">内核描述符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C-%E6%97%A0%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-number">3.2.</span> <span class="toc-text">文件操作(无缓冲区)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#open"><span class="toc-number">3.2.1.</span> <span class="toc-text">open</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#creat"><span class="toc-number">3.2.2.</span> <span class="toc-text">creat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#close"><span class="toc-number">3.2.3.</span> <span class="toc-text">close</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lseek"><span class="toc-number">3.2.4.</span> <span class="toc-text">lseek</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#read"><span class="toc-number">3.2.5.</span> <span class="toc-text">read</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#write"><span class="toc-number">3.2.6.</span> <span class="toc-text">write</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB"><span class="toc-number">3.3.</span> <span class="toc-text">文件共享</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">文件和目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.1.</span> <span class="toc-text">文件类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">文件权限管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-UnixFileSystem"><span class="toc-number">4.3.</span> <span class="toc-text">文件系统(UnixFileSystem)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E9%93%BE%E6%8E%A5-x2F-%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">硬链接&#x2F;符号链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%97%B6%E9%97%B4"><span class="toc-number">4.5.</span> <span class="toc-text">文件的时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86IO%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">标准IO库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80-x2F-%E5%85%B3%E9%97%AD%E6%B5%81"><span class="toc-number">5.1.</span> <span class="toc-text">打开&#x2F;关闭流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB-x2F-%E5%86%99%E6%B5%81"><span class="toc-number">5.2.</span> <span class="toc-text">读&#x2F;写流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%AF%8F%E6%AC%A1%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6"><span class="toc-number">5.2.1.</span> <span class="toc-text">1. 每次一个字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%AF%8F%E6%AC%A1%E4%B8%80%E8%A1%8C"><span class="toc-number">5.2.2.</span> <span class="toc-text">2. 每次一行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BA%8C%E8%BF%9B%E5%88%B6IO"><span class="toc-number">5.2.3.</span> <span class="toc-text">3. 二进制IO</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%92%8C%E4%BF%A1%E6%81%AF"><span class="toc-number">6.</span> <span class="toc-text">系统数据文件和信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%8E%AF%E5%A2%83"><span class="toc-number">7.</span> <span class="toc-text">进程环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#main-x2F-exit"><span class="toc-number">7.0.1.</span> <span class="toc-text">main&#x2F;exit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E7%A8%8B%E5%BA%8F%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4"><span class="toc-number">7.1.</span> <span class="toc-text">C程序存储空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="toc-number">7.2.</span> <span class="toc-text">动态分配内存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">进程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fork"><span class="toc-number">8.1.</span> <span class="toc-text">fork()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exit-x2F-wait"><span class="toc-number">8.2.</span> <span class="toc-text">exit()&#x2F;wait()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exec"><span class="toc-number">8.3.</span> <span class="toc-text">exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system"><span class="toc-number">8.4.</span> <span class="toc-text">system()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%85%B3%E7%B3%BB"><span class="toc-number">9.</span> <span class="toc-text">进程关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7"><span class="toc-number">10.</span> <span class="toc-text">信号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-number">11.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">12.</span> <span class="toc-text">线程控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="toc-number">13.</span> <span class="toc-text">守护进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7IO"><span class="toc-number">14.</span> <span class="toc-text">高级IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9EIO"><span class="toc-number">14.1.</span> <span class="toc-text">非阻塞IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E9%94%81"><span class="toc-number">14.2.</span> <span class="toc-text">记录锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81"><span class="toc-number">14.3.</span> <span class="toc-text">流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPC-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-number">15.</span> <span class="toc-text">IPC: 进程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E9%81%93-x2F-%E5%8D%8F%E5%90%8C%E8%BF%9B%E7%A8%8B-x2F-FIFO"><span class="toc-number">15.1.</span> <span class="toc-text">管道&#x2F;协同进程&#x2F;FIFO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XSI-IPC-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97-x2F-%E4%BF%A1%E5%8F%B7%E9%87%8F-x2F-%E5%85%B1%E4%BA%AB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">15.2.</span> <span class="toc-text">XSI IPC: 消息队列&#x2F;信号量&#x2F;共享存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="toc-number">15.2.1.</span> <span class="toc-text">消息队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-number">15.2.2.</span> <span class="toc-text">信号量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E5%AD%98%E5%82%A8"><span class="toc-number">15.3.</span> <span class="toc-text">共享存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9CIPC-%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="toc-number">16.</span> <span class="toc-text">网络IPC :套接字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-number">17.</span> <span class="toc-text">高级进程间通信</span></a></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="/books/UNIX%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B2E">UNIX环境高级编程2E</a></p>
+<h2 id="UNIX-基础"><a href="#UNIX-基础" class="headerlink" title="UNIX 基础"></a>UNIX 基础</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324160510.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324160819.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324160829.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324160837.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324160903.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324161349.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324161543.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324161922.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324161934.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324161956.png"></p>
+<h2 id="UNIX-标准"><a href="#UNIX-标准" class="headerlink" title="UNIX 标准"></a>UNIX 标准</h2><h3 id="ISO-C"><a href="#ISO-C" class="headerlink" title="ISO C"></a>ISO C</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324162553.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163210.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163252.png"></p>
+<h3 id="IEEE-POSIX"><a href="#IEEE-POSIX" class="headerlink" title="IEEE POSIX"></a>IEEE POSIX</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324162939.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324162952.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163005.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163345.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163356.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163412.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324163101.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324202804.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324211552.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324211607.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324211921.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230324211938.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325141644.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325141654.png"></p>
+<h2 id="文件IO"><a href="#文件IO" class="headerlink" title="文件IO"></a>文件IO</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325142436.png"></p>
+<h3 id="内核描述符"><a href="#内核描述符" class="headerlink" title="内核描述符"></a>内核描述符</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143136.png"></p>
+<h3 id="文件操作-无缓冲区"><a href="#文件操作-无缓冲区" class="headerlink" title="文件操作(无缓冲区)"></a>文件操作(无缓冲区)</h3><h4 id="open"><a href="#open" class="headerlink" title="open"></a>open</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143338.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143407.png"></p>
+<h4 id="creat"><a href="#creat" class="headerlink" title="creat"></a>creat</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143732.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143749.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143831.png"></p>
+<h4 id="close"><a href="#close" class="headerlink" title="close"></a>close</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143758.png"></p>
+<h4 id="lseek"><a href="#lseek" class="headerlink" title="lseek"></a>lseek</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325143808.png"></p>
+<h4 id="read"><a href="#read" class="headerlink" title="read"></a>read</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144141.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144151.png"></p>
+<h4 id="write"><a href="#write" class="headerlink" title="write"></a>write</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144216.png"></p>
+<p> <img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144552.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144426.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144434.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144601.png"></p>
+<h3 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144904.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325144959.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325150045.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325151531.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325151545.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325151608.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325151736.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325151745.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325152057.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325152952.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325153031.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325161354.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325161405.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325161536.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325161554.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325161802.png"></p>
+<h2 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325162050.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325162531.png"></p>
+<h3 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325162710.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325162750.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325163537.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213724.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213732.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213819.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213848.png"></p>
+<h3 id="文件权限管理"><a href="#文件权限管理" class="headerlink" title="文件权限管理"></a>文件权限管理</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325163825.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325163844.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325163921.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325163946.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325163956.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164235.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164248.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164306.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164324.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164332.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164623.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164719.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325164740.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325165242.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325165549.png"></p>
+<h3 id="文件系统-UnixFileSystem"><a href="#文件系统-UnixFileSystem" class="headerlink" title="文件系统(UnixFileSystem)"></a>文件系统(UnixFileSystem)</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325170032.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325170419.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325170700.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325170804.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325170811.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325170854.png"></p>
+<h3 id="硬链接-x2F-符号链接"><a href="#硬链接-x2F-符号链接" class="headerlink" title="硬链接&#x2F;符号链接"></a>硬链接&#x2F;符号链接</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171211.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171221.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171233.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171427.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171439.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171612.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171629.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325171722.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325212200.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213227.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213307.png"></p>
+<h3 id="文件的时间"><a href="#文件的时间" class="headerlink" title="文件的时间"></a>文件的时间</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213526.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213548.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230325213556.png"></p>
+<h2 id="标准IO库"><a href="#标准IO库" class="headerlink" title="标准IO库"></a>标准IO库</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326144446.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151054.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151312.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151330.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151401.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151536.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151546.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151611.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151705.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151918.png"></p>
+<h3 id="打开-x2F-关闭流"><a href="#打开-x2F-关闭流" class="headerlink" title="打开&#x2F;关闭流"></a>打开&#x2F;关闭流</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151932.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326151946.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326152149.png"></p>
+<h3 id="读-x2F-写流"><a href="#读-x2F-写流" class="headerlink" title="读&#x2F;写流"></a>读&#x2F;写流</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326152427.png"></p>
+<h4 id="1-每次一个字符"><a href="#1-每次一个字符" class="headerlink" title="1. 每次一个字符"></a>1. 每次一个字符</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326152909.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326152927.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326153107.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326153354.png"></p>
+<h4 id="2-每次一行"><a href="#2-每次一行" class="headerlink" title="2. 每次一行"></a>2. 每次一行</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326153427.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326153435.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326153529.png"></p>
+<h4 id="3-二进制IO"><a href="#3-二进制IO" class="headerlink" title="3. 二进制IO"></a>3. 二进制IO</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326154135.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326154155.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326154532.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326154558.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326154628.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160121.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160444.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326154512.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160659.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160755.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160709.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160720.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160819.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326160736.png"></p>
+<h2 id="系统数据文件和信息"><a href="#系统数据文件和信息" class="headerlink" title="系统数据文件和信息"></a>系统数据文件和信息</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326163638.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326163650.png"></p>
+<pre><code>nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false
+root:*:0:0:System Administrator:/var/root:/bin/sh
+daemon:*:1:1:System Services:/var/root:/usr/bin/false
+</code></pre>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326163819.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326163830.png"></p>
+<pre><code>mac:~ kpy$ finger -p kpy
+Login: kpy            Name: KPY
+Directory: /Users/kpy               Shell: /bin/bash
+On since 六  3 25 19:51 (CST) on console, idle 20:48 (messages off)
+On since 六  3 25 21:55 (CST) on ttys000, idle 0:03
+On since 日  3 26 16:40 (CST) on ttys001
+No Mail.
+mac:~ kpy$
+</code></pre>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326164116.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326164130.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326164157.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326165431.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326165452.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326165503.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326165800.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326170857.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326170919.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326170926.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326170955.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326170943.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326171003.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326171023.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326171050.png"></p>
+<h2 id="进程环境"><a href="#进程环境" class="headerlink" title="进程环境"></a>进程环境</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326174102.png"></p>
+<h4 id="main-x2F-exit"><a href="#main-x2F-exit" class="headerlink" title="main&#x2F;exit"></a>main&#x2F;exit</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326215511.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230326215543.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327153021.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327153048.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327153112.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327153303.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327153718.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327153953.png"></p>
+<h3 id="C程序存储空间"><a href="#C程序存储空间" class="headerlink" title="C程序存储空间"></a>C程序存储空间</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327154447.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327154607.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327154834.png"></p>
+<h3 id="动态分配内存"><a href="#动态分配内存" class="headerlink" title="动态分配内存"></a>动态分配内存</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327154858.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327154906.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327155423.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327155557.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327155611.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327155705.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327160037.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327160100.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327160352.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327160421.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327161837.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327161845.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327163542.png"></p>
+<h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327163815.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327164112.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327164131.png"></p>
+<h3 id="fork"><a href="#fork" class="headerlink" title="fork()"></a>fork()</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327164233.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327165121.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327165309.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327165320.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327165331.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327165532.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327165550.png"></p>
+<h3 id="exit-x2F-wait"><a href="#exit-x2F-wait" class="headerlink" title="exit()&#x2F;wait()"></a>exit()&#x2F;wait()</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327170402.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327170455.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327170719.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327170736.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327170944.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171338.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171421.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171535.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171620.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171640.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171734.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171652.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327171931.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327172024.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327172003.png"></p>
+<h3 id="exec"><a href="#exec" class="headerlink" title="exec()"></a>exec()</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327172525.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327172556.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327220857.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327221331.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327221401.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327221421.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327222010.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327222021.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327222033.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327222649.png"></p>
+<h3 id="system"><a href="#system" class="headerlink" title="system()"></a>system()</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327225024.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327224820.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327224858.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327224905.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327225922.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327225932.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327225944.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327231140.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327231151.png"></p>
+<h2 id="进程关系"><a href="#进程关系" class="headerlink" title="进程关系"></a>进程关系</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327232236.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327232308.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327232328.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327232526.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327234016.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327234033.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230327234130.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000321.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000338.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000356.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000413.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000723.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000737.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000757.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000817.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328000841.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328001551.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328195905.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328195914.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328195927.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328195939.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328200114.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328200124.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328200224.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328200511.png"></p>
+<h2 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328202036.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328202052.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328202104.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328202116.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328202207.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328202257.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328203811.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328203835.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328203936.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328204008.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328204106.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328204129.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328204140.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328210048.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328210057.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328210115.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328210126.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328210218.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328212211.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328212223.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328212235.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328212244.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328212255.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328212447.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213506.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213629.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213643.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213653.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213720.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213729.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328213957.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328214019.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328214047.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328214059.png"></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220058.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220319.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220421.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220639.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220445.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220819.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328220843.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222306.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222134.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222318.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222201.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222335.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222353.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222404.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222414.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222552.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222618.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222907.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222637.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222853.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328222825.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328223124.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328223136.png"></p>
+<h2 id="线程控制"><a href="#线程控制" class="headerlink" title="线程控制"></a>线程控制</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328223552.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328223600.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328223634.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230328223759.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143023.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143032.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143053.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143108.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143313.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143325.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143523.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143604.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143851.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143950.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329143958.png"></p>
+<h2 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144132.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144146.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144202.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144320.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144331.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144346.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144403.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144418.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144423.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144459.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144619.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144700.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144753.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144812.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329144932.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329145044.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329145052.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329145105.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329145204.png"></p>
+<h2 id="高级IO"><a href="#高级IO" class="headerlink" title="高级IO"></a>高级IO</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329151626.png"></p>
+<h3 id="非阻塞IO"><a href="#非阻塞IO" class="headerlink" title="非阻塞IO"></a>非阻塞IO</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329151931.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152046.png"></p>
+<h3 id="记录锁"><a href="#记录锁" class="headerlink" title="记录锁"></a>记录锁</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152131.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152752.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152810.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152823.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152832.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152918.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152935.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152926.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329152953.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329153003.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329153028.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329153040.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329154446.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329154453.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329154459.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329154359.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329154522.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329154538.png"></p>
+<h3 id="流"><a href="#流" class="headerlink" title="流"></a>流</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160033.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160050.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160109.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160143.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160524.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160532.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329160545.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329161423.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329161437.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329161448.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329161453.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329161508.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329161515.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162100.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162143.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162804.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162816.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162836.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162911.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162939.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329162957.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163015.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163049.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163056.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163206.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163225.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163241.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163249.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230329163303.png"></p>
+<h2 id="IPC-进程间通信"><a href="#IPC-进程间通信" class="headerlink" title="IPC: 进程间通信"></a>IPC: 进程间通信</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331163310.png"></p>
+<h3 id="管道-x2F-协同进程-x2F-FIFO"><a href="#管道-x2F-协同进程-x2F-FIFO" class="headerlink" title="管道&#x2F;协同进程&#x2F;FIFO"></a>管道&#x2F;协同进程&#x2F;FIFO</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331163347.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331163419.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331163426.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331163433.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331163520.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331164530.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331164659.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331164801.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331170444.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331170451.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331170548.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331170605.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331170617.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331170856.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331171343.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331171423.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331171551.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331171606.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331171719.png"></p>
+<h3 id="XSI-IPC-消息队列-x2F-信号量-x2F-共享存储器"><a href="#XSI-IPC-消息队列-x2F-信号量-x2F-共享存储器" class="headerlink" title="XSI IPC: 消息队列&#x2F;信号量&#x2F;共享存储器"></a>XSI IPC: 消息队列&#x2F;信号量&#x2F;共享存储器</h3><h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331171930.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331172338.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331172558.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331172809.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331172816.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331172825.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175057.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175135.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175214.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175306.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175313.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175328.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175338.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175350.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175402.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175417.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175434.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175448.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175458.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175553.png"></p>
+<h4 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175707.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175714.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331175733.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331180332.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331180409.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331180421.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234514.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234538.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234601.png"></p>
+<h3 id="共享存储"><a href="#共享存储" class="headerlink" title="共享存储"></a>共享存储</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234632.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234643.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234711.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234736.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331234745.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235304.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235554.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235635.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235650.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235702.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235810.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235825.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235844.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235855.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235912.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230331235919.png"></p>
+<h2 id="网络IPC-套接字"><a href="#网络IPC-套接字" class="headerlink" title="网络IPC :套接字"></a>网络IPC :套接字</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401135712.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401135737.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401135747.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140244.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401135755.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401135806.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140126.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140153.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140255.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140218.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140358.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140403.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140430.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140440.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140533.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140923.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140943.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401140953.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141159.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141214.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141221.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141232.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141354.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141531.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401141608.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230401143135.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143046.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143418.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143427.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143654.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143703.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143714.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143753.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143833.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143845.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402143900.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402144205.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402144214.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402144224.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402144231.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402144332.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402144356.png"></p>
+<h2 id="高级进程间通信"><a href="#高级进程间通信" class="headerlink" title="高级进程间通信"></a>高级进程间通信</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402150828.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402150933.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402151015.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402151032.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402151042.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402151053.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402151415.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230402151407.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../03/projs/C++%20TinyWebServer%20%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C++ TinyWebServer项目实践
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../03/17/notes/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          STL源码剖析 学习笔记
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 10px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
