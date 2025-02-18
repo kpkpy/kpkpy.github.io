@@ -8,9 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <meta name="description" content="介绍你在使用hexo写文章的时候是不是还在
-hexo new
-hexo g
-hexo d
+123hexo newhexo ghexo d
 
 这样写文章不仅效率慢而且管理起来也不方便，所以今天我就带来了这个项目——hexon
 hexon是一个带有git的hexo图形化界面，可以运行命令和管理内容，Hexo 本身是一个基于 Node.js 的静态博客框架，没有官方的图形化界面（GUI）。不过，你可以使用 Hexo Admin 或 第三方 Hexo 可视化管理工具 来提供类似图形界面的管理方式。
@@ -25,7 +23,7 @@ https://github/gethexon/hexon">
   
     <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -75,16 +73,14 @@ https://github/gethexon/hexon">
     
 <div id="article-toc">
     <h2 class="widget-title">目录</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85-Node-js-%E5%92%8C-Git"><span class="toc-number">1.1.</span> <span class="toc-text">1. 安装 Node.js 和 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2. 安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA-Hexo-%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 创建 Hexo 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85-Hexon-%E6%8F%92%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4. 安装 Hexon 插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8-Hexo-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">5. 启动 Hexo 服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%BF%E9%97%AE-Hexon"><span class="toc-number">1.6.</span> <span class="toc-text">6. 访问 Hexon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BD%BF%E7%94%A8-Hexon-%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.7.</span> <span class="toc-text">7. 使用 Hexon 管理博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="toc-number">1.8.</span> <span class="toc-text">小贴士</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85-Node-js-%E5%92%8C-Git"><span class="toc-number">1.1.</span> <span class="toc-text">1. 安装 Node.js 和 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85-Hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2. 安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA-Hexo-%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 创建 Hexo 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85-Hexon-%E6%8F%92%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4. 安装 Hexon 插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E8%AE%BF%E9%97%AE-Hexon"><span class="toc-number">1.5.</span> <span class="toc-text">6. 访问 Hexon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E4%BD%BF%E7%94%A8-Hexon-%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.6.</span> <span class="toc-text">7. 使用 Hexon 管理博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="toc-number">1.7.</span> <span class="toc-text">小贴士</span></a></li></ol></li></ol>
 </div>
 
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>你在使用hexo写文章的时候是不是还在</p>
-<pre><code class="javascript">hexo new
-hexo g
-hexo d
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span></span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
 <p>这样写文章不仅效率慢而且管理起来也不方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以今天我就带来了这个项目——hexon</p>
 <p>hexon是一个带有git的hexo图形化界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以运行命令和管理内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Hexo 本身是一个基于 Node.js 的静态博客框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有官方的图形化界面<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GUI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以使用 <strong>Hexo Admin</strong> 或 <strong>第三方 Hexo 可视化管理工具</strong> 来提供类似图形界面的管理方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 <p>这是它的github链接</p>
@@ -103,31 +99,24 @@ hexo d
 <li><p><strong>打开命令提示符</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>CMD<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>或 PowerShell<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
 </li>
 <li><p>运行以下命令全局安装 Hexo CLI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">npm install -g hexo-cli
-</code></pre>
-</li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="3-创建-Hexo-项目"><a href="#3-创建-Hexo-项目" class="headerlink" title="3. 创建 Hexo 项目"></a>3. 创建 Hexo 项目</h3><ol>
 <li><p>在命令提示符中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>切换到你想创建项目的目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">cd D:\my-blog
-</code></pre>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:\my-blog</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建新项目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">hexo init
-</code></pre>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>进入项目目录并安装依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">cd my-blog
-npm install
-</code></pre>
-</li>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="4-安装-Hexon-插件"><a href="#4-安装-Hexon-插件" class="headerlink" title="4. 安装 Hexon 插件"></a>4. 安装 Hexon 插件</h3><pre><code class="sh">git clone https://github.com/gethexon/hexon.git
-</code></pre>
-<h3 id="5-启动-Hexo-服务器"><a href="#5-启动-Hexo-服务器" class="headerlink" title="5. 启动 Hexo 服务器"></a>5. 启动 Hexo 服务器</h3><p>在项目目录下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>启动 Hexo 服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">hexo server
-</code></pre>
-<h3 id="6-访问-Hexon"><a href="#6-访问-Hexon" class="headerlink" title="6. 访问 Hexon"></a>6. 访问 Hexon</h3><ol start="5">
+<h3 id="4-安装-Hexon-插件"><a href="#4-安装-Hexon-插件" class="headerlink" title="4. 安装 Hexon 插件"></a>4. 安装 Hexon 插件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/gethexon/hexon.git</span><br><span class="line">npm install;npm run setup</span><br><span class="line"><span class="comment"># pnpm start</span></span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-访问-Hexon"><a href="#6-访问-Hexon" class="headerlink" title="6. 访问 Hexon"></a>6. 访问 Hexon</h3><p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020250219000605.png"></p>
+<ol>
 <li>打开浏览器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>访问 <code>http://localhost:4000/admin</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 <li>你可以在这里进行博客的管理和文章发布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
 </ol>
