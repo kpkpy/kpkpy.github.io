@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>从 LAMP 到前后端分离：架构演进与技术实践 | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="LAMP 架构：传统 Web 开发的基石在早期的 Web 开发领域，LAMP 架构犹如一座坚固的基石，支撑起无数动态网站的构建。LAMP，即 Linux + Apache + MySQL + PHP&amp;#x2F;Perl&amp;#x2F;Python，是一组开源软件的组合，它们协同工作，为 Web 应用提供了完整的运行环境。
+随着移动互联网的迅猛发展，用户对于应用的体验和功能需求变得更加多样化和复杂。在这个背景下，传统的 LAMP 架构逐渐显得力不从心，其局限性愈发凸显，这也促使了前后端分离模式的诞生，成为 Web 开发领域的一次重要变革。">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+    <h2 id="subtitle-wrap">
+      <a href="../../../../../index.html" id="subtitle">which is Kpy&#39;s Blog</a>
+    </h2>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/从 LAMP 到前后端分离：架构演进与技术实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2025-05-03T16:00:00.000Z" itemprop="datePublished">2025-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      从 LAMP 到前后端分离：架构演进与技术实践
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LAMP-%E6%9E%B6%E6%9E%84%EF%BC%9A%E4%BC%A0%E7%BB%9F-Web-%E5%BC%80%E5%8F%91%E7%9A%84%E5%9F%BA%E7%9F%B3"><span class="toc-number">1.</span> <span class="toc-text">LAMP 架构：传统 Web 开发的基石</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E8%AF%9E%E7%94%9F%EF%BC%9A%E8%A7%A3%E8%80%A6%E4%B8%8E%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%BF%85%E7%84%B6"><span class="toc-number">2.</span> <span class="toc-text">前后端分离的诞生：解耦与协作的必然</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%AE%9E%E8%B7%B5%E8%A6%81%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">前后端分离的实践要点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E4%B8%8E%E5%8D%8F%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">接口规范与协作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.2.</span> <span class="toc-text">技术架构设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-number">3.3.</span> <span class="toc-text">性能优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-LAMP-%E5%88%B0%E5%88%86%E7%A6%BB%E6%9E%B6%E6%9E%84%E7%9A%84%E6%BC%94%E8%BF%9B%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">从 LAMP 到分离架构的演进示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">挑战与解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%EF%BC%9ACentOS%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2LAMP"><span class="toc-number">7.</span> <span class="toc-text">拓展：CentOS快速部署LAMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6"><span class="toc-number">7.1.</span> <span class="toc-text">1. 更新系统组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85-Apache"><span class="toc-number">7.2.</span> <span class="toc-text">2. 安装 Apache</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%88%E8%8B%A5%E5%BC%80%E5%90%AF%EF%BC%89"><span class="toc-number">7.2.1.</span> <span class="toc-text">配置防火墙（若开启）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85-MySQL-x2F-MariaDB"><span class="toc-number">7.3.</span> <span class="toc-text">3. 安装 MySQL&#x2F;MariaDB</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88-1%EF%BC%9A%E5%AE%89%E8%A3%85-MariaDB%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-number">7.3.1.</span> <span class="toc-text">方案 1：安装 MariaDB（推荐）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%88-2%EF%BC%9A%E5%AE%89%E8%A3%85-MySQL-8-0%EF%BC%88%E9%9C%80%E6%B7%BB%E5%8A%A0%E5%AE%98%E6%96%B9%E4%BB%93%E5%BA%93%EF%BC%89"><span class="toc-number">7.3.2.</span> <span class="toc-text">方案 2：安装 MySQL 8.0（需添加官方仓库）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85-PHP"><span class="toc-number">7.4.</span> <span class="toc-text">4. 安装 PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80-PHP-%E7%89%88%E6%9C%AC"><span class="toc-number">7.4.1.</span> <span class="toc-text">安装基础 PHP 版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81-PHP"><span class="toc-number">7.4.2.</span> <span class="toc-text">验证 PHP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%AA%8C%E8%AF%81-LAMP-%E7%8E%AF%E5%A2%83"><span class="toc-number">7.5.</span> <span class="toc-text">5. 验证 LAMP 环境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="toc-number">7.5.1.</span> <span class="toc-text">测试数据库连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%8F%AF%E9%80%89%E4%BC%98%E5%8C%96"><span class="toc-number">7.6.</span> <span class="toc-text">6. 可选优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="toc-number">7.6.1.</span> <span class="toc-text">配置虚拟主机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-number">7.7.</span> <span class="toc-text">常见问题解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">7.8.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="LAMP-架构：传统-Web-开发的基石"><a href="#LAMP-架构：传统-Web-开发的基石" class="headerlink" title="LAMP 架构：传统 Web 开发的基石"></a>LAMP 架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>传统 Web 开发的基石</h2><p>在早期的 Web 开发领域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构犹如一座坚固的基石<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支撑起无数动态网站的构建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>LAMP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即 Linux + Apache + MySQL + PHP&#x2F;Perl&#x2F;Python<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一组开源软件的组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们协同工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为 Web 应用提供了完整的运行环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>随着移动互联网的迅猛发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户对于应用的体验和功能需求变得更加多样化和复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个背景下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传统的 LAMP 架构逐渐显得力不从心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其局限性愈发凸显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也促使了前后端分离模式的诞生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成为 Web 开发领域的一次重要变革<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<span id="more"></span>
+
+
+<p>以一个简单的聊天室系统为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以清晰地看到 LAMP 架构的工作原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Linux 作为操作系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为整个系统提供了稳定可靠的运行基础<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>管理着硬件资源和进程调度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Apache 则充当着 Web 服务器的角色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责接收来自客户端的 HTTP 请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当用户在浏览器中输入聊天室的网址并发送请求时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Apache 首先接收到这个请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果请求的是静态页面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如聊天室的 HTML 页面布局<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>CSS 样式文件或者图片等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Apache 会直接从服务器的文件系统中读取这些文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并将其返回给浏览器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以展示给用户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250504230518.png"></p>
+<p>LAMP 架构之所以在早期广受欢迎<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是因为它具有诸多显著的优势<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>从成本角度来看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于其所有组件均为开源软件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这意味着开发者无需支付高昂的软件授权费用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大降低了开发成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尤其适合预算有限的中小型项目<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>开发速度也是 LAMP 的一大亮点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其成熟的生态系统提供了丰富的开发工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>框架和大量的开源代码库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发者可以借助这些资源快速搭建项目框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少从头开发的工作量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高开发效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用 PHP 的一些框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 Laravel<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Yii 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以更方便地进行数据库操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>路由管理和视图渲染<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随着技术的发展和应用场景的日益复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构的局限性也逐渐暴露出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最明显的问题就是前后端代码耦合严重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 LAMP 架构中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>PHP 代码常常直接嵌入 HTML 中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使得前端页面的展示逻辑和后端的业务逻辑混合在一起<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代码结构不清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>维护和扩展难度较大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当需要修改页面的某个功能时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能需要同时在 PHP 代码和 HTML 代码中进行查找和修改<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>容易出现错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而且职责划分不够明确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端不仅要处理复杂的业务逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还要负责页面的渲染工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使得后端的负担较重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不利于系统的性能优化和功能扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在如今多终端设备共存的时代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构难以适应多终端需求的问题也愈发突出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不同终端设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如移动端和 PC 端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具有不同的屏幕尺寸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>分辨率和交互方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要独立开发适配的页面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但在 LAMP 架构下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前后端紧密耦合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很难实现一套代码在不同终端上的高效复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>往往需要为每个终端单独开发和维护一套代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增加了开发成本和维护难度 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="前后端分离的诞生：解耦与协作的必然"><a href="#前后端分离的诞生：解耦与协作的必然" class="headerlink" title="前后端分离的诞生：解耦与协作的必然"></a>前后端分离的诞生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>解耦与协作的必然</h2><p>在移动互联网时代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>各种智能设备层出不穷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如智能手机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>平板电脑等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户期望在不同终端上都能获得一致且优质的应用体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构中前后端代码的紧密耦合以及职责不清的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得开发和维护多终端适配的应用变得异常困难<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当需要为移动端开发一个适配版本的聊天室应用时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于 LAMP 架构下前后端代码的混合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能需要对整个代码库进行大规模的修改和调整<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不仅工作量巨大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且容易引入新的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随着业务的增长和功能的不断增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构下的项目代码变得越来越臃肿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发和维护的难度呈指数级上升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发效率大幅降低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>前后端分离模式正是为了解决这些问题而应运而生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其核心思想在于更加清晰明确的职责划分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端专注于视图<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>View<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和交互逻辑<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Controller<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责与用户进行直接交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提供直观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>流畅的用户体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它通过各种前端技术和框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 React<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Vue<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Angular 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>构建出丰富多样的用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现页面的动态展示和交互效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后端则专注于数据接口<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Model<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责处理业务逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据存储和管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及提供稳定可靠的数据接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后端通过使用各种服务器端技术和框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 Spring Boot<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Django<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Flask 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高效地处理大量的业务请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>保障数据的安全和完整性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这种模式还实现了技术栈的独立<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端团队可以根据项目需求和自身技术优势<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自由选择适合的前端框架和工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不断追求更好的用户界面和交互效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后端团队也能够专注于后端技术的优化和业务逻辑的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择最适合的服务器端语言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据库和框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以提高系统的性能和稳定性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前后端之间通过标准的接口进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通常是 RESTful API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种方式使得前后端的交互更加规范<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也便于维护和扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>以电商平台为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种前后端分离模式的优势体现得淋漓尽致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在前端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用 React 或 Vue 等框架构建用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够快速实现商品列表的展示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>购物车的交互以及用户订单的管理等功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>用户在浏览商品时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够感受到流畅的页面切换和实时的交互反馈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大提升了购物体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后端采用 Spring Boot 等框架搭建服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提供商品查询<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>订单处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>库存管理等各种 API 接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些接口能够高效地处理大量的请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>保障数据的准确性和一致性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>引入 Node.js 中间层进一步优化了整个架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Node.js 可以聚合多个后端接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如将物流信息接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>促销信息接口等进行整合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少前端与后端之间的多次请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>优化无线端性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当用户查看商品详情时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Node.js 中间层可以一次性获取商品的基本信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>物流信息以及当前的促销活动信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后统一返回给前端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少了 HTTP 请求次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高了页面的加载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为用户提供了更好的购物体验 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="前后端分离的实践要点"><a href="#前后端分离的实践要点" class="headerlink" title="前后端分离的实践要点"></a>前后端分离的实践要点</h2><h3 id="接口规范与协作模式"><a href="#接口规范与协作模式" class="headerlink" title="接口规范与协作模式"></a>接口规范与协作模式</h3><p>在前后端分离的架构中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>接口规范与协作模式是确保项目顺利进行的关键环节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>RESTful API 以其简洁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>规范的设计风格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成为了前后端通信的首选方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它严格遵循 HTTP 协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用标准的 HTTP 方法来操作资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得接口的语义更加清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>易于理解和维护<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于一个电商平台的商品管理模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以通过GET &#x2F;api&#x2F;products来获取所有商品的列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GET &#x2F;api&#x2F;products&#x2F;{id}获取特定商品的详细信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>POST &#x2F;api&#x2F;products用于创建新的商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>PUT &#x2F;api&#x2F;products&#x2F;{id}则用于更新指定商品的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>DELETE &#x2F;api&#x2F;products&#x2F;{id}用于删除商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种统一的接口设计方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得前端开发者能够清晰地知道每个接口的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端开发者也能更方便地实现和维护这些接口 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250504230651.png" alt="**前后端分离架构图**"></p>
+<p>在开发过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>由于前端和后端的开发进度可能不一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为了避免前端开发因等待后端接口而受阻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Mock 数据就发挥了重要作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端可以通过 Mock Server<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 Postman 等工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模拟后端接口返回的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在开发商品详情页面时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端的商品数据接口可能还未完成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但前端可以使用 Mock Server 创建一个模拟接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>返回预设的商品数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包括商品名称<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>价格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>描述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>图片等信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前端开发者就可以按照正常的流程进行页面开发和交互逻辑的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高开发效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当后端接口开发完成后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需将 Mock 数据替换为真实的接口数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>进行简单的联调即可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>为了确保前后端对接口的理解一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用专业的文档工具来生成接口文档是必不可少的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Swagger 和 OpenAPI 就是这样的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们能够根据后端的代码或配置自动生成详细的接口文档<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些文档不仅包含了接口的 URL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>请求方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>请求参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>响应数据格式等基本信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还能以直观的界面展示出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>方便前后端开发者查阅和使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Swagger 生成的接口文档可以在浏览器中直接访问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过可视化的界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发者可以清晰地看到每个接口的详细说明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至可以直接在文档页面中进行接口测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大提高了前后端协作的效率和准确性 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="技术架构设计"><a href="#技术架构设计" class="headerlink" title="技术架构设计"></a>技术架构设计</h3><p>前端架构在前后端分离模式下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>单页面应用<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>SPA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>成为了主流的选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>SPA 通过在客户端动态加载和渲染页面内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现了页面的无刷新切换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>极大地提升了用户体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>SPA 在搜索引擎优化<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>SEO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>方面存在一定的局限性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由于 SPA 的页面内容是通过 JavaScript 动态生成的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>搜索引擎爬虫在抓取页面时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能无法执行这些 JavaScript 代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致页面内容无法被正确索引<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>服务端渲染<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>SSR<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>技术应运而生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>SSR 是在服务器端生成完整的 HTML 页面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后将其发送给客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>搜索引擎爬虫就能够直接抓取到页面的内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高了页面的 SEO 性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>像 Next.js<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>基于 React<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和 Nuxt.js<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>基于 Vue<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>等框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就提供了很好的 SSR 支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得开发者可以方便地实现 SPA 与 SSR 的结合 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250504232705.png" alt="SPA/SSR渲染流程对比"></p>
+<p>后端架构则趋向于微服务化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>微服务架构将一个大型的应用程序拆分成多个小型的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>独立的服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个服务都专注于实现单一的业务功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并且可以独立部署和扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在一个大型的电商系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>订单服务负责处理订单的创建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>修改<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>查询等操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>商品服务负责商品的管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户服务负责用户信息的管理等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些服务之间通过轻量级的通信机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 RESTful API 进行交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过微服务化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端架构的可维护性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可扩展性和灵活性都得到了极大的提升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每个服务可以根据自身的业务需求选择最合适的技术栈和框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>独立进行开发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>测试和部署<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不会相互影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250504232606.png" alt="微服务架构示例"></p>
+<p>在部署方案上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Nginx 作为一款高性能的 Web 服务器和反向代理服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>发挥着重要的作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它可以反向代理前端的静态资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 HTML<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>CSS<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>JavaScript 文件等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将这些资源快速地返回给客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高页面的加载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Nginx 还可以反向代理后端的 API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现负载均衡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当有大量的客户端请求到达时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Nginx 可以将这些请求均匀地分发到多个后端服务器上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>避免单个服务器因负载过高而出现性能问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而保证整个系统的稳定性和可靠性 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>性能优化是前后端分离架构中不可忽视的重要环节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它直接影响着用户体验和系统的可用性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在前端优化方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代码分割是一种有效的手段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>随着前端应用的功能不断增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代码量也会越来越大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这会导致页面加载时需要下载大量的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而影响加载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过代码分割<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以将代码按照功能模块进行拆分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有在需要的时候才加载相应的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在一个电商应用中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>商品详情页面和购物车页面的功能相对独立<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以将它们的代码分别进行打包<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当用户访问商品详情页面时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只加载商品详情页面所需的代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而购物车页面的代码在用户进入购物车时才进行加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样可以显著减少首屏加载的时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250504231151.png" alt="前后端优化架构图"></p>
+<p>CDN<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>内容分发网络<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>加速也是前端优化的常用方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>CDN 通过在全球各地部署节点服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将前端的静态资源缓存到离用户最近的节点上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当用户请求这些资源时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>CDN 服务器可以快速地将资源返回给用户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大提高了资源的加载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于一些常用的前端库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 Vue.js<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>React.js 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以将它们托管到 CDN 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是放在自己的服务器上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户在访问应用时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就可以从离自己最近的 CDN 节点获取这些库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少了网络传输的延迟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>懒加载技术则是针对页面中的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>组件等元素进行优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在页面加载时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只加载当前可见区域的元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而对于那些暂时不可见的元素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等到用户滚动页面使其可见时再进行加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在一个图片展示页面中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能有大量的图片<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果一次性全部加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会导致页面加载缓慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过懒加载技术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有当用户滚动到图片所在区域时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>图片才会被加载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样可以有效地减少页面初始加载的资源量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高页面的加载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>后端优化同样至关重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>缓存策略是提高后端性能的关键<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Redis 作为一种高性能的内存缓存数据库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>被广泛应用于后端缓存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们可以将一些经常被查询且不经常变化的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如商品的基本信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>热门文章等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>缓存到 Redis 中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当有请求到来时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端首先从 Redis 中查询数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果缓存中存在数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则直接返回给前端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>避免了重复查询数据库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大提高了响应速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>只有当缓存中没有数据时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才去查询数据库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并将查询结果存入缓存中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以便下次查询使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>随着数据量的不断增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>数据库分库分表也是后端优化的重要手段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当一个数据库中的数据量过大时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>查询和写入的性能都会受到影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过分库分表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以将数据分散存储到多个数据库或表中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减轻单个数据库或表的压力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在一个电商系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>订单数据量可能非常大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以按照时间或订单 ID 等条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将订单数据分表存储<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个表只存储一定时间段或一定范围内的订单数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在进行订单查询时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以根据查询条件快速定位到对应的表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高查询效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>Node.js 中间层在性能优化方面也有着独特的作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它可以合并接口请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少前端与后端之间的 HTTP 请求次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以淘宝详情页为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>页面中可能需要展示商品的基本信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>价格<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>库存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>评论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>促销活动等多种数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些数据可能来自不同的后端接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过 Node.js 中间层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以将这些接口请求进行合并<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一次性获取所有需要的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后统一返回给前端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样不仅减少了 HTTP 请求次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降低了网络传输的开销<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还提高了页面的加载速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为用户提供了更好的购物体验 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="从-LAMP-到分离架构的演进示例"><a href="#从-LAMP-到分离架构的演进示例" class="headerlink" title="从 LAMP 到分离架构的演进示例"></a>从 LAMP 到分离架构的演进示例</h2><p>为了更直观地理解从 LAMP 到前后端分离架构的演进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们以聊天室系统为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对比这两种架构下的实现方式及其带来的价值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>在 LAMP 架构中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以 PHP 语言为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现聊天室系统时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代码往往呈现出前后端紧密耦合的状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>PHP 直接生成 HTML 的方式在早期聊天室开发中较为常见<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以下是一段简单的示例代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="php">&lt;?php
+// 连接数据库
+$conn = mysqli_connect(&quot;localhost&quot;, &quot;username&quot;, &quot;password&quot;, &quot;chat_database&quot;);
+
+// 查询聊天记录
+$messages = mysqli_query($conn, &quot;SELECT * FROM chat&quot;);
+
+// 循环输出聊天记录
+while ($row = mysqli_fetch_array($messages)) &#123;
+    echo &quot;&lt;div&gt;&#123;$row[&#39;content&#39;]&#125;&lt;/div&gt;&quot;;
+&#125;
+
+// 关闭数据库连接
+mysqli_close($conn);
+?&gt;
+</code></pre>
+<p>在这段代码中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>PHP 不仅负责从 MySQL 数据库中查询聊天记录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还直接将这些记录渲染成 HTML 格式输出到浏览器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方式虽然简单直接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但存在诸多问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当需要修改前端的显示样式或交互逻辑时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能需要深入到 PHP 代码中进行修改<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增加了开发和维护的难度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而且<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种架构下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前端和后端的开发相互依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发效率较低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>而在前后端分离架构下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>聊天室系统的实现方式有了很大的不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端可以使用 Vue 框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过 Axios 库来调用后端提供的接口获取聊天数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是前端 Vue 代码的示例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="php">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div v-for=&quot;message in messages&quot; :key=&quot;message.id&quot;&gt;&#123;&#123; message.content &#125;&#125;&lt;/div&gt;
+    &lt;form @submit.prevent=&quot;sendMessage&quot;&gt;
+      &lt;input v-model=&quot;newMessage&quot; placeholder=&quot;输入消息&quot;&gt;
+      &lt;button type=&quot;submit&quot;&gt;发送&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from &#39;axios&#39;;
+export default &#123;
+  data() &#123;
+    return &#123; messages: [], newMessage: &#39;&#39; &#125;;
+  &#125;,
+  mounted() &#123; this.fetchMessages(); &#125;,
+  methods: &#123;
+    async fetchMessages() &#123;
+      try &#123;
+        const response = await axios.get(&#39;/api/messages&#39;);
+        this.messages = response.data;
+      &#125; catch (error) &#123;
+        console.error(&#39;获取聊天记录失败&#39;, error);
+      &#125;
+    &#125;,
+    async sendMessage() &#123;
+      try &#123;
+        await axios.post(&#39;/api/messages&#39;, &#123; content: this.newMessage &#125;);
+        this.newMessage = &#39;&#39;;
+        this.fetchMessages();
+      &#125; catch (error) &#123;
+        console.error(&#39;发送消息失败&#39;, error);
+      &#125;
+    &#125;
+  &#125;
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<p>在后端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用 Spring Boot 框架来处理业务逻辑和提供数据接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Spring Boot 可以方便地与数据库进行交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>查询和存储聊天记录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并将数据以 JSON 格式返回给前端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是后端 Spring Boot 的示例代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="java">import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class ChatController &#123;
+    private final ChatService chatService;
+
+    public ChatController(ChatService chatService) &#123;
+        this.chatService = chatService;
+    &#125;
+
+    @GetMapping(&quot;/messages&quot;)
+    public List&lt;Message&gt; getMessages() &#123;
+        return chatService.getMessages();
+    &#125;
+
+    @PostMapping(&quot;/messages&quot;)
+    public Message sendMessage(@RequestBody Message message) &#123;
+        return chatService.sendMessage(message);
+    &#125;
+&#125;
+</code></pre>
+<p>在前后端分离架构中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Node.js 可以发挥重要作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>特别是在处理 WebSocket 实时通信方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过 Node.js 和 WebSocket 库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 <a target="_blank" rel="noopener" href="http://socket.io/">socket.io</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以实现聊天室的实时消息推送<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>当有新的聊天消息时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端可以通过 WebSocket 将消息实时推送给所有在线的前端客户端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不需要前端频繁地发起请求获取最新消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是使用 Node.js 和 <a target="_blank" rel="noopener" href="http://socket.io/">socket.io</a> 实现 WebSocket 实时通信的简单示例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="js">const express = require(&#39;express&#39;);
+const app = express();
+const http = require(&#39;http&#39;).Server(app);
+const io = require(&#39;socket.io&#39;)(http);
+
+// 模拟聊天消息存储
+let messages = [];
+
+io.on(&#39;connection&#39;, (socket) =&gt; &#123;
+    console.log(&#39;用户已连接&#39;);
+    // 发送历史消息给新连接的用户
+    socket.emit(&#39;history-messages&#39;, messages);
+
+    socket.on(&#39;send-message&#39;, (message) =&gt; &#123;
+        messages.push(message);
+        io.emit(&#39;receive-message&#39;, message);
+    &#125;);
+
+    socket.on(&#39;disconnect&#39;, () =&gt; &#123;
+        console.log(&#39;用户已断开连接&#39;);
+    &#125;);
+&#125;);
+
+const port = 3000;
+http.listen(port, () =&gt; &#123;
+    console.log(`服务器正在运行&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;端口号: $&#123;port&#125;`);
+&#125;);
+</code></pre>
+<p>从 LAMP 架构演进到前后端分离架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>带来了诸多显著的价值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端可以独立进行 UI 的迭代和优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>根据用户需求和设计理念自由地调整页面布局<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>样式和交互效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而无需担心影响后端的业务逻辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后端则可以专注于处理高并发请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>优化数据库查询性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>保障系统的稳定性和可靠性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前后端分离使得同一套后端 API 可以被多个终端复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论是 Web 端还是 App 端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都可以通过调用相同的 API 获取数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大提高了开发效率和代码的复用性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>据相关实践统计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>采用前后端分离架构后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发效率通常可以提升 30% 以上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这使得项目能够更快地迭代和上线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>满足市场的需求 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="挑战与解决方案"><a href="#挑战与解决方案" class="headerlink" title="挑战与解决方案"></a>挑战与解决方案</h2><p>在从 LAMP 架构向前后端分离架构演进的过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>虽然带来了诸多优势<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但也不可避免地面临一些挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要我们找到相应的解决方案来确保项目的顺利推进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>跨域问题是前后端分离架构中常见的挑战之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由于前后端通常部署在不同的域名或端口下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当前端通过 AJAX 请求后端接口时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>浏览器会出于安全考虑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>遵循同源策略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>阻止这种跨域请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这就导致前端无法正常获取后端的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>影响应用的功能实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一种常见的方法是在后端进行 CORS<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>跨域资源共享<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以 Spring Boot 为例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过添加 CorsConfig 配置类来实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在配置类中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过addCorsMappings方法定义允许跨域的路径<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>允许的源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>允许的方法等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端在接收到前端的跨域请求时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>会在响应头中添加Access-Control-Allow-Origin等相关字段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>告诉浏览器该请求是被允许的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而解决跨域问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<pre><code class="java">import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class CorsConfig &#123;
+    @Bean
+    public WebMvcConfigurer corsConfigurer() &#123;
+        return new WebMvcConfigurer() &#123;
+            @Override
+            public void addCorsMappings(CorsRegistry registry) &#123;
+                registry.addMapping(&quot;/**&quot;)
+                        .allowedOriginPatterns(&quot;*&quot;)
+                        .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;)
+                        .allowCredentials(true)
+                        .maxAge(3600);
+            &#125;
+        &#125;;
+    &#125;
+&#125;```
+
+也可以通过 Nginx 代理来解决跨域问题&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;Nginx 作为反向代理服务器&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;可以将前端的请求转发到后端服务器&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;并在转发过程中对请求和响应进行处理&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;在 Nginx 的配置文件中&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;通过proxy_pass指令将前端的请求代理到后端的真实地址&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;同时可以添加add_header指令来设置响应头&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;允许跨域请求&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;这样&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;前端通过访问 Nginx 的地址&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;就可以间接访问后端接口&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;避免了跨域问题&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;。&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+
+```java
+server &#123;
+    listen       80;
+    server_name  localhost;
+
+    location / &#123;
+        proxy_pass http://backend_server;
+        add_header Access-Control-Allow-Origin *;
+        add_header Access-Control-Allow-Methods &#39;GET, POST, PUT, DELETE, OPTIONS&#39;;
+        add_header Access-Control-Allow-Headers &#39;DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization&#39;;
+
+        if ($request_method = &#39;OPTIONS&#39;) &#123;
+            return 204;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>在前后端分离的开发模式下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>团队协作也面临一些挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由于前后端职责划分更加明确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>团队成员需要更加清晰地了解自己的工作边界和与其他成员的协作方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果职责边界不明确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能会出现前后端在数据校验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>接口定义等方面的不一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>导致开发进度受阻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了解决这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>团队需要在项目开始前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>明确前后端的职责边界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一般来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端负责数据的存储<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>业务逻辑的处理以及数据的校验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>确保数据的准确性和完整性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端则负责用户界面的展示和交互逻辑的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时对用户输入的数据进行格式提示和初步的校验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不承担数据的核心校验职责<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>团队可以通过制定详细的接口文档和开发规范<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>明确前后端之间的数据交互格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>接口的使用方法等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少沟通成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高协作效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>前后端分离架构还带来了学习成本的挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于前端开发人员来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要掌握更多的技术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 Node.js<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>现代前端框架<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>React<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Vue<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Angular 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>以及相关的工具和库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于后端开发人员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也需要了解一些前端的基本知识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以便更好地与前端协作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>为了降低学习成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以通过组织内部培训来提升团队成员的技术能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>邀请公司内部的技术专家或者外部的讲师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>针对前后端分离架构中的关键技术和开发流程进行培训<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮助团队成员快速掌握相关知识和技能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也可以引入全栈工程师来缓解团队在技术转型过程中的压力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>全栈工程师具备前后端开发的能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够在前后端之间起到桥梁的作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮助解决开发过程中遇到的技术难题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时也可以带动团队成员学习新的技术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>促进团队的技术提升 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>从 LAMP 到前后端分离<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无疑是 Web 开发领域一次具有深远意义的重要演进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这一转变不仅体现了技术的发展和进步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更是从根本理念上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现了从单纯 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>功能实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 到追求 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>高效协作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 的深刻变革 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>解耦作为前后端分离架构的核心价值之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具有不可忽视的重要性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 LAMP 架构中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前后端代码紧密耦合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如同交织在一起的乱麻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>牵一发而动全身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这给开发和维护带来了极大的困扰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而前后端分离后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前端和后端的技术栈实现了独立发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端能够专注于打造更加优质的用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>运用各种先进的前端技术和框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不断提升用户体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>后端则可以全身心投入到业务逻辑的优化和数据处理中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择最适合的技术和架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高系统的性能和稳定性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种解耦的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得前后端能够根据自身的发展需求进行灵活调整和升级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有效降低了系统的复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高了系统的可维护性和可扩展性 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>前后端分离模式极大地提高了开发效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在传统的 LAMP 架构下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前后端的开发相互依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个环节的延迟或变更可能会导致整个项目进度的受阻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而在前后端分离的模式下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前后端团队可以并行开发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前端团队可以根据 Mock 数据或 API 文档进行独立开发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端团队也能专注于接口的实现和业务逻辑的处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样一来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大减少了前后端之间的等待时间和沟通成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高了整体的开发效率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得项目能够更快地迭代和上线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更好地满足市场的需求 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>前后端分离架构还为系统的扩展性提供了有力支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>随着业务的不断发展和用户需求的日益多样化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统需要不断扩展新的功能和模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在前后端分离的架构下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过微服务化的设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后端可以将不同的业务功能拆分成独立的服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个服务可以独立部署和扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当系统需要增加新的功能时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需对相应的服务进行扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不会影响到其他部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>引入 Node.js 中间层等技术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够更好地聚合和处理多个后端接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>优化系统的性能和响应速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>进一步提升系统的扩展性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使其能够更好地应对复杂的业务场景 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>展望未来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>随着 Serverless 和低代码技术的不断发展和普及<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Web 开发的架构模式有望进一步简化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Serverless 架构让开发者无需关注服务器的管理和运维<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需专注于业务逻辑的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大大降低了开发和运维的成本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>低代码技术则通过可视化的操作和模块组装<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得非专业的开发者也能够参与到应用的开发中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提高了开发的效率和灵活性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论技术如何发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>职责清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>协作高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 的原则都将始终贯穿于 Web 开发的架构设计中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成为指导我们构建更加优秀的 Web 应用的核心准则 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="拓展：CentOS快速部署LAMP"><a href="#拓展：CentOS快速部署LAMP" class="headerlink" title="拓展：CentOS快速部署LAMP"></a>拓展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>CentOS快速部署LAMP</h2><hr>
+<p><strong>CentOS 快速部署 LAMP 环境<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Linux + Apache + MySQL&#x2F;MariaDB + PHP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></p>
+<p>以下是为 CentOS 7&#x2F;8&#x2F;Stream 系统设计的快速部署步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>全程使用命令行操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用于生产环境和本地测试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h3 id="1-更新系统组件"><a href="#1-更新系统组件" class="headerlink" title="1. 更新系统组件"></a><strong>1. 更新系统组件</strong></h3><pre><code class="bash"># 更新系统软件包
+sudo yum update -y
+
+# 安装常用工具&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;可选&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+sudo yum install -y wget vim net-tools
+</code></pre>
+<hr>
+<h3 id="2-安装-Apache"><a href="#2-安装-Apache" class="headerlink" title="2. 安装 Apache"></a><strong>2. 安装 Apache</strong></h3><pre><code class="bash"># 安装 Apache
+sudo yum install -y httpd
+
+# 启动 Apache 并设置开机自启
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# 验证 Apache 状态
+systemctl status httpd
+</code></pre>
+<h4 id="配置防火墙（若开启）"><a href="#配置防火墙（若开启）" class="headerlink" title="配置防火墙（若开启）"></a><strong>配置防火墙<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>若开启<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><pre><code class="bash"># 允许 HTTP/HTTPS 流量
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
+</code></pre>
+<hr>
+<h3 id="3-安装-MySQL-x2F-MariaDB"><a href="#3-安装-MySQL-x2F-MariaDB" class="headerlink" title="3. 安装 MySQL&#x2F;MariaDB"></a><strong>3. 安装 MySQL&#x2F;MariaDB</strong></h3><h4 id="方案-1：安装-MariaDB（推荐）"><a href="#方案-1：安装-MariaDB（推荐）" class="headerlink" title="方案 1：安装 MariaDB（推荐）"></a><strong>方案 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>安装 MariaDB<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>推荐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><pre><code class="bash"># CentOS 默认仓库包含 MariaDB
+sudo yum install -y mariadb-server mariadb
+
+# 启动并设置开机自启
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
+# 运行安全配置脚本
+sudo mysql_secure_installation
+</code></pre>
+<blockquote>
+<p>提示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>按需设置 root 密码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>移除匿名用户<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>禁止远程 root 登录等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<h4 id="方案-2：安装-MySQL-8-0（需添加官方仓库）"><a href="#方案-2：安装-MySQL-8-0（需添加官方仓库）" class="headerlink" title="方案 2：安装 MySQL 8.0（需添加官方仓库）"></a><strong>方案 2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>安装 MySQL 8.0<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>需添加官方仓库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><pre><code class="bash"># 下载 MySQL Yum 仓库
+wget https://dev.mysql.com/get/mysql80-community-release-el7-6.noarch.rpm
+
+# 安装仓库
+sudo rpm -ivh mysql80-community-release-el7-6.noarch.rpm
+
+# 安装 MySQL
+sudo yum install -y mysql-community-server
+
+# 启动并配置
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+
+# 获取临时 root 密码
+grep &#39;temporary password&#39; /var/log/mysqld.log
+
+# 运行安全配置
+sudo mysql_secure_installation
+</code></pre>
+<hr>
+<h3 id="4-安装-PHP"><a href="#4-安装-PHP" class="headerlink" title="4. 安装 PHP"></a><strong>4. 安装 PHP</strong></h3><h4 id="安装基础-PHP-版本"><a href="#安装基础-PHP-版本" class="headerlink" title="安装基础 PHP 版本"></a><strong>安装基础 PHP 版本</strong></h4><pre><code class="bash"># CentOS 7 默认仓库提供 PHP 5.4&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;旧&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;建议升级到新版
+# 安装 EPEL 和 Remi 仓库&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;PHP 7.4/8.0+&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+sudo yum install -y epel-release
+sudo yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+# 启用指定 PHP 版本&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-end&quot;&gt;&lt;h-inner&gt;（&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;例如 PHP 7.4&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;）&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;
+sudo yum-config-manager --enable remi-php74
+
+# 安装 PHP 及扩展
+sudo yum install -y php php-mysqlnd php-gd php-opcache php-mbstring php-json php-xml
+</code></pre>
+<h4 id="验证-PHP"><a href="#验证-PHP" class="headerlink" title="验证 PHP"></a><strong>验证 PHP</strong></h4><pre><code class="bash"># 创建测试文件
+echo &quot;&lt;?php phpinfo(); ?&gt;&quot; | sudo tee /var/www/html/info.php
+
+# 重启 Apache
+sudo systemctl restart httpd
+</code></pre>
+<p>访问 <code>http://服务器IP/info.php</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>确认 PHP 信息页显示正常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h3 id="5-验证-LAMP-环境"><a href="#5-验证-LAMP-环境" class="headerlink" title="5. 验证 LAMP 环境"></a><strong>5. 验证 LAMP 环境</strong></h3><h4 id="测试数据库连接"><a href="#测试数据库连接" class="headerlink" title="测试数据库连接"></a><strong>测试数据库连接</strong></h4><p>创建 PHP 文件测试 MySQL 连接<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>示例代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="php">&lt;?php
+$servername = &quot;localhost&quot;;
+$username = &quot;root&quot;;
+$password = &quot;你的MySQL密码&quot;;
+
+// 创建连接
+$conn = new mysqli($servername, $username, $password);
+
+// 检查连接
+if ($conn-&gt;connect_error) &#123;
+    die(&quot;连接失败: &quot; . $conn-&gt;connect_error);
+&#125;
+echo &quot;MySQL 连接成功&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;！&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;&quot;;
+?&gt;
+</code></pre>
+<p>保存为 <code>/var/www/html/db_test.php</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>访问该页面确认输出结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<h3 id="6-可选优化"><a href="#6-可选优化" class="headerlink" title="6. 可选优化"></a><strong>6. 可选优化</strong></h3><h4 id="配置虚拟主机"><a href="#配置虚拟主机" class="headerlink" title="配置虚拟主机"></a><strong>配置虚拟主机</strong></h4><pre><code class="bash"># 创建网站目录
+sudo mkdir /var/www/mywebsite
+
+# 编辑 Apache 配置
+sudo vim /etc/httpd/conf.d/mywebsite.conf
+</code></pre>
+<p>添加以下内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="apache">&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@example.com
+    DocumentRoot &quot;/var/www/mywebsite&quot;
+    ServerName mywebsite.com
+    ErrorLog &quot;/var/log/httpd/mywebsite_error.log&quot;
+    CustomLog &quot;/var/log/httpd/mywebsite_access.log&quot; combined
+
+    &lt;Directory &quot;/var/www/mywebsite&quot;&gt;
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+<p>重启 Apache<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<pre><code class="bash">sudo systemctl restart httpd
+</code></pre>
+<hr>
+<h3 id="常见问题解决"><a href="#常见问题解决" class="headerlink" title="常见问题解决"></a><strong>常见问题解决</strong></h3><ol>
+<li><p><strong>访问被拒绝</strong>  </p>
+<ul>
+<li>检查防火墙和 SELinux<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>临时关闭 SELinux <code>setenforce 0</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或配置规则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>确认文件权限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>sudo chown -R apache:apache /var/www/html</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>PHP 无法连接 MySQL</strong>  </p>
+<ul>
+<li>确认安装 <code>php-mysqlnd</code> 扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>检查 MySQL 用户权限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>GRANT ALL PRIVILEGES ON *.* TO &#39;用户名&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;密码&#39;;</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>通过上述步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>您已完成 LAMP 环境的快速部署<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后续可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>将网站文件放入 <code>/var/www/html</code> 或自定义目录<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>配置 HTTPS<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>使用 Certbot 获取免费 SSL 证书<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>安装 phpMyAdmin 管理数据库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><code>sudo yum install -y phpmyadmin</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>此架构适合传统 PHP 应用<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 WordPress<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Joomla<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如需更高性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可考虑替换为 Nginx + PHP-FPM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../../02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Windows部署Hexon可视化博客环境
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">从 LAMP 到前后端分离：架构演进与技术实践</a>
+          </li>
+        
+          <li>
+            <a href="../../../../02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2023/07/05/notes/23Spring_%E5%BB%BA%E6%A8%A1%E5%A4%8D%E4%B9%A0/">23Spring_建模复习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
