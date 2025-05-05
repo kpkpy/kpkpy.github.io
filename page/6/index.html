@@ -46,6 +46,326 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-notes/STL源码剖析 学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2023/03/17/notes/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-03-16T16:00:00.000Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2023/03/17/notes/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">STL源码剖析 学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="assets/PDF/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90.pdf">STL源码剖析</a></p>
+<h2 id="空间配置器allowcator"><a href="#空间配置器allowcator" class="headerlink" title="空间配置器allowcator"></a>空间配置器<code>allowcator</code></h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308165649.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308165744.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308165754.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308171607.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308171812.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308171826.png"></p>
+<h3 id="construct-amp-destroy"><a href="#construct-amp-destroy" class="headerlink" title="construct() &amp; destroy()"></a><code>construct() &amp; destroy()</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308205350.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308205439.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308205547.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308205557.png"></p>
+<h3 id="std-alloc"><a href="#std-alloc" class="headerlink" title="std::alloc"></a><code>std::alloc</code></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308210218.png"></p>
+<ul>
+<li><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308210325.png"></p>
+</li>
+<li><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308210339.png"></p>
+</li>
+</ul>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308210452.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308210535.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308212919.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308212859.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308212932.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213002.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213205.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213220.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213501.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213511.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213521.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213548.png"></p>
+<h3 id="其他基本处理工具"><a href="#其他基本处理工具" class="headerlink" title="其他基本处理工具"></a>其他基本处理工具</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213706.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308213809.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308214424.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308214945.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308215227.png"></p>
+<hr>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308214550.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308215009.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308215244.png"></p>
+<hr>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308214759.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308214807.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308214933.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308215304.png"></p>
+<h2 id="迭代器概念-amp-traits编程技法"><a href="#迭代器概念-amp-traits编程技法" class="headerlink" title="迭代器概念&amp; traits编程技法"></a>迭代器概念&amp; traits编程技法</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308215454.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308215500.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308220304.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308220312.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308220439.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230308220452.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309101125.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309102029.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309102040.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309105334.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309105505.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309105515.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309105537.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309112801.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309112825.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309112859.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113132.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113156.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113249.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113305.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113505.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113525.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113546.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309113604.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309114146.png"></p>
+<h2 id="序列式容器"><a href="#序列式容器" class="headerlink" title="序列式容器"></a>序列式容器</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309194105.png"></p>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310222818.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230309194321.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223806.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310222640.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310222740.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310222751.png"></p>
+<h4 id="push-back"><a href="#push-back" class="headerlink" title="push_back()"></a>push_back()</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223826.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223845.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224202.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310222925.png"></p>
+<h4 id="pop-back"><a href="#pop-back" class="headerlink" title="pop_back()"></a>pop_back()</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310222945.png"></p>
+<h4 id="erase"><a href="#erase" class="headerlink" title="erase()"></a>erase()</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223121.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223152.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223138.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223208.png"></p>
+<h4 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223317.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223324.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223336.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223351.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223346.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223404.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310223410.png"></p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224226.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224333.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224412.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224417.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224425.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224447.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224455.png"></p>
+<h4 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224847.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310224901.png"></p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225351.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225414.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225421.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225504.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225428.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225435.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230310225445.png"></p>
+<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313110731.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313110744.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313110912.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313110923.png"></p>
+<h4 id="空间分配"><a href="#空间分配" class="headerlink" title="空间分配"></a>空间分配</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313111344.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313111412.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313111952.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313112036.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313112116.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313112136.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313112452.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113121.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113005.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113153.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113203.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113217.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113418.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113444.png"></p>
+<h4 id="元素操作"><a href="#元素操作" class="headerlink" title="元素操作"></a>元素操作</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113914.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313113924.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313114452.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313114505.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313204835.png"></p>
+<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313205906.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313205934.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313205955.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210009.png"></p>
+<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210021.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210043.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210052.png"></p>
+<h3 id="heap"><a href="#heap" class="headerlink" title="heap"></a>heap</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210315.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210420.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210407.png"></p>
+<h4 id="push-heap"><a href="#push-heap" class="headerlink" title="push_heap"></a>push_heap</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210527.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210548.png"></p>
+<h4 id="pop-heap"><a href="#pop-heap" class="headerlink" title="pop_heap"></a>pop_heap</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210626.png"></p>
+<h4 id="sort-heap"><a href="#sort-heap" class="headerlink" title="sort_heap"></a>sort_heap</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210740.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210805.png"></p>
+<h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230313210854.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314102354.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314102409.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314102900.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314102915.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314103010.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314103040.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314103349.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314104412.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314104429.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314104437.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314104930.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314105424.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314105447.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110014.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110022.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110051.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110101.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110110.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110123.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314110337.png"></p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111126.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111224.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111234.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111505.png"></p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111530.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111552.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111622.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111658.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111733.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111821.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314111830.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112553.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112730.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112840.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112749.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112811.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112940.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314112955.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314113823.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314113828.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314113922.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314114258.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314114240.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314114325.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314114333.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314201545.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314201609.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314201626.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314201912.png"></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314202355.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314202403.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314202423.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314202437.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314202447.png"></p>
+<h3 id="算法的泛化"><a href="#算法的泛化" class="headerlink" title="算法的泛化"></a>算法的泛化</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314202546.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314203207.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314203752.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314203908.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314203952.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314204004.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314204108.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314204159.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314204440.png"></p>
+<h3 id="数值算法-lt-numeric-gt"><a href="#数值算法-lt-numeric-gt" class="headerlink" title="数值算法 &lt;numeric&gt;"></a>数值算法 &lt;numeric&gt;</h3><h4 id="accumulate"><a href="#accumulate" class="headerlink" title="accumulate"></a>accumulate</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314204804.png"></p>
+<h4 id="adjacent-difference"><a href="#adjacent-difference" class="headerlink" title="adjacent_difference"></a>adjacent_difference</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205243.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205330.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205336.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205320.png"></p>
+<h4 id="partial-sum"><a href="#partial-sum" class="headerlink" title="partial_sum"></a>partial_sum</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205804.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205819.png"></p>
+<h4 id="power"><a href="#power" class="headerlink" title="power"></a>power</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314205844.png"></p>
+<h3 id="algobase-lt-stl-algobase-h-gt"><a href="#algobase-lt-stl-algobase-h-gt" class="headerlink" title="algobase&lt;stl_algobase.h&gt;"></a>algobase&lt;stl_algobase.h&gt;</h3><h4 id="equal"><a href="#equal" class="headerlink" title="equal"></a>equal</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210218.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210228.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210243.png"></p>
+<h4 id="fill-x2F-fill-n"><a href="#fill-x2F-fill-n" class="headerlink" title="fill&#x2F;fill_n"></a>fill&#x2F;fill_n</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210300.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210325.png"></p>
+<h4 id="iter-swap"><a href="#iter-swap" class="headerlink" title="iter_swap"></a>iter_swap</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210349.png"></p>
+<blockquote>
+<p> <img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210607.png"></p>
+</blockquote>
+<h4 id="lexicographical-compare"><a href="#lexicographical-compare" class="headerlink" title="lexicographical_compare"></a>lexicographical_compare</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210836.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314210851.png"></p>
+<h4 id="max-x2F-min"><a href="#max-x2F-min" class="headerlink" title="max&#x2F;min"></a>max&#x2F;min</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211029.png"></p>
+<h4 id="mismatch"><a href="#mismatch" class="headerlink" title="mismatch"></a>mismatch</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211101.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211113.png"></p>
+<h4 id="swap"><a href="#swap" class="headerlink" title="swap"></a>swap</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211142.png"></p>
+<h4 id="copy"><a href="#copy" class="headerlink" title="copy"></a><strong>copy</strong></h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211424.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211438.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211510.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314211519.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314221740.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314221756.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314221807.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314221816.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314222446.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314222807.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314222833.png"></p>
+<h3 id="set相关算法"><a href="#set相关算法" class="headerlink" title="set相关算法"></a>set相关算法</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314224154.png"></p>
+<h4 id="set-union"><a href="#set-union" class="headerlink" title="set_union"></a>set_union</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314224557.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314224624.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314224735.png"></p>
+<h4 id="set-intersection"><a href="#set-intersection" class="headerlink" title="set_intersection"></a>set_intersection</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314225857.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314230323.png"></p>
+<h4 id="set-difference"><a href="#set-difference" class="headerlink" title="set_difference"></a>set_difference</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314230304.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314230343.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314230336.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314230353.png"></p>
+<h4 id="set-symmetric-difference"><a href="#set-symmetric-difference" class="headerlink" title="set_symmetric_difference"></a>set_symmetric_difference</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230314230433.png"></p>
+<h3 id="其他算法"><a href="#其他算法" class="headerlink" title="其他算法"></a>其他算法</h3><p>… </p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144356.png"></p>
+<h4 id="adjacent-find"><a href="#adjacent-find" class="headerlink" title="adjacent_find"></a>adjacent_find</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144442.png"></p>
+<h4 id="count-x2F-count-if"><a href="#count-x2F-count-if" class="headerlink" title="count&#x2F;count_if"></a>count&#x2F;count_if</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144556.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144649.png"></p>
+<h4 id="find-x2F-find-if"><a href="#find-x2F-find-if" class="headerlink" title="find&#x2F;find_if"></a>find&#x2F;find_if</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144702.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144714.png"></p>
+<h4 id="find-end-x2F-find-first-of"><a href="#find-end-x2F-find-first-of" class="headerlink" title="find_end&#x2F;find_first_of"></a>find_end&#x2F;find_first_of</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144743.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144829.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144840.png"></p>
+<h4 id="for-each"><a href="#for-each" class="headerlink" title="for_each"></a>for_each</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144859.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144910.png"></p>
+<h4 id="generate-x2F-generate-n"><a href="#generate-x2F-generate-n" class="headerlink" title="generate&#x2F;generate_n"></a>generate&#x2F;generate_n</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145000.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315144927.png"></p>
+<h4 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145029.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145048.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145103.png"></p>
+<h4 id="max-element"><a href="#max-element" class="headerlink" title="max_element"></a>max_element</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145126.png"></p>
+<h4 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145145.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145154.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145210.png"></p>
+<h4 id="min-element"><a href="#min-element" class="headerlink" title="min_element"></a>min_element</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145229.png"></p>
+<h4 id="partition"><a href="#partition" class="headerlink" title="partition"></a>partition</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145256.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145313.png"></p>
+<h4 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315145356.png"></p>
+<h4 id="remove-copy-x2F-remove-if-x2F-remove-copy-if"><a href="#remove-copy-x2F-remove-if-x2F-remove-copy-if" class="headerlink" title="remove_copy&#x2F;remove_if&#x2F;remove_copy_if"></a>remove_copy&#x2F;remove_if&#x2F;remove_copy_if</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150514.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150533.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150625.png"></p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150637.png"></p>
+<h4 id="replace-copy-x2F-replace-if-x2F-replace-copy-if"><a href="#replace-copy-x2F-replace-if-x2F-replace-copy-if" class="headerlink" title="replace_copy&#x2F;replace_if&#x2F;replace_copy_if"></a>replace_copy&#x2F;replace_if&#x2F;replace_copy_if</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150759.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150818.png"></p>
+<h4 id="reverse-x2F-reverse-copy"><a href="#reverse-x2F-reverse-copy" class="headerlink" title="reverse&#x2F;reverse_copy"></a>reverse&#x2F;reverse_copy</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150833.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150857.png"></p>
+<h4 id="rotate-x2F-rotate-copy"><a href="#rotate-x2F-rotate-copy" class="headerlink" title="rotate&#x2F;rotate_copy"></a>rotate&#x2F;rotate_copy</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315150915.png"></p>
+<h4 id="search-x2F-search-n"><a href="#search-x2F-search-n" class="headerlink" title="search&#x2F;search_n"></a>search&#x2F;search_n</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315151001.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315151020.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315151029.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315151042.png"></p>
+<h4 id="swap-ranges"><a href="#swap-ranges" class="headerlink" title="swap_ranges"></a>swap_ranges</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153113.png"></p>
+<h4 id="tansform"><a href="#tansform" class="headerlink" title="tansform"></a>tansform</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153405.png"></p>
+<h4 id="unique-x2F-unique-copy"><a href="#unique-x2F-unique-copy" class="headerlink" title="unique&#x2F;unique_copy"></a>unique&#x2F;unique_copy</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153429.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153448.png"></p>
+<h4 id="lower-bound-x2F-upper-bound"><a href="#lower-bound-x2F-upper-bound" class="headerlink" title="lower_bound&#x2F;upper_bound"></a>lower_bound&#x2F;upper_bound</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153739.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153805.png"></p>
+<h4 id="binary-search"><a href="#binary-search" class="headerlink" title="binary_search"></a>binary_search</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153822.png"></p>
+<h4 id="next-permutation-x2F-prev-pernutation"><a href="#next-permutation-x2F-prev-pernutation" class="headerlink" title="next_permutation&#x2F;prev_pernutation"></a>next_permutation&#x2F;prev_pernutation</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153838.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153856.png"></p>
+<h4 id="random-shuffle"><a href="#random-shuffle" class="headerlink" title="random_shuffle"></a>random_shuffle</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315153917.png"></p>
+<h4 id="partial-sort-x2F-partial-sort-copy"><a href="#partial-sort-x2F-partial-sort-copy" class="headerlink" title="partial_sort &#x2F; partial_sort_copy"></a>partial_sort &#x2F; partial_sort_copy</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215427.png"></p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215544.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215604.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215721.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215740.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215752.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215802.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215827.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215842.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315215854.png"></p>
+<h4 id="inplace-merge"><a href="#inplace-merge" class="headerlink" title="inplace_merge"></a>inplace_merge</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315220040.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315220107.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315220114.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315220134.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315220148.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315221407.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315221454.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230315221506.png"></p>
+<h2 id="仿函数"><a href="#仿函数" class="headerlink" title="仿函数"></a>仿函数</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316221015.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316221240.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316221344.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316221549.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316222204.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316222607.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316222619.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316222727.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316222745.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223337.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223413.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223424.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223432.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223439.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223448.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316223455.png"></p>
+<h2 id="配接器"><a href="#配接器" class="headerlink" title="配接器"></a>配接器</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224246.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224413.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224426.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224438.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224444.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224739.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224756.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224823.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224839.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316224856.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316225102.png"></p>
+<h3 id="container-adapters"><a href="#container-adapters" class="headerlink" title="container adapters"></a>container adapters</h3><h4 id="stack-1"><a href="#stack-1" class="headerlink" title="stack"></a>stack</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316225249.png"></p>
+<h4 id="queue-1"><a href="#queue-1" class="headerlink" title="queue"></a>queue</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316225334.png"></p>
+<h3 id="iterator-adapters"><a href="#iterator-adapters" class="headerlink" title="iterator adapters"></a>iterator adapters</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316225503.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316230554.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316230645.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230316230659.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/cpp/" rel="tag">cpp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-notes/C++ Primer 学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2023/03/15/notes/C++%20Primer%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
@@ -933,259 +1253,6 @@ model = keras.models.Sequential([
 
 
   
-    <article id="post-notes/CLRSReview" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/02/20/notes/CLRSReview/" class="article-date">
-  <time class="dt-published" datetime="2023-02-19T16:00:00.000Z" itemprop="datePublished">2023-02-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/02/20/notes/CLRSReview/">2022Fall_算法导论笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="/books/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA3E">算法导论3E</a></p>
-<h1 id="算法复习"><a href="#算法复习" class="headerlink" title="算法复习"></a>算法复习</h1><p>往年试题:<br><a href="assets/PDF/CLRS1.pdf">CLRS1</a><br><a href="assets/PDF/CLRS2.pdf">CLRS2</a></p>
-<p>考试题型:</p>
-<ul>
-<li><strong>20分</strong> 基本概念 判断题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>填空<ul>
-<li>插入排序复杂度</li>
-</ul>
-</li>
-<li><strong>50-60分</strong> 简答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法分析<ul>
-<li><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>递归时间分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平摊时间分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基本分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></li>
-<li>求最大流</li>
-<li>二项堆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>根表情况</li>
-</ul>
-</li>
-<li><strong>20-30分</strong>  算法设计题 1-2个算法题<ul>
-<li>分治</li>
-<li>动态规划</li>
-<li>贪心方法</li>
-</ul>
-</li>
-</ul>
-<p>考试重点</p>
-<p>渐进记号<br>分治方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基本步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用条件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>场合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>递归式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>代换法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>递归树方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>主方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>快速排序算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>归并排序算法的时间复杂度<br>递归函数时间分析以及相应要求<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最坏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><del>平均不考</del><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br><del>循环不变式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不考<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></del><br>快速排序<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>要清楚工作原理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></p>
-<p>红黑树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与二叉查找树有何不同<br>插入和删除的过程和时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><del>不会考具体插入操作和删除操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></del><br>红黑树有10个节点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画出包含最多<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>红节点的红黑树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>等等<br>数据结构扩张方法的基本步骤<br>动态序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>区间树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要了解是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>算法时间复杂度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解决问题</p>
-<p>动态规划<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>贪心算法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>动态规划的基本步骤<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要素<br>贪心算法的要素<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适用条件<br>算法例子要清楚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>最长公共子序列<br>活动选择问题<br>贪心法的理论基础<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不作要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只要掌握概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>什么是最大独立子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>最优子集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>独立子集</p>
-<p>平摊分析<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>是本课程的主要内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>平摊分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><del>合计法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>记账法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>了解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></del><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>势函数方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>定义势函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><br>验证势函数的正确性<br>进行平摊分析</p>
-<p>二项堆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>斐波那契堆<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>根表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>操作时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>概念要清楚<br>三个堆的各个操作的时间复杂度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>各个堆的结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要满足的条件<br>根表的形式<br>给一个根表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在根表上完成一次抽取最小值操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>画出完成操作前后的根表</p>
-<p>流网络<br>ford-fulkerson方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>掌握<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>用ford-fulkerson方法求最大流<br><del>push-relable方法<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不做要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></del></p>
-<h2 id="递归-x2F-分治策略-x2F-求解递归式"><a href="#递归-x2F-分治策略-x2F-求解递归式" class="headerlink" title="递归&#x2F;分治策略&#x2F;求解递归式"></a>递归&#x2F;分治策略&#x2F;求解递归式</h2><h3 id="渐进记号"><a href="#渐进记号" class="headerlink" title="渐进记号"></a>渐进记号</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129204222.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129204336.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129204527.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129204554.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129205313.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218140744.png"></p>
-<h3 id="求解递归式"><a href="#求解递归式" class="headerlink" title="求解递归式"></a>求解递归式</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129205513.png"></p>
-<h4 id="代入法"><a href="#代入法" class="headerlink" title="代入法"></a>代入法</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129205727.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129205905.png"><br><em>(取底求上界)</em> </p>
-<p>假设形式必须与求解形式保持严格一致!<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129212410.png"><br>x</p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129212514.png"><br>v (取顶求上界&#x2F;取底求下界)</p>
-<ul>
-<li><strong>习题课例题</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218141942.png"><br>取顶求上界<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218142006.png"><br>取底求下界</li>
-</ul>
-<h4 id="递归树法"><a href="#递归树法" class="headerlink" title="递归树法"></a>递归树法</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129215206.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129215224.png"></p>
-<ul>
-<li><strong>习题课例题</strong></li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218142527.png"></p>
-<h4 id="主方法"><a href="#主方法" class="headerlink" title="主方法"></a>主方法</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129215708.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129215721.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129223445.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129223606.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129223645.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230129223701.png"></p>
-<ul>
-<li><strong>习题课例题</strong></li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218143520.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218162739.png"></p>
-<h4 id="证明-数学归纳法"><a href="#证明-数学归纳法" class="headerlink" title="证明: 数学归纳法"></a>证明: 数学归纳法</h4><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230201230227.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230201230512.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230201230718.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230201230556.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230201230605.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230201230945.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218152634.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218153143.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218153539.png"></p>
-<ul>
-<li><strong>习题课例题</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218155058.png"></li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218155121.png"></p>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130131027.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130131213.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130131235.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130131252.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130131614.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130133623.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130133755.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130133910.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130133941.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130134226.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130134240.png"></p>
-<h2 id="二叉树-x2F-红黑树-x2F-区间树"><a href="#二叉树-x2F-红黑树-x2F-区间树" class="headerlink" title="二叉树&#x2F;红黑树&#x2F;区间树"></a>二叉树&#x2F;红黑树&#x2F;区间树</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130143452.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130143609.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130144343.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130144540.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130145439.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130150453.png"></p>
-<p><strong>删除节点</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130150951.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130152018.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130152042.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130152112.png"></p>
-<h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230130155037.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218165932.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218170005.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218170110.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218170550.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218170621.png"></p>
-<h3 id="数据结构扩张"><a href="#数据结构扩张" class="headerlink" title="数据结构扩张"></a>数据结构扩张</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218171651.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218171724.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218172057.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218172108.png"></p>
-<ul>
-<li>找第i个最小值<code>OS-select(x,i)</code> O(lgn)</li>
-<li>求x序值<code>OS-rank(T,x)</code> O(lgn)</li>
-<li>插入和删除size域 O(lgn)  </li>
-<li>插入或删除操作的时间为O(lgn)</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218183603.png"></p>
-<ul>
-<li><strong>习题课例题</strong><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218191418.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218191452.png"></li>
-</ul>
-<h3 id="区间树"><a href="#区间树" class="headerlink" title="区间树"></a>区间树</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218184336.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218185338.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218185000.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218185011.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218190232.png"></p>
-<h2 id="动态规划-x2F-贪心算法"><a href="#动态规划-x2F-贪心算法" class="headerlink" title="动态规划&#x2F;贪心算法"></a>动态规划&#x2F;贪心算法</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218192942.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230205123413.png"></p>
-<ul>
-<li>带备忘的自顶向下<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230205124810.png"></li>
-<li>自底向上<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230205125140.png"></li>
-</ul>
-<p><strong>动态规划的要素</strong>:</p>
-<ul>
-<li><p>最优子结构<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218193541.png"></p>
-</li>
-<li><p>重合子问题<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218193607.png"></p>
-</li>
-</ul>
-<h4 id="装配线问题"><a href="#装配线问题" class="headerlink" title="装配线问题"></a>装配线问题</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218193135.png"></p>
-<ul>
-<li>描述问题的最优解结构特征<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218200642.png"></li>
-</ul>
-<p><em>cut and paste</em><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218200722.png"></p>
-<ul>
-<li>递归定义最优路线的最快时间</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218201001.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218201029.png"></p>
-<ul>
-<li><p>自底向上计算最快时间<br>FASTEST-WAY(a, t, e, x, n)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218202516.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218202439.png"></p>
-</li>
-<li><p>构造最优解结构(输出最优路线)<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218203210.png"></p>
-</li>
-</ul>
-<h4 id="矩阵链乘法"><a href="#矩阵链乘法" class="headerlink" title="矩阵链乘法"></a>矩阵链乘法</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218204953.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218210207.png"><br><em>cut and paste</em><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218210231.png"></p>
-<ul>
-<li><p>递归定义最优解值<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218210501.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218210559.png"></p>
-</li>
-<li><p>自底向上计算最优解值<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218210717.png"></p>
-</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218212717.png"><br>递归求解<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218214639.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218214938.png"><br>具体解法:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/94356886">(2条消息) 动态规划之——矩阵连乘<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>全网最详细博文<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看这一篇就够了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>_刘扬俊的博客-CSDN博客_矩阵连乘</a></p>
-<h4 id="公共最长子序列LCS"><a href="#公共最长子序列LCS" class="headerlink" title="公共最长子序列LCS"></a>公共最长子序列LCS</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218215640.png"></p>
-<ul>
-<li><p>找出LCS问题最优子结构性质<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218215802.png"></p>
-</li>
-<li><p>递归定义LCS值<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218215847.png"></p>
-</li>
-<li><p>自底向上计算LCS值<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230206175205.png"><br>&lt;A, B, C, B, D, A, B&gt; &lt;B, D, C, A, B, A&gt;<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230206175234.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230218220029.png"></p>
-</li>
-</ul>
-<h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230207132204.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219102615.png"></p>
-<ul>
-<li><p>贪心选择性质<br><strong>贪心选择性质</strong>是应用贪心法求解的一个必要条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所谓选择性质是指所求问题的最优解可以通过一系列局部最优的贪心选择而得到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>即<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>局部最优＝&gt;全局最优贪心选择性质是区别与动态规划方法的一个重要特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为贪心法在作出选择时并不依赖于将来的情况<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只需根据当前的情况即可作出选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-</li>
-<li><p>最优子结构性质</p>
-</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219103058.png"></p>
-<h4 id="活动选择问题"><a href="#活动选择问题" class="headerlink" title="活动选择问题"></a>活动选择问题</h4><ul>
-<li><p>动态规划方法<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230207134320.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219103619.png"></p>
-</li>
-<li><p>贪心方法</p>
-</li>
-</ul>
-<p>贪心选择性质:<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219103723.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230207153722.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230207154028.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219110408.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230207154320.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230207154337.png"></p>
-<h4 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219110558.png"></p>
-<h4 id="Huffman编码"><a href="#Huffman编码" class="headerlink" title="Huffman编码"></a>Huffman编码</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219110703.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219110739.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219110758.png"></p>
-<h4 id="胚理论"><a href="#胚理论" class="headerlink" title="胚理论"></a>胚理论</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219111520.png"></p>
-<h2 id="平摊分析-势函数法"><a href="#平摊分析-势函数法" class="headerlink" title="平摊分析(势函数法)"></a>平摊分析(势函数法)</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219111933.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230208171822.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230208172019.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230208173849.png"></p>
-<h4 id="栈操作"><a href="#栈操作" class="headerlink" title="栈操作"></a>栈操作</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230208174406.png"></p>
-<h4 id="二进制计数器"><a href="#二进制计数器" class="headerlink" title="二进制计数器"></a>二进制计数器</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230208220441.png"></p>
-<h4 id="动态表"><a href="#动态表" class="headerlink" title="动态表"></a>动态表</h4><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219115430.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219115442.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219115452.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230219115853.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209144018.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209144034.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209144048.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209144109.png"></p>
-<ul>
-<li>插入和删除<br><img src="/img/loading.gif" data-original="images/Pasted%20image%2020230221125709.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209153855.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209154056.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230209154158.png"></li>
-</ul>
-<h2 id="二项堆-x2F-FIB堆"><a href="#二项堆-x2F-FIB堆" class="headerlink" title="二项堆&#x2F;FIB堆"></a>二项堆&#x2F;FIB堆</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220191407.png"></p>
-<h3 id="二项树"><a href="#二项树" class="headerlink" title="二项树"></a>二项树</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220191651.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220191850.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210191936.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210191650.png"></p>
-<h3 id="二项堆"><a href="#二项堆" class="headerlink" title="二项堆"></a>二项堆</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220192633.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210190304.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210192505.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210204032.png"></p>
-<ul>
-<li><p>创建二项堆<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210204437.png"></p>
-</li>
-<li><p>合并二项堆<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210204451.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210204753.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210205406.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210205419.png"></p>
-</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210205443.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210210104.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210210355.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210210422.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230210210456.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132241.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132542.png"></p>
-<ul>
-<li><p>case1<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132601.png"></p>
-</li>
-<li><p>case2<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132627.png"></p>
-</li>
-<li><p>case3&#x2F;case4<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132649.png"></p>
-</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132752.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211132830.png"></p>
-<ul>
-<li><p>二项堆插入节点<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211134634.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211134911.png"></p>
-</li>
-<li><p>二项堆抽取(删除)最小节点<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211134859.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211144953.png"></p>
-</li>
-<li><p>二项堆减小关键字<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211143716.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211145014.png"></p>
-</li>
-<li><p>二项堆删除关键字<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211145740.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211145807.png"></p>
-</li>
-</ul>
-<h3 id="FIB堆"><a href="#FIB堆" class="headerlink" title="FIB堆"></a>FIB堆</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220205506.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220205524.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211152721.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230211152107.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220210039.png"></p>
-<h2 id="最大流-x2F-最小切"><a href="#最大流-x2F-最小切" class="headerlink" title="最大流&#x2F;最小切"></a>最大流&#x2F;最小切</h2><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212133847.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212133921.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212140314.png"><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212140433.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212140548.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212143124.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212143233.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212144436.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212165924.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212165940.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230212170333.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220223104.png"></p>
-<ul>
-<li>例题<br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220215841.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220215859.png"><br><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230220215919.png"></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1205,6 +1272,10 @@ model = keras.models.Sequential([
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
+          </li>
         
           <li>
             <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
@@ -1240,10 +1311,6 @@ model = keras.models.Sequential([
         
           <li>
             <a href="../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="../../2023/07/05/notes/23Spring_%E5%BB%BA%E6%A8%A1%E5%A4%8D%E4%B9%A0/">23Spring_建模复习</a>
           </li>
         
       </ul>
