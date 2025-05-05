@@ -96,11 +96,113 @@
 
 
   
+    <article id="post-posts/Windows部署Hexon可视化博客环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2025-02-17T16:00:00.000Z" itemprop="datePublished">2025-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>你在使用hexo写文章的时候是不是还在</p>
+<pre><code class="javascript">hexo new
+hexo g
+hexo d
+</code></pre>
+<p>这样写文章不仅效率慢而且管理起来也不方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以今天我就带来了这个项目——hexon</p>
+<p>hexon是一个带有git的hexo图形化界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以运行命令和管理内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Hexo 本身是一个基于 Node.js 的静态博客框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有官方的图形化界面<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GUI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以使用 <strong>Hexo Admin</strong> 或 <strong>第三方 Hexo 可视化管理工具</strong> 来提供类似图形界面的管理方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这是它的github链接</p>
+<p><a target="_blank" rel="noopener" href="https://github/gethexon/hexon">https://github/gethexon/hexon</a></p>
+        
+          <p class="article-more-link">
+            <a href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/note/" rel="tag">note</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-notes/Pinctrl和GPIO子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2024-12-07T16:00:00.000Z" itemprop="datePublished">2024-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>Pinctrl 子系统</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>负责管理引脚的复用与配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它允许将引脚配置为不同的功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并设置引脚的电气特性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如上拉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>下拉等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>GPIO 子系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> 主要负责对通用输入输出引脚的管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它提供 API 来配置引脚为输入或输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并控制引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>层次结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> Pinctrl 子系统位于 GPIO 子系统之上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Pinctrl 负责引脚的初步配置和复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 GPIO 子系统则利用这些配置来实现输入输出操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两者有密切的关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>先配置Pinctrl<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在配置GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li>引脚配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过 Pinctrl 子系统配置引脚的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将某个引脚设置为 GPIO 功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>状态管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>然后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPIO 子系统使用这些配置来管理引脚的电平状态<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读取或设置引脚电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/embed/" rel="tag">embed</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/20/">20</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/7/">7</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -178,7 +280,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        <div id="footer-info" class="inner"> © 2023 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+        <div id="footer-info" class="inner" style="border-top:1px solid \#e0e0e0;padding-top:1.5rem;margin-top:2rem;color:#666">© 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
       
     </div>
   </div>
