@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>家庭软路由部署方案-爱快+openwrt | Keyspire&#39;s Peakory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="家里的旧 X86 架构 PC 闲置许久，扔了可惜，不如拿来折腾一套实用的家庭网络方案？这次我用它搭了个融合爱快与 OpenWRT 的软路由系统：以爱快为底层支撑，通过虚拟机跑起 OpenWRT，再让 OpenWRT 加载 Docker 扩展各种功能；同时让爱快当 DHCP 服务器，把网关指向虚拟机里的 OpenWRT，最后配上动态分配 IP 的无线 AP，一套兼顾性能与灵活性的多网方案就成了。整个过程既盘活了旧硬件，又满足了家庭网络的进阶需求，这篇文章就来聊聊具体实现细节。
+">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  <link rel="stylesheet" href="../../../../../css/style.css">
+  
+    <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="../../../../../index.html">Home</a>
+    
+      <a class="main-nav-link" href="../../../../../way2/archives">Archives</a>
+    
+      <a class="main-nav-link" href="../../../../../about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-posts/家庭软路由部署方案-爱快+openwrt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2025-07-26T16:00:00.000Z" itemprop="datePublished">2025-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      家庭软路由部署方案-爱快+openwrt
+    </h1>
+  
+
+      </header>
+    
+    
+<div id="article-toc">
+    <h2 class="widget-title">目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%88%B1%E5%BF%AB"><span class="toc-number">2.</span> <span class="toc-text">安装爱快</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85OpenWRT"><span class="toc-number">3.</span> <span class="toc-text">安装OpenWRT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C"><span class="toc-number">4.</span> <span class="toc-text">配置网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BAopenwrt%E6%89%A9%E5%AE%B9%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="toc-number">5.</span> <span class="toc-text">虚拟机openwrt扩容根目录</span></a></li></ol>
+</div>
+
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>家里的旧 X86 架构 PC 闲置许久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>扔了可惜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如拿来折腾一套实用的家庭网络方案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这次我用它搭了个融合爱快与 OpenWRT 的软路由系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>以爱快为底层支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过虚拟机跑起 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再让 OpenWRT 加载 Docker 扩展各种功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同时让爱快当 DHCP 服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把网关指向虚拟机里的 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后配上动态分配 IP 的无线 AP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一套兼顾性能与灵活性的多网方案就成了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>整个过程既盘活了旧硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又满足了家庭网络的进阶需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这篇文章就来聊聊具体实现细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020250727213714.png"></p>
+<span id="more"></span>
+
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>准备工作​</p>
+<ol>
+<li>硬件方面​</li>
+</ol>
+<ul>
+<li><p>x86 架构 PC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这是搭建软路由系统的核心硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>选择 x86 架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是因为其良好的兼容性和强大的性能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够轻松应对多任务处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为软路由系统稳定运行提供保障<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>比如常见的旧台式机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只要 CPU 性能不是过于老旧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内存达到 4GB 及以上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都能胜任<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>USB 千兆网卡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果旧 PC 本身的网卡数量不足或者性能欠佳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>USB 千兆网卡是绝佳补充<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它能提供高速稳定的网络连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>确保网络数据传输流畅<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>满足家庭多设备同时联网的需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>无线路由器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>作为无线 AP 使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为家庭中的无线设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如手机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>平板<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>笔记本等提供无线网络覆盖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>选择时注意其无线频段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>信号强度和稳定性等参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>建议优先考虑支持双频<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>2.4GHz 和 5GHz<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的无线路由器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>5GHz 频段干扰少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>速度快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适合对网络速度要求高的设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>2.4GHz 频段信号穿墙能力强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适合远距离或对网速要求不高的设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>U 盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用于制作系统启动盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>容量建议 8GB 及以上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>确保能容纳相关系统镜像和工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+</ul>
+<ol start="2">
+<li>软件方面​</li>
+</ol>
+<ul>
+<li><p>微 PE 工具箱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>可从官网<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://www.wepe.com.cn/">https://www.wepe.com.cn/</a> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>下载<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它是一款功能强大且纯净无广告的 WinPE 系统维护工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>基于 Windows 10 PE 内核打造<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>经过深度精简与优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在确保系统稳定性的同时大幅减小了体积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>显著提升了启动速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>集成了 DiskGenius 分区工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Dism++ 系统优化等数十款实用工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>涵盖硬盘检测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据恢复<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>引导修复等场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支持 UEFI 与 Legacy 双启动模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>适配新旧主机硬件 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>IMG 写盘工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>百度网盘链接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1O1QktmhyzEYOgKi9uI5Hxg?pwd=6688">https://pan.baidu.com/s/1O1QktmhyzEYOgKi9uI5Hxg?pwd=6688</a> <span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提取码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>6688 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>用于将系统镜像写入硬盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>操作简单便捷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是安装系统过程中的重要工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>OpenWRT 固件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>同样可从上述百度网盘链接获取<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>OpenWRT 是一个高度模块化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>高度自动化的嵌入式 Linux 系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>拥有丰富的软件包资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过加载 Docker<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能进一步扩展各种网络功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>满足用户个性化的网络需求 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>爱快路由器系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>爱快基于 X86 平台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>具有智能流控<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>AC 智能管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>行为管控等强大功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>基于 DPI 的深度流控<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可过滤分析各种数据包<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>精准识别协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现网络可视化呈现与精细化流量管控<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>集成 AC 控制器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能对无线 AP 热点统一管理和维护<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>拥有 3000 + 的应用特征识别库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>且每周更新迭代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可快速识别各类网络应用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>管控上网行为 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+<li><p>StarWind V2V Converter</p>
+</li>
+</ul>
+<h3 id="安装爱快"><a href="#安装爱快" class="headerlink" title="安装爱快"></a>安装爱快</h3><ol>
+<li><p>制作启动 U 盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>运行下载好的微 PE 工具箱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择将 PE 系统安装到 U 盘中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>安装过程中可根据喜好选择 PE 壁纸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也可勾选包含 DOS 工具箱等个性化选项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>制作过程会格式化 U 盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请提前备份好 U 盘中的重要数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​<em>微 PE 的工作原理是基于 Windows 10 PE 内核<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过深度精简与优化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>剥离了 Windows 系统中大量非必要组件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种设计大幅减小了系统体积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时确保系统稳定性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>显著提升启动速度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+</li>
+<li><p>从 U 盘启动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将制作好的启动 U 盘插入旧 PC<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开机后通过快捷键<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>不同品牌电脑快捷键不同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>常见的有 F11<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>F12 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>选择从 U 盘启动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>进入微 PE 工具箱界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>硬盘分区与格式化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在微 PE 工具箱中运行磁盘工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如 DiskGenius<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>根据实际需求对硬盘进行分区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>建议划分系统盘和数据盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统盘用于安装爱快系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大小可根据硬盘剩余空间和个人需求设定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一般 20GB - 50GB 即可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>数据盘用于存储其他文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>分区完成后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对各个分区进行格式化操作 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>安装爱快系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用 IMG 写盘工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>选择下载好的爱快路由器系统镜像文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其安装到之前划分好的系统盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>安装过程中按照提示操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等待安装完成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此过程可能需要几分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>期间请勿断电或进行其他操作 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>启动爱快路由器系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>安装完成后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>拔出 U 盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>重启电脑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>电脑将自动从硬盘启动进入爱快路由器系统设置界面 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ol>
+<h3 id="安装OpenWRT"><a href="#安装OpenWRT" class="headerlink" title="安装OpenWRT"></a>安装OpenWRT</h3><ol>
+<li><strong>转换虚拟机镜像文件</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>若已有虚拟机<code>.img</code>文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需将其转换为<code>VMDK</code>镜像格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>可使用 <code>StarWind V2V Converter</code> 工具进行转换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在支持<code>qemu</code>的环境<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 Linux 系统终端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>中执行命令<code>qemu-img convert -f qcow2 -O vmdk source_image.img target_image.vmdk</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>若原格式非<code>qcow2</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需调整<code>-f</code>参数后的格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>转换完成后得到<code>VMDK</code>镜像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于后续虚拟机创建启动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<h3 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h3><p>光猫接出来的网络直接连接到物理的爱快路由器的 WAN 口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样爱快就能从光猫获取外部网络信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>而爱快虚拟出来的 OpenWRT 则通过虚拟机的网络配置与爱快建立内部网络连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>无线 AP WAN口则连接到爱快路由器的 LAN 口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而实现无线信号的覆盖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+<p>各部分设置详情​</p>
+<ol>
+<li><p>爱快路由器 WAN 口设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在爱快路由器的管理界面中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>找到 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>网络设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>-<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>WAN 设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将上网模式设置为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>动态 IP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>选择动态 IP 模式后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>爱快会自动从光猫获取 IP 地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>子网掩码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>网关和 DNS 等网络参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无需手动设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能很好地适应大多数家庭网络环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>OpenWRT 上网模式设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>进入 OpenWRT 的管理界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在网络设置中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将其上网模式也设置为 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>动态 IP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由于 OpenWRT 是爱快虚拟出来的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>采用动态 IP 模式可以让它自动从爱快获取内部网络的 IP 地址等信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>保证与爱快之间的网络通信顺畅<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>DHCP 服务器设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>把 DHCP 服务器设置在爱快路由器上<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>服务端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在爱快的 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>DHCP 设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除了之前设置的 IP 地址池等参数外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>关键是要将 DHCP 服务器的网关设置为爱快虚拟出来的 OpenWRT 的 IP 地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这里也就是 <a target="_blank" rel="noopener" href="http://192.168.3.2/">192.168.3.2</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这样一来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当家庭中的设备通过 DHCP 获取 IP 地址时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会将网关指向 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有设备的网络流量都会先经过 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再由 OpenWRT 与爱快进行数据交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从而实现爱快与 OpenWRT 的协同工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+</li>
+<li><p>无线 AP 设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将无线 AP WAN口连接到爱快路由器的 LAN 口后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要进入无线 AP 的管理界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>关闭其自身的 DHCP 功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>避免与爱快的 DHCP 服务器冲突<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让无线 AP 仅作为无线接入点使用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>负责将有线网络信号转换为无线信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>供家庭中的无线设备连接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</li>
+</ol>
+<h3 id="虚拟机openwrt扩容根目录"><a href="#虚拟机openwrt扩容根目录" class="headerlink" title="虚拟机openwrt扩容根目录"></a>虚拟机openwrt扩容根目录</h3><p>第一步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>爱快OpenWrt先关机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>编辑虚拟机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再添加一块磁盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大小您决定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我加的2G<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br>添加-磁盘-新建设备-大小2G-磁盘名称<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>路径<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong><em>&#x2F;OpenWrt&#x2F;KVM&#x2F;OpenWrt&#x2F;overlay</em></strong> <span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这个路径根据各位虚拟自己的名字位置来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><br>启动OpenWrt虚拟机  </p>
+<p>第二步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>进入openwrt控制台<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依次输入下面的命令<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>各位如果固件没有以下命令自行百度安装或用类似功能的命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br><strong>lsblk</strong>   查看情况  </p>
+<p>此时应该有了一个sdb硬盘了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>依次输入<br><strong>cfdisk &#x2F;dev&#x2F;vdb</strong><br><strong>dos</strong>  格式<br><strong>new</strong>一个分区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有容量分成一个区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>primary</strong>格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>Write</strong>保存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>输入<strong>yes</strong>(这里要输全这个yes)退出  </p>
+<p><strong>mkfs.ext4 &#x2F;dev&#x2F;vdb1</strong>   格式化刚分的这个区  </p>
+<p>回到web管理界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>挂载点-修改</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>修改刚新分的这个区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在大小就能看出区别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果没有列出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请点击最上面的  <strong>生成配置</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>-**启用此挂载点-UUID选新的分区-作为根目录使用</p>
+<p>重启  </p>
+<p><strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果上面没有做挂载和拷贝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那还得先改IP再进web管理页面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后重新配置您的OpenWrt<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></p>
+<pre><code>mkdir -p /tmp/introot
+mkdir -p /tmp/extroot
+mount --bind / /tmp/introot
+mount /dev/vdb1 /tmp/extroot
+tar -C /tmp/introot -cvf - . | tar -C /tmp/extroot -xf -
+umount /tmp/introot
+umount /tmp/extroot
+</code></pre>
+<p>完成之后的效果应该如下图所示 根目录的容量应为对应添加的扩容后容量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="images/%7BD30042C9-B4F1-4581-9C16-D8611DF308BC%7D.png"></p>
+<p>至此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个融合了性能和灵活性的家庭多网络系统就搭建完成并稳定运行了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你既可以充分挖掘爱快强大的网络管理性能潜力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如进行智能流控<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>行为管控等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>也能在 OpenWRT 上借助 Docker 自由扩展更多个性化的网络功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>真正打造属于自己的个性化网络环境 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>​</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../28/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          解锁注意力沉浸机制，告别拖延内耗
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="">家庭软路由部署方案-爱快+openwrt</a>
+          </li>
+        
+          <li>
+            <a href="../../../../05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
+          </li>
+        
+          <li>
+            <a href="../../../../05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/">为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型</a>
+          </li>
+        
+          <li>
+            <a href="../../../../05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
+          </li>
+        
+          <li>
+            <a href="../../../../02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../../../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../../../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../../../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../../../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../../../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../../../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../../../../way2/note/" style="font-size: 10px;">note</a> <a href="../../../../../way2/productivity/" style="font-size: 13.33px;">productivity</a> <a href="../../../../../way2/project/" style="font-size: 10px;">project</a> <a href="../../../../../way2/share/" style="font-size: 13.33px;">share</a>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner" style="border-top:1px solid \#e0e0e0;padding-top:1.5rem;margin-top:2rem;color:#666">© 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../way2/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="../../../../../js/clipboard.min.js"></script>
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+
+
+  </div>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

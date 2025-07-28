@@ -46,6 +46,316 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-notes/Pinctrl和GPIO子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2024-12-07T16:00:00.000Z" itemprop="datePublished">2024-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>Pinctrl 子系统</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>负责管理引脚的复用与配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它允许将引脚配置为不同的功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并设置引脚的电气特性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如上拉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>下拉等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>GPIO 子系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> 主要负责对通用输入输出引脚的管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它提供 API 来配置引脚为输入或输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并控制引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>层次结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> Pinctrl 子系统位于 GPIO 子系统之上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Pinctrl 负责引脚的初步配置和复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 GPIO 子系统则利用这些配置来实现输入输出操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两者有密切的关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>先配置Pinctrl<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在配置GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li>引脚配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过 Pinctrl 子系统配置引脚的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将某个引脚设置为 GPIO 功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>状态管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>然后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPIO 子系统使用这些配置来管理引脚的电平状态<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读取或设置引脚电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/embed/" rel="tag">embed</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-notes/驱动进化之路" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="article-date">
+  <time class="dt-published" datetime="2024-11-28T16:00:00.000Z" itemprop="datePublished">2024-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-面向对象分离硬件资源驱动思想"><a href="#1-面向对象分离硬件资源驱动思想" class="headerlink" title="1. 面向对象分离硬件资源驱动思想"></a>1. 面向对象分离硬件资源驱动思想</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241129163033.png"></p>
+<p><strong>背景</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>在早期的嵌入设备和计算机系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件驱动程序通常是直接和硬件紧密耦合的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方式导致了驱动程序难以维护和扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为每种新的硬件都可能需要全新的驱动代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>思想</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>模块化</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将硬件相关的代码从系统的其他部分中分离出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>形成独立的模块<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>驱动模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>抽象层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>引入硬件抽象层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>HAL<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得上层软件可以不直接操作硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是通过一层抽象的接口来进行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>封装</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用面向对象的编程思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将硬件的操作封装成类或对象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这样可以更容易管理和重用代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>使用类的继承和多态来实现不同硬件的抽象和具体实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>提供统一的接口来访问硬件资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降低了对具体硬件的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>例子</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>假设有一个LED连接到一个GPIO引脚上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li><strong>模块化</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>创建一个独立的LED驱动模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是将LED操作代码直接嵌入到应用层代码中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>抽象层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>定义一个抽象的LED类<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包含打开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>关闭等方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="cpp">// LED抽象类
+class LED &#123;
+public:
+    virtual void turnOn() = 0;
+    virtual void turnOff() = 0;
+&#125;;
+
+// GPIO LED 实现
+class GPIO_LED : public LED &#123;
+private:
+    int pin;
+
+public:
+    GPIO_LED(int gpioPin) : pin(gpioPin) &#123;&#125;
+
+    void turnOn() override &#123;
+        // GPIO设置为高电平
+    &#125;
+
+    void turnOff() override &#123;
+        // GPIO设置为低电平
+    &#125;
+&#125;;
+</code></pre>
+<h3 id="2-Platform-Device-平台总线模型"><a href="#2-Platform-Device-平台总线模型" class="headerlink" title="2. Platform Device 平台总线模型"></a>2. Platform Device 平台总线模型</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241129170020.png"></p>
+<p>随着硬件设备的复杂性增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要一种更系统化的方式来管理设备驱动和硬件资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>平台设备总线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Bus<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将所有硬件设备抽象为<strong>平台设备</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Devices<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和<strong>平台驱动</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Drivers<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种抽象使得驱动开发者不必关心具体的硬件细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是通过一套标准的接口来管理设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>通过这种模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动开发者可以集中精力在设备的具体操作上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不需要处理复杂的总线协议或硬件初始化流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>平台总线为驱动提供了标准的生命周期管理和资源访问方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>思想</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>平台设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将硬件设备抽象为平台设备<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Device<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些设备通过平台总线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Bus<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>连接到系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>平台驱动</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>相应地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动程序也被抽象为平台驱动<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Platform Driver<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们通过平台总线匹配到相应的设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>在Linux内核中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>struct platform_device</code> 和 <code>struct platform_driver</code> 是关键数据结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>设备和驱动通过设备树或者是硬编码的方式注册到平台总线上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>使用总线驱动框架<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>SPI等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>来进一步抽象硬件接口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">// 定义平台设备的结构
+struct platform_device &#123;
+    // 设备的名称&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;用于匹配驱动
+    const char *name;
+    int id;
+    bool id_auto;
+    struct device dev;
+    u32 num_resources;
+    // 指向资源数组的指针&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;资源包括内存区域&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;IRQ等
+    struct resource *resource;
+    /* 其他字段省略 */
+&#125;;
+
+// 定义平台驱动的结构
+struct platform_driver &#123;
+    // 探测函数&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;当设备被发现时调用&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;负责初始化设备
+    int (*probe)(struct platform_device *);
+    // 移除设备时调用&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;用于清理资源
+    int (*remove)(struct platform_device *);
+    void (*shutdown)(struct platform_device *);
+    int (*suspend)(struct platform_device *, pm_message_t state);
+    int (*resume)(struct platform_device *);
+    // 内嵌的通用设备驱动结构&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;，&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;包含了驱动信息如驱动名称&lt;span class=&quot;bd-box&quot;&gt;&lt;h-char class=&quot;bd bd-beg&quot;&gt;&lt;h-inner&gt;、&lt;/h-inner&gt;&lt;/h-char&gt;&lt;/span&gt;所有者等
+    struct device_driver driver;
+    const struct platform_device_id *id_table;
+    /* 其他字段省略 */
+&#125;;
+</code></pre>
+<p><strong>例子</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>同上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LED连接到GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li><strong>平台设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>定义一个平台设备来代表这个LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">static struct platform_device led_device = &#123;
+    .name = &quot;led&quot;,
+    .id = -1,
+    .dev = &#123;
+        .platform_data = &amp;gpio_pin_number, // 假设这个GPIO引脚号作为平台数据
+    &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li><strong>平台驱动</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>编写一个平台驱动来操作这个LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">static struct platform_driver led_driver = &#123;
+    .probe      = led_probe,
+    .remove     = led_remove,
+    .driver     = &#123;
+        .name  = &quot;led&quot;,
+        .owner = THIS_MODULE,
+    &#125;,
+&#125;;
+
+static int led_probe(struct platform_device *pdev)
+&#123;
+    // 获取设备的GPIO引脚信息并初始化LED
+    return 0;
+&#125;
+
+static int led_remove(struct platform_device *pdev)
+&#123;
+    // 清理LED相关的资源
+    return 0;
+&#125;
+</code></pre>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>通过平台设备和平台驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统可以自动匹配设备和驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><code>led_probe</code> 函数在匹配成功后初始化LED<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>led_remove</code> 函数在设备卸载时清理资源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h4 id="匹配过程"><a href="#匹配过程" class="headerlink" title="匹配过程"></a>匹配过程</h4><p>平台设备与驱动的匹配过程大致如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li><p><strong>设备注册</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>当内核启动或模块加载时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>平台设备<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>struct platform_device</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>被注册到平台总线<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>platform_bus</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>驱动注册</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>平台驱动<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span><code>struct platform_driver</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>也需要注册到平台总线上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>设备树解析</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>如果使用设备树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会解析设备树文件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>.dts或.dtb<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从中获取设备信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并创建相应的平台设备实例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>匹配尝试</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>内核尝试将注册的驱动与平台总线上的设备进行匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>匹配过程主要遵循以下顺序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><ul>
+<li><strong>设备树匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>优先尝试使用设备树匹配规则<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>检查设备的<code>compatible</code>属性与驱动的<code>of_match_table</code>是否匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>ID匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如果设备树匹配失败<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尝试使用设备ID匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>名称匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>最后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尝试使用驱动和设备的名称匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>成功匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>一旦找到匹配的设备和驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会调用驱动的<code>probe</code>方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><code>probe</code>方法将接收到匹配的<code>struct device</code><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>实际上是一个<code>struct platform_device</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动可以在这个方法中初始化设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>资源分配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>在<code>probe</code>方法中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动可以访问设备的资源<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如IO内存<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>IRQ等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些资源通常是通过设备树或平台设备注册时提供的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>设备绑定</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>如果<code>probe</code>方法成功<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设备将绑定到驱动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>设备现在可以正常工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+</li>
+<li><p><strong>失败处理</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>如果匹配失败或<code>probe</code>方法失败<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核会记录错误信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动将不会绑定到设</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-设备树（Device-Tree）"><a href="#3-设备树（Device-Tree）" class="headerlink" title="3. 设备树（Device Tree）"></a>3. 设备树<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Device Tree<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020241129170040.png"></p>
+<p><strong>背景</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>随着SoC<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>System on Chip<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件配置变得极为复杂和多样化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬编码的方式变得难以维护<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>思想</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>解耦硬件描述</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>将硬件的描述从内核代码中分离出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>形成独立的设备树描述文件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>.dts, .dtsi<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>动态配置</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>设备树提供了一种动态的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可配置的方式来描述系统硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>技术细节</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>设备树使用一种类似JSON的格式来描述硬件结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>包括节点<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>nodes<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>表示设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>属性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>properties<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>表示设备的特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>内核中的设备树编译器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>dtc<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>将设备树源文件编译成二进制格式<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>DTB<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>内核启动时加载DTB来配置硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>驱动程序通过设备树中的信息来获取设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>IRQ等信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现即插即用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>例子</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>同上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一个LED连接到GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li><strong>设备树描述</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></li>
+</ul>
+<pre><code class="dts">/ &#123;
+    leds &#123;
+        compatible = &quot;gpio-led&quot;;
+        gpios = &lt;&amp;gpio 17 GPIO_ACTIVE_HIGH&gt;; // 假设LED连接到GPIO17
+        label = &quot;led&quot;;
+    &#125;;
+&#125;;
+</code></pre>
+<ul>
+<li><strong>驱动代码</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>现在驱动可以从设备树中获取LED的配置信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<pre><code class="c">static int led_probe(struct platform_device *pdev)
+&#123;
+    struct device_node *node = pdev-&gt;dev.of_node;
+    int gpio;
+
+    if (of_property_read_u32(node, &quot;gpios&quot;, &amp;gpio))
+        return -ENODEV;
+
+    // 使用GPIO进行LED操作
+    return 0;
+&#125;
+</code></pre>
+<p>设备树描述了硬件配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>驱动通过解析设备树节点来获取硬件信息<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如GPIO引脚号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方式使得硬件配置与内核代码解耦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件变化只需修改设备树文件即可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>进化意义</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>从面向对象到平台总线模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再到设备树的演变过程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件资源的管理变得越来越抽象和灵活<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每个阶段都使得驱动开发和维护更加高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少了对具体硬件的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>增强了系统的可移植性和可维护性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过LED点灯这个简单的例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以看到这种进化带来的实际好处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>从最初的硬编码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>到设备树的动态配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得系统对硬件变化的适应性大大增强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>从面向对象到平台总线模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再到设备树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件资源的管理和配置变得越来越抽象和通用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少了对具体硬件的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提升了系统的可移植性和可维护性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>设备树的引入大大简化了内核的硬件描述方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使得硬件支持的添加和修改变得更加灵活和高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>这个过程展示了操作系统在面对越来越复杂的硬件环境时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不断优化和抽象硬件管理方法的演进过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-notes/常用依赖包管理工具换源方法大全" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/" class="article-date">
@@ -237,388 +547,6 @@ deb https://mirrors.ustc.edu.cn/ubuntu/ focal-security main restricted universe 
 
 
   
-    <article id="post-projs/ReelBlend" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2024/11/28/projs/ReelBlend/" class="article-date">
-  <time class="dt-published" datetime="2024-11-27T16:00:00.000Z" itemprop="datePublished">2024-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>街拍摄影与 POV<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>第一人称视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已经成为当下社交媒体内容创作的热门形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>尤其是在平台如 YouTube<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Instagram 和 TikTok 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>创作者通过动态的视频和静态的照片交替展示<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>捕捉街头氛围与视觉冲击力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>吸引了大量粉丝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这类视频的制作常常需要繁琐的后期剪辑工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对非专业人士来说是一个技术和时间的双重挑战<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>为了填补这一痛点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我设想了一款工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够一键实现扫街照片与 POV 视频的交叉拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成适配社交媒体标准的视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>本文将从软件工程的角度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>深入探讨如何从想法出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完成需求分析与系统设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并最终实现这款工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<hr>
-<h2 id="想法的核心：一键完成街拍视频剪辑"><a href="#想法的核心：一键完成街拍视频剪辑" class="headerlink" title="想法的核心：一键完成街拍视频剪辑"></a><strong>想法的核心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一键完成街拍视频剪辑</strong></h2><h3 id="目标功能"><a href="#目标功能" class="headerlink" title="目标功能"></a><strong>目标功能</strong></h3><ol>
-<li><strong>快速生成视频</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户上传的照片与视频片段可以快速交替排列<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成一个流畅的短视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>便捷转场效果</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>提供基础的转场效果<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如淡入淡出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>滑动过渡等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让内容看起来更具专业感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>自定义参数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户可以调整每张照片&#x2F;视频片段的显示时长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>选择过渡效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>添加背景音乐等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>适配社交平台需求</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>生成符合主流社交媒体<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>9:16<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>16:9 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>分辨率和格式的高质量视频文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ol>
-<hr>
-<h2 id="需求分析：解决用户痛点"><a href="#需求分析：解决用户痛点" class="headerlink" title="需求分析：解决用户痛点"></a><strong>需求分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>解决用户痛点</strong></h2><p>在软件工程中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需求分析是任何项目的起点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对这款工具的需求分析可以分为两部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>用户需求</strong>和<strong>技术需求</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="1-用户需求"><a href="#1-用户需求" class="headerlink" title="1. 用户需求"></a><strong>1. 用户需求</strong></h3><p>目标用户主要包括街拍摄影师<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Vlogger 和社交媒体内容创作者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们的需求包括<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li><strong>快速完成剪辑</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>希望避免使用复杂的剪辑软件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减少学习曲线和操作时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>高效拼接照片与视频</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>简单上传照片和视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>快速生成交替切换的内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>可视化控制</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>希望在生成视频之前调整时间轴顺序和参数设置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>适配社交媒体格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>输出内容需符合各平台的分辨率和比例要求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 Instagram 的 9:16 竖屏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<p><strong>痛点总结</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li>现有的视频剪辑软件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 Premiere<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Final Cut Pro<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>虽然功能强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但对于简单内容的制作流程过于复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>社交媒体创作追求高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户需要一款轻量级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>专注于特定功能的工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<hr>
-<h3 id="2-技术需求"><a href="#2-技术需求" class="headerlink" title="2. 技术需求"></a><strong>2. 技术需求</strong></h3><p>从技术角度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这款工具需要满足以下核心需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ul>
-<li><strong>支持多种媒体格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>照片<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>JPG&#x2F;PNG<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和视频<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>MP4&#x2F;MOV<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是常见的输入类型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>视频拼接与转场处理</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>需要高效处理照片与视频的拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缩放和转场特效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>音频嵌入与匹配</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持导入背景音乐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自动调整音乐长度与节奏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>输出高质量视频</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>生成的视频需支持 1080p 或更高分辨率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时提供多种比例选项<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>9:16<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>16:9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>实时预览</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>提供视频生成前的预览功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>便于用户调整内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<hr>
-<h2 id="系统设计：从需求到实现"><a href="#系统设计：从需求到实现" class="headerlink" title="系统设计：从需求到实现"></a><strong>系统设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>从需求到实现</strong></h2><h3 id="1-核心功能模块"><a href="#1-核心功能模块" class="headerlink" title="1. 核心功能模块"></a><strong>1. 核心功能模块</strong></h3><p>为了满足上述需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统需要实现以下功能模块<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<h4 id="前端（用户界面）"><a href="#前端（用户界面）" class="headerlink" title="前端（用户界面）"></a><strong>前端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><ul>
-<li><strong>文件上传模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持照片与视频的拖拽上传<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>显示上传进度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>时间轴编辑模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用户可以直观地调整照片与视频的排列顺序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>参数设置模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>设置每张照片&#x2F;视频的显示时长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>输出分辨率等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>实时预览模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在导出视频之前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户可以查看拼接效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h4 id="后端（逻辑处理）"><a href="#后端（逻辑处理）" class="headerlink" title="后端（逻辑处理）"></a><strong>后端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>逻辑处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></h4><ul>
-<li><strong>视频拼接与转场逻辑</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过高效的多媒体处理工具<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 FFmpeg<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>实现照片与视频的拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缩放<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>音频处理模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持音频文件的嵌入与自动匹配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>导出与格式管理模块</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>生成符合用户需求的视频文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支持多种分辨率与比例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<hr>
-<h3 id="2-技术架构"><a href="#2-技术架构" class="headerlink" title="2. 技术架构"></a><strong>2. 技术架构</strong></h3><h4 id="前端技术栈"><a href="#前端技术栈" class="headerlink" title="前端技术栈"></a><strong>前端技术栈</strong></h4><ul>
-<li><strong>React.js 或 Vue.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>用于构建动态的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>响应式的用户界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>Tailwind CSS 或 Chakra UI</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>快速实现简洁美观的界面设计<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>拖拽功能库</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>如 <code>react-sortable-hoc</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于实现时间轴的拖拽排序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h4 id="后端技术栈"><a href="#后端技术栈" class="headerlink" title="后端技术栈"></a><strong>后端技术栈</strong></h4><ul>
-<li><strong>Node.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>处理业务逻辑与 API 请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>提供文件上传和视频生成服务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>FFmpeg</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>核心的多媒体处理工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于视频拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缩放和音频嵌入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>Express.js</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>搭建后端 API<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>处理前端请求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h4 id="存储与导出"><a href="#存储与导出" class="headerlink" title="存储与导出"></a><strong>存储与导出</strong></h4><ul>
-<li><strong>文件存储</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>上传的照片和视频临时存储在服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成的视频可选择下载或上传到云端<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 AWS S3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>输出格式</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>支持 MP4 格式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>分辨率包括 1080p<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>720p<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比例包括 9:16<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>16:9 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<hr>
-<h3 id="3-系统功能流程图"><a href="#3-系统功能流程图" class="headerlink" title="3. 系统功能流程图"></a><strong>3. 系统功能流程图</strong></h3><p>以下是用户从上传文件到生成视频的核心流程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ol>
-<li><p><strong>上传照片与视频</strong>  </p>
-<ul>
-<li>用户通过前端界面上传照片和视频片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支持拖拽上传<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>后端接收文件并存储<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时解析文件以便后续处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-<li><p><strong>时间轴编辑与参数设置</strong>  </p>
-<ul>
-<li>用户在前端调整照片与视频的顺序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并设置时间长度与转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>最终生成一个配置文件<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>JSON<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传递到后端<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-<li><p><strong>视频拼接与转场处理</strong>  </p>
-<ul>
-<li>后端通过 FFmpeg 根据用户配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>完成照片与视频的拼接与转场特效处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>如果用户添加了背景音乐<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>系统会自动调整音乐长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-<li><p><strong>实时预览与导出</strong>  </p>
-<ul>
-<li>前端调用后端生成的实时预览片段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户确认无误后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>生成最终视频文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li>用户可选择下载视频或直接分享至社交媒体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="关键技术实现"><a href="#关键技术实现" class="headerlink" title="关键技术实现"></a><strong>关键技术实现</strong></h2><h3 id="1-视频拼接与转场：FFmpeg-的使用"><a href="#1-视频拼接与转场：FFmpeg-的使用" class="headerlink" title="1. 视频拼接与转场：FFmpeg 的使用"></a><strong>1. 视频拼接与转场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>FFmpeg 的使用</strong></h3><p>FFmpeg 是多媒体处理的强大工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以高效完成视频拼接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>转场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>比例调整等任务<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是一些关键操作的实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<h4 id="图片转换为视频"><a href="#图片转换为视频" class="headerlink" title="图片转换为视频"></a><strong>图片转换为视频</strong></h4><p>将一张图片转换为 5 秒的视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">ffmpeg -loop 1 -i photo1.jpg -c:v libx264 -t 5 -pix_fmt yuv420p photo1.mp4
-</code></pre>
-<h4 id="拼接图片与视频"><a href="#拼接图片与视频" class="headerlink" title="拼接图片与视频"></a><strong>拼接图片与视频</strong></h4><p>将图片和视频合并<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>添加淡入淡出转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">ffmpeg -i photo1.jpg -i video1.mp4 -filter_complex \
-&quot;[0:v]fade=t=out:st=4:d=1[v0]; \
- [1:v]fade=t=in:st=0:d=1[v1]; \
- [v0][v1]concat=n=2:v=1:a=0[out]&quot; \
--map &quot;[out]&quot; output.mp4
-</code></pre>
-<h4 id="背景音乐嵌入"><a href="#背景音乐嵌入" class="headerlink" title="背景音乐嵌入"></a><strong>背景音乐嵌入</strong></h4><p>将背景音乐嵌入视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并调整音量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="bash">ffmpeg -i output.mp4 -i music.mp3 -filter_complex \
-&quot;[1:a]volume=0.5[a1]; [0:a][a1]amix=inputs=2:duration=shortest&quot; \
--final_output.mp4
-</code></pre>
-<hr>
-<h3 id="2-时间轴编辑功能"><a href="#2-时间轴编辑功能" class="headerlink" title="2. 时间轴编辑功能"></a><strong>2. 时间轴编辑功能</strong></h3><p>时间轴的实现基于前端框架<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 React<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过拖拽操作生成一个 JSON 格式的配置文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>示例如下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="json">&#123;
-  &quot;timeline&quot;: [
-    &#123; &quot;type&quot;: &quot;photo&quot;, &quot;file&quot;: &quot;photo1.jpg&quot;, &quot;duration&quot;: 5 &#125;,
-    &#123; &quot;type&quot;: &quot;video&quot;, &quot;file&quot;: &quot;video1.mp4&quot;, &quot;duration&quot;: 10 &#125;
-  ],
-  &quot;transitions&quot;: &quot;fade&quot;,
-  &quot;audio&quot;: &quot;music.mp3&quot;,
-  &quot;resolution&quot;: &quot;1080p&quot;,
-  &quot;aspect_ratio&quot;: &quot;9:16&quot;
-&#125;
-</code></pre>
-<p>后端根据此配置文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按照顺序拼接内容生成最终视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<hr>
-<h2 id="结语：工具的价值与展望"><a href="#结语：工具的价值与展望" class="headerlink" title="结语：工具的价值与展望"></a><strong>结语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>工具的价值与展望</strong></h2><p>这款工具的设计目标是通过高效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>直观的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>帮助街拍摄影师和社交媒体创作者快速完成视频编辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>降低技术门槛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>从灵感到实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们从用户需求出发<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>结合开源技术<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 FFmpeg<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打造了一款轻量级的视频剪辑工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>未来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以进一步优化该工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如加入 AI 场景分析<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自动匹配转场效果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或提供更多的模板功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让用户创作更加得心应手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于街拍爱好者来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这款工具将成为他们分享视觉故事的最佳助手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-notes/Linux I2C 应用编程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2024-11-18T16:00:00.000Z" itemprop="datePublished">2024-11-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>I2C<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Inter-Integrated Circuit<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是一种广泛用于嵌入式系统的串行通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>允许多个设备通过两根数据线进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 Linux 系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 设备通常挂载在 <code>/dev</code> 目录下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用如 <code>/dev/i2c-X</code> 这样的设备文件进行访问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过系统调用和特定的 I2C 操作命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应用层程序可以与 I2C 设备进行读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>本教程将介绍如何使用 Linux 提供的 I2C 接口进行编程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>详细讲解关键的结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>系统调用以及常用的 I2C 工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以帮助开发者更好地理解和操作 I2C 设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h2 id="1-关键结构体"><a href="#1-关键结构体" class="headerlink" title="1. 关键结构体"></a>1. 关键结构体</h2><h3 id="1-1-struct-i2c-msg"><a href="#1-1-struct-i2c-msg" class="headerlink" title="1.1 struct i2c_msg"></a>1.1 <code>struct i2c_msg</code></h3><p><code>i2c_msg</code> 是 I2C 消息的描述结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于定义一次 I2C 通信中的单个传输消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它可以是读或写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并包含目标设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据缓冲区和数据长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">struct i2c_msg &#123;
-    __u16 addr;    // 从设备的地址
-    __u16 flags;   // 操作标志位
-    __u16 len;     // 要发送/接收的数据长度
-    __u8 *buf;     // 数据缓冲区指针
-&#125;;
-</code></pre>
-<p><strong>主要标志位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
-<ul>
-<li><code>I2C_M_RD</code>: 表示读操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果未设置此标志<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则表示写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>I2C_M_TEN</code>: 表示使用 10 位地址模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>I2C_M_STOP</code>: 表示在消息结束时生成 STOP 信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h3 id="1-2-struct-i2c-rdwr-ioctl-data"><a href="#1-2-struct-i2c-rdwr-ioctl-data" class="headerlink" title="1.2 struct i2c_rdwr_ioctl_data"></a>1.2 <code>struct i2c_rdwr_ioctl_data</code></h3><p><code>i2c_rdwr_ioctl_data</code> 结构体用于通过 <code>ioctl</code> 系统调用执行 I2C 读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它包含一个 <code>i2c_msg</code> 数组和消息的数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="c">struct i2c_rdwr_ioctl_data &#123;
-    struct i2c_msg *msgs;  // 指向消息数组
-    __u32 nmsgs;           // 消息的数量
-&#125;;
-</code></pre>
-<h2 id="2-I2C-应用编程概述"><a href="#2-I2C-应用编程概述" class="headerlink" title="2. I2C 应用编程概述"></a>2. I2C 应用编程概述</h2><p>在用户空间中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 编程的核心操作是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<ol>
-<li><strong>打开 I2C 设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过 <code>open()</code> 函数打开 <code>/dev/i2c-X</code> 设备文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>设置从设备地址</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用 <code>ioctl()</code> 系统调用设置目标从设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><strong>数据读写</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过 <code>read()</code> 和 <code>write()</code> 进行简单的读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或使用 <code>ioctl()</code> 进行复杂的多字节传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ol>
-<h3 id="2-1-打开-I2C-设备"><a href="#2-1-打开-I2C-设备" class="headerlink" title="2.1 打开 I2C 设备"></a>2.1 打开 I2C 设备</h3><p>使用 <code>open()</code> 函数打开 I2C 设备文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 <code>/dev/i2c-1</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">int file;
-file = open(&quot;/dev/i2c-1&quot;, O_RDWR);
-if (file &lt; 0) &#123;
-    perror(&quot;Failed to open the i2c bus&quot;);
-    exit(1);
-&#125;
-</code></pre>
-<h3 id="2-2-设置从设备地址"><a href="#2-2-设置从设备地址" class="headerlink" title="2.2 设置从设备地址"></a>2.2 设置从设备地址</h3><p>通过 <code>ioctl()</code> 设置与哪个从设备进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">int addr = 0x50; // 从设备地址
-if (ioctl(file, I2C_SLAVE, addr) &lt; 0) &#123;
-    perror(&quot;Failed to acquire bus access and/or talk to slave&quot;);
-    exit(1);
-&#125;
-</code></pre>
-<p><code>I2C_SLAVE</code> 是常用的 <code>ioctl</code> 命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于设置 I2C 从设备地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="2-3-读写-I2C-数据"><a href="#2-3-读写-I2C-数据" class="headerlink" title="2.3 读写 I2C 数据"></a>2.3 读写 I2C 数据</h3><h4 id="2-3-1-写入数据"><a href="#2-3-1-写入数据" class="headerlink" title="2.3.1 写入数据"></a>2.3.1 写入数据</h4><p>使用 <code>write()</code> 函数将数据写入 I2C 设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char buffer[1] = &#123; 0xA0 &#125;;
-if (write(file, buffer, 1) != 1) &#123;
-    perror(&quot;Failed to write to the i2c bus&quot;);
-&#125;
-</code></pre>
-<h4 id="2-3-2-读取数据"><a href="#2-3-2-读取数据" class="headerlink" title="2.3.2 读取数据"></a>2.3.2 读取数据</h4><p>使用 <code>read()</code> 函数从 I2C 设备读取数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char buffer[1];
-if (read(file, buffer, 1) != 1) &#123;
-    perror(&quot;Failed to read from the i2c bus&quot;);
-&#125; else &#123;
-    printf(&quot;Data read: 0x%02x\n&quot;, buffer[0]);
-&#125;
-</code></pre>
-<h3 id="2-4-使用-ioctl-进行复杂读写操作"><a href="#2-4-使用-ioctl-进行复杂读写操作" class="headerlink" title="2.4 使用 ioctl 进行复杂读写操作"></a>2.4 使用 <code>ioctl</code> 进行复杂读写操作</h3><p>对于更复杂的读写操作<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如多字节传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用 <code>I2C_RDWR</code> 命令结合 <code>i2c_rdwr_ioctl_data</code> 来实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h4 id="2-4-1-写入多个字节"><a href="#2-4-1-写入多个字节" class="headerlink" title="2.4.1 写入多个字节"></a>2.4.1 写入多个字节</h4><p>假设要向寄存器 0x10 写入两个字节的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char outbuf[3] = &#123; 0x10, 0x01, 0x02 &#125;;
-struct i2c_msg messages[1];
-messages[0].addr  = addr;
-messages[0].flags = 0;  // 写操作
-messages[0].len   = 3;
-messages[0].buf   = outbuf;
-
-struct i2c_rdwr_ioctl_data ioctl_data;
-ioctl_data.msgs  = messages;
-ioctl_data.nmsgs = 1;
-
-if (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; 0) &#123;
-    perror(&quot;Failed to write to the i2c bus&quot;);
-&#125;
-</code></pre>
-<h4 id="2-4-2-读取寄存器数据"><a href="#2-4-2-读取寄存器数据" class="headerlink" title="2.4.2 读取寄存器数据"></a>2.4.2 读取寄存器数据</h4><p>通常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读取寄存器数据需要先写入寄存器地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再读取其数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读取寄存器 0x10<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">unsigned char reg = 0x10;
-unsigned char inbuf[1];
-
-struct i2c_msg messages[2];
-messages[0].addr  = addr;
-messages[0].flags = 0;  // 写操作
-messages[0].len   = 1;
-messages[0].buf   = &amp;reg;
-
-messages[1].addr  = addr;
-messages[1].flags = I2C_M_RD;  // 读操作
-messages[1].len   = 1;
-messages[1].buf   = inbuf;
-
-struct i2c_rdwr_ioctl_data ioctl_data;
-ioctl_data.msgs  = messages;
-ioctl_data.nmsgs = 2;
-
-if (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; 0) &#123;
-    perror(&quot;Failed to read from the i2c bus&quot;);
-&#125; else &#123;
-    printf(&quot;Register 0x10 read: 0x%02x\n&quot;, inbuf[0]);
-&#125;
-</code></pre>
-<h2 id="3-常用的-ioctl-命令"><a href="#3-常用的-ioctl-命令" class="headerlink" title="3. 常用的 ioctl 命令"></a>3. 常用的 <code>ioctl</code> 命令</h2><ul>
-<li><code>I2C_SLAVE</code>: 设置从设备地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-<li><code>I2C_RDWR</code>: 执行多条 I2C 消息<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读或写<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对应 <code>i2c_rdwr_ioctl_data</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
-</ul>
-<h2 id="4-完整的-I2C-应用层示例"><a href="#4-完整的-I2C-应用层示例" class="headerlink" title="4. 完整的 I2C 应用层示例"></a>4. 完整的 I2C 应用层示例</h2><p>以下是一个完整的示例程序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展示如何通过 I2C 接口读取和写入数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
-<pre><code class="c">#include &lt;stdio.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;sys/ioctl.h&gt;
-#include &lt;linux/i2c-dev.h&gt;
-#include &lt;unistd.h&gt;
-
-int main() &#123;
-    int file;
-    int addr = 0x50; // I2C 从设备地址
-
-    // 打开 I2C 设备
-    if ((file = open(&quot;/dev/i2c-1&quot;, O_RDWR)) &lt; 0) &#123;
-        perror(&quot;Failed to open the i2c bus&quot;);
-        return 1;
-    &#125;
-
-    // 设置从设备地址
-    if (ioctl(file, I2C_SLAVE, addr) &lt; 0) &#123;
-        perror(&quot;Failed to acquire bus access and/or talk to slave&quot;);
-        return 1;
-    &#125;
-
-    // 写入数据到寄存器 0x10
-    unsigned char outbuf[3] = &#123; 0x10, 0x01, 0x02 &#125;;
-
-    if (write(file, outbuf, 3) != 3) &#123;
-        perror(&quot;Failed to write to the i2c bus&quot;);
-        return 1;
-    &#125;
-
-    // 读取寄存器 0x10 的值
-    unsigned char reg = 0x10;
-    unsigned char inbuf[1];
-
-    struct i2c_msg messages[2];
-    messages[0].addr  = addr;
-    messages[0].flags = 0;
-    messages[0].len   = 1;
-    messages[0].buf   = &amp;reg;
-
-    messages[1].addr  = addr;
-    messages[1].flags = I2C_M_RD;
-    messages[1].len   = 1;
-    messages[1].buf   = inbuf;
-
-    struct i2c_rdwr_ioctl_data ioctl_data;
-    ioctl_data.msgs  = messages;
-    ioctl_data.nmsgs = 2;
-
-    if (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; 0) &#123;
-        perror(&quot;Failed to read from the i2c bus&quot;);
-        return 1;
-    &#125; else &#123;
-        printf(&quot;Register 0x10 read: 0x%02x\n&quot;, inbuf[0]);
-    &#125;
-
-    close(file);
-    return 0;
-&#125;
-</code></pre>
-<h2 id="5-使用-i2c-tools-进行调试"><a href="#5-使用-i2c-tools-进行调试" class="headerlink" title="5. 使用 i2c-tools 进行调试"></a>5. 使用 <code>i2c-tools</code> 进行调试</h2><p><code>i2c-tools</code> 是一组用于调试 I2C 设备的工具集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中包括 <code>i2cdetect</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>i2cget</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>i2cset</code> 和 <code>i2cdump</code> 等常用工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是这些工具的使用介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<h3 id="5-1-i2cdetect"><a href="#5-1-i2cdetect" class="headerlink" title="5.1 i2cdetect"></a>5.1 <code>i2cdetect</code></h3><p><code>i2cdetect</code> 用于扫描 I2C 总线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>查看哪些设备在响应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cdetect -y 1
-</code></pre>
-<h3 id="5-2-i2cget"><a href="#5-2-i2cget" class="headerlink" title="5.2 i2cget"></a>5.2 <code>i2cget</code></h3><p><code>i2cget</code> 用于读取 I2C 设备寄存器的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cget -y 1 0x50 0x00
-</code></pre>
-<h3 id="5-3-i2cset"><a href="#5-3-i2cset" class="headerlink" title="5.3 i2cset"></a>5.3 <code>i2cset</code></h3><p><code>i2cset</code> 用于向 I2C 设备写入数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cset -y 1 0x50 0x00 0xFF
-</code></pre>
-<h3 id="5-4-i2cdump"><a href="#5-4-i2cdump" class="headerlink" title="5.4 i2cdump"></a>5.4 <code>i2cdump</code></h3><p><code>i2cdump</code> 用于读取 I2C 设备的所有寄存器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并以十六进制输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<pre><code class="bash">i2cdump -y 1 0x50
-</code></pre>
-<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h2><p>I2C 是嵌入式系统中常见的通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 Linux 中提供了丰富的用户空间接口来与设备交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过使用 <code>open()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>read()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>write()</code> 和 <code>ioctl()</code> 等系统调用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发者可以轻松对 I2C 设备进行操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>i2c-tools</code> 提供了一组命令行工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够帮助开发者快速调试和测试 I2C 总线设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在嵌入式开发和硬件调试中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些工具和接口都是非常重要的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>如需进一步了解 <code>i2c-tools</code> 的源码和开发方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以访问 <a target="_blank" rel="noopener" href="https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git">i2c-tools 官方源码仓库</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -638,6 +566,14 @@ int main() &#123;
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../2025/07/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="../../2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/">家庭软路由部署方案-爱快+openwrt</a>
+          </li>
         
           <li>
             <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
@@ -669,14 +605,6 @@ int main() &#123;
         
           <li>
             <a href="../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
-          </li>
-        
-          <li>
-            <a href="../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
-          </li>
-        
-          <li>
-            <a href="../../2024/09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
           </li>
         
       </ul>

@@ -46,6 +46,103 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/07/28/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2025-07-28T13:29:49.779Z" itemprop="datePublished">2025-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/07/28/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-posts/家庭软路由部署方案-爱快+openwrt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/" class="article-date">
+  <time class="dt-published" datetime="2025-07-26T16:00:00.000Z" itemprop="datePublished">2025-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/">家庭软路由部署方案-爱快+openwrt</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>家里的旧 X86 架构 PC 闲置许久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>扔了可惜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如拿来折腾一套实用的家庭网络方案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这次我用它搭了个融合爱快与 OpenWRT 的软路由系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>以爱快为底层支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过虚拟机跑起 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再让 OpenWRT 加载 Docker 扩展各种功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同时让爱快当 DHCP 服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把网关指向虚拟机里的 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后配上动态分配 IP 的无线 AP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一套兼顾性能与灵活性的多网方案就成了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>整个过程既盘活了旧硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又满足了家庭网络的进阶需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这篇文章就来聊聊具体实现细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020250727213714.png"></p>
+        
+          <p class="article-more-link">
+            <a href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-posts/解锁注意力沉浸机制，告别拖延内耗" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/" class="article-date">
@@ -93,98 +190,6 @@
 
 
   
-    <article id="post-posts/为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/" class="article-date">
-  <time class="dt-published" datetime="2025-05-04T16:00:00.000Z" itemprop="datePublished">2025-05-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/">为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="能量系统崩溃的日常表现"><a href="#能量系统崩溃的日常表现" class="headerlink" title="能量系统崩溃的日常表现"></a>能量系统崩溃的日常表现</h2><p>你是否有过这样的瞬间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清晨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>闹钟大作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>意识已然清醒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>身体却如被定住一般<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>丝毫不想动弹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>明知再不起床就要迟到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却依旧贪恋被窝的温暖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>迟迟不愿起身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>工作时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任务堆积如山<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>计划也已罗列清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可目光落在屏幕上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>思绪却逐渐飘远<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整个人呆呆地出神<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一天的时光悄然流逝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却一事无成 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>又或者在生活中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>面对那些早已规划好的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>总是不由自主地拖延<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不到最后期限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>绝不动手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后在截止日期前手忙脚乱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>满心懊悔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>每当这种时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你是不是常常在心里自责<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>觉得自己太过懒惰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缺乏自律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至开始怀疑人生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>觉得自己是不是就这样 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>废了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>但今天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想告诉你一个全新的视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你并非懒惰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是你的能量系统崩溃了 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这就如同手机电量不足时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>屏幕会自动变暗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>运行速度也会大幅下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至点击屏幕都毫无反应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这并非手机本身出现故障<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是电池电量告急<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不足以支撑其正常运行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>人也一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当我们的能量系统出现问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会表现出种种看似 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>懒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 的行为 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-        
-          <p class="article-more-link">
-            <a href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/productivity/" rel="tag">productivity</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-notes/从 LAMP 到前后端分离：架构演进与技术实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="article-date">
-  <time class="dt-published" datetime="2025-05-03T16:00:00.000Z" itemprop="datePublished">2025-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="LAMP-架构：传统-Web-开发的基石"><a href="#LAMP-架构：传统-Web-开发的基石" class="headerlink" title="LAMP 架构：传统 Web 开发的基石"></a>LAMP 架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>传统 Web 开发的基石</h2><p>在早期的 Web 开发领域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构犹如一座坚固的基石<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支撑起无数动态网站的构建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>LAMP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即 Linux + Apache + MySQL + PHP&#x2F;Perl&#x2F;Python<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一组开源软件的组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们协同工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为 Web 应用提供了完整的运行环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>随着移动互联网的迅猛发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户对于应用的体验和功能需求变得更加多样化和复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个背景下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传统的 LAMP 架构逐渐显得力不从心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其局限性愈发凸显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也促使了前后端分离模式的诞生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成为 Web 开发领域的一次重要变革<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-        
-          <p class="article-more-link">
-            <a href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -204,6 +209,14 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="2025/07/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/">家庭软路由部署方案-爱快+openwrt</a>
+          </li>
         
           <li>
             <a href="2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
@@ -235,14 +248,6 @@
         
           <li>
             <a href="2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
-          </li>
-        
-          <li>
-            <a href="2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
-          </li>
-        
-          <li>
-            <a href="2024/09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/">C++ 面经以及答案</a>
           </li>
         
       </ul>
