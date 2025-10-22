@@ -74,7 +74,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>家里的旧 X86 架构 PC 闲置许久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>扔了可惜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如拿来折腾一套实用的家庭网络方案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这次我用它搭了个融合爱快与 OpenWRT 的软路由系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>以爱快为底层支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过虚拟机跑起 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再让 OpenWRT 加载 Docker 扩展各种功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同时让爱快当 DHCP 服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把网关指向虚拟机里的 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后配上动态分配 IP 的无线 AP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一套兼顾性能与灵活性的多网方案就成了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>整个过程既盘活了旧硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又满足了家庭网络的进阶需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这篇文章就来聊聊具体实现细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><img src="/img/loading.gif" data-original="images/Pasted%20image%2020250727213714.png"></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250727213714.png"></p>
 <span id="more"></span>
 
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>准备工作​</p>
@@ -140,7 +140,7 @@
 <p>回到web管理界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>挂载点-修改</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>修改刚新分的这个区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在大小就能看出区别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果没有列出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请点击最上面的  <strong>生成配置</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>-**启用此挂载点-UUID选新的分区-作为根目录使用</p>
 <p>重启  </p>
 <p><strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>注意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果上面没有做挂载和拷贝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那还得先改IP再进web管理页面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后重新配置您的OpenWrt<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong></p>
-<pre><code>mkdir -p /tmp/introot
+<pre><code class="bash">mkdir -p /tmp/introot
 mkdir -p /tmp/extroot
 mount --bind / /tmp/introot
 mount /dev/vdb1 /tmp/extroot
@@ -165,15 +165,6 @@ umount /tmp/extroot
   
     
 <nav id="article-nav">
-  
-    <a href="../../../28/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
   
   
     <a href="../../../../05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/" id="article-nav-older" class="article-nav-link-wrap">
@@ -203,10 +194,6 @@ umount /tmp/extroot
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="../../../28/hello-world/">Hello World</a>
-          </li>
         
           <li>
             <a href="">家庭软路由部署方案-爱快+openwrt</a>
@@ -242,6 +229,10 @@ umount /tmp/extroot
         
           <li>
             <a href="../../../../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+          </li>
+        
+          <li>
+            <a href="../../../../../2024/11/19/notes/Linux%20I2C%20%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/">I2C应用编程</a>
           </li>
         
       </ul>
