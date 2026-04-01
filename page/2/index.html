@@ -17,6 +17,22 @@
   
     <link rel="stylesheet" href="../../fancybox/jquery.fancybox-1.3.4.css">
   
+  <style>
+    .hljs { color: #3d3d3d; }
+    .hljs-comment, .hljs-quote { color: #8a8a8a; font-style: italic; }
+    .hljs-keyword, .hljs-selector-tag { color: #6a4a6a; }
+    .hljs-string, .hljs-attr, .hljs-template-variable { color: #4a6a4a; }
+    .hljs-number, .hljs-literal, .hljs-built_in { color: #8a6a4a; }
+    .hljs-function, .hljs-title { color: #4a5a7a; }
+    .hljs-variable, .hljs-params { color: #5a5a5a; }
+    .hljs-class .hljs-title, .hljs-type { color: #4a6a4a; }
+    .hljs-tag, .hljs-name, .hljs-attribute { color: #a65e5e; }
+    .hljs-regexp { color: #4a6a6a; }
+    .hljs-symbol, .hljs-bullet, .hljs-link { color: #6a4a6a; }
+    .hljs-meta { color: #8a8a8a; }
+    .hljs-addition { background: #e8f4e8; }
+    .hljs-deletion { background: #f4e8e8; }
+  </style>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -45,6 +61,99 @@
 
       <div id="content" class="outer">
         <section id="main">
+  
+    <article id="post-posts/家庭软路由部署方案-爱快+openwrt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/" class="article-date">
+  <time class="dt-published" datetime="2025-07-26T16:00:00.000Z" itemprop="datePublished">2025-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/">家庭软路由部署方案-爱快+openwrt</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>家里的旧 X86 架构 PC 闲置许久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>扔了可惜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如拿来折腾一套实用的家庭网络方案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这次我用它搭了个融合爱快与 OpenWRT 的软路由系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>以爱快为底层支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过虚拟机跑起 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再让 OpenWRT 加载 Docker 扩展各种功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同时让爱快当 DHCP 服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把网关指向虚拟机里的 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后配上动态分配 IP 的无线 AP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一套兼顾性能与灵活性的多网方案就成了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>整个过程既盘活了旧硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又满足了家庭网络的进阶需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这篇文章就来聊聊具体实现细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020250727213714.png"></p>
+        
+          <p class="article-more-link">
+            <a href="../../2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-posts/解锁注意力沉浸机制，告别拖延内耗" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/" class="article-date">
+  <time class="dt-published" datetime="2025-05-04T16:00:00.000Z" itemprop="datePublished">2025-05-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="你真的了解你的-“沉浸时刻”-吗？"><a href="#你真的了解你的-“沉浸时刻”-吗？" class="headerlink" title="你真的了解你的 “沉浸时刻” 吗？"></a>你真的了解你的 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>沉浸时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h2><p>你真的热爱自己的生活吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>先别急着回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不妨回想一下每天早晨睁眼的瞬间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你是满心期待地开启新一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是只想再多赖床十分钟甚至更久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>不知你是否察觉到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很多时候我们一整天都在靠着意志力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>责任感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或是他人的监督勉强支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但也曾有过那么一小段时光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你全身心地投入其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许是剪辑视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>画画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>健身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>钻研科研<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又或是仅仅在整理房间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在那段时间里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你无需逼迫自己<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自然而然地就行动起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>沉浸其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>忘却了时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也忘却了周围的世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就是沉浸区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>问题在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为什么这样的沉浸时刻总是如此短暂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>为什么我们常常难以找寻到它的踪迹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>更关键的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是否存在一种方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能让我们人生的大部分时间都处于沉浸区之中呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>接下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就让我们一同深入探寻这个神秘而又至关重要的概念 —— 注意力沉浸机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        
+          <p class="article-more-link">
+            <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/productivity/" rel="tag">productivity</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-posts/为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
@@ -92,110 +201,11 @@
 
 
   
-    <article id="post-notes/从 LAMP 到前后端分离：架构演进与技术实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="article-date">
-  <time class="dt-published" datetime="2025-05-03T16:00:00.000Z" itemprop="datePublished">2025-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="LAMP-架构：传统-Web-开发的基石"><a href="#LAMP-架构：传统-Web-开发的基石" class="headerlink" title="LAMP 架构：传统 Web 开发的基石"></a>LAMP 架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>传统 Web 开发的基石</h2><p>在早期的 Web 开发领域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构犹如一座坚固的基石<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支撑起无数动态网站的构建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>LAMP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即 Linux + Apache + MySQL + PHP&#x2F;Perl&#x2F;Python<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一组开源软件的组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们协同工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为 Web 应用提供了完整的运行环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>随着移动互联网的迅猛发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户对于应用的体验和功能需求变得更加多样化和复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个背景下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传统的 LAMP 架构逐渐显得力不从心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其局限性愈发凸显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也促使了前后端分离模式的诞生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成为 Web 开发领域的一次重要变革<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-        
-          <p class="article-more-link">
-            <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-posts/Windows部署Hexon可视化博客环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/" class="article-date">
-  <time class="dt-published" datetime="2025-02-17T16:00:00.000Z" itemprop="datePublished">2025-02-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>你在使用hexo写文章的时候是不是还在</p>
-<pre><code class="javascript">hexo new
-hexo g
-hexo d
-</code></pre>
-<p>这样写文章不仅效率慢而且管理起来也不方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以今天我就带来了这个项目——hexon</p>
-<p>hexon是一个带有git的hexo图形化界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以运行命令和管理内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Hexo 本身是一个基于 Node.js 的静态博客框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有官方的图形化界面<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GUI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以使用 <strong>Hexo Admin</strong> 或 <strong>第三方 Hexo 可视化管理工具</strong> 来提供类似图形界面的管理方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p>这是它的github链接</p>
-<p><a target="_blank" rel="noopener" href="https://github/gethexon/hexon">https://github/gethexon/hexon</a></p>
-        
-          <p class="article-more-link">
-            <a href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/note/" rel="tag">note</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../../">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span><a class="page-number" href="../3/">3</a><a class="page-number" href="../4/">4</a><span class="space">&hellip;</span><a class="page-number" href="../8/">8</a><a class="extend next" rel="next" href="../3/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../../">&laquo; 上一页</a><a class="page-number" href="../../">1</a><span class="page-number current">2</span><a class="page-number" href="../3/">3</a><a class="page-number" href="../4/">4</a><span class="space">&hellip;</span><a class="page-number" href="../9/">9</a><a class="extend next" rel="next" href="../3/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -210,6 +220,14 @@ hexo d
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../2026/04/01/notes/claude-code-cli-source-analysis/">Claude Code CLI 源码深度分析 - 架构设计与实现原理</a>
+          </li>
+        
+          <li>
+            <a href="../../2026/03/14/notes/device-sync-implementation.md/">随身播放器同步功能的设计与实现</a>
+          </li>
         
           <li>
             <a href="../../2026/03/02/share/%E6%B5%B7%E8%88%AA888%E5%A5%97%E5%8D%A1%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%90%88%E9%9B%86/">海航888套卡目的地合集</a>
@@ -243,27 +261,26 @@ hexo d
             <a href="../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
           </li>
         
-          <li>
-            <a href="../../2024/11/28/notes/%E5%B8%B8%E7%94%A8%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E6%8D%A2%E6%BA%90%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">常用依赖包管理工具换源方法大全</a>
-          </li>
-        
-          <li>
-            <a href="../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
-          </li>
-        
       </ul>
     </div>
   </div>
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/notes/">notes</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../way2/note/" style="font-size: 10px;">note</a> <a href="../../way2/productivity/" style="font-size: 13.33px;">productivity</a> <a href="../../way2/project/" style="font-size: 10px;">project</a> <a href="../../way2/share/" style="font-size: 13.33px;">share</a>
+      <a href="../../way2/travel/" style="font-size: 10px;">#travel</a> <a href="../../way2/AI-%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">AI 工具</a> <a href="../../way2/Bun/" style="font-size: 10px;">Bun</a> <a href="../../way2/CLI/" style="font-size: 10px;">CLI</a> <a href="../../way2/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../way2/note/" style="font-size: 10px;">note</a> <a href="../../way2/productivity/" style="font-size: 13.33px;">productivity</a> <a href="../../way2/project/" style="font-size: 10px;">project</a> <a href="../../way2/share/" style="font-size: 13.33px;">share</a> <a href="../../way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 10px;">源码分析</a>
     </div>
   </div>
 
@@ -300,6 +317,15 @@ hexo d
 <script src="../../js/script.js"></script>
 
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('pre code').forEach(function(block) {
+      hljs.highlightElement(block);
+    });
+  });
+</script>
 
 
 

@@ -1455,14 +1455,17 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #fff;
+  background: #faf9f7;
   margin: 0;
   border-style: solid;
-  border-color: #ddd;
+  border-color: #e0dcd4;
   border-width: 1px;
+  border-radius: 4px;
   overflow: auto;
-  color: #4d4d4c;
+  color: #3d3d3d;
   line-height: 25.6px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .article-entry .gist .gist-file .gist-data .line-numbers {
   color: #666;
@@ -1473,17 +1476,22 @@ a.article-title:hover {
   font-family: "LM-Mono-10", "Courier", "ChineseMono", monospace;
 }
 .article-entry code {
-  background: #fff;
-  text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  background: #f5f3f0;
+  text-shadow: none;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #5a5a5a;
 }
 .article-entry pre {
-  padding: 15px;
+  padding: 15px 20px;
 }
 .article-entry pre code {
   background: none;
   text-shadow: none;
   padding: 0;
+  font-size: 0.9em;
+  color: inherit;
 }
 .article-entry .highlight {
   margin-top: 20px;
@@ -1500,7 +1508,7 @@ a.article-title:hover {
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #fff;
+  background: #faf9f7;
   padding: 15px 15px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1526,8 +1534,8 @@ a.article-title:hover {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #fff;
-  color: #8e908c;
+  background: #faf9f7;
+  color: #8a8a8a;
   font: 0.85em font-sans;
   text-shadow: 0 0;
   padding: 0;
@@ -1543,7 +1551,7 @@ a.article-title:hover {
 }
 pre .hljs-comment,
 pre .hljs-title {
-  color: #8e908c;
+  color: #8a8a8a;
 }
 pre .hljs-variable,
 pre .hljs-attribute,
@@ -1557,7 +1565,7 @@ pre .hljs-html .hljs-doctype,
 pre .hljs-css .hljs-id,
 pre .hljs-css .hljs-class,
 pre .hljs-css .hljs-pseudo {
-  color: #c82829;
+  color: #a65e5e;
 }
 pre .hljs-number,
 pre .hljs-preprocessor,
@@ -1565,12 +1573,12 @@ pre .hljs-built_in,
 pre .hljs-literal,
 pre .hljs-params,
 pre .hljs-constant {
-  color: #f5871f;
+  color: #8a6a4a;
 }
 pre .hljs-class,
 pre .hljs-ruby .hljs-class .hljs-title,
 pre .hljs-css .hljs-rules .hljs-attribute {
-  color: #718c00;
+  color: #4a6a4a;
 }
 pre .hljs-string,
 pre .hljs-value,
@@ -1578,10 +1586,10 @@ pre .hljs-inheritance,
 pre .hljs-header,
 pre .hljs-ruby .hljs-symbol,
 pre .hljs-xml .hljs-cdata {
-  color: #718c00;
+  color: #4a6a4a;
 }
 pre .hljs-css .hljs-hexcolor {
-  color: #3e999f;
+  color: #4a6a6a;
 }
 pre .hljs-function,
 pre .hljs-python .hljs-decorator,
@@ -1591,11 +1599,11 @@ pre .hljs-ruby .hljs-title .hljs-keyword,
 pre .hljs-perl .hljs-sub,
 pre .hljs-javascript .hljs-title,
 pre .hljs-coffeescript .hljs-title {
-  color: #4271ae;
+  color: #4a5a7a;
 }
 pre .hljs-keyword,
 pre .hljs-javascript .hljs-function {
-  color: #8959a8;
+  color: #6a4a6a;
 }
 @media screen and (max-width: 470px) {
   #mobile-nav {
