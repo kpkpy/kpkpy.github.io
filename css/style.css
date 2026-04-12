@@ -1454,20 +1454,20 @@ a.article-title:hover {
   text-align: center;
 }
 .article-entry .highlight {
-  background: #faf9f7;
+  background: #f9f9f9;
   margin: 0;
   border-style: solid;
-  border-color: #e0dcd4;
+  border-color: #dfe2e5;
   border-width: 1px;
   border-radius: 4px;
   overflow: auto;
-  color: #3d3d3d;
+  color: #2c3e50;
   line-height: 25.6px;
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 .article-entry .gist .gist-file .gist-data .line-numbers {
-  color: #666;
+  color: #b0b0b0;
   font-size: 0.85em;
 }
 .article-entry .highlight {
@@ -1487,18 +1487,110 @@ a.article-title:hover {
   padding: 0;
   border: none;
 }
+.article-entry .highlight table td.gutter {
+  width: 36px;
+  padding: 12px 8px 12px 0;
+  background: #f5f5f5;
+  border-right: 1px solid #e8eaed;
+  color: #999;
+  font-size: 0.8em;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.article-entry .highlight table td.code {
+  padding: 12px 16px;
+}
 .article-entry .highlight pre {
   border: none;
   margin: 0;
-  padding: 15px;
+  padding: 14px 18px;
   text-align: left;
+  background: transparent;
+  font-family: 'JetBrains Mono', 'Fira Code', 'PT Mono', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+.article-entry .highlight pre code {
+  background: transparent;
+  padding: 0;
+  text-shadow: none;
+  color: #2c3e50;
+  -moz-tab-size: 2;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+}
+.article-entry .highlight pre .keyword,
+.article-entry .highlight pre .selector-tag,
+.article-entry .highlight pre .literal,
+.article-entry .highlight pre .type {
+  color: #8e44ad;
+}
+.article-entry .highlight pre .string,
+.article-entry .highlight pre .template-string,
+.article-entry .highlight pre .regexp {
+  color: #27ae60;
+}
+.article-entry .highlight pre .number,
+.article-entry .highlight pre .built_in {
+  color: #d35400;
+}
+.article-entry .highlight pre .title,
+.article-entry .highlight pre .function {
+  color: #2980b9;
+}
+.article-entry .highlight pre .comment,
+.article-entry .highlight pre .quote {
+  color: #7f8c8d;
+  font-style: italic;
+}
+.article-entry .highlight pre .variable,
+.article-entry .highlight pre .params {
+  color: #2c3e50;
+}
+.article-entry .highlight pre .class,
+.article-entry .highlight pre .meta {
+  color: #c0392b;
+}
+.article-entry .highlight pre .attr,
+.article-entry .highlight pre .attribute {
+  color: #16a085;
+}
+.article-entry .highlight pre .name,
+.article-entry .highlight pre .tag {
+  color: #c0392b;
+}
+.article-entry .highlight pre .selector-class,
+.article-entry .highlight pre .selector-id {
+  color: #2980b9;
+}
+.article-entry .highlight pre .addition {
+  background: #e6ffed;
+  color: #27ae60;
+}
+.article-entry .highlight pre .deletion {
+  background: #ffeef0;
+  color: #c0392b;
+}
+.article-entry .highlight pre .subst {
+  color: #2c3e50;
+}
+.article-entry .highlight pre .property {
+  color: #2980b9;
+}
+.article-entry .highlight pre .variable.constant {
+  color: #2980b9;
 }
 .article-entry .gist {
   margin: 0 -15px;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
-  background: #faf9f7;
+  background: #f9f9f9;
   padding: 15px 15px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1524,8 +1616,8 @@ a.article-title:hover {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #faf9f7;
-  color: #8a8a8a;
+  background: #f9f9f9;
+  color: #7f8c8d;
   font: 0.85em font-sans;
   text-shadow: 0 0;
   padding: 0;
@@ -1539,61 +1631,13 @@ a.article-title:hover {
 .article-entry .gist .gist-file .gist-meta a:hover {
   text-decoration: underline;
 }
-pre .hljs-comment,
-pre .hljs-title {
-  color: #8a8a8a;
-}
-pre .hljs-variable,
-pre .hljs-attribute,
-pre .hljs-tag,
-pre .hljs-regexp,
-pre .hljs-ruby .hljs-constant,
-pre .hljs-xml .hljs-tag .hljs-title,
-pre .hljs-xml .hljs-pi,
-pre .hljs-xml .hljs-doctype,
-pre .hljs-html .hljs-doctype,
-pre .hljs-css .hljs-id,
-pre .hljs-css .hljs-class,
-pre .hljs-css .hljs-pseudo {
-  color: #a65e5e;
-}
-pre .hljs-number,
-pre .hljs-preprocessor,
-pre .hljs-built_in,
-pre .hljs-literal,
-pre .hljs-params,
-pre .hljs-constant {
-  color: #8a6a4a;
-}
-pre .hljs-class,
-pre .hljs-ruby .hljs-class .hljs-title,
-pre .hljs-css .hljs-rules .hljs-attribute {
-  color: #4a6a4a;
-}
-pre .hljs-string,
-pre .hljs-value,
-pre .hljs-inheritance,
-pre .hljs-header,
-pre .hljs-ruby .hljs-symbol,
-pre .hljs-xml .hljs-cdata {
-  color: #4a6a4a;
-}
-pre .hljs-css .hljs-hexcolor {
-  color: #4a6a6a;
-}
-pre .hljs-function,
-pre .hljs-python .hljs-decorator,
-pre .hljs-python .hljs-title,
-pre .hljs-ruby .hljs-function .hljs-title,
-pre .hljs-ruby .hljs-title .hljs-keyword,
-pre .hljs-perl .hljs-sub,
-pre .hljs-javascript .hljs-title,
-pre .hljs-coffeescript .hljs-title {
-  color: #4a5a7a;
-}
-pre .hljs-keyword,
-pre .hljs-javascript .hljs-function {
-  color: #6a4a6a;
+.article-entry code {
+  background: #f5f5f5;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #2c3e50;
+  font-family: 'JetBrains Mono', 'Fira Code', 'PT Mono', Consolas, monospace;
 }
 @media screen and (max-width: 470px) {
   #mobile-nav {
