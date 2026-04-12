@@ -1453,7 +1453,6 @@ a.article-title:hover {
   font-size: 0.85em;
   text-align: center;
 }
-.article-entry pre,
 .article-entry .highlight {
   background: #faf9f7;
   margin: 0;
@@ -1471,37 +1470,28 @@ a.article-title:hover {
   color: #666;
   font-size: 0.85em;
 }
-.article-entry pre,
-.article-entry code {
-  font-family: "LM-Mono-10", "Courier", "ChineseMono", monospace;
-}
-.article-entry code {
-  background: #f5f3f0;
-  text-shadow: none;
-  padding: 0.1em 0.4em;
-  border-radius: 3px;
-  font-size: 0.9em;
-  color: #5a5a5a;
-}
-.article-entry pre {
-  padding: 15px 20px;
-}
-.article-entry pre code {
-  background: none;
-  text-shadow: none;
-  padding: 0;
-  font-size: 0.9em;
-  color: inherit;
-}
 .article-entry .highlight {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 0;
+  text-align: left;
+  overflow-x: auto;
+}
+.article-entry .highlight table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.article-entry .highlight table td {
+  text-align: left;
+  padding: 0;
+  border: none;
 }
 .article-entry .highlight pre {
   border: none;
   margin: 0;
   padding: 15px;
+  text-align: left;
 }
 .article-entry .gist {
   margin: 0 -15px;
