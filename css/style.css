@@ -1639,3 +1639,15 @@ html {
   font-feature-settings: "liga", "locl" 0;
   -webkit-hyphens: auto;
 }
+.article-entry p {
+  text-indent: 2em;
+}
+.article-entry p.article-more-link,
+.article-entry li p,
+.article-entry blockquote p,
+.article-entry td p,
+.article-entry th p,
+.article-entry figure p,
+.article-entry figcaption p {
+  text-indent: 0;
+}
