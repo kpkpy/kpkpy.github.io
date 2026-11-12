@@ -5,38 +5,34 @@
   
   
   <title>Keyspire&#39;s Peakory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta name="description" content="Kpy&#39;s Blog">
+<link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+
+  
+<link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
   
     <link rel="shortcut icon" href="/img/favicon.ico">
   
-  <link rel="stylesheet" href="css/style.css">
   
-    <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css">
-  
-  <style>
-    .highlight .code { color: #2c3e50; }
-    .highlight .comment, .highlight .quote { color: #7f8c8d; font-style: italic; }
-    .highlight .keyword, .highlight .selector-tag, .highlight .literal, .highlight .type { color: #8e44ad; }
-    .highlight .string, .highlight .template-string, .highlight .regexp { color: #27ae60; }
-    .highlight .number, .highlight .built_in { color: #d35400; }
-    .highlight .title, .highlight .function { color: #2980b9; }
-    .highlight .variable, .highlight .params { color: #2c3e50; }
-    .highlight .class, .highlight .attr { color: #c0392b; }
-    .highlight .tag, .highlight .name { color: #c0392b; }
-    .highlight .regexp { color: #16a085; }
-    .highlight .symbol, .highlight .bullet, .highlight .link { color: #8e44ad; }
-    .highlight .meta { color: #7f8c8d; }
-    .highlight .addition { background: #e6ffed; color: #27ae60; }
-    .highlight .deletion { background: #ffeef0; color: #c0392b; }
-    .highlight .subst { color: #2c3e50; }
-    .highlight .property { color: #2980b9; }
-  </style>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<link rel="stylesheet" href="css/style.css">
 
+  
+    
+<link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
 <body>
   <div id="container">
     <div id="wrap">
@@ -44,11 +40,9 @@
   <nav id="main-nav" class="outer">
     <a id="main-nav-toggle" class="nav-icon"></a>
     
-      <a class="main-nav-link" href="index.html">Home</a>
+      <a class="main-nav-link" href="/">Home</a>
     
       <a class="main-nav-link" href="/way2/archives">Archives</a>
-    
-      <a class="main-nav-link" href="/about">About</a>
     
     <div class="main-nav-space-between"></div>
     
@@ -67,7 +61,7 @@
     <article id="post-notes/claude-code-cli-source-analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2026/04/01/notes/claude-code-cli-source-analysis/" class="article-date">
-  <time class="dt-published" datetime="2026-04-01T06:26:00.000Z" itemprop="datePublished">2026-04-01</time>
+  <time class="dt-published" datetime="2026-04-01T14:26:00.000Z" itemprop="datePublished">2026-04-01</time>
 </a>
     
   <div class="article-category">
@@ -94,6 +88,8 @@
         <blockquote>
 <p>一篇全面解析 Anthropic 官方 Claude Code CLI 架构设计与实现原理的技术博客</p>
 </blockquote>
+<hr>
+<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><p>Claude Code CLI 是 Anthropic 官方推出的 AI 编程助手命令行工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它将 Claude AI 的能力整合到开发者的终端环境中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支持代码编辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>调试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Git 操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>代码审查等多种编程任务的自动化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
         
           <p class="article-more-link">
             <a href="2026/04/01/notes/claude-code-cli-source-analysis/#more">Read More</a>
@@ -107,9 +103,6 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/Bun/" rel="tag">Bun</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/CLI/" rel="tag">CLI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/TypeScript/" rel="tag">TypeScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" rel="tag">源码分析</a></li></ul>
 
-      <span id="2026/04/01/notes/claude-code-cli-source-analysis/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2026_04_01_notes_claude-code-cli-source-analysis_"></span> 次阅读
-      </span>
     </footer>
   </div>
   
@@ -121,7 +114,7 @@
     <article id="post-notes/device-sync-implementation.md" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2026/03/14/notes/device-sync-implementation.md/" class="article-date">
-  <time class="dt-published" datetime="2026-03-13T16:00:00.000Z" itemprop="datePublished">2026-03-14</time>
+  <time class="dt-published" datetime="2026-03-14T00:00:00.000Z" itemprop="datePublished">2026-03-14</time>
 </a>
     
   </div>
@@ -141,25 +134,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="一、背景与需求"><a href="#一、背景与需求" class="headerlink" title="一、背景与需求"></a>一、背景与需求</h2><p>随着数字音乐的发展，许多音乐爱好者仍然保持着使用随身播放器（如 Sony Walkman、iPod、Fiio 等）听歌的习惯。这些设备通常通过 USB 连接电脑，需要手动管理音乐文件。</p>
-<p>对于一个本地音乐播放器来说，实现与随身播放器的同步功能可以大大提升用户体验：</p>
+        <h2 id="一、背景与需求"><a href="#一、背景与需求" class="headerlink" title="一、背景与需求"></a>一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>背景与需求</h2><p>随着数字音乐的发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>许多音乐爱好者仍然保持着使用随身播放器<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 Sony Walkman<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>iPod<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>Fiio 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>听歌的习惯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这些设备通常通过 USB 连接电脑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>需要手动管理音乐文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>对于一个本地音乐播放器来说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>实现与随身播放器的同步功能可以大大提升用户体验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
 <ul>
 <li>自动检测设备连接</li>
 <li>一键同步整个音乐库</li>
-<li>智能识别已存在的歌曲，避免重复复制</li>
-<li>同步播放列表，在其他设备上延续收听体验</li>
+<li>智能识别已存在的歌曲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>避免重复复制</li>
+<li>同步播放列表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在其他设备上延续收听体验</li>
 </ul>
-<h2 id="二、整体架构"><a href="#二、整体架构" class="headerlink" title="二、整体架构"></a>二、整体架构</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────┐</span><br><span class="line">│                      Electron 应用                           │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                                                             │</span><br><span class="line">│  ┌─────────────────┐        ┌─────────────────┐            │</span><br><span class="line">│  │  DeviceManager  │        │  SyncManager    │            │</span><br><span class="line">│  │                 │        │                 │            │</span><br><span class="line">│  │  - <span class="built_in">detect</span>()     │        │  - <span class="built_in">preview</span>()    │            │</span><br><span class="line">│  │  - <span class="built_in">scanMusic</span>()  │◄──────►│  - <span class="built_in">syncTo</span>()     │            │</span><br><span class="line">│  │  - <span class="built_in">remember</span>()   │        │  - <span class="built_in">import</span>()     │            │</span><br><span class="line">│  └─────────────────┘        └─────────────────┘            │</span><br><span class="line">│           │                          │                      │</span><br><span class="line">│           ▼                          ▼                      │</span><br><span class="line">│  ┌─────────────────┐        ┌─────────────────┐            │</span><br><span class="line">│  │   设备信息       │        │   文件操作       │            │</span><br><span class="line">│  │  - 容量          │        │  - copyFile     │            │</span><br><span class="line">│  │  - 文件系统      │        │  - unlink       │            │</span><br><span class="line">│  │  - 歌曲统计      │        │  - writeFile    │            │</span><br><span class="line">│  └─────────────────┘        └─────────────────┘            │</span><br><span class="line">│                                                             │</span><br><span class="line">└─────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TB</span><br><span class="line">    subgraph App[&quot;Electron 应用&quot;]</span><br><span class="line">        subgraph DeviceManager[&quot;DeviceManager&quot;]</span><br><span class="line">            DM1[&quot;detect()&quot;]</span><br><span class="line">            DM2[&quot;scanMusic()&quot;]</span><br><span class="line">            DM3[&quot;remember()&quot;]</span><br><span class="line">        end</span><br><span class="line">        </span><br><span class="line">        subgraph SyncManager[&quot;SyncManager&quot;]</span><br><span class="line">            SM1[&quot;preview()&quot;]</span><br><span class="line">            SM2[&quot;syncTo()&quot;]</span><br><span class="line">            SM3[&quot;import()&quot;]</span><br><span class="line">        end</span><br><span class="line">        </span><br><span class="line">        subgraph DeviceInfo[&quot;设备信息&quot;]</span><br><span class="line">            DI1[&quot;容量&quot;]</span><br><span class="line">            DI2[&quot;文件系统&quot;]</span><br><span class="line">            DI3[&quot;歌曲统计&quot;]</span><br><span class="line">        end</span><br><span class="line">        </span><br><span class="line">        subgraph FileOps[&quot;文件操作&quot;]</span><br><span class="line">            FO1[&quot;copyFile&quot;]</span><br><span class="line">            FO2[&quot;unlink&quot;]</span><br><span class="line">            FO3[&quot;writeFile&quot;]</span><br><span class="line">        end</span><br><span class="line">        </span><br><span class="line">        DeviceManager &lt;--&gt; SyncManager</span><br><span class="line">        DeviceManager --&gt; DeviceInfo</span><br><span class="line">        SyncManager --&gt; FileOps</span><br><span class="line">    end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>系统分为两个核心模块：</p>
-<ol>
-<li><strong>DeviceManager</strong>：负责设备检测、信息收集、设备记忆</li>
-<li><strong>SyncManager</strong>：负责同步逻辑、文件操作、歌单生成</li>
-</ol>
         
           <p class="article-more-link">
             <a href="2026/03/14/notes/device-sync-implementation.md/#more">Read More</a>
@@ -173,9 +155,6 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li></ul>
 
-      <span id="2026/03/14/notes/device-sync-implementation.md/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2026_03_14_notes_device-sync-implementation_md_"></span> 次阅读
-      </span>
     </footer>
   </div>
   
@@ -187,7 +166,7 @@
     <article id="post-share/海航888套卡目的地合集" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2026/03/02/share/%E6%B5%B7%E8%88%AA888%E5%A5%97%E5%8D%A1%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%90%88%E9%9B%86/" class="article-date">
-  <time class="dt-published" datetime="2026-03-01T16:00:00.000Z" itemprop="datePublished">2026-03-02</time>
+  <time class="dt-published" datetime="2026-03-02T00:00:00.000Z" itemprop="datePublished">2026-03-02</time>
 </a>
     
   </div>
@@ -207,11 +186,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>🛫 海航888套卡用回本了！这些地方真的香</p>
-<p>姐妹们！海航888套卡（畅享中## POST TITLE</p>
-<p>国行）用了大半年，终于用爽了！来盘点一下去过的地方，给大家参考～</p>
+        <p>🛫 海航888套卡用回本了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>这些地方真的香</p>
+<p>姐妹们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>海航888套卡<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>畅享中国行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>用了大半年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>终于用爽了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>来盘点一下去过的地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>给大家参考～</p>
 <p>📍 去过的目的地</p>
-<p>🏙️ 城市系列<br>大连·棒棰岛｜渤海湾海景，棒棰岛宾馆很有历史感<br>太原·南中环花海｜小众花海，拍照好看<br>西安·兵马俑｜必打卡拉！世界第八大奇迹<br>重庆·夜景｜赛博朋克之都，夜景一绝<br>银川·西夏陵｜神秘西夏文化，爱好者狂喜<br>南京·夫子庙｜秦淮河夜景<br>三亚·天涯海角｜经典地标</p>
+<p>🏙️ 城市系列<br>大连·棒棰岛｜渤海湾海景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>棒棰岛宾馆很有历史感<br>太原·南中环花海｜小众花海<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>拍照好看<br>西安·兵马俑｜必打卡拉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>世界第八大奇迹<br>重庆·夜景｜赛博朋克之都<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>夜景一绝<br>银川·西夏陵｜神秘西夏文化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>爱好者狂喜<br>南京·夫子庙｜秦淮河夜景<br>三亚·天涯海角｜经典地标</p>
         
           <p class="article-more-link">
             <a href="2026/03/02/share/%E6%B5%B7%E8%88%AA888%E5%A5%97%E5%8D%A1%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%90%88%E9%9B%86/#more">Read More</a>
@@ -225,9 +203,337 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/travel/" rel="tag">#travel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li></ul>
 
-      <span id="2026/03/02/share/海航888套卡目的地合集/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2026_03_02_share_海航888套卡目的地合集_"></span> 次阅读
-      </span>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-posts/家庭软路由部署方案-爱快+openwrt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/" class="article-date">
+  <time class="dt-published" datetime="2025-07-27T00:00:00.000Z" itemprop="datePublished">2025-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/">家庭软路由部署方案-爱快+openwrt</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>家里的旧 X86 架构 PC 闲置许久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>扔了可惜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如拿来折腾一套实用的家庭网络方案<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>这次我用它搭了个融合爱快与 OpenWRT 的软路由系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>以爱快为底层支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过虚拟机跑起 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再让 OpenWRT 加载 Docker 扩展各种功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同时让爱快当 DHCP 服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把网关指向虚拟机里的 OpenWRT<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后配上动态分配 IP 的无线 AP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一套兼顾性能与灵活性的多网方案就成了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>整个过程既盘活了旧硬件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又满足了家庭网络的进阶需求<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这篇文章就来聊聊具体实现细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/Pasted%20image%2020250727213714.png"></p>
+        
+          <p class="article-more-link">
+            <a href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-posts/为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2025-05-05T00:00:00.000Z" itemprop="datePublished">2025-05-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/">为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="能量系统崩溃的日常表现"><a href="#能量系统崩溃的日常表现" class="headerlink" title="能量系统崩溃的日常表现"></a>能量系统崩溃的日常表现</h2><p>你是否有过这样的瞬间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清晨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>闹钟大作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>意识已然清醒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>身体却如被定住一般<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>丝毫不想动弹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>明知再不起床就要迟到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却依旧贪恋被窝的温暖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>迟迟不愿起身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>工作时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任务堆积如山<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>计划也已罗列清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可目光落在屏幕上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>思绪却逐渐飘远<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整个人呆呆地出神<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一天的时光悄然流逝<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却一事无成 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>又或者在生活中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>面对那些早已规划好的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>总是不由自主地拖延<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不到最后期限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>绝不动手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后在截止日期前手忙脚乱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>满心懊悔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>每当这种时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你是不是常常在心里自责<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>觉得自己太过懒惰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>缺乏自律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至开始怀疑人生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>觉得自己是不是就这样 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>废了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>但今天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我想告诉你一个全新的视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>你并非懒惰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是你的能量系统崩溃了 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这就如同手机电量不足时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>屏幕会自动变暗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>运行速度也会大幅下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至点击屏幕都毫无反应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这并非手机本身出现故障<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是电池电量告急<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不足以支撑其正常运行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>人也一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当我们的能量系统出现问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就会表现出种种看似 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>懒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 的行为 <span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        
+          <p class="article-more-link">
+            <a href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/productivity/" rel="tag">productivity</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-posts/解锁注意力沉浸机制，告别拖延内耗" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/" class="article-date">
+  <time class="dt-published" datetime="2025-05-05T00:00:00.000Z" itemprop="datePublished">2025-05-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="你真的了解你的-“沉浸时刻”-吗？"><a href="#你真的了解你的-“沉浸时刻”-吗？" class="headerlink" title="你真的了解你的 “沉浸时刻” 吗？"></a>你真的了解你的 <span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>沉浸时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span> 吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></h2><p>你真的热爱自己的生活吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>先别急着回答<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不妨回想一下每天早晨睁眼的瞬间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你是满心期待地开启新一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是只想再多赖床十分钟甚至更久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>不知你是否察觉到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很多时候我们一整天都在靠着意志力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>责任感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或是他人的监督勉强支撑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但也曾有过那么一小段时光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你全身心地投入其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许是剪辑视频<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>画画<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>健身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>钻研科研<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又或是仅仅在整理房间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在那段时间里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你无需逼迫自己<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>自然而然地就行动起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>沉浸其中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>忘却了时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也忘却了周围的世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这就是沉浸区<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>问题在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为什么这样的沉浸时刻总是如此短暂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>为什么我们常常难以找寻到它的踪迹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>更关键的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是否存在一种方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能让我们人生的大部分时间都处于沉浸区之中呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>接下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就让我们一同深入探寻这个神秘而又至关重要的概念 —— 注意力沉浸机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        
+          <p class="article-more-link">
+            <a href="2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/productivity/" rel="tag">productivity</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-notes/从 LAMP 到前后端分离：架构演进与技术实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="article-date">
+  <time class="dt-published" datetime="2025-05-04T00:00:00.000Z" itemprop="datePublished">2025-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="LAMP-架构：传统-Web-开发的基石"><a href="#LAMP-架构：传统-Web-开发的基石" class="headerlink" title="LAMP 架构：传统 Web 开发的基石"></a>LAMP 架构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>传统 Web 开发的基石</h2><p>在早期的 Web 开发领域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>LAMP 架构犹如一座坚固的基石<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>支撑起无数动态网站的构建<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>LAMP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即 Linux + Apache + MySQL + PHP&#x2F;Perl&#x2F;Python<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一组开源软件的组合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们协同工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为 Web 应用提供了完整的运行环境<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>随着移动互联网的迅猛发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用户对于应用的体验和功能需求变得更加多样化和复杂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个背景下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>传统的 LAMP 架构逐渐显得力不从心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其局限性愈发凸显<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这也促使了前后端分离模式的诞生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成为 Web 开发领域的一次重要变革<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        
+          <p class="article-more-link">
+            <a href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-posts/Windows部署Hexon可视化博客环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2025-02-18T00:00:00.000Z" itemprop="datePublished">2025-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>你在使用hexo写文章的时候是不是还在</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span></span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>这样写文章不仅效率慢而且管理起来也不方便<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以今天我就带来了这个项目——hexon</p>
+<p>hexon是一个带有git的hexo图形化界面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以运行命令和管理内容<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Hexo 本身是一个基于 Node.js 的静态博客框架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有官方的图形化界面<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GUI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>不过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以使用 <strong>Hexo Admin</strong> 或 <strong>第三方 Hexo 可视化管理工具</strong> 来提供类似图形界面的管理方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这是它的github链接</p>
+<p><a target="_blank" rel="noopener" href="https://github/gethexon/hexon">https://github/gethexon/hexon</a></p>
+        
+          <p class="article-more-link">
+            <a href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/note/" rel="tag">note</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-notes/Pinctrl和GPIO子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2024-12-08T00:00:00.000Z" itemprop="datePublished">2024-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>Pinctrl 子系统</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>负责管理引脚的复用与配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它允许将引脚配置为不同的功能<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如 GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>I2C<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>UART 等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>并设置引脚的电气特性<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如上拉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>下拉等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>GPIO 子系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> 主要负责对通用输入输出引脚的管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它提供 API 来配置引脚为输入或输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并控制引脚的电平状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><br><strong>层次结构<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong> Pinctrl 子系统位于 GPIO 子系统之上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>Pinctrl 负责引脚的初步配置和复用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而 GPIO 子系统则利用这些配置来实现输入输出操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两者有密切的关系<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>先配置Pinctrl<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在配置GPIO<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<ul>
+<li>引脚配置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>首先<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>通过 Pinctrl 子系统配置引脚的功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将某个引脚设置为 GPIO 功能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>状态管理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>然后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>GPIO 子系统使用这些配置来管理引脚的电平状态<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读取或设置引脚电平<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/embed/" rel="tag">embed</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-notes/驱动进化之路" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="article-date">
+  <time class="dt-published" datetime="2024-11-29T00:00:00.000Z" itemprop="datePublished">2024-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/">驱动进化之路</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1-面向对象分离硬件资源驱动思想"><a href="#1-面向对象分离硬件资源驱动思想" class="headerlink" title="1. 面向对象分离硬件资源驱动思想"></a>1. 面向对象分离硬件资源驱动思想</h3><p><img src="/images/Pasted%20image%2020241129163033.png"></p>
+<p><strong>背景</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><br>在早期的嵌入设备和计算机系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>硬件驱动程序通常是直接和硬件紧密耦合的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这种方式导致了驱动程序难以维护和扩展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为每种新的硬件都可能需要全新的驱动代码<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+        
+          <p class="article-more-link">
+            <a href="2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="way2/archives/" rel="tag">archives</a></li></ul>
+
     </footer>
   </div>
   
@@ -240,7 +546,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="page/6/">6</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="page/2/">2</a><a class="page-number" href="page/3/">3</a><a class="extend next" rel="next" href="page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -248,84 +554,10 @@
       </div>
       <footer id="footer">
   
-    <aside id="sidebar" class="outer">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="2026/04/01/notes/claude-code-cli-source-analysis/">Claude Code CLI 源码深度分析 - 架构设计与实现原理</a>
-          </li>
-        
-          <li>
-            <a href="2026/03/14/notes/device-sync-implementation.md/">随身播放器同步功能的设计与实现</a>
-          </li>
-        
-          <li>
-            <a href="2026/03/02/share/%E6%B5%B7%E8%88%AA888%E5%A5%97%E5%8D%A1%E7%9B%AE%E7%9A%84%E5%9C%B0%E5%90%88%E9%9B%86/">海航888套卡目的地合集</a>
-          </li>
-        
-          <li>
-            <a href="2025/07/27/posts/%E5%AE%B6%E5%BA%AD%E8%BD%AF%E8%B7%AF%E7%94%B1%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88-%E7%88%B1%E5%BF%AB+openwrt/">家庭软路由部署方案-爱快+openwrt</a>
-          </li>
-        
-          <li>
-            <a href="2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
-          </li>
-        
-          <li>
-            <a href="2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/">为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型</a>
-          </li>
-        
-          <li>
-            <a href="2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
-          </li>
-        
-          <li>
-            <a href="2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
-          </li>
-        
-          <li>
-            <a href="2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
-          </li>
-        
-          <li>
-            <a href="2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/notes/">notes</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="way2/travel/" style="font-size: 10px;">#travel</a> <a href="way2/Bun/" style="font-size: 10px;">Bun</a> <a href="way2/CLI/" style="font-size: 10px;">CLI</a> <a href="way2/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="way2/archives/" style="font-size: 20px;">archives</a> <a href="way2/cpp/" style="font-size: 15px;">cpp</a> <a href="way2/embed/" style="font-size: 10px;">embed</a> <a href="way2/linux/" style="font-size: 15px;">linux</a> <a href="way2/note/" style="font-size: 10px;">note</a> <a href="way2/productivity/" style="font-size: 15px;">productivity</a> <a href="way2/share/" style="font-size: 10px;">share</a> <a href="way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 10px;">源码分析</a>
-    </div>
-  </div>
-
-  
-</aside>
-  
   <div class="outer">
     <div id="footer-info" class="inner">
       
-        <div id="footer-info" class="inner" style="border-top:1px solid \#e0e0e0;padding-top:1.5rem;margin-top:2rem;color:#666">© 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+        <div id="footer-info" class="inner"> © 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
       
     </div>
   </div>
@@ -334,36 +566,30 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/way2/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     
 
+
 <script src="js/clipboard.min.js"></script>
+
+
 <script src="js/jquery-1.4.3.min.js"></script>
 
+
+  
 <script src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
 
 
 <script src="js/script.js"></script>
 
 
 
-<!-- Busuanzi Analytics -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('pre code').forEach(function(block) {
-      hljs.highlightElement(block);
-    });
-  });
-</script>
 
 
 
@@ -379,36 +605,11 @@
     }
   };
 </script>
-<!-- <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-    CommonHTML: {
-      linebreaks: false
-    }
-  });
-  </script> -->
+
 <script type="text/javascript" id="MathJax-script" async
-  src="mathjax/tex-chtml.js">
+  src="/mathjax/tex-chtml.js">
 </script>
-<!-- <script type="text/javascript"
-   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
-</script> -->
-
-
 
   </div>
-
-        <style>
-            [bg-lazy] {
-                background-image: none !important;
-                background-color: #eee !important;
-            }
-        </style>
-        <script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                preloadRatio: 1,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</body>
 </html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>I2C应用编程 | Keyspire&#39;s Peakory</title>
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/ChineseMono-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-italic-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-normal-bold.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="I2C（Inter-Integrated Circuit）是一种广泛用于嵌入式系统的串行通信协议，允许多个设备通过两根数据线进行通信。在 Linux 系统中，I2C 设备通常挂载在 /dev 目录下，使用如 /dev/i2c-X 这样的设备文件进行访问。通过系统调用和特定的 I2C 操作命令，应用层程序可以与 I2C 设备进行读写操作。">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="../../../../../css/style.css">
+
+  
+    
+<link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/way2/archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/Linux I2C 应用编程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2024-11-19T00:00:00.000Z" itemprop="datePublished">2024-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      I2C应用编程
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>I2C<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Inter-Integrated Circuit<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>是一种广泛用于嵌入式系统的串行通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>允许多个设备通过两根数据线进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在 Linux 系统中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 设备通常挂载在 <code>/dev</code> 目录下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>使用如 <code>/dev/i2c-X</code> 这样的设备文件进行访问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过系统调用和特定的 I2C 操作命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应用层程序可以与 I2C 设备进行读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<span id="more"></span>
+<p>本教程将介绍如何使用 Linux 提供的 I2C 接口进行编程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>详细讲解关键的结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>系统调用以及常用的 I2C 工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以帮助开发者更好地理解和操作 I2C 设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="1-关键结构体"><a href="#1-关键结构体" class="headerlink" title="1. 关键结构体"></a>1. 关键结构体</h2><h3 id="1-1-struct-i2c-msg"><a href="#1-1-struct-i2c-msg" class="headerlink" title="1.1 struct i2c_msg"></a>1.1 <code>struct i2c_msg</code></h3><p><code>i2c_msg</code> 是 I2C 消息的描述结构体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于定义一次 I2C 通信中的单个传输消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它可以是读或写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并包含目标设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>数据缓冲区和数据长度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> &#123;</span></span><br><span class="line">    __u16 addr;    <span class="comment">// 从设备的地址</span></span><br><span class="line">    __u16 flags;   <span class="comment">// 操作标志位</span></span><br><span class="line">    __u16 len;     <span class="comment">// 要发送/接收的数据长度</span></span><br><span class="line">    __u8 *buf;     <span class="comment">// 数据缓冲区指针</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>主要标志位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></strong></p>
+<ul>
+<li><code>I2C_M_RD</code>: 表示读操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果未设置此标志<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则表示写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><code>I2C_M_TEN</code>: 表示使用 10 位地址模式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><code>I2C_M_STOP</code>: 表示在消息结束时生成 STOP 信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h3 id="1-2-struct-i2c-rdwr-ioctl-data"><a href="#1-2-struct-i2c-rdwr-ioctl-data" class="headerlink" title="1.2 struct i2c_rdwr_ioctl_data"></a>1.2 <code>struct i2c_rdwr_ioctl_data</code></h3><p><code>i2c_rdwr_ioctl_data</code> 结构体用于通过 <code>ioctl</code> 系统调用执行 I2C 读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它包含一个 <code>i2c_msg</code> 数组和消息的数量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_rdwr_ioctl_data</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> *<span class="title">msgs</span>;</span>  <span class="comment">// 指向消息数组</span></span><br><span class="line">    __u32 nmsgs;           <span class="comment">// 消息的数量</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-I2C-应用编程概述"><a href="#2-I2C-应用编程概述" class="headerlink" title="2. I2C 应用编程概述"></a>2. I2C 应用编程概述</h2><p>在用户空间中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>I2C 编程的核心操作是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ol>
+<li><strong>打开 I2C 设备</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过 <code>open()</code> 函数打开 <code>/dev/i2c-X</code> 设备文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>设置从设备地址</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>使用 <code>ioctl()</code> 系统调用设置目标从设备的地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>数据读写</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>通过 <code>read()</code> 和 <code>write()</code> 进行简单的读写操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或使用 <code>ioctl()</code> 进行复杂的多字节传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<h3 id="2-1-打开-I2C-设备"><a href="#2-1-打开-I2C-设备" class="headerlink" title="2.1 打开 I2C 设备"></a>2.1 打开 I2C 设备</h3><p>使用 <code>open()</code> 函数打开 I2C 设备文件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 <code>/dev/i2c-1</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> file;</span><br><span class="line">file = open(<span class="string">&quot;/dev/i2c-1&quot;</span>, O_RDWR);</span><br><span class="line"><span class="keyword">if</span> (file &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;Failed to open the i2c bus&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-设置从设备地址"><a href="#2-2-设置从设备地址" class="headerlink" title="2.2 设置从设备地址"></a>2.2 设置从设备地址</h3><p>通过 <code>ioctl()</code> 设置与哪个从设备进行通信<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> addr = <span class="number">0x50</span>; <span class="comment">// 从设备地址</span></span><br><span class="line"><span class="keyword">if</span> (ioctl(file, I2C_SLAVE, addr) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;Failed to acquire bus access and/or talk to slave&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>I2C_SLAVE</code> 是常用的 <code>ioctl</code> 命令<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用于设置 I2C 从设备地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="2-3-读写-I2C-数据"><a href="#2-3-读写-I2C-数据" class="headerlink" title="2.3 读写 I2C 数据"></a>2.3 读写 I2C 数据</h3><h4 id="2-3-1-写入数据"><a href="#2-3-1-写入数据" class="headerlink" title="2.3.1 写入数据"></a>2.3.1 写入数据</h4><p>使用 <code>write()</code> 函数将数据写入 I2C 设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> buffer[<span class="number">1</span>] = &#123; <span class="number">0xA0</span> &#125;;</span><br><span class="line"><span class="keyword">if</span> (write(file, buffer, <span class="number">1</span>) != <span class="number">1</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;Failed to write to the i2c bus&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-2-读取数据"><a href="#2-3-2-读取数据" class="headerlink" title="2.3.2 读取数据"></a>2.3.2 读取数据</h4><p>使用 <code>read()</code> 函数从 I2C 设备读取数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> buffer[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">if</span> (read(file, buffer, <span class="number">1</span>) != <span class="number">1</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;Failed to read from the i2c bus&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Data read: 0x%02x\n&quot;</span>, buffer[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-使用-ioctl-进行复杂读写操作"><a href="#2-4-使用-ioctl-进行复杂读写操作" class="headerlink" title="2.4 使用 ioctl 进行复杂读写操作"></a>2.4 使用 <code>ioctl</code> 进行复杂读写操作</h3><p>对于更复杂的读写操作<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>如多字节传输<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可以使用 <code>I2C_RDWR</code> 命令结合 <code>i2c_rdwr_ioctl_data</code> 来实现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h4 id="2-4-1-写入多个字节"><a href="#2-4-1-写入多个字节" class="headerlink" title="2.4.1 写入多个字节"></a>2.4.1 写入多个字节</h4><p>假设要向寄存器 0x10 写入两个字节的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> outbuf[<span class="number">3</span>] = &#123; <span class="number">0x10</span>, <span class="number">0x01</span>, <span class="number">0x02</span> &#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">messages</span>[1];</span></span><br><span class="line">messages[<span class="number">0</span>].addr  = addr;</span><br><span class="line">messages[<span class="number">0</span>].flags = <span class="number">0</span>;  <span class="comment">// 写操作</span></span><br><span class="line">messages[<span class="number">0</span>].len   = <span class="number">3</span>;</span><br><span class="line">messages[<span class="number">0</span>].buf   = outbuf;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_rdwr_ioctl_data</span> <span class="title">ioctl_data</span>;</span></span><br><span class="line">ioctl_data.msgs  = messages;</span><br><span class="line">ioctl_data.nmsgs = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;Failed to write to the i2c bus&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-读取寄存器数据"><a href="#2-4-2-读取寄存器数据" class="headerlink" title="2.4.2 读取寄存器数据"></a>2.4.2 读取寄存器数据</h4><p>通常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读取寄存器数据需要先写入寄存器地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再读取其数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>读取寄存器 0x10<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">char</span> reg = <span class="number">0x10</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> inbuf[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">messages</span>[2];</span></span><br><span class="line">messages[<span class="number">0</span>].addr  = addr;</span><br><span class="line">messages[<span class="number">0</span>].flags = <span class="number">0</span>;  <span class="comment">// 写操作</span></span><br><span class="line">messages[<span class="number">0</span>].len   = <span class="number">1</span>;</span><br><span class="line">messages[<span class="number">0</span>].buf   = &amp;reg;</span><br><span class="line"></span><br><span class="line">messages[<span class="number">1</span>].addr  = addr;</span><br><span class="line">messages[<span class="number">1</span>].flags = I2C_M_RD;  <span class="comment">// 读操作</span></span><br><span class="line">messages[<span class="number">1</span>].len   = <span class="number">1</span>;</span><br><span class="line">messages[<span class="number">1</span>].buf   = inbuf;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">i2c_rdwr_ioctl_data</span> <span class="title">ioctl_data</span>;</span></span><br><span class="line">ioctl_data.msgs  = messages;</span><br><span class="line">ioctl_data.nmsgs = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    perror(<span class="string">&quot;Failed to read from the i2c bus&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Register 0x10 read: 0x%02x\n&quot;</span>, inbuf[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-常用的-ioctl-命令"><a href="#3-常用的-ioctl-命令" class="headerlink" title="3. 常用的 ioctl 命令"></a>3. 常用的 <code>ioctl</code> 命令</h2><ul>
+<li><code>I2C_SLAVE</code>: 设置从设备地址<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><code>I2C_RDWR</code>: 执行多条 I2C 消息<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>读或写<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对应 <code>i2c_rdwr_ioctl_data</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<h2 id="4-完整的-I2C-应用层示例"><a href="#4-完整的-I2C-应用层示例" class="headerlink" title="4. 完整的 I2C 应用层示例"></a>4. 完整的 I2C 应用层示例</h2><p>以下是一个完整的示例程序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>展示如何通过 I2C 接口读取和写入数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/ioctl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/i2c-dev.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> file;</span><br><span class="line">    <span class="type">int</span> addr = <span class="number">0x50</span>; <span class="comment">// I2C 从设备地址</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打开 I2C 设备</span></span><br><span class="line">    <span class="keyword">if</span> ((file = open(<span class="string">&quot;/dev/i2c-1&quot;</span>, O_RDWR)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;Failed to open the i2c bus&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置从设备地址</span></span><br><span class="line">    <span class="keyword">if</span> (ioctl(file, I2C_SLAVE, addr) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;Failed to acquire bus access and/or talk to slave&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入数据到寄存器 0x10</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> outbuf[<span class="number">3</span>] = &#123; <span class="number">0x10</span>, <span class="number">0x01</span>, <span class="number">0x02</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (write(file, outbuf, <span class="number">3</span>) != <span class="number">3</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;Failed to write to the i2c bus&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取寄存器 0x10 的值</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> reg = <span class="number">0x10</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> inbuf[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">messages</span>[2];</span></span><br><span class="line">    messages[<span class="number">0</span>].addr  = addr;</span><br><span class="line">    messages[<span class="number">0</span>].flags = <span class="number">0</span>;</span><br><span class="line">    messages[<span class="number">0</span>].len   = <span class="number">1</span>;</span><br><span class="line">    messages[<span class="number">0</span>].buf   = &amp;reg;</span><br><span class="line"></span><br><span class="line">    messages[<span class="number">1</span>].addr  = addr;</span><br><span class="line">    messages[<span class="number">1</span>].flags = I2C_M_RD;</span><br><span class="line">    messages[<span class="number">1</span>].len   = <span class="number">1</span>;</span><br><span class="line">    messages[<span class="number">1</span>].buf   = inbuf;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">i2c_rdwr_ioctl_data</span> <span class="title">ioctl_data</span>;</span></span><br><span class="line">    ioctl_data.msgs  = messages;</span><br><span class="line">    ioctl_data.nmsgs = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ioctl(file, I2C_RDWR, &amp;ioctl_data) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;Failed to read from the i2c bus&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Register 0x10 read: 0x%02x\n&quot;</span>, inbuf[<span class="number">0</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    close(file);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-使用-i2c-tools-进行调试"><a href="#5-使用-i2c-tools-进行调试" class="headerlink" title="5. 使用 i2c-tools 进行调试"></a>5. 使用 <code>i2c-tools</code> 进行调试</h2><p><code>i2c-tools</code> 是一组用于调试 I2C 设备的工具集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其中包括 <code>i2cdetect</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>i2cget</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>i2cset</code> 和 <code>i2cdump</code> 等常用工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>以下是这些工具的使用介绍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h3 id="5-1-i2cdetect"><a href="#5-1-i2cdetect" class="headerlink" title="5.1 i2cdetect"></a>5.1 <code>i2cdetect</code></h3><p><code>i2cdetect</code> 用于扫描 I2C 总线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>查看哪些设备在响应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">i2cdetect -y 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-i2cget"><a href="#5-2-i2cget" class="headerlink" title="5.2 i2cget"></a>5.2 <code>i2cget</code></h3><p><code>i2cget</code> 用于读取 I2C 设备寄存器的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">i2cget -y 1 0x50 0x00</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-i2cset"><a href="#5-3-i2cset" class="headerlink" title="5.3 i2cset"></a>5.3 <code>i2cset</code></h3><p><code>i2cset</code> 用于向 I2C 设备写入数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">i2cset -y 1 0x50 0x00 0xFF</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-i2cdump"><a href="#5-4-i2cdump" class="headerlink" title="5.4 i2cdump"></a>5.4 <code>i2cdump</code></h3><p><code>i2cdump</code> 用于读取 I2C 设备的所有寄存器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并以十六进制输出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">i2cdump -y 1 0x50</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h2><p>I2C 是嵌入式系统中常见的通信协议<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在 Linux 中提供了丰富的用户空间接口来与设备交互<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通过使用 <code>open()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>read()</code><span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span><code>write()</code> 和 <code>ioctl()</code> 等系统调用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开发者可以轻松对 I2C 设备进行操作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><code>i2c-tools</code> 提供了一组命令行工具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能够帮助开发者快速调试和测试 I2C 总线设备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在嵌入式开发和硬件调试中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这些工具和接口都是非常重要的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>如需进一步了解 <code>i2c-tools</code> 的源码和开发方法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你可以访问 <a target="_blank" rel="noopener" href="https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git">i2c-tools 官方源码仓库</a><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../way2/archives/" rel="tag">archives</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../28/projs/ReelBlend/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ReelBlend：一键生成扫街照片与 POV 视频
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../09/03/notes/C++%20%E9%9D%A2%E7%BB%8F%E4%BB%A5%E5%8F%8A%E7%AD%94%E6%A1%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          C++ 面经以及答案
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/way2/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../../../../js/clipboard.min.js"></script>
+
+
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+
+  
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+
+  </div>
+</body>
+</html>
