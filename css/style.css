@@ -1651,3 +1651,8 @@ html {
 .article-indent .article-entry figcaption p {
   text-indent: 0;
 }
+/* 正文图片限高：整张可见不裁切，点开 fancybox 看原图 */
+.article-entry img {
+  max-height: 640px;
+  width: auto;
+}
