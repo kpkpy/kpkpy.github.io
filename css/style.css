@@ -1656,3 +1656,24 @@ html {
   max-height: 640px;
   width: auto;
 }
+/* 代码块对齐：hexo highlight 用 table 排版，会继承文章表格的 th/td 居中规则，
+   导致代码被居中。这里把代码表格的单元格强制左对齐，并去掉单元格内边距 */
+.article-entry figure.highlight table,
+.article-entry figure.highlight tbody,
+.article-entry figure.highlight tr,
+.article-entry figure.highlight td,
+.article-entry figure.highlight th,
+.article-entry figure.highlight pre,
+.article-entry figure.highlight code {
+  text-align: left;
+}
+.article-entry figure.highlight td {
+  padding: 0;
+  border-bottom: none;
+}
+.article-entry pre,
+.article-entry .highlight pre {
+  text-align: left;
+  white-space: pre;
+  overflow-x: auto;
+}
