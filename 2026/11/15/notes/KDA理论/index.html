@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>KDA 理论：位置、调度与场外变量 | Keyspire&#39;s Peakory</title>
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/ChineseMono-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-italic-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-normal-bold.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="本文把”版本答案”这类清单拆成三层来解释两件事：为什么它在陌生场景里确实管用，以及为什么它一旦被当成目标就必然落空。结论是清单优化的是位置份额，不是幸福；刀学（KDA）在其中只占最上面、也最窄的一层。
+摘要 我们把清单四项重新分为三层——资产层（3 秒印象、30 秒体态）、调度层（框架与节奏）、记账层（KDA 与刀意值），并给出两条结构结论：三层的收益按串联方式相乘，故整体由最弱一项决定；记账层不改变任何一层成功的概率，只改变成功之后归于谁，而它是零和的。由此得到主命题：清单优化的是位置份额 π，不是幸福 H；H 需要一条不参与位置分配的通道 Z。
+关键词 位置性商品；串联可靠度；配对比较；零和约束；Goodhart 定律">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="../../../../../css/style.css">
+
+  
+    
+<link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/way2/archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/KDA理论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2026-11-15T00:00:00.000Z" itemprop="datePublished">2026-11-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/notes/">notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      KDA 理论：位置、调度与场外变量
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本文把”版本答案”这类清单拆成三层来解释两件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>为什么它在陌生场景里确实管用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及为什么它一旦被当成目标就必然落空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>结论是清单优化的是<strong>位置份额</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>刀学<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>KDA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>在其中只占最上面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>也最窄的一层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>摘要</strong> 我们把清单四项重新分为三层——资产层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>3 秒印象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>30 秒体态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>调度层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>框架与节奏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>记账层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>KDA 与刀意值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并给出两条结构结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>三层的收益按串联方式相乘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>故整体由最弱一项决定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>记账层不改变任何一层成功的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只改变成功之后归于谁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而它是零和的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由此得到主命题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清单优化的是位置份额 π<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是幸福 H<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>H 需要一条不参与位置分配的通道 Z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>关键词</strong> 位置性商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>串联可靠度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>配对比较<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>零和约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>Goodhart 定律</p>
+<span id="more"></span>
+
+<h2 id="一、一个清单为什么总被执行成清单"><a href="#一、一个清单为什么总被执行成清单" class="headerlink" title="一、一个清单为什么总被执行成清单"></a>一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一个清单为什么总被执行成清单</h2><p>先承认一件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清单式的自我改造建议通常是有效的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且有效得相当具体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它的问题不在内容错<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而在<strong>用错了维度</strong>——它把一件多层的事压成了一张平铺的待办表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是每一项都被当成同等重要<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可互相替代<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>并且都可以靠加钱加时间来推进<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>下面把它拆开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>拆的依据不是价值观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是三件可核对的事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每项资产在什么时间窗内生效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>它改进的是哪一段概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>以及它最终进入哪本账<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="二、三层结构"><a href="#二、三层结构" class="headerlink" title="二、三层结构"></a>二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>三层结构</h2><p><img src="/images/kda-fig1.png"></p>
+<p>按”生效位置”重排清单四项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>L1 资产层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>3 秒印象<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>外形与状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>30 秒体态<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>可见的稳定度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></li>
+<li><strong>L2 调度层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>框架与节奏——谁定义此刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>什么时候切换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>切换几次</li>
+<li><strong>L3 记账层</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>位置份额<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即刀学与 KDA 所描述的东西</li>
+<li><strong>Z 场外分量</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>不参与位置分配<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>也不进入记账的部分</li>
+</ul>
+<p>三项性质先写下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后文逐条用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一是 L1 一次性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>窗口过后不再计价<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>二是 L2 可练习<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但收益随时间窗衰减<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>三是 L3 零和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Θ<sub>A</sub> + Θ<sub>B</sub> &#x3D; 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这里顺便给一个不太礼貌的结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>AI 在模型里的位置不是第四项能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是一个<strong>兑换器</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把 L3 的推演成本换成 L1 与 L2 的现场预算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>清单把它并列写成”AI”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等于把一个转换率当成了一项存量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="三、三个时间窗，以及它们为什么是相乘的"><a href="#三、三个时间窗，以及它们为什么是相乘的" class="headerlink" title="三、三个时间窗，以及它们为什么是相乘的"></a>三<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>三个时间窗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及它们为什么是相乘的</h2><p>3 秒窗口有直接的实验支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>短暂到 100 毫秒的暴露已足以形成特质判断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而延长观察时间主要提升的是判断者的<strong>信心</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是准确度<sup>[1]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这就是”3 秒定生死<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>之后只是加固”的实验版说法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>30 秒量级的行为片段对后续结果的预测力也有稳定的元分析证据<sup>[2]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/kda-fig2.png"></p>
+<p>把三个窗口记为 W₁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>W₂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>W₃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>各自被通过的概率为 p₁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>p₂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>p₃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>关键在于它们<strong>串联</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>第一段失败就不会进入第二段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第三段更是如此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>于是整体成功率 R &#x3D; p₁·p₂·p₃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>命题 1<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>最弱环<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> 在串联结构下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>R 对 ln pᵢ 的弹性恒为 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与 pᵢ 的大小无关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>但把 pᵢ 提升同样的绝对量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对 R 的相对增益与 pᵢ 成反比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>故同样的努力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>投在最弱一项上的收益最大<sup>[3]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>上图的数值只是示意<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>非实测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>把最弱项从 .55 提到 .75 得到 +36%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把最强项从 .70 提到 .90 只有 +28%——后者的改进幅度更大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>收益反而更小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>串联可靠性理论的经典结论就是这个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不需要新定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>命题 2<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>记账层不改概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> L3 的作用不落在任何 pᵢ 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它决定的是一段互动结束之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>成功归于谁的账<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这是模型里唯一一条纯定义的结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是后文所有麻烦的来源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="四、记账层：把刀学放回它的位置"><a href="#四、记账层：把刀学放回它的位置" class="headerlink" title="四、记账层：把刀学放回它的位置"></a>四<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>记账层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>把刀学放回它的位置</h2><p>这里才是”刀工三定律”该出现的地方——第四节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是第一节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>记 Θ 为位置份额的 logistic 参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>P(A 定义此刻) &#x3D; σ(Θ<sub>A</sub> − Θ<sub>B</sub>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>记 KDA 三元组为<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>K 框架切换成功次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>A 由旁观与第三方传导的等效增益<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>D 找补与自我判决次数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比率 κ &#x3D; (K + A + 1)&#x2F;(D + 1)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>平滑项不是装饰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>分母为零处未平滑比率的期望不存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>三条公理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>各对应一句谚语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li><strong>A1<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>自指失效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> 行为者若正确识别自己处于 K 位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>该次行为从 K 记入 D<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>形式上说的是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>谓词”是刀工”在自指处不可接地<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>ungrounded<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>真值只能由他者给出——与 Kripke 对真谓词不可自足的处理同型<sup>[4]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>A2<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>无关性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> Θ 的更新不含地位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>智力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>教育<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>健康<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>财富<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这条最不讲道理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>Zahavi 的 handicap 逻辑与传统信号模型都允许资源占优者购买更贵的信号<sup>[5]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>A2 说的是记账单位不接受货币兑换<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它没有机制保证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有经验支持<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>见第七节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li><strong>A3<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>相对性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> Θ<sub>A</sub> + Θ<sub>B</sub> &#x3D; 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p><strong>命题 3<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>可识别性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> 在 A3 下 Θ 只在配对比较中有定义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>log κ 与 Bradley–Terry 模型能力的充分统计量一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>κ 的最大似然估计即 BT 估计<sup>[6]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>比式竞争成功函数在 r &#x3D; 1 且强度参数指数化时化为 logistic<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与此同族<sup>[7]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>故”刀意值”没有绝对刻度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只有相对刻度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>推论很直接<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>任何”我很行”的自我评估都是不可识别参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这不是态度问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是 A3 的算术后果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="五、主命题：清单优化的是位置，不是幸福"><a href="#五、主命题：清单优化的是位置，不是幸福" class="headerlink" title="五、主命题：清单优化的是位置，不是幸福"></a>五<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>主命题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清单优化的是位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是幸福</h2><p>设位置份额 π 为 K 与 D 的函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>H 为前面那件事——一个人实际过得怎么样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>命题 4<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>零和约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> 二人零和博弈中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任何满足 U<sub>A</sub> &#x3D; u(Θ<sub>A</sub>)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>U<sub>B</sub> &#x3D; u(Θ<sub>B</sub>) 且 u 单调递增的效用对不存在帕累托改进<sup>[8]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因此若存在随互动进行而严格增加的 H<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>则 H 必含一个不依赖 Θ 分配的分量 Z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>命题 5<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>清单的维度错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span></strong> 清单四项作用于 L1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>L2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>L3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>故它们优化的是 π<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是 H<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在控制 Z 之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>∂H&#x2F;∂π → 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>位置性商品的经典论证给出的正是这一条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>当所有人都提高同一项时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>相对位置不变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>绝对收益被抵消<sup>[9]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="/images/kda-fig3a.png"></p>
+<p><em>图 3a　位置的势能面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>两个碗状的吸收域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间一道不稳定的脊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>等高线投在基面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>圆点是模拟观测样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p><img src="/images/kda-fig3b.png"></p>
+<p><em>图 3b　幸福曲面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>沿位置 π 近乎平坦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>沿场外分量 Z 单调上升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>位置爬得再高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高度也不进入这层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p><img src="/images/kda-fig3c.png"></p>
+<p><em>图 3c　位置份额随有效动作饱和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>K 加到一定量后颜色封顶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>D 一动整片掉回去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>边际收益递减的直接样子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>把命题 4 与 5 放在一起<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>“内心幸福高于所有版本答案之和”这句话就不再是一个价值排序<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是一个关于模型结构的断言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>这个博弈不是零和的</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它要么对要么错<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但不靠相信成立<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>上面中间那幅画的正是这件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>位置那一层怎么爬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高度都不会进入幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="六、为什么一个人的历史会锁死"><a href="#六、为什么一个人的历史会锁死" class="headerlink" title="六、为什么一个人的历史会锁死"></a>六<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>为什么一个人的历史会锁死</h2><p>A2 说 Θ 与什么无关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没规定它随什么变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>可观察的机制是赢者–败者效应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一次胜负改变下一次取胜的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>构成正反馈<sup>[10]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在双人重复互动中给出双稳态——Θ 收敛到两个吸收域之一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间态不稳定<sup>[11]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>图 3 的第一幅是这条动力学在<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Θ<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>场景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>平面上的势能曲面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>两个碗状的吸收域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间一道不稳定的脊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>三维展开的必要性在于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>单靠一维曲线看不出”从脊上下滑”是各向异性的——沿着场景轴几乎没有梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>沿着位置轴的梯度陡峭<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以位移通常发生在同一个场景里反复累积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是跨场景迁移<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>它解释了一个常见现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>单次被冷落后的自我判决不需要证据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它只把系统从中位推进了低域<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>此后每次互动都在为这个域补样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是判决显得越来越有证据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span><strong>那是稳态的性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是证据的性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong></p>
+<h2 id="七、可检验的预测"><a href="#七、可检验的预测" class="headerlink" title="七、可检验的预测"></a>七<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>可检验的预测</h2><ol>
+<li>κ 与收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>学历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>体型的相关系数应在 0 附近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>显著正相关即否定 A2<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>在无第三方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>无记录的二人互动中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>胜率应接近 BT 拟合<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>拟合失败说明 A3 过强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+<li>亲密关系中 κ 的提高不应带来 H 的提高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这条在三定律语境里反直觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却是命题 4 的直接推论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是本模型最容易被证伪之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ol>
+<h2 id="八、讨论"><a href="#八、讨论" class="headerlink" title="八、讨论"></a>八<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>讨论</h2><p>本模型只做了一件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>把清单从”四项能力”改写成”三个层 + 一个场外分量 + 一个兑换器”<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>改写的收益是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几件原本看起来矛盾的事变得一致——为什么清单在陌生场景里灵<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>为什么灵了还不满足<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>为什么把刀学当目标是自损<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Goodhart 的回归型变体<sup>[12]</sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>为什么一次冷落能把人推到长期低位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>刀学在其中只占一层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且是最窄的一层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>三定律之所以像定律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是因为它们描述的是约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>之所以像笑话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是因为约束被写成了谚语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p><strong>关于这些图的说明</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>三个曲面由标注的解析函数加少量噪声生成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>圆点是模拟观测样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是拟合数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>图 2 的 p 值同样只是示意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>真正要当依据用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得拿自己的样本估<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Willis, J., &amp; Todorov, A. (2006). First impressions: Making up your mind after a 100-ms exposure to a face. <em>Psychological Science</em>, 17(7), 592–598.</p>
+<p>[2] Ambady, N., &amp; Rosenthal, R. (1992). Thin slices of expressive behavior as predictors of interpersonal consequences: A meta-analysis. <em>Psychological Bulletin</em>, 111(2), 256–274.</p>
+<p>[3] Barlow, R. E., &amp; Proschan, F. (1975). <em>Statistical Theory of Reliability and Life Testing: Probability Models</em>. Holt, Rinehart and Winston.</p>
+<p>[4] Kripke, S. A. (1975). Outline of a theory of truth. <em>The Journal of Philosophy</em>, 72(19), 690–716.</p>
+<p>[5] Zahavi, A. (1975). Mate selection—A selection for a handicap. <em>Journal of Theoretical Biology</em>, 53(1), 205–214.</p>
+<p>[6] Bradley, R. A., &amp; Terry, M. E. (1952). Rank analysis of incomplete block designs: I. The method of paired comparisons. <em>Biometrika</em>, 39(3–4), 324–345.</p>
+<p>[7] Hirshleifer, J. (1989). Conflict and rent-seeking success functions: Ratio vs. difference models of relative success. <em>Public Choice</em>, 63(2), 101–112.</p>
+<p>[8] von Neumann, J., &amp; Morgenstern, O. (1944). <em>Theory of Games and Economic Behavior</em>. Princeton University Press.</p>
+<p>[9] Hirsch, F. (1976). <em>Social Limits to Growth</em>. Harvard University Press.</p>
+<p>[10] Dugatkin, L. A. (1997). Winner and loser effects and the structure of dominance hierarchies. <em>Behavioral Ecology</em>, 8(6), 583–587.</p>
+<p>[11] Mesterton-Gibbons, M. (1999). On the evolution of pure winner and loser effects: A game-theoretic model. <em>Bulletin of Mathematical Biology</em>, 61(6), 1151–1186.</p>
+<p>[12] Manheim, D., &amp; Garrabrant, S. (2018). Categorizing variants of Goodhart’s law. arXiv:1803.04585.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../12/posts/%E4%B8%89%E9%87%8C%E6%B2%B3%E7%9A%84%E9%93%B6%E6%9D%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          三里河的银杏
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/way2/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../../../../js/clipboard.min.js"></script>
+
+
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+
+  
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+
+  </div>
+</body>
+</html>
