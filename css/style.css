@@ -1657,6 +1657,16 @@ html {
   max-height: 640px;
   width: auto;
 }
+/* 表格：首列不折行，中文短词别被拆成两行 */
+.article-entry table th:first-child,
+.article-entry table td:first-child {
+  white-space: nowrap;
+}
+/* 公式行：过长时可横向滚动，字号略降，避免溢出正文栏 */
+.article-entry p.eq {
+  overflow-x: auto;
+  font-size: 0.94em;
+}
 /* 论文体：公式居中、配图满栏、图注规整 */
 .article-entry p.eq {
   text-align: center;

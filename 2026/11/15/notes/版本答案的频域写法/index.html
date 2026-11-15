@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>版本答案的频域写法 | Keyspire&#39;s Peakory</title>
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/ChineseMono-normal-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-italic-normal.min.css">
+
+  
+<link rel="stylesheet" href="../../../../../css/fonts/Chinese-normal-bold.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="我有个公式，用了两年，四项：黄毛、薄肌、孙学、AI。它确实管用——按它做的人，在陌生场合的处境会明显变好。但它一直有个解释不了的空：按它做完了，人还是不开心。
+我后来把它写成一条信号，才看清问题在哪。这四项不是四个能力，是五种时间尺度上叠加的东西。把它们压在同一个清单里，等于要求一个滤波器同时处理五个数量级的事情。
+先声明三件事。第一，下面出现的数学是记号，不是定理；它的作用是让“哪项会自己衰减、哪项不会”变得一眼可见。第二，能引文献的结论我会标出来，编的我也会说是我编的。第三，凡是写成公式的地方，后面都跟一句人话，不然就是拿符号糊人。">
+  
+  
+  
+    <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="../../../../../css/style.css">
+
+  
+    
+<link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox-1.3.4.css">
+
+  
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/way2/archives">Archives</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="../../../../../index.html" id="logo">Keyspire&#39;s Peakory</a>
+  </h1>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-notes/版本答案的频域写法" class="h-entry article article-type-post article-indent" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2026-11-15T00:00:00.000Z" itemprop="datePublished">2026-11-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/notes/">notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      版本答案的频域写法
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我有个公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用了两年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>四项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>黄毛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>薄肌<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>孙学<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>AI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它确实管用——按它做的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在陌生场合的处境会明显变好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但它一直有个解释不了的空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>按它做完了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人还是不开心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我后来把它写成一条信号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才看清问题在哪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这四项不是四个能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是五种时间尺度上叠加的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>把它们压在同一个清单里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等于要求一个滤波器同时处理五个数量级的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>先声明三件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下面出现的数学是记号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>它的作用是让<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>哪项会自己衰减<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>哪项不会<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>变得一眼可见<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能引文献的结论我会标出来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>编的我也会说是我编的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第三<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>凡是写成公式的地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后面都跟一句人话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不然就是拿符号糊人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<span id="more"></span>
+
+<h2 id="一、原版公式"><a href="#一、原版公式" class="headerlink" title="一、原版公式"></a>一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>原版公式</h2><p>四项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对应三个时间窗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>加一个不在窗口里的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>管什么</th>
+<th>时间尺度</th>
+<th>不练会怎样</th>
+<th>能花钱买吗</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>黄毛</td>
+<td>第一眼给人的印象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>像不像个有意思的人</td>
+<td>3 秒</td>
+<td>不维护就停在原地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但也不会自己变差</td>
+<td>部分能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>衣服发型有用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但买不来状态</td>
+</tr>
+<tr>
+<td>薄肌</td>
+<td>站那儿的时候紧不紧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>松不松</td>
+<td>30 秒</td>
+<td>停练就往下掉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>掉得比想象快</td>
+<td>不能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它只能练</td>
+</tr>
+<tr>
+<td>孙学</td>
+<td>三分钟里接不接得住话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>谁在定调</td>
+<td>3 分钟</td>
+<td>会退化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但恢复也快</td>
+<td>不能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它只能练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而且练法很便宜</td>
+</tr>
+<tr>
+<td>AI</td>
+<td>把想清楚的成本换出来</td>
+<td>不占窗口</td>
+<td>——</td>
+<td>这就是它唯一的作用</td>
+</tr>
+</tbody></table>
+<p>最后一行值得单独说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>AI 不是第五项能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它是一个兑换器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>把第三层要花的时间省下来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还给前两层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>清单把它并列写成<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>AI<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等于把汇率当成了一项存款<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="二、写成信号"><a href="#二、写成信号" class="headerlink" title="二、写成信号"></a>二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>写成信号</h2><p>同一件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>换个写法<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>把一个人的状态记成 f(τ)<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>τ 是时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>上面那张表的每一项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在时间轴上的形状都不一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p class=eq>f(τ) = A<sub>语言</sub>·sin(ω₁τ+φ₁) + A<sub>外形</sub>·e<sup>−λτ</sup>·cos(ω₂τ)</p>
+<p class=eq>＋ Σβ<sub>j</sub>·rect((τ−T<sub>j</sub>)/W<sub>j</sub>) ＋ ∫₀<sup>t</sup> r·e<sup>ρ(s−t)</sup>ds ＋ γ·δ(τ−τ<sub>饭点</sub>)</p>
+
+<p>五项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>逐项翻译成人话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><strong>语言能力是正弦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 备考时上去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>考完往下掉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>隔一年再捡起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又从原来的位置起步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以它有两个参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>振幅<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>你能到多高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>和相位<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>现在处于周期的哪个位置<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>同一个雅思分数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>刚考完<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>和<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>临考前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>是两种状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>外形是衰减振荡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 停练就往下掉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>衰减率 λ 决定掉多快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>cos 那一项是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>练—停—练<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的抖动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这解释了为什么外形是最容易被误判的一项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它掉得慢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以你以为不用管<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>等发现的时候已经过去两年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>技术窗口是矩形脉冲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 学 codex<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>做自媒体<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>搞 AI 短剧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都不是连续投入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一段一段的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>矩形函数的性质很死板<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>窗口外收益为零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这意味着<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>三年前学过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>在账本上等于没学<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>基金是积分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 每月定投<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>权重 e<sup>ρ(s−t)</sup> 随时间递减<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>早期的钱比晚期的钱重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这一项和其他四项性质相反<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>前面几项靠身体和注意力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这一项靠时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而时间是唯一不用你出力的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>饭点是狄拉克脉冲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 宽度为零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>面积有限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>瞬时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>但改变当天状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一顿沙县鸡腿饭不会改变你的长期曲线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但会改变今天下午的你——血糖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>注意力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>脾气<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure><img src=/images/kda-fig0.png><figcaption class=caption>图 1　各项在时间轴上的形状<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>正弦<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>周期<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>衰减振荡<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>贬值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>矩形<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>集中投入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>积分<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>复利<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>脉冲<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>瞬时冲击<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>右图是五项叠加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></figcaption></figure>
+
+<p>这张图只用来回答一个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>为什么这五项不能放进同一张待办表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>因为它们的时间尺度差了五六个数量级——3 秒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>30 秒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>3 分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>3 年<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>一次午饭<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你要在同一张纸上同时优化它们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>等于要求一次曝光同时拍清楚飞鸟和山<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="三、为什么清单必然失败：频带不匹配"><a href="#三、为什么清单必然失败：频带不匹配" class="headerlink" title="三、为什么清单必然失败：频带不匹配"></a>三<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>为什么清单必然失败<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>频带不匹配</h2><p>一个具体的例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>假设三段窗口各自被通过的概率是 p₁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>p₂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>p₃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它们不是并联的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是串联的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>第一段没过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后面两段根本没有机会出场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以整体成功率是</p>
+<p class=eq>R = p₁ · p₂ · p₃</p>
+
+<figure><img src=/images/kda-fig2.png><figcaption class=caption>图 2　三段窗口串联<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整体是逐项相乘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>同样的改进幅度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>落在最弱一项上收益最大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></figcaption></figure>
+
+<p>串联系统的结论不需要新定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可靠性理论里写着<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Barlow &amp; Proschan, 1975<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>最弱的那一环决定整体</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>图里那组数是示例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是测量——把最弱项从 .55 提到 .75<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整体涨 36%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>把最强项从 .70 提到 .90<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只涨 28%<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后者改得更多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>赚得更少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>所以<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>每天练聊天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>这种策略的问题不在不努力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在频带不对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>第三段练到 0.9<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>第一段还是 0.4<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整体被按在 0.4 附近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>而三秒那一段有实验支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>给被试看 100 毫秒的脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们形成的判断和看几秒形成的高度一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>延长观察时间主要增加的是信心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是准确度<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Willis &amp; Todorov, 2006<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>三十秒量级的行为片段对后续结果的预测力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也有稳定的元分析证据<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Ambady &amp; Rosenthal, 1992<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="四、记账层：谁在定调"><a href="#四、记账层：谁在定调" class="headerlink" title="四、记账层：谁在定调"></a>四<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>记账层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>谁在定调</h2><p>前三段讲的是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>能不能过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有一层是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>过了算谁的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这一层我用另一个记号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>借游戏里的 KDA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>K 是有效动作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>D 是解释自己<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>A 是旁人给的加成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>三者一比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p class=eq>κ = (K + A + 1) / (D + 1)</p>
+
+<p>分母加一是为了不失礼——一次都没解释自己的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不该给他一个无穷大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>举个例子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一次饭局<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你换成了三个话题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>每次对方都跟了<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>K &#x3D; 3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间没解释自己为什么这么讲<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>D &#x3D; 0<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>邻桌有人认出你替你说了句话<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>A &#x3D; 1<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>κ 是 5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>同一场饭<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果你也换了三次话题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但每次都补一句<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我平时不这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>D &#x3D; 3<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>κ 变成 1.25<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>差四倍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人没变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>账变了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这个数有三条约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>第一条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>自己意识到就不算</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>一边换话题一边清楚知道<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我正在控场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那次动作就要记到分母上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>定调成功的样子是不需要想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>一旦需要想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>表现出来的就是用力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而用力是看得见的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>第二条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>它跟地位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>学历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>健康不挂钩</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这条最不讲道理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>信号理论里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>资源多的人本来可以买到更贵的信号<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Spence, 1973<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>这里说的是另一件事——这个账本不收钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>第三条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>两个人的数加起来是零</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>你多一分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对面少一分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这条是纯算术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后果很硬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这个数没有绝对刻度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能两个人比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>任何<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我这个人到底行不行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的自评<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都是给一个量不出刻度的东西赋值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>顺带说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>三条合起来能推出一个技术结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>在只有胜负记录的条件下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>估计它的标准方法就是配对比较<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Bradley &amp; Terry, 1952<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这也意味着它天生只告诉你<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>相对谁高谁低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不告诉你<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>你有多好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="五、约束条件里，哪些是我编的"><a href="#五、约束条件里，哪些是我编的" class="headerlink" title="五、约束条件里，哪些是我编的"></a>五<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>约束条件里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>哪些是我编的</h2><p>前面一直用一条约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>内心幸福大于所有版本答案之和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>得说清楚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这条是设定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>同样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另外几条也得交代来源<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>幸福大于清单之和</strong>——这是我给自己定的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它不能被证明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能被检验<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>检验方法在第八节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>体脂的长期导数小于零<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>睡眠不少于每天七小时</strong>——这是底线约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>来自经验而不是定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它的意思是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这个模型的适用范围仅限<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>身体没垮<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>超出了就不适用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>不成立<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>精力守恒</strong>——这条最容易被人当成物理定律<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其实是记账恒等式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>写出来是</p>
+<p class=eq>∇·J<sub>精力</sub> = −∂ρ<sub>焦虑</sub>/∂t</p>
+
+<p>意思是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>精力从某处流走<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>焦虑就在那里积起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它唯一的作用是提醒一件事——精力不会凭空增加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能转移或减少泄漏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这不是深奥的发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是把常识写成了不容易自欺的形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="六、那条“定理”到底说了什么"><a href="#六、那条“定理”到底说了什么" class="headerlink" title="六、那条“定理”到底说了什么"></a>六<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>那条<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>定理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>到底说了什么</h2><p>原版公式里有一条结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>写成这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p class=eq>lim<sub>n→∞</sub> Σ 版本答案<sub>k</sub> = 内心幸福　⟺　Σ 版本答案<sub>k</sub> = 0</p>
+
+<p>字面读法是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>所有版本答案归零的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>幸福才收敛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这话听着很酷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但作为一个数学命题它是站不住的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我原来写的时候就知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是没敢拆开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>严格地说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>每一项都是正的投入产出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以和随项数增加而单调不减<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>它有上限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>收敛到一个常数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果把幸福<strong>定义</strong>成这个常数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那它就是一个固定的数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>永远不可能满足<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>幸福大于清单之和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>——两条约束直接打架<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>所以那条式子正确的读法不是恒等式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是归谬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<ul>
+<li>假设幸福等于版本答案之和的上限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>那么幸福不会超过这个上限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>但另一条约束要求幸福严格大于这个上限<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span></li>
+<li>两条不能同时成立<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></li>
+</ul>
+<p>结论是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span><strong>只要幸福被定义在级数里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这套东西就自相矛盾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 于是只有两条路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>要么放弃<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>幸福大于之和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>这条约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>承认幸福就是位置的总和——那是另一套人生观<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很多人就是这么活的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也活得挺好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>要么承认幸福有一部分在级数之外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我把它记作 Z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure><img src=/images/kda-fig3b.png><figcaption class=caption>图 3　两条路的差别<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>沿位置那一轴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高度几乎不变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>沿 Z 那一轴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高度才上升<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></figcaption></figure>
+
+<p>这张图是我对整个模型唯一有信心的部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>位置那一层无论怎么爬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高度都不进入幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>要往上走<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得有一条不参与位置分配的通道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它可能是有人真的在听你说话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可能是一件你觉得值得做的事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反正它不在清单上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="七、位置为什么会封顶，人为什么会锁死"><a href="#七、位置为什么会封顶，人为什么会锁死" class="headerlink" title="七、位置为什么会封顶，人为什么会锁死"></a>七<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>位置为什么会封顶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人为什么会锁死</h2><p>换成具体机制<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有两件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>第一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>位置是饱和的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 有效动作加到一定量以后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>颜色封顶——同样的投入换来的位置越来越少<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>经济学上这叫位置性商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>所有人都提高同一项时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>相对位置不变<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>花掉的钱互相抵消<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Hirsch, 1976<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure><img src=/images/kda-fig3c.png><figcaption class=caption>图 4　位置份额随有效动作饱和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>K 加到一定量后封顶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>D 一动整片掉回去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></figcaption></figure>
+
+<p><strong>第二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>位置有正反馈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 赢过一次的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下一次赢的概率更高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>输过一次的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下一次更低<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Dugatkin, 1997<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在重复互动里这会形成两个稳定的坑——要么稳定在高位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要么稳定在低位<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>中间那道坎站不住<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Mesterton-Gibbons, 1999<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<figure><img src=/images/kda-fig3a.png><figcaption class=caption>图 5　位置的两个坑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>中间那道坎不稳定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>等高线投在基面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>圆点是模拟观测样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></figcaption></figure>
+
+<p>画成三维不是装饰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一维曲线看不出下滑是各向异性的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>沿着场景轴几乎没有梯度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>沿着位置轴很陡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>所以位移通常发生在同一个场景里反复累积<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而不是换个场景就重来——这也是为什么换工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>换城市经常解决不了这种事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我自己的经验是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>被冷落之后那句<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我大概不行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不需要任何证据支持<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它只是把你从坎上推下去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>之后每次互动都在为那个坑补样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是判决显得越来越有依据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那是稳态的性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是证据的性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="八、这套东西能被推翻的地方"><a href="#八、这套东西能被推翻的地方" class="headerlink" title="八、这套东西能被推翻的地方"></a>八<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>这套东西能被推翻的地方</h2><p>一个理论如果什么都能解释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就等于什么都没解释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>三条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任何一条被证伪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这套就得改<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>一<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个数跟收入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>学历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>体型的相关系数应该在 0 附近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 显著正相关<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>说明<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>账本不收钱<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>是错的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得重写第二三层的分工<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>二<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在没有第三方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>没有记录的两个人之间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>胜率应该能被配对比较模型拟合得很好</strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Bradley &amp; Terry, 1952<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>拟合不上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>说明<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>只能相对比较<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>这个假设太强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>三<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在长期关系里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个数的提高不应该带来幸福感的提高<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 这条最反直觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是我最愿意拿来赌的一条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果它被推翻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>说明位置真的能换幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那这套清单就不只是有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是够用了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<h2 id="九、怎么用"><a href="#九、怎么用" class="headerlink" title="九、怎么用"></a>九<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>怎么用</h2><p>三条<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都很小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>按时间窗排<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不要按重要性排<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 黄毛归三秒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>薄肌归三十秒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>孙学归三分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>AI 不占窗口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这一条改写完之后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>清单的性质就变了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>它不再是一张待办表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是几个不同周期的待办表<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>给 Z 留固定时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不计入成绩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 这一项的特殊之处是它不能拿来优化——一旦你开始计算<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>今天陪人聊天有没有换来幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它就变成了级数里的一项<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按上一节的结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它立刻失效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong>在低谷时不做自我判决<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></strong> 因为低谷本身就是正反馈的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那时的判断不是证据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是稳态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>最后说一句不好听的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这套东西从头到尾只在做一件事——把<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我不想承认的事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>写成可以算的形式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它不能替你做选择<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能让你在做选择的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>少骗自己一点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p><strong>延伸阅读</strong></p>
+<ul>
+<li>Willis, J., &amp; Todorov, A. (2006). First impressions: Making up your mind after a 100-ms exposure to a face. <em>Psychological Science</em>, 17(7).</li>
+<li>Ambady, N., &amp; Rosenthal, R. (1992). Thin slices of expressive behavior as predictors of interpersonal consequences. <em>Psychological Bulletin</em>, 111(2).</li>
+<li>Barlow, R. E., &amp; Proschan, F. (1975). <em>Statistical Theory of Reliability and Life Testing</em>. Holt, Rinehart and Winston.</li>
+<li>Bradley, R. A., &amp; Terry, M. E. (1952). Rank analysis of incomplete block designs I. <em>Biometrika</em>, 39(3–4).</li>
+<li>Spence, M. (1973). Job market signaling. <em>The Quarterly Journal of Economics</em>, 87(3).</li>
+<li>Hirsch, F. (1976). <em>Social Limits to Growth</em>. Harvard University Press.</li>
+<li>Dugatkin, L. A. (1997). Winner and loser effects and the structure of dominance hierarchies. <em>Behavioral Ecology</em>, 8(6).</li>
+<li>Mesterton-Gibbons, M. (1999). On the evolution of pure winner and loser effects. <em>Bulletin of Mathematical Biology</em>, 61(6).</li>
+</ul>
+<p>图 1 的曲线按文中函数画出<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>参数选得能让五项在同一画面里看清<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不对应实测数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>图 2 的 p 值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>图 3 到图 5 的曲面同样是示意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>圆点是模拟样本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../../../12/posts/%E4%B8%89%E9%87%8C%E6%B2%B3%E7%9A%84%E9%93%B6%E6%9D%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          三里河的银杏
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+        <div id="footer-info" class="inner"> © 2025 <a href="https://github.com/kpkpy" target="_blank">kpkpy</a><br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br></div>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/way2/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../../../../js/clipboard.min.js"></script>
+
+
+<script src="../../../../../js/jquery-1.4.3.min.js"></script>
+
+
+  
+<script src="../../../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+
+
+<script src="../../../../../js/script.js"></script>
+
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async
+  src="../../../../../mathjax/tex-chtml.js">
+</script>
+
+  </div>
+</body>
+</html>
