@@ -1680,10 +1680,10 @@ html {
   text-align: center;
 }
 .article-entry figure img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
-  max-height: 640px;
-  object-fit: contain;
+  max-height: none;
   display: block;
   margin: 0 auto;
 }
