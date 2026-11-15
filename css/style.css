@@ -1665,7 +1665,8 @@ html {
 /* 公式行：过长时可横向滚动，字号略降，避免溢出正文栏 */
 .article-entry p.eq {
   overflow-x: auto;
-  font-size: 0.94em;
+  font-size: 0.9em;
+  letter-spacing: 0;
 }
 /* 论文体：公式居中、配图满栏、图注规整 */
 .article-entry p.eq {
