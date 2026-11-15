@@ -58,7 +58,7 @@
       <div id="content" class="outer">
         <section id="main">
   
-    <article id="post-notes/KDA理论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-notes/KDA理论" class="h-entry article article-type-post article-indent" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="2026/11/15/notes/KDA%E7%90%86%E8%AE%BA/" class="article-date">
   <time class="dt-published" datetime="2026-11-15T00:00:00.000Z" itemprop="datePublished">2026-11-15</time>
@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="2026/11/15/notes/KDA%E7%90%86%E8%AE%BA/">KDA 理论：位置、调度与场外变量</a>
+      <a class="p-name article-title" href="2026/11/15/notes/KDA%E7%90%86%E8%AE%BA/">KDA：把“版本答案”拆成三层看</a>
     </h1>
   
 
@@ -85,9 +85,10 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>本文把”版本答案”这类清单拆成三层来解释两件事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>为什么它在陌生场景里确实管用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及为什么它一旦被当成目标就必然落空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>结论是清单优化的是<strong>位置份额</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是幸福<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>刀学<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>KDA<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>在其中只占最上面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>也最窄的一层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><strong>摘要</strong> 我们把清单四项重新分为三层——资产层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>3 秒印象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>30 秒体态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>调度层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>框架与节奏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>记账层<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>KDA 与刀意值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并给出两条结构结论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>三层的收益按串联方式相乘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>故整体由最弱一项决定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>记账层不改变任何一层成功的概率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只改变成功之后归于谁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而它是零和的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>由此得到主命题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>清单优化的是位置份额 π<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不是幸福 H<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>H 需要一条不参与位置分配的通道 Z<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
-<p><strong>关键词</strong> 位置性商品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>串联可靠度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>配对比较<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>零和约束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>；</h-inner></h-char></span>Goodhart 定律</p>
+        <p>先说名字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>KDA 是借来的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>游戏里指击杀<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>死亡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>助攻的比值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用来看一局打得值不值<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我借它是因为结构一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>这里 K 是有效动作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>D 是找补和自我判决<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>A 是旁观的加成<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>三者一比<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到一个数 κ<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p class=eq>κ = (K + A + 1) / (D + 1)</p>
+
+<p>分母加一是为了不失礼——一个人一次都没找补时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不该给他一个无穷大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
         
           <p class="article-more-link">
             <a href="2026/11/15/notes/KDA%E7%90%86%E8%AE%BA/#more">Read More</a>

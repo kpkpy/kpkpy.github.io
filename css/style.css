@@ -1643,6 +1643,7 @@ html {
   text-indent: 2em;
 }
 .article-indent .article-entry p.article-more-link,
+.article-indent .article-entry p.eq,
 .article-indent .article-entry li p,
 .article-indent .article-entry blockquote p,
 .article-indent .article-entry td p,
@@ -1655,6 +1656,31 @@ html {
 .article-entry img {
   max-height: 640px;
   width: auto;
+}
+/* 论文体：公式居中、配图满栏、图注规整 */
+.article-entry p.eq {
+  text-align: center;
+  margin: 1.5em 0;
+  font-size: 1.02em;
+  letter-spacing: 0.02em;
+}
+.article-entry figure {
+  margin: 2.2em 0;
+  text-align: center;
+}
+.article-entry figure img {
+  width: 100%;
+  height: auto;
+  max-height: 640px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.article-entry figcaption.caption {
+  margin-top: 0.7em;
+  font-size: 0.86em;
+  line-height: 1.7;
+  color: #8a8a8a;
 }
 /* 代码块对齐：hexo highlight 用 table 排版，会继承文章表格的 th/td 居中规则，
    导致代码被居中。这里把代码表格的单元格强制左对齐，并去掉单元格内边距 */
