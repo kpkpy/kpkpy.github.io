@@ -64,6 +64,62 @@
       <div id="content" class="outer">
         <section id="main">
   
+    <article id="post-notes/Pinctrl和GPIO子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2024-12-08T00:00:00.000Z" itemprop="datePublished">2024-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/notes/">notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry article-type-post" itemprop="articleBody">
+      
+        <p><strong>Pinctrl 子系统</strong>：负责管理引脚的复用与配置。它允许将引脚配置为不同的功能（如 GPIO、I2C、UART 等）并设置引脚的电气特性（如上拉、下拉等）。<br><strong>GPIO 子系统：</strong> 主要负责对通用输入输出引脚的管理。它提供 API 来配置引脚为输入或输出，并控制引脚的电平状态。<br><strong>层次结构：</strong> Pinctrl 子系统位于 GPIO 子系统之上。Pinctrl 负责引脚的初步配置和复用，而 GPIO 子系统则利用这些配置来实现输入输出操作，两者有密切的关系，先配置Pinctrl，在配置GPIO。</p>
+<ul>
+<li>引脚配置：首先，通过 Pinctrl 子系统配置引脚的功能。例如，将某个引脚设置为 GPIO 功能。</li>
+<li>状态管理：然后，GPIO 子系统使用这些配置来管理引脚的电平状态（读取或设置引脚电平）。</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/embed/" rel="tag">embed</a></li></ul>
+
+      <span id="2024/12/08/notes/Pinctrl和GPIO子系统/" class="post-meta-item" style="margin-left: 10px;">
+        <span class="busuanzi-value" id="busuanzi_value_page_2024_12_08_notes_Pinctrl和GPIO子系统_"></span> 次阅读
+      </span>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-notes/驱动进化之路" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2024/11/29/notes/%E9%A9%B1%E5%8A%A8%E8%BF%9B%E5%8C%96%E4%B9%8B%E8%B7%AF/" class="article-date">
@@ -169,58 +225,6 @@
 
 
   
-    <article id="post-projs/ReelBlend" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2024/11/28/projs/ReelBlend/" class="article-date">
-  <time class="dt-published" datetime="2024-11-28T00:00:00.000Z" itemprop="datePublished">2024-11-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/projs/">projs</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
-    </h1>
-  
-
-      </header>
-    
-    
-    <div class="e-content article-entry article-type-post" itemprop="articleBody">
-      
-        <p>街拍摄影与 POV（第一人称视角）视频，已经成为当下社交媒体内容创作的热门形式。尤其是在平台如 YouTube、Instagram 和 TikTok 上，创作者通过动态的视频和静态的照片交替展示，捕捉街头氛围与视觉冲击力，吸引了大量粉丝。然而，这类视频的制作常常需要繁琐的后期剪辑工作，对非专业人士来说是一个技术和时间的双重挑战。</p>
-        
-          <p class="article-more-link">
-            <a href="../../2024/11/28/projs/ReelBlend/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
-
-      <span id="2024/11/28/projs/ReelBlend/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2024_11_28_projs_ReelBlend_"></span> 次阅读
-      </span>
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -240,6 +244,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../2026/11/18/notes/%E6%8E%92%E8%A1%8C%E6%A6%9C/">排行榜</a>
+          </li>
         
           <li>
             <a href="../../2026/11/18/posts/%E6%8A%8A%E5%88%A9%E7%8E%87%E7%BF%BB%E8%AF%91%E6%88%90%E9%92%B1/">把利率翻译成钱</a>
@@ -277,10 +285,6 @@
             <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
           </li>
         
-          <li>
-            <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -290,7 +294,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/notes/">notes</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/posts/">posts</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/projs/">projs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/share/">share</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/notes/">notes</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/posts/">posts</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/projs/">projs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/share/">share</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -300,7 +304,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../way2/travel/" style="font-size: 10px;">#travel</a> <a href="../../way2/Bun/" style="font-size: 10px;">Bun</a> <a href="../../way2/CLI/" style="font-size: 10px;">CLI</a> <a href="../../way2/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../way2/note/" style="font-size: 10px;">note</a> <a href="../../way2/productivity/" style="font-size: 13.33px;">productivity</a> <a href="../../way2/project/" style="font-size: 10px;">project</a> <a href="../../way2/share/" style="font-size: 13.33px;">share</a> <a href="../../way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 10px;">源码分析</a> <a href="../../way2/%E9%87%91%E8%9E%8D/" style="font-size: 10px;">金融</a>
+      <a href="../../way2/travel/" style="font-size: 10px;">#travel</a> <a href="../../way2/Bun/" style="font-size: 10px;">Bun</a> <a href="../../way2/CLI/" style="font-size: 10px;">CLI</a> <a href="../../way2/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../way2/note/" style="font-size: 10px;">note</a> <a href="../../way2/productivity/" style="font-size: 13.33px;">productivity</a> <a href="../../way2/project/" style="font-size: 10px;">project</a> <a href="../../way2/share/" style="font-size: 13.33px;">share</a> <a href="../../way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 10px;">源码分析</a> <a href="../../way2/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 10px;">社会学</a> <a href="../../way2/%E9%87%91%E8%9E%8D/" style="font-size: 10px;">金融</a>
     </div>
   </div>
 
