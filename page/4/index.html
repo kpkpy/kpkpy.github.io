@@ -64,12 +64,16 @@
       <div id="content" class="outer">
         <section id="main">
   
-    <article id="post-projs/ReelBlend" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-notes/从 LAMP 到前后端分离：架构演进与技术实践" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2024/11/28/projs/ReelBlend/" class="article-date">
-  <time class="dt-published" datetime="2024-11-27T16:00:00.000Z" itemprop="datePublished">2024-11-28</time>
+    <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" class="article-date">
+  <time class="dt-published" datetime="2025-05-04T00:00:00.000Z" itemprop="datePublished">2025-05-04</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/notes/">notes</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,20 +82,20 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
+      <a class="p-name article-title" href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
     </h1>
   
 
       </header>
     
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    <div class="e-content article-entry article-type-post" itemprop="articleBody">
       
-        <p>街拍摄影与 POV（第一人称视角）视频，已经成为当下社交媒体内容创作的热门形式。尤其是在平台如 YouTube、Instagram 和 TikTok 上，创作者通过动态的视频和静态的照片交替展示，捕捉街头氛围与视觉冲击力，吸引了大量粉丝。然而，这类视频的制作常常需要繁琐的后期剪辑工作，对非专业人士来说是一个技术和时间的双重挑战。</p>
-<p>为了填补这一痛点，我设想了一款工具，能够一键实现扫街照片与 POV 视频的交叉拼接，生成适配社交媒体标准的视频。本文将从软件工程的角度，深入探讨如何从想法出发，完成需求分析与系统设计，并最终实现这款工具。</p>
+        <h2 id="LAMP-架构：传统-Web-开发的基石"><a href="#LAMP-架构：传统-Web-开发的基石" class="headerlink" title="LAMP 架构：传统 Web 开发的基石"></a>LAMP 架构：传统 Web 开发的基石</h2><p>在早期的 Web 开发领域，LAMP 架构犹如一座坚固的基石，支撑起无数动态网站的构建。LAMP，即 Linux + Apache + MySQL + PHP&#x2F;Perl&#x2F;Python，是一组开源软件的组合，它们协同工作，为 Web 应用提供了完整的运行环境。</p>
+<p>随着移动互联网的迅猛发展，用户对于应用的体验和功能需求变得更加多样化和复杂。在这个背景下，传统的 LAMP 架构逐渐显得力不从心，其局限性愈发凸显，这也促使了前后端分离模式的诞生，成为 Web 开发领域的一次重要变革。</p>
         
           <p class="article-more-link">
-            <a href="../../2024/11/28/projs/ReelBlend/#more">Read More</a>
+            <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/#more">Read More</a>
           </p>
         
       
@@ -100,10 +104,10 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/linux/" rel="tag">linux</a></li></ul>
 
-      <span id="2024/11/28/projs/ReelBlend/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2024_11_28_projs_ReelBlend_"></span> 次阅读
+      <span id="2025/05/04/notes/从 LAMP 到前后端分离：架构演进与技术实践/" class="post-meta-item" style="margin-left: 10px;">
+        <span class="busuanzi-value" id="busuanzi_value_page_2025_05_04_notes_从 LAMP 到前后端分离：架构演进与技术实践_"></span> 次阅读
       </span>
     </footer>
   </div>
@@ -113,12 +117,16 @@
 
 
   
-    <article id="post-notes/江科大STM32学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-posts/Windows部署Hexon可视化博客环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2023-09-02T16:00:00.000Z" itemprop="datePublished">2023-09-03</time>
+    <a href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time class="dt-published" datetime="2025-02-18T00:00:00.000Z" itemprop="datePublished">2025-02-18</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/posts/">posts</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -127,19 +135,25 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">江科大STM32学习笔记</a>
+      <a class="p-name article-title" href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
     </h1>
   
 
       </header>
     
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    <div class="e-content article-entry article-type-post" itemprop="articleBody">
       
-        <h1 id="江科大STM32"><a href="#江科大STM32" class="headerlink" title="江科大STM32"></a>江科大STM32</h1>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>你在使用hexo写文章的时候是不是还在</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span></span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>这样写文章不仅效率慢而且管理起来也不方便，所以今天我就带来了这个项目——hexon</p>
+<p>hexon是一个带有git的hexo图形化界面，可以运行命令和管理内容，Hexo 本身是一个基于 Node.js 的静态博客框架，没有官方的图形化界面（GUI）。不过，你可以使用 <strong>Hexo Admin</strong> 或 <strong>第三方 Hexo 可视化管理工具</strong> 来提供类似图形界面的管理方式。</p>
+<p>这是它的github链接</p>
+<p><a target="_blank" rel="noopener" href="https://github/gethexon/hexon">https://github/gethexon/hexon</a></p>
         
           <p class="article-more-link">
-            <a href="../../2023/09/03/notes/%E6%B1%9F%E7%A7%91%E5%A4%A7STM32%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">Read More</a>
+            <a href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/#more">Read More</a>
           </p>
         
       
@@ -148,10 +162,10 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/note/" rel="tag">note</a></li></ul>
 
-      <span id="2023/09/03/notes/江科大STM32学习笔记/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2023_09_03_notes_江科大STM32学习笔记_"></span> 次阅读
+      <span id="2025/02/18/posts/Windows部署Hexon可视化博客环境/" class="post-meta-item" style="margin-left: 10px;">
+        <span class="busuanzi-value" id="busuanzi_value_page_2025_02_18_posts_Windows部署Hexon可视化博客环境_"></span> 次阅读
       </span>
     </footer>
   </div>
@@ -161,12 +175,16 @@
 
 
   
-    <article id="post-share/MacOS外接显卡折腾记录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-notes/Pinctrl和GPIO子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2023/05/15/share/MacOS%E5%A4%96%E6%8E%A5%E6%98%BE%E5%8D%A1%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time class="dt-published" datetime="2023-05-14T16:00:00.000Z" itemprop="datePublished">2023-05-15</time>
+    <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2024-12-08T00:00:00.000Z" itemprop="datePublished">2024-12-08</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/notes/">notes</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -175,88 +193,35 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/05/15/share/MacOS%E5%A4%96%E6%8E%A5%E6%98%BE%E5%8D%A1%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">MacOS外接显卡折腾记录</a>
+      <a class="p-name article-title" href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
     </h1>
   
 
       </header>
     
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    <div class="e-content article-entry article-type-post" itemprop="articleBody">
       
-        <span id="more"></span>
-
-
-
-<p>偶然看见外接GPU这种玩法, 我的MacBook也有雷电三接�? 最近正好觉得写VsCode有些小小卡顿, 也不想大费周折换个新电脑, 只想继续使用这个MacBook (强行找需�?0 ), 所以想搞一个外接显卡来玩玩.</p>
-<p>我的硬件设备列表: </p>
+        <p><strong>Pinctrl 子系统</strong>：负责管理引脚的复用与配置。它允许将引脚配置为不同的功能（如 GPIO、I2C、UART 等）并设置引脚的电气特性（如上拉、下拉等）。<br><strong>GPIO 子系统：</strong> 主要负责对通用输入输出引脚的管理。它提供 API 来配置引脚为输入或输出，并控制引脚的电平状态。<br><strong>层次结构：</strong> Pinctrl 子系统位于 GPIO 子系统之上。Pinctrl 负责引脚的初步配置和复用，而 GPIO 子系统则利用这些配置来实现输入输出操作，两者有密切的关系，先配置Pinctrl，在配置GPIO。</p>
 <ul>
-<li>Macbook Pro 2018 13 inch</li>
-<li>macOS Monterey 12.01</li>
-<li>Razer Core V1 (RC21-0094)</li>
-<li>AMD Raedon RX5700</li>
+<li>引脚配置：首先，通过 Pinctrl 子系统配置引脚的功能。例如，将某个引脚设置为 GPIO 功能。</li>
+<li>状态管理：然后，GPIO 子系统使用这些配置来管理引脚的电平状态（读取或设置引脚电平）。</li>
 </ul>
-<p>其中的Razer Core 不同于现在正在售的Razer Core X, 它是相当早版本的一个外接显�? 而外接显卡由于售价原因一直停留小�? 所以在网络上能找到关于它的内容是比较少�? 这也导致了我之后差点踩坑.</p>
-<h2 id="eGPU外接显卡"><a href="#eGPU外接显卡" class="headerlink" title="eGPU外接显卡"></a>eGPU外接显卡</h2><p>外接显卡最吸引我的一个点就是它能让本来性能很弱但很具有便携性的设备拥有同等台式机的性能, 在保持灵活性优势的同时弥补设备的性能短板. </p>
-<p>雷电三外接显卡是一种外置式图形处理器（eGPU），由Intel和苹果公司联合开发。它可以通过Thunderbolt 3接口与苹果电脑或其他兼容设备连接，为其提供额外的图形处理能力。用户可以将雷电三外接显卡与笔记本电脑、超极本或台式电脑等设备配合使用，以提高计算机在图形处理方面的性能表现�?<br>雷电三外接显卡通常配备独立显卡，例如Nvidia或AMD的高性能显卡，可以提供比集成显卡更出色的图形性能，能够满足一些对图形处理要求较高的应用需求，如视频编辑�?D建模、游戏等�?<br>雷电三外接显卡具有插即用的优点，不需要安装驱动程序，可以实现即插即用。同时，它的便携性也使得用户可以轻松将其带到不同的地方使用�?<br>但由于显卡坞昂贵的售�?主流显卡坞一般在500美元左右), 而且虽然显卡坞可以提供便携式设备的图形升级路径，但这并不是一项完美的解决方案。显卡坞本身通常是笨重的，而且用户需要安装和拆卸显卡，这可能不是一项方便的过程�?这些原因这种玩法始终属于小众, 但现在支持雷�?&#x2F;雷电4&#x2F;USB4的设备越来越�? 若显卡坞之后能够慢慢降价, 这个玩法可能会慢慢流�? </p>
-<p>雷电3协议是由英特尔和苹果共同开发的一种高速传输协议，主要用于连接外部设备，例如外接显卡、外置硬盘、网络适配器等。它基于PCI Express 3.0和Thunderbolt技术，具有带宽高、速度快、延迟低等优点�?<br>雷电3协议的最大带宽可达到40Gbps，远高于USB 3.1的带宽，这意味着可以通过雷电3接口实现快速数据传输和高速图形处理。此外，雷电3接口还支持Daisy Chain（串联）功能，使得多个外设可以通过单个Thunderbolt 3端口连接到电脑上，大大减少了接线混乱的问�?</p>
-<h2 id="Thunderbolt3-x2F-4"><a href="#Thunderbolt3-x2F-4" class="headerlink" title="Thunderbolt3&#x2F;4"></a>Thunderbolt3&#x2F;4</h2><p>雷电3协议是由英特尔和苹果共同开发的一种高速传输协议，主要用于连接外部设备，例如外接显卡、外置硬盘、网络适配器等。它基于PCI Express 3.0和Thunderbolt技术，具有带宽高、速度快、延迟低等优点�?<br>雷电3协议�?*最大带宽可达到40Gbps**，远高于USB 3.1的带宽，这意味着可以通过雷电3接口实现快速数据传输和高速图形处理。此外，雷电3接口还支持Daisy Chain（串联）功能，使得多个外设可以通过单个Thunderbolt 3端口连接到电脑上，大大减少了接线混乱的问题�?<br>值得注意的是, 在雷�?协议的初�? 虽然很多笔记本电脑都具有雷电3接口, 通过USB-C接口实现Thunderbolt 3速度和功能的接口类型。它之所以被称为“半血雷电3”，是因为它仅支持Thunderbolt 3的一部分功能，而不是完全支持Thunderbolt 3的全部功�? 但Intel10代之后的cpu支持了雷电接口直连CPU, 所以Intel10代之后的设备不会再有半血雷电3接口. 对于MacBook来说, �?016年的MacBookPro开�? 苹果就支持完整的雷电3接口, 所以外接显卡理论上不会在我的MacBook上表现出太大的性能损失.</p>
-<p>现在新型的设备都开始支持Thunderbolt4协议, Thunderbolt 4的最大速度�?0Gbps，与Thunderbolt 3相同, 但是它支持带宽的动态分�? Thunderbolt4(一般是Intel的CPU)和USB4(一般是AMD的CPU)都是支持向下兼容雷电3�?</p>
-<h2 id="显卡与MacOS的兼容�"><a href="#显卡与MacOS的兼容�" class="headerlink" title="显卡与MacOS的兼容�?"></a>显卡与MacOS的兼容�?</h2><p>早在10系列的时�? 苹果就和英伟达闹掰了, 所以现在MacOS几乎是不可能支持较新的N卡了, 可以直接放弃考虑(除非只用BootCamp运行Windows系统使用, 而这显然不符合我的目�?, 所以可以直接考虑AMD显卡, 以下是苹果对AMD各个系列的支持�? 也可以在苹果官网查到.</p>
-<p>**AMD Radeon RX 6800�?800 XT �?6900 XT **</p>
-<p>如果你安装了 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201541">macOS Big Sur 11.4 或更高版本</a>，则可以使用以下基于 AMD Navi RDNA2 架构的图形卡。推荐使用的图形卡包�?AMD Radeon RX 6800、AMD Radeon RX 6800 XT �?AMD Radeon RX 6900 XT<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208544#footnotes">7</a>�?</p>
-<p><strong>AMD Radeon RX 6600 XT</strong> </p>
-<p>如果你安装了 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201541">macOS Monterey 12.1 或更高版本</a>，则支持使用其他 AMD RDNA2 产品。推荐使用的图形卡包�?Sapphire Nitro Radeon RX 6600 XT�?</p>
-<p><strong>AMD Radeon RX 5700�?700 XT �?5700 XT 50 周年纪念�?</strong></p>
-<p>如果你安装了 <a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201541">macOS Catalina 10.15.1 或更高版本</a>，则可以使用以下基于 AMD Navi RDNA 架构的图形卡。推荐使用的图形卡包�?AMD Radeon RX 5700、AMD Radeon RX 5700 XT �?AMD Radeon RX 5700 XT 50 周年纪念版�?</p>
-<p>**AMD Radeon RX Vega 64、Vega Frontier Edition Air �?Radeon Pro WX 9100 **</p>
-<p>这些图形卡基�?AMD Vega 64 架构。推荐使用的图形卡包�?Sapphire Vega 64、AMD Frontier Edition air-cooled �?AMD Radeon Pro WX 9100�?</p>
-<p><strong>AMD Radeon RX Vega 56</strong></p>
-<p>这些图形卡基�?AMD Vega 56 架构。推荐使用的图形卡包�?Sapphire Vega 56�?</p>
-<p><strong>AMD Radeon RX 470、RX 480、RX 570、RX 580 �?Radeon Pro WX 7100</strong></p>
-<p>这些图形卡基�?AMD Polaris 架构。推荐的图形卡包�?Sapphire Pulse 系列�?AMD WX 系列�?</p>
-<h2 id="显卡坞与MacOS的兼容�"><a href="#显卡坞与MacOS的兼容�" class="headerlink" title="显卡坞与MacOS的兼容�?"></a>显卡坞与MacOS的兼容�?</h2><p>现在主流的显卡坞应该是几乎所有笔记本包括Mac在内都支持的�? 但令我意想不到的�? 由于Razer Core 是在2016年TB3刚提出的时候生产的型号, 尚未成熟, 所以适配性较�? 由于它使用了Mac不支持的USB控制�? 导致MacOS无法识别外置显卡�?</p>
-<p>可以参考这个项目来解决兼容性问�?<br><a target="_blank" rel="noopener" href="https://github.com/rgov/Thunderbolt3Unblocker">rgov&#x2F;Thunderbolt3Unblocker: Enable unsupported Thunderbolt 3 peripherals on macOS (github.com)</a></p>
-<p>需要用到的文件:  <a href="assets/Downloads/Thunderbolt3Unblocker.kext/Contents/MacOS/Thunderbolt3Unblocker">Thunderbolt3Unblocker</a></p>
-<p>简单介绍和具体步骤如下:</p>
-<p>该项目提供了一个内核扩展，可以解锁macOS上不受支持的Thunderbolt 3外围设备（例如Razer Core）�?<br>这实现了与<a target="_blank" rel="noopener" href="https://github.com/KhaosT/tb3-enabler">KhaosT的TB3启用器</a>相同的目标，*<em>后者通过在磁盘上修补IOThunderboltFamily来工作。此内核扩展在内存中和动态中执行修补程序�?</em></p>
-<p>请注意，IOThunderboltFamily首先认为外围设备不受支持可能是有原因的。使用风险自负�?</p>
-<ul>
-<li><p>安装之前 需要禁用系统完整性保�?<br>请在启动期间重新启动并按�?⌘R 以进入恢复模式。选择实用程序→终端并输入命令<code>csrutil enable --without kext &amp;&amp; reboot</code></p>
-</li>
-<li><p>重启后执行以下命�?</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo sh -c <span class="string">&#x27;chown -R root:wheel /Library/Extensions/Thunderbolt3Unblocker.kext &amp;&amp; \</span></span><br><span class="line"><span class="string">chmod -R g-w,o-w /Library/Extensions/Thunderbolt3Unblocker.kext &amp;&amp; \</span></span><br><span class="line"><span class="string">kextcache -i / &amp;&amp; \</span></span><br><span class="line"><span class="string">nvram -d t3u-incompatible &amp;&amp; \</span></span><br><span class="line"><span class="string">kextload -b es.govost.ryan.Thunderbolt3Unblocker&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>可能需要在系统偏好设置-&gt;安全性中允许扩展之后, 如果终端未输出报�? 且原本在系统信息中设备后面的unsupported字样消失, 应该就可以正常识别了</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">Executing: /usr/bin/kmutil install --volume-root /</span><br><span class="line">kmutil rebuild <span class="keyword">done</span></span><br><span class="line">Executing: /usr/bin/kmutil load -b es.govost.ryan.Thunderbolt3Unblocker</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="TestBench"><a href="#TestBench" class="headerlink" title="TestBench"></a>TestBench</h2><h3 id="Geekbench-OpenCL"><a href="#Geekbench-OpenCL" class="headerlink" title="Geekbench-OpenCL"></a>Geekbench-OpenCL</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230430142825.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230430142908.png"></p>
-<h3 id="Geekbench-Metal"><a href="#Geekbench-Metal" class="headerlink" title="Geekbench - Metal"></a>Geekbench - Metal</h3><p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230430154858.png"></p>
-<p><img src="/img/loading.gif" data-original="/images/Pasted%20image%2020230430155204.png"></p>
-<h2 id="BootCamp启动转换"><a href="#BootCamp启动转换" class="headerlink" title="BootCamp启动转换"></a>BootCamp启动转换</h2><ul>
-<li>驱动地址 :</li>
-</ul>
-<p><img src="/img/loading.gif" data-original="images/3DMark_FSU.png"></p>
-<p><img src="/img/loading.gif" data-original="images/3DMark_TS.png"></p>
-<p><img src="/img/loading.gif" data-original="images/StressTest.png"></p>
-<p>后记: 开机时不能识别驱动, 此方案已经弃�?</p>
-
+        
+          <p class="article-more-link">
+            <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/share/" rel="tag">share</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/archives/" rel="tag">archives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../way2/embed/" rel="tag">embed</a></li></ul>
 
-      <span id="2023/05/15/share/MacOS外接显卡折腾记录/" class="post-meta-item" style="margin-left: 10px;">
-        <span class="busuanzi-value" id="busuanzi_value_page_2023_05_15_share_MacOS外接显卡折腾记录_"></span> 次阅读
+      <span id="2024/12/08/notes/Pinctrl和GPIO子系统/" class="post-meta-item" style="margin-left: 10px;">
+        <span class="busuanzi-value" id="busuanzi_value_page_2024_12_08_notes_Pinctrl和GPIO子系统_"></span> 次阅读
       </span>
     </footer>
   </div>
@@ -270,7 +235,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../3/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><a class="extend next" rel="next" href="../5/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="../3/">&laquo; 上一页</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><span class="space">&hellip;</span><a class="page-number" href="../10/">10</a><a class="extend next" rel="next" href="../5/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -285,6 +250,18 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../2026/11/18/posts/%E6%8A%8A%E5%88%A9%E7%8E%87%E7%BF%BB%E8%AF%91%E6%88%90%E9%92%B1/">把利率翻译成钱</a>
+          </li>
+        
+          <li>
+            <a href="../../2026/11/15/notes/%E8%83%BD%E8%A2%AB%E6%B5%8B%E9%87%8F%E7%9A%84%E4%B8%80%E7%94%9F/">能被测量的一生</a>
+          </li>
+        
+          <li>
+            <a href="../../2026/11/12/posts/%E4%B8%89%E9%87%8C%E6%B2%B3%E7%9A%84%E9%93%B6%E6%9D%8F/">三里河的银杏</a>
+          </li>
         
           <li>
             <a href="../../2026/04/01/notes/claude-code-cli-source-analysis/">Claude Code CLI 源码深度分析 - 架构设计与实现原理</a>
@@ -303,27 +280,15 @@
           </li>
         
           <li>
-            <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
-          </li>
-        
-          <li>
             <a href="../../2025/05/05/posts/%E4%B8%BA%E4%BD%95%E6%80%BB%E6%84%9F%E5%88%B0%E7%96%B2%E6%83%AB%E4%B8%8E%E9%80%83%E9%81%BF%EF%BC%9F%E6%8F%AD%E7%A4%BA%E8%83%BD%E9%87%8F%E7%B3%BB%E7%BB%9F%E5%B4%A9%E6%BA%83%E7%9A%84%E7%A7%91%E5%AD%A6%E6%A8%A1%E5%9E%8B/">为何总感到疲惫与逃避？揭示能量系统崩溃的科学模型</a>
           </li>
         
           <li>
+            <a href="../../2025/05/05/posts/%E8%A7%A3%E9%94%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%B2%89%E6%B5%B8%E6%9C%BA%E5%88%B6%EF%BC%8C%E5%91%8A%E5%88%AB%E6%8B%96%E5%BB%B6%E5%86%85%E8%80%97/">解锁注意力沉浸机制，告别拖延内耗</a>
+          </li>
+        
+          <li>
             <a href="../../2025/05/04/notes/%E4%BB%8E%20LAMP%20%E5%88%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/">从 LAMP 到前后端分离：架构演进与技术实践</a>
-          </li>
-        
-          <li>
-            <a href="../../2025/02/18/posts/Windows%E9%83%A8%E7%BD%B2Hexon%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%9A%E5%AE%A2%E7%8E%AF%E5%A2%83/">Windows部署Hexon可视化博客环境</a>
-          </li>
-        
-          <li>
-            <a href="../../2024/12/08/notes/Pinctrl%E5%92%8CGPIO%E5%AD%90%E7%B3%BB%E7%BB%9F/">Pinctrl和GPIO子系统</a>
-          </li>
-        
-          <li>
-            <a href="../../2024/11/28/projs/ReelBlend/">ReelBlend：一键生成扫街照片与 POV 视频</a>
           </li>
         
       </ul>
@@ -335,7 +300,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/notes/">notes</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/notes/">notes</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/posts/">posts</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/projs/">projs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="../../categories/share/">share</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -345,7 +310,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="../../way2/travel/" style="font-size: 10px;">#travel</a> <a href="../../way2/Bun/" style="font-size: 10px;">Bun</a> <a href="../../way2/CLI/" style="font-size: 10px;">CLI</a> <a href="../../way2/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../way2/cpp/" style="font-size: 15px;">cpp</a> <a href="../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../way2/linux/" style="font-size: 15px;">linux</a> <a href="../../way2/note/" style="font-size: 10px;">note</a> <a href="../../way2/productivity/" style="font-size: 15px;">productivity</a> <a href="../../way2/share/" style="font-size: 10px;">share</a> <a href="../../way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 10px;">源码分析</a>
+      <a href="../../way2/travel/" style="font-size: 10px;">#travel</a> <a href="../../way2/Bun/" style="font-size: 10px;">Bun</a> <a href="../../way2/CLI/" style="font-size: 10px;">CLI</a> <a href="../../way2/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="../../way2/algorithm/" style="font-size: 10px;">algorithm</a> <a href="../../way2/archives/" style="font-size: 20px;">archives</a> <a href="../../way2/cpp/" style="font-size: 16.67px;">cpp</a> <a href="../../way2/diary/" style="font-size: 10px;">diary</a> <a href="../../way2/embed/" style="font-size: 10px;">embed</a> <a href="../../way2/linux/" style="font-size: 13.33px;">linux</a> <a href="../../way2/ml/" style="font-size: 10px;">ml</a> <a href="../../way2/note/" style="font-size: 10px;">note</a> <a href="../../way2/productivity/" style="font-size: 13.33px;">productivity</a> <a href="../../way2/project/" style="font-size: 10px;">project</a> <a href="../../way2/share/" style="font-size: 13.33px;">share</a> <a href="../../way2/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 10px;">源码分析</a> <a href="../../way2/%E9%87%91%E8%9E%8D/" style="font-size: 10px;">金融</a>
     </div>
   </div>
 
