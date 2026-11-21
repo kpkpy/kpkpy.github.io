@@ -355,6 +355,20 @@
 
 <!-- Busuanzi Analytics -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+  // 不蒜子拿不到数据时（无 Referer 或接口超时），把空的计数块藏掉，别留"次阅读"后面一片空白
+  setTimeout(function () {
+    document.querySelectorAll('[id^=busuanzi_container_]').forEach(function (el) {
+      var v = el.querySelector('[id^=busuanzi_value_]');
+      if (v && !v.textContent.trim()) el.style.display = 'none';
+    });
+    var pv = document.getElementById('busuanzi_value_page_pv');
+    if (pv && !pv.textContent.trim()) {
+      var box = pv.closest('.post-meta-item');
+      if (box) box.style.display = 'none';
+    }
+  }, 3000);
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script>
